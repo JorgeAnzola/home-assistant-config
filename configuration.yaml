@@ -1,0 +1,7 @@
+default_config:
+
+homeassistant:
+  packages: !include_dir_named integrations
+  customize: !include_dir_merge_named customizations
+
+sensor: !include_dir_list entities/sensors
