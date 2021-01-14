@@ -1,8 +1,7 @@
 ---
 telegram_bot:
-  - platform: webhooks
+  - platform: polling
     api_key: !secret telegram_api_key
-    parse_mode: markdown
     allowed_chat_ids:
       - !secret telegram_group_id
       - !secret telegram_jorge_id
