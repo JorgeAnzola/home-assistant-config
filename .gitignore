@@ -7,6 +7,7 @@
 ._*
 __pycache__
 .storage
+image/*
 
 # Files to ignore
 secrets.yaml

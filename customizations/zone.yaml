@@ -1,2 +1,5 @@
+# I needed to reduce the radius of Home
+# cause I live really close to the supermarket
+# and the zones were overlapping. :)
 zone.home:
   radius: 50
