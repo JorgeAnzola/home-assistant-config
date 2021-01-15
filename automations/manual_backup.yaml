@@ -1,0 +1,21 @@
+---
+alias: manual_backup.yaml
+description: >-
+  Manually triggered backup
+trigger:
+  platform: state
+  entity_id: input_boolean.start_backup
+  to: "on"
+action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: Manual backup - {{now().strftime('%Y%m%d%H%M%S')}}
+  - delay:
+      seconds: 30
+  - service: hassio.addon_stdin
+    data_template:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.start_backup
