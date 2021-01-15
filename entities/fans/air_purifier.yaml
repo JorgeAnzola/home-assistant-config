@@ -1,0 +1,4 @@
+---
+platform: xiaomi_miio
+host: !secret xiaomi_purifier_host
+token: !secret xiaomi_purifier_token
