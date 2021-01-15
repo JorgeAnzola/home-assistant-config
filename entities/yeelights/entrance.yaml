@@ -1,3 +1,4 @@
 ---
 192.168.178.81:
   name: Entrance
+  transition: 1000
