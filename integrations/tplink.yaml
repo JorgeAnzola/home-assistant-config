@@ -1,0 +1,3 @@
+tplink:
+  discovery: false
+  switch: !include_dir_list ../entities/tplink_switches
