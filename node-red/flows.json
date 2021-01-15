@@ -1,1 +1,1 @@
-[{"id":"6bf88cd4.3f8a84","type":"server","z":"","name":"Home Assistant","addon":true}]
+[{"id":"12625cb9.a52d53","type":"tab","label":"Testing credentials","disabled":false,"info":""},{"id":"6bf88cd4.3f8a84","type":"server","name":"Home Assistant","addon":true},{"id":"66695d35.af1224","type":"credentials","z":"12625cb9.a52d53","name":"","props":[{"value":"password","type":"msg"}],"x":110,"y":40,"wires":[[]]}]
