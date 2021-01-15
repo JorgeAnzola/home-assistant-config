@@ -1449,22 +1449,5 @@
                 "file": "/opt/node_modules/node-red-node-twitter/27-twitter.js"
             }
         }
-    },
-    "node-red-contrib-credentials": {
-        "name": "node-red-contrib-credentials",
-        "version": "0.2.1",
-        "local": false,
-        "nodes": {
-            "credent": {
-                "name": "credent",
-                "types": [
-                    "credentials"
-                ],
-                "enabled": true,
-                "local": true,
-                "module": "node-red-contrib-credentials",
-                "file": "/config/node-red/node_modules/node-red-contrib-credentials/credentials/credentials.js"
-            }
-        }
     }
 }
