@@ -1,3 +1,5 @@
-discovery_retry: 5
-gateways:
-  - key: !secret xiaomi_gateway_key
+---
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_gateway_key
