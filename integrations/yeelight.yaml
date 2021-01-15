@@ -1,0 +1,2 @@
+yeelight:
+  devices: !include_dir_merge_named ../entities/yeelights
