@@ -1,0 +1,4 @@
+---
+lovelace:
+  mode: storage
+  dashboards: !include ../lovelace/dashboards.yaml
