@@ -4,6 +4,3 @@ turn_on_action:
   service: wake_on_lan.send_magic_packet
   data:
     mac: !secret philips_tv_mac_address
-
-
-
