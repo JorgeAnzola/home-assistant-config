@@ -4,7 +4,7 @@
 # and the non-admin users won't see all the complex entities and options
 
 name: Marlyn's home
-port: 51828
+port: !secret marlyn_homekit_home_port
 include_domains:
   - light
   - switch
