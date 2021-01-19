@@ -8,6 +8,12 @@ port: !secret marlyn_homekit_home_port
 include_domains:
   - light
   - switch
-  - media_player
 exclude_entities:
   - fan.xiaomi_miio_device
+entity_config:
+  media_player.philips_tv:
+    feature_list:
+      - feature: on_off
+      - feature: play_pause
+      - feature: play_stop
+      - feature: toggle_mute

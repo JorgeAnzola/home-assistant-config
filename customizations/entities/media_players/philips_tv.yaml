@@ -1,0 +1,7 @@
+media_player.philips_tv:
+  app_name: TV
+  device_class: tv
+  source_list:
+    - _ Apple TV
+    - _ PS4
+    - _ Nintendo Switch
