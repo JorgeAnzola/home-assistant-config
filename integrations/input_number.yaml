@@ -1,2 +1,9 @@
 ---
-input_number: ~
+input_number:
+  xiaomi_airpurifier_favorite_level:
+    name: "Favorite level"
+    initial: 0
+    min: 0
+    max: 14
+    step: 1
+    icon: "mdi:weather-windy"

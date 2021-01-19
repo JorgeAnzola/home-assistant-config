@@ -11,9 +11,3 @@
 # dashboards themselves.
 #
 # https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards
-automation-settings:
-  mode: yaml
-  title: Automation Settings
-  icon: mdi:head-cog
-  show_in_sidebar: true
-  filename: lovelace/automation-settings/dashboard.yaml

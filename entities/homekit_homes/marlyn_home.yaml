@@ -6,7 +6,8 @@
 name: Marlyn's home
 port: 51828
 include_domains:
-    - light
-    - switch
-    - fan
-    - media_player
+  - light
+  - switch
+  - media_player
+exclude_entities:
+  - fan.xiaomi_miio_device
