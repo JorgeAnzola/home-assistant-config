@@ -9,7 +9,7 @@ include_domains:
   - light
   - switch
 exclude_entities:
-  - fan.xiaomi_miio_device
+  - media_player.philips_tv
 entity_config:
   media_player.philips_tv:
     feature_list:
