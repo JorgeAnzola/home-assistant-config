@@ -7,7 +7,4 @@ name: Jorge's home
 port: !secret jorge_homekit_home_port
 filter:
   include_domains:
-    - light
-    - switch
-    - fan
     - media_player

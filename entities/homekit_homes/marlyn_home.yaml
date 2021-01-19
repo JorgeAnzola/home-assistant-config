@@ -1,19 +1,13 @@
----
-# This has been the only way I found to have different levels of access in Homekit
-# So, for example, user X won't be able to turn off the light on the main bedroom
-# and the non-admin users won't see all the complex entities and options
+# ---
+# # This has been the only way I found to have different levels of access in Homekit
+# # So, for example, user X won't be able to turn off the light on the main bedroom
+# # and the non-admin users won't see all the complex entities and options
 
-name: Marlyn's home
-port: !secret marlyn_homekit_home_port
-include_domains:
-  - light
-  - switch
-exclude_entities:
-  - media_player.philips_tv
-entity_config:
-  media_player.philips_tv:
-    feature_list:
-      - feature: on_off
-      - feature: play_pause
-      - feature: play_stop
-      - feature: toggle_mute
+# name: Marlyn's home
+# port: !secret marlyn_homekit_home_port
+# exclude_domains:
+#   - light
+#   - fan
+#   - switch
+# include_entities:
+#   - media_player.philips_tv
