@@ -1,6 +1,6 @@
 ---
 blueprint:
-  name: Turn on warm light based on an event
+  name: Turn on a target light based on the position of the sun
   description: >
     A blueprint that turns on the selected light when an event occurs.
     The light will be warm, when the sun is below horizon
