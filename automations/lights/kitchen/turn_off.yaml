@@ -1,17 +1,9 @@
 alias: Kitchen light - Turn off
-trigger:
-  - platform: event
+
+use_blueprint:
+  path: lights/turn_on_light.yaml
+  input:
+    switch_entity_id: binary_sensor.wall_switch_3_left
+    light_entity_id: light.kitchen
     event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.wall_switch_3_left
-      click_type: single
-
-condition:
-  - condition: state
-    entity_id: light.kitchen
-    state: "on"
-
-action:
-  - service: light.turn_off
-    target:
-      entity_id: light.kitchen
+    click_type: single
