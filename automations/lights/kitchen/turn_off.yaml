@@ -1,7 +1,7 @@
 alias: Kitchen light - Turn off
 
 use_blueprint:
-  path: lights/turn_on_light.yaml
+  path: lights/turn_off_light.yaml
   input:
     switch_entity_id: binary_sensor.wall_switch_3_left
     light_entity_id: light.kitchen
