@@ -29,7 +29,6 @@ condition:
   - condition: state
     entity_id: !input light_entity_id
     state: "off"
-  - condition:
 
 action:
   - service: light.turn_on
