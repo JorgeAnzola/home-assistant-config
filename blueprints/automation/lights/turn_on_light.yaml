@@ -3,7 +3,6 @@ blueprint:
   name: Turn on light based on an event
   description: >
     A blueprint that turns on the selected light when an event occurs.
-    The light will be always white
 
   domain: automation
 
@@ -16,6 +15,8 @@ blueprint:
       name: Switch entity ID
     light_entity_id:
       name: Light entity ID
+    data:
+      name: Data
 
 trigger:
   - platform: event
@@ -33,4 +34,4 @@ action:
   - service: light.turn_on
     target:
       entity_id: !input light_entity_id
-    data: !include ../../../general_utilities/lights/white_light.yaml
+    data: !input data
