@@ -4,6 +4,6 @@ use_blueprint:
   path: lights/turn_off_light.yaml
   input:
     switch_entity: binary_sensor.wall_switch_3_left
-    light_entity_id: light.kitchen
+    light_target: light.kitchen
     event_type: xiaomi_aqara.click
     click_type: single
