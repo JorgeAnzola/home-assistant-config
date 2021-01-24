@@ -1,0 +1,16 @@
+alias: Kitchen light - Turn on - white light
+trigger:
+  platform: event
+  event_type: xiaomi_aqara.click
+  event_data:
+    entity_id: binary_sensor.wall_switch_3_left
+    click_type: single
+condition:
+  condition: state
+  entity_id: light.kitchen
+  state: off
+action:
+  service: light.on
+  data:
+    entity_id: light.kitchen
+    include: ../../../general_utilities/lights/white_light.yaml
