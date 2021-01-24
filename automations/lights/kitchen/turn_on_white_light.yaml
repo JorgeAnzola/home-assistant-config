@@ -1,10 +1,9 @@
 alias: Kitchen light - Turn on - white light
 
 use_blueprint:
-  path: lights/turn_on_light.yaml
+  path: lights/turn_on_white_light_when_sun_above_horizon.yaml
   input:
     switch_entity_id: binary_sensor.wall_switch_3_left
     light_entity_id: light.kitchen
     event_type: xiaomi_aqara.click
     click_type: single
-    data: !include ../../../general_utilities/lights/white_light.yaml
