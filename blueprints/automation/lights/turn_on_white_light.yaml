@@ -16,8 +16,6 @@ blueprint:
       name: Switch entity ID
     light_entity_id:
       name: Light entity ID
-    data:
-      name: Data for the service
 
 trigger:
   - platform: event

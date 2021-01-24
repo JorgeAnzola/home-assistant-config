@@ -1,6 +1,6 @@
 ---
 blueprint:
-  name: Turn on light based on an event
+  name: Turn on white light based on an event
   description: >
     A blueprint that turns on the selected light when an event occurs.
     The light will be white, when the sun is above horizon
@@ -16,8 +16,6 @@ blueprint:
       name: Switch entity ID
     light_entity_id:
       name: Light entity ID
-    data:
-      name: Data for the service
 
 trigger:
   - platform: event
