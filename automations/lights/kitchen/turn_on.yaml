@@ -1,7 +1,7 @@
-alias: Kitchen light - Turn on - warm light
+alias: Kitchen light - Turn on
 
 use_blueprint:
-  path: lights/turn_on_warm_light_when_sun_below_horizon.yaml
+  path: lights/turn_on_light_sun_position.yaml
   input:
     switch_entity: binary_sensor.wall_switch_3_left
     light_target: light.kitchen

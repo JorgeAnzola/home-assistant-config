@@ -1,0 +1,41 @@
+---
+blueprint:
+  name: Turn on warm light based on an event
+  description: >
+    A blueprint that turns on the selected light when an event occurs.
+    The light will be warm, when the sun is below horizon
+
+  domain: automation
+
+  input:
+    event_type:
+      name: Event type
+    click_type:
+      name: Click type
+    switch_entity:
+      name: Switch entity ID
+    light_target:
+      name: Light entity ID
+
+trigger:
+  - platform: event
+    event_type: !input event_type
+    event_data:
+      entity_id: !input switch_entity
+      click_type: !input click_type
+
+condition:
+  - condition: state
+    entity_id: !input light_target
+    state: "off"
+
+action:
+  - service: light.turn_on
+    target:
+      data_template:
+        entity_id: >-
+        { % if is_state('sun.sun', 'above_horizon') % }
+          data: !include ../../../general_utilities/lights/white_light.yaml
+        { % else % }
+          data: !include ../../../general_utilities/lights/warm_light.yaml
+        { % endif % }
