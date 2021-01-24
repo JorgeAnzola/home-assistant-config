@@ -1,0 +1,11 @@
+alias: Entrace light - motion light
+
+description: >-
+  Turns on the entrance light when motion is detected
+
+use_blueprint:
+  path: lights/motion_light.yaml
+  input:
+    motion_entity: binary_sensor.motion_sensor_1
+    light_target: light.entrance
+    no_motion_wait: 5

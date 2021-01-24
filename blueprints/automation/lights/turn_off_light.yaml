@@ -11,24 +11,24 @@ blueprint:
       name: Event type
     click_type:
       name: Click type
-    switch_entity_id:
+    switch_entity:
       name: Switch entity ID
-    light_entity_id:
+    light_target:
       name: Light entity ID
 
 trigger:
   - platform: event
     event_type: !input event_type
     event_data:
-      entity_id: !input switch_entity_id
+      entity_id: !input switch_entity
       click_type: !input click_type
 
 condition:
   - condition: state
-    entity_id: !input light_entity_id
+    entity_id: !input light_target
     state: "on"
 
 action:
   - service: light.turn_off
     target:
-      entity_id: !input light_entity_id
+      entity_id: !input light_target
