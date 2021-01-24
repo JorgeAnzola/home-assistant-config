@@ -1,5 +1,5 @@
 ---
-alias: daily_backup.yaml
+alias: Daily backup
 description: >-
   A full snapshot will be taken daily and stored on Dropbox.
 initial_state: "on"

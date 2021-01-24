@@ -1,5 +1,5 @@
 ---
-alias: manual_backup.yaml
+alias: Manual backup
 description: >-
   Manually triggered backup
 trigger:

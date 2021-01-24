@@ -3,7 +3,7 @@ blueprint:
   name: Turn on a target light based on the position of the sun
   description: >
     A blueprint that turns on the selected light when an event occurs.
-    The light will be warm, when the sun is below horizon
+    The light will be warm, when the sun is below horizon and white if not
 
   domain: automation
 
@@ -32,10 +32,5 @@ condition:
 action:
   - service: light.turn_on
     target:
-      data_template:
-        entity_id: >-
-        { % if is_state('sun.sun', 'above_horizon') % }
-          data: !include ../../../general_utilities/lights/white_light.yaml
-        { % else % }
-          data: !include ../../../general_utilities/lights/warm_light.yaml
-        { % endif % }
+      entity_id: !input light_target
+      data: !include ../../../general_utilities/lights/white_light.yaml
