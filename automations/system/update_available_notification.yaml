@@ -1,0 +1,10 @@
+alias: Update available notification
+trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+    from: 'off'
+    to: 'on'
+action:
+  - service: notify.admin_telegram
+    data:
+      message: 'There is a new Home Assistant release available.'

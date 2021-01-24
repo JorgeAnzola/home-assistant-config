@@ -1,4 +1,4 @@
-alias: Kitchen light - Turn on - white light
+alias: Kitchen light - Turn off
 trigger:
   - platform: event
     event_type: xiaomi_aqara.click
@@ -9,10 +9,9 @@ trigger:
 condition:
   - condition: state
     entity_id: light.kitchen
-    state: "off"
+    state: "on"
 
 action:
-  - service: light.turn_on
+  - service: light.turn_off
     target:
       entity_id: light.kitchen
-    data: !include ../../../general_utilities/lights/white_light.yaml

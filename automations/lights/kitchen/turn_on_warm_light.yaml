@@ -10,9 +10,10 @@ condition:
   - condition: state
     entity_id: light.kitchen
     state: "off"
+  - condition: 
 
 action:
   - service: light.turn_on
     target:
       entity_id: light.kitchen
-    data: !include ../../../general_utilities/lights/white_light.yaml
+    data: !include ../../../general_utilities/lights/warm_light.yaml

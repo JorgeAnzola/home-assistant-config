@@ -1,0 +1,8 @@
+alias: "Home Assistant shutdown notification"
+trigger:
+  - platform: homeassistant
+    event: shutdown
+action:
+  - service: notify.admin_telegram
+    data:
+      message: "Home Assistant is shutting down"
