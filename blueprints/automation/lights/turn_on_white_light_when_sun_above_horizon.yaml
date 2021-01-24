@@ -28,9 +28,9 @@ condition:
   - condition: state
     entity_id: !input light_entity_id
     state: "off"
-  - condition: status
+  - condition: state
     entity_id: sun.sun
-    state: above_horizon
+    state: "above_horizon"
 
 action:
   - service: light.turn_on
