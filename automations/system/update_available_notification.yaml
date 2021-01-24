@@ -1,3 +1,4 @@
+---
 alias: Update available notification
 trigger:
   - platform: state

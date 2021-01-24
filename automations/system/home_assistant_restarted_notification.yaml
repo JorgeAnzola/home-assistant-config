@@ -1,3 +1,4 @@
+---
 alias: "Home Assistant restarted notification"
 trigger:
   - platform: homeassistant
