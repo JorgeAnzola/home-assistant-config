@@ -3,7 +3,7 @@ alias: Kitchen light - Turn off
 use_blueprint:
   path: lights/turn_off_light.yaml
   input:
-    switch_entity_id: binary_sensor.wall_switch_3_left
+    switch_entity: binary_sensor.wall_switch_3_left
     light_entity_id: light.kitchen
     event_type: xiaomi_aqara.click
     click_type: single
