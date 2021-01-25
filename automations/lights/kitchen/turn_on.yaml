@@ -2,30 +2,9 @@
 alias: Kitchen light - Turn on
 
 use_blueprint:
-  path: lights/turn_on_light.yaml
+  path: lights/turn_on_circadian_light.yaml
   input:
     switch_entity: binary_sensor.wall_switch_5
     light_target: light.bedroom
     event_type: xiaomi_aqara.click
     click_type: single
-    data:
-      brightness: >
-        {% if is_state('sun.sun', 'above_horizon') %}
-          255
-        {% else %}
-          200
-        {% endif %}
-      color_temp: >
-        {% if is_state('sun.sun', 'above_horizon') %}
-          153
-        {% else %}
-          445
-        {% endif %}
-    # data: >
-    #   {% if is_state('sun.sun', 'above_horizon') %}
-    #     brightness: 255
-    #     color_temp: 153
-    #   {% else %}
-    #     brightness: 200
-    #     color_temp: 455
-    #   {% endif %}
