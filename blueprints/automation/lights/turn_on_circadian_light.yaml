@@ -30,7 +30,7 @@ action:
       - conditions:
           - condition: state
             entity_id: sun.sun
-            state: "below_horizon"
+            state: "above_horizon"
         sequence:
           - service: light.turn_on
             entity_id: !input light_entity
