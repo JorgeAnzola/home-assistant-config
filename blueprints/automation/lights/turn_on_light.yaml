@@ -11,7 +11,7 @@ blueprint:
       name: Event type
     event_data:
       name: Event data
-    light_target:
+    light_entity:
       name: Light entity ID
     data:
       name: Data
@@ -23,11 +23,11 @@ trigger:
 
 condition:
   - condition: state
-    entity_id: !input light_target
+    entity_id: !input light_entity
     state: "off"
 
 action:
   - service: light.turn_on
     target:
-      entity_id: !input light_target
+      entity_id: !input light_entity
     data: !input data

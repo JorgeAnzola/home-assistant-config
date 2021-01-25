@@ -1,5 +1,5 @@
 ---
-alias: Kitchen light - Turn on
+alias: Kitchen light - Turn on circadian light
 
 use_blueprint:
   path: lights/turn_on_circadian_light.yaml

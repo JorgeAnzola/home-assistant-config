@@ -12,7 +12,7 @@ blueprint:
           domain: binary_sensor
           device_class: motion
 
-    light_target:
+    light_entity:
       name: Light
       selector:
         target:
@@ -42,7 +42,7 @@ trigger:
 
 action:
   - service: light.turn_on
-    target: !input light_target
+    target: !input light_entity
     data: !input data
 
   - wait_for_trigger:
@@ -53,4 +53,4 @@ action:
 
   - delay: !input no_motion_wait
   - service: light.turn_off
-    target: !input light_target
+    target: !input light_entity
