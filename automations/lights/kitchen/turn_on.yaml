@@ -5,6 +5,6 @@ use_blueprint:
   path: lights/turn_on_circadian_light.yaml
   input:
     switch_entity: binary_sensor.wall_switch_5
-    light_target: light.bedroom
+    light_entity: light.bedroom
     event_type: xiaomi_aqara.click
     click_type: single
