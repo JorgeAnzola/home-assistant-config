@@ -10,19 +10,15 @@ blueprint:
   input:
     event_type:
       name: Event type
-    click_type:
-      name: Click type
-    switch_entity:
-      name: Switch entity ID
+    event_data:
+      name: Event data
     light_entity:
       name: Light entity ID
 
 trigger:
   - platform: event
     event_type: !input event_type
-    event_data:
-      entity_id: !input switch_entity
-      click_type: !input click_type
+    event_data: !input event_data
 
 condition:
   - condition: state
