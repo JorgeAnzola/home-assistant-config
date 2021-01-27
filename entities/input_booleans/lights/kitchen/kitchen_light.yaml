@@ -1,0 +1,4 @@
+---
+kitchen_light:
+  name: Kitchen light
+  icon: mdi:ceiling-light
