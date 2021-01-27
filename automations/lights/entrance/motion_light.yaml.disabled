@@ -1,9 +1,6 @@
 ---
 alias: Entrace light - motion light
 
-description: >-
-  Turns on the entrance light when motion is detected
-
 use_blueprint:
   path: lights/motion_light.yaml
   input:
