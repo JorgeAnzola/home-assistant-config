@@ -8,6 +8,6 @@ use_blueprint:
   path: lights/motion_light.yaml
   input:
     motion_entity: binary_sensor.motion_sensor_1
-    light_entity: light.entrance
+    light_entity: light.living_room
     no_motion_wait: 5
     data: !include ../../../general_utilities/lights/white_light.yaml
