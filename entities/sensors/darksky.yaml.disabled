@@ -1,0 +1,7 @@
+platform: darksky
+api_key: !secret darksky_api_key
+language: es
+scan_interval:
+  minutes: 1
+monitored_conditions:
+  - minutely_summary

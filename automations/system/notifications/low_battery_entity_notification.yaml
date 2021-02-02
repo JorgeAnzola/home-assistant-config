@@ -1,0 +1,11 @@
+---
+alias: "Low battery entity notification"
+trigger:
+  platform: numeric_state
+  entity_id: binary_sensor.motion_sensor_3
+  value_template: "{{ state.attributes.battery }}"
+  below: 50
+action:
+  - service: notify.admin_telegram
+    data:
+      message: "low battery"

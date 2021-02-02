@@ -1,0 +1,4 @@
+---
+name: group_telegram
+platform: telegram
+chat_id: !secret telegram_group_id

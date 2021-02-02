@@ -1,0 +1,47 @@
+---
+alias: "Weather assistant"
+trigger:
+  - platform: event
+    event_type: telegram_text
+condition:
+  - condition: template
+    value_template: '{{trigger.event.data.text|regex_match("(.*)(frio|llov|lluv|calor|nev|clima|temp|snow|rain|weather|tiempo)(.*)",ignorecase=TRUE) }}'
+action:
+  - service: notify.admin_telegram
+    data:
+      message: >
+        {% set temperature = states('sensor.weather_temperature') | round %}
+
+        {% set condition = states('sensor.weather_weather') %}
+
+        {% set wind_speed = states('sensor.weather_wind_speed') %}
+
+        {% set wind_chill = wind_speed %}
+
+        {% set feels_like = (wind_chill * 10 ) % 10 | round %}
+
+        {% set response = '¡Hola!, ' %}
+
+        {% set response = response ~ 'tenemos ' ~ condition ~ ', ' %}
+
+        {% set response = response ~ 'una temperatura de ' ~ temperature ~ '°C (Se siente como ' ~ feels_like ~ '°C)' %}
+
+        {% if temperature <= 10 %}
+          {% set response = response ~ '🥶, ' %}
+        {% elif 10 < temperature < 25 %}
+          {% set response = response ~ '😌, ' %}
+        {% else %}
+          {% set response = response ~ '🥵, ' %}
+        {% endif %}
+
+        {% if states('sensor.weather_rain') == 'not raining' %}
+          {% set response = response ~ 'no está lloviendo' %}
+        {% else %}
+          {% set response = response ~ 'está lloviendo ☔️' %}
+        {% endif %}
+
+        {% if states('sensor.weather_snow') != 'not snowing' %}
+          {% set response = response ~ '¡ESTÁ NEVANDO ❄️⛄️!' %}
+        {% endif %}
+
+        {{ response }}
