@@ -1,28 +1,10 @@
 ---
-alias: Entrace light - motion light
+alias: Entrance light - Motion detected light
 
-mode: restart
-max_exceeded: silent
-
-trigger:
-  platform: state
-  entity_id: binary_sensor.motion_sensor_1
-  from: "off"
-  to: "on"
-
-action:
-  - service: light.turn_on
-    target:
-      entity_id: light.entrance
-
-  - wait_for_trigger:
-      platform: state
-      entity_id: binary_sensor.motion_sensor_1
-      from: "on"
-      to: "off"
-
-  - delay: 5
-
-  - service: light.turn_off
-    target:
+use_blueprint:
+  path: lights/motion_light.yaml
+  input:
+    no_motion_wait: '5'
+    motion_entity: binary_sensor.motion_sensor_1
+    light_target:
       entity_id: light.entrance
