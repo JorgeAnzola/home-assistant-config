@@ -16,17 +16,17 @@ action:
       - conditions:
           - condition: or
             conditions:
-            - condition: state
-              entity_id: light.kitchen
-              state: "on"
+              - condition: state
+                entity_id: light.kitchen
+                state: "on"
 
-            - condition: state
-              entity_id: light.living_room
-              state: "on"
+              - condition: state
+                entity_id: light.living_room
+                state: "on"
 
-            - condition: time
-              after: "10:00:00"
-              before: "23:59:59"
+              - condition: time
+                after: "10:00:00"
+                before: "23:59:59"
 
         sequence:
           - service: light.turn_on
