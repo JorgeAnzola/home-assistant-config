@@ -12,6 +12,17 @@ trigger:
 
 action:
   - choose:
+      # IF MOTION DURING CINEMA MODE
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.cinema_mode
+            state: "on"
+        sequence:
+          - service: light.turn_on
+            entity_id: light.entrance
+            data: !include /config/general_utilities/lights/warm_light.yaml
+
+      # ELSE MOTION DURING THE DAY
       - conditions:
           - condition: time
             after: "10:00:00"
@@ -20,10 +31,21 @@ action:
           - service: light.turn_on
             entity_id: light.entrance
             data: !include /config/general_utilities/lights/white_light.yaml
-    default:
-      - service: light.turn_on
-        entity_id: light.entrance
-        data: !include /config/general_utilities/lights/warm_light.yaml
+
+      # MOTION IF THE KITCHEN LIGHT OR THE LIVING LIGHTS ARE ON
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: light.kitchen
+                state: "on"
+              - condition: state
+                entity_id: light.living_room
+                state: "on"
+          sequence:
+            - service: light.turn_on
+              entity_id: light.entrance
+              data: !include /config/general_utilities/lights/warm_light.yaml
 
   - wait_for_trigger:
       platform: state

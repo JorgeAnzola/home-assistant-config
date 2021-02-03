@@ -1,0 +1,44 @@
+---
+alias: Toilet light - motion light
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: binary_sensor.motion_sensor_2
+  from: "off"
+  to: "on"
+
+action:
+  - choose:
+      # IF MOTION DURING THE DAY OR WHEN THERE'S ONE LIGHT ON
+      - conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: light.kitchen
+              state: "on"
+
+            - condition: state
+              entity_id: light.living_room
+              state: "on"
+
+            - condition: time
+              after: "10:00:00"
+              before: "23:59:59"
+
+        sequence:
+          - service: light.turn_on
+            entity_id: light.toilet
+            data: !include /config/general_utilities/lights/white_light.yaml
+
+  - wait_for_trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_2
+      from: "on"
+      to: "off"
+
+  - delay: 5
+  - service: light.turn_off
+    target: light.toilet
