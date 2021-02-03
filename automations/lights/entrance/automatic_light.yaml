@@ -84,10 +84,6 @@ action:
         entity_id: binary_sensor.motion_sensor_1
         from: 'on'
         to: 'off'
-      - platform: state
-        entity_id: binary_sensor.door_sensor_1
-        from: 'on'
-        to: 'off'
   - service: light.turn_off
     data: { }
     entity_id: light.entrance
