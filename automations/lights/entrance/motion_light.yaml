@@ -1,0 +1,36 @@
+---
+alias: Entrace light - motion light
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: binary_sensor.motion_sensor_1
+  from: "off"
+  to: "on"
+
+action:
+  - choose:
+      - conditions:
+          - condition: time
+            after: "10:00:00"
+            before: "23:59:59"
+        sequence:
+          - service: light.turn_on
+            entity_id: light.entrance
+            data: !include /config/general_utilities/lights/white_light.yaml
+    default:
+      - service: light.turn_on
+        entity_id: light.entrance
+        data: !include /config/general_utilities/lights/warm_light.yaml
+
+  - wait_for_trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_1
+      from: "on"
+      to: "off"
+
+  - delay: 5
+  - service: light.turn_off
+    target: light.entrance
