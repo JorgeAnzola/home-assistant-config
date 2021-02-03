@@ -1,5 +1,5 @@
 ---
-alias: Update available notification
+alias: System notification - Update available
 trigger:
   - platform: state
     entity_id: binary_sensor.updater

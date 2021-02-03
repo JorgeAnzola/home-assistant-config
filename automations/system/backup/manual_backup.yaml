@@ -1,5 +1,5 @@
 ---
-alias: Manual backup
+alias: Backup - Manual
 description: >-
   Manually triggered backup
 trigger:
