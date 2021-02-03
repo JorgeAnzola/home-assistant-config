@@ -88,7 +88,6 @@ action:
         entity_id: binary_sensor.door_sensor_1
         from: 'on'
         to: 'off'
-  - delay: '5'
   - service: light.turn_off
     data: { }
     entity_id: light.entrance
