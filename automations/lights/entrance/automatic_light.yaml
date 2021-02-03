@@ -2,7 +2,7 @@ alias: Entrance light - automatic light
 description: >
   This automation will turn on the entrance light on based on a series of conditions.
   For example:
-    - There's motion between a set time
+    - There's motion between a set time and day combination
     - The cinema mode is on
     - The light of the kitchen or the living room is on
     - The door is open
