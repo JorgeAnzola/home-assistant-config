@@ -14,7 +14,6 @@ trigger:
     entity_id: binary_sensor.motion_sensor_1
     from: 'off'
     to: 'on'
-    for: '5'
 condition:
   - condition: or
     conditions:
@@ -74,11 +73,11 @@ action:
                 before: '10:00'
         sequence:
           - service: light.turn_on
-            data: { }
+            data: !include /config/general_utilities/lights/warm_light.yaml
             entity_id: light.entrance
     default:
       - service: light.turn_on
-        data: { }
+        data: !include /config/general_utilities/lights/white_light.yaml
         entity_id: light.entrance
   - wait_for_trigger:
       - platform: state
