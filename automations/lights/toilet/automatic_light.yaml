@@ -1,18 +1,17 @@
 ---
-alias: Entrance light - automatic light
+alias: Toilet light - automatic light
 description: >
-  This automation will turn on the entrance light on based on a series of conditions.
+  This automation will turn on the toilet light on based on a series of conditions.
   For example:
     - There's motion between a set time and day combination
     - The cinema mode is on
     - The light of the kitchen or the living room is on
-    - The door is open
 
   It will turn off the light when there's no more motion for 5 seconds and the door is closed
 
 trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_1
+    entity_id: binary_sensor.motion_sensor_2
     from: 'off'
     to: 'on'
 condition:
@@ -58,9 +57,6 @@ condition:
           - condition: state
             entity_id: light.living_room
             state: 'on'
-      - condition: state
-        entity_id: binary_sensor.door_sensor_1
-        state: 'on'
 action:
   - choose:
       - conditions:
@@ -82,10 +78,9 @@ action:
         entity_id: light.entrance
   - wait_for_trigger:
       - platform: state
-        entity_id: binary_sensor.motion_sensor_1
+        entity_id: binary_sensor.motion_sensor_2
         from: 'on'
         to: 'off'
   - service: light.turn_off
-    data: { }
     entity_id: light.entrance
 mode: restart
