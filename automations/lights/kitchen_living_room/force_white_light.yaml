@@ -12,8 +12,8 @@ action:
   - service: light.turn_on
     target:
       entity_id: light.kitchen
-    data: !include /config/general_utilities/lights/warm_light.yaml
+    data: !include /config/general_utilities/lights/white_light.yaml
   - service: light.turn_on
     target:
       entity_id: light.living_room
-    data: !include /config/general_utilities/lights/warm_light.yaml
+    data: !include /config/general_utilities/lights/white_light.yaml
