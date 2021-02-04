@@ -1,11 +1,11 @@
 ---
-alias: Kitchen light - Turn on circadian light
+alias: Small bedroom light - Turn on circadian light
 
 use_blueprint:
   path: lights/turn_on_circadian_light.yaml
   input:
-    light_entity: light.kitchen
+    light_entity: light.small_bedroom
     event_type: xiaomi_aqara.click
     event_data:
-      entity_id: binary_sensor.wall_switch_3_left
+      entity_id: binary_sensor.wall_switch_2
       click_type: single
