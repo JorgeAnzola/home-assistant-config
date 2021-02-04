@@ -19,9 +19,9 @@ action:
               - condition: state
                 entity_id: light.living_room
                 state: 'off'
-              - condition: sun
-                before: sunrise
-                after: sunset
+              - condition: state
+                entity_id: sun.sun
+                state: 'below_horizon'
         sequence:
           - service: light.turn_on
             data: !include /config/general_utilities/lights/warm_light.yaml
@@ -36,9 +36,9 @@ action:
           - condition: state
             entity_id: light.living_room
             state: 'off'
-          - condition: sun
-            before: sunset
-            after: sunrise
+          - condition: state
+            entity_id: sun.sun
+            state: 'above_horizon'
         sequence:
           - service: light.turn_on
             data:
