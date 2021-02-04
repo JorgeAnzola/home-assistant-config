@@ -6,7 +6,7 @@ trigger:
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_3_both
-      click_type: both
+      click_type: double_both
 
 action:
   - service: light.turn_on

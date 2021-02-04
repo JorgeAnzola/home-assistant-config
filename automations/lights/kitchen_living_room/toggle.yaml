@@ -1,5 +1,5 @@
 ---
-alias: Kitchen + Living room light - Turn on circadian light
+alias: Kitchen + Living room light - Toggle circadian light
 
 trigger:
   - platform: event
