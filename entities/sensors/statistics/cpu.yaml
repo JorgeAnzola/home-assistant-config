@@ -1,0 +1,3 @@
+---
+platform: statistics
+entity_id: sensor.cpu
