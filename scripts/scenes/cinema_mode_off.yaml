@@ -1,5 +1,6 @@
 ---
 alias: Scene - Cinema mode - turn off
+icon: mdi:popcorn
 description: >
   Restore light states
 

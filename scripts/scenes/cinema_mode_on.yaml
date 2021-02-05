@@ -1,5 +1,6 @@
 ---
 alias: Scene - Cinema mode - turn on
+icon: mdi:popcorn
 description: >
   Turns on the Cinema mode storing the involved lights state.
 
