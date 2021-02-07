@@ -13,8 +13,6 @@ blueprint:
       name: Event data
     light_entity:
       name: Light entity ID
-    input_boolean:
-      name: Input boolean
     data:
       name: Data
 

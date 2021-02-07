@@ -22,6 +22,10 @@ trigger:
   - platform: event
     event_type: !input event_type
     event_data: !input event_data
+  - platform: state
+    entity_id: !input input_boolean
+    from: 'off'
+    to: 'on'
 
 action:
   - service: light.turn_on
