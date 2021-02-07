@@ -13,6 +13,10 @@ blueprint:
       name: Event data
     light_entity:
       name: Light entity ID
+    input_boolean_warm_light:
+      name: Input boolean warm light
+    input_boolean_white_light:
+      name: Input boolean white light
 
 trigger:
   - platform: event
