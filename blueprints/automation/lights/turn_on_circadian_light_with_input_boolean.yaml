@@ -14,6 +14,10 @@ blueprint:
       name: Event data
     light_entity:
       name: Light entity ID
+    input_boolean_warm_light:
+      name: Input boolean warm light
+    input_boolean_white_light:
+      name: Input boolean white light
 
 trigger:
   - platform: event
@@ -35,7 +39,13 @@ action:
           - service: light.turn_on
             entity_id: !input light_entity
             data: !include /config/general_utilities/lights/white_light.yaml
+          - service: input_boolean.turn_on
+            target:
+              entity_id: !input input_boolean_white_light
     default:
       - service: light.turn_on
         entity_id: !input light_entity
         data: !include /config/general_utilities/lights/warm_light.yaml
+      - service: input_boolean.turn_on
+          target:
+            entity_id: !input input_boolean_warm_light
