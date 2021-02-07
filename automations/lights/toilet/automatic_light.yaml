@@ -7,80 +7,11 @@ description: >
     - The cinema mode is on
     - The light of the kitchen or the living room is on
 
-  It will turn off the light when there's no more motion for 5 seconds and the door is closed
+  It will turn off the light when there's no more motion for 5 seconds.
 
-trigger:
-  - platform: state
-    entity_id: binary_sensor.motion_sensor_2
-    from: 'off'
-    to: 'on'
-condition:
-  - condition: or
-    conditions:
-      - condition: and
-        conditions:
-          - condition: sun
-            before: sunrise
-          - condition: time
-            after: 09:00
-            before: '23:59'
-            weekday:
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-      - condition: time
-        after: '10:00'
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-          - sat
-          - sun
-        before: '23:59'
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: input_boolean.cinema_mode
-            state: 'on'
-          - condition: time
-            after: '10:00'
-            before: 02:00
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: light.kitchen
-            state: 'on'
-          - condition: state
-            entity_id: light.living_room
-            state: 'on'
-action:
-  - choose:
-      - conditions:
-          - condition: or
-            conditions:
-              - condition: state
-                entity_id: input_boolean.cinema_mode
-                state: 'on'
-              - condition: time
-                after: 00:00
-                before: '10:00'
-        sequence:
-          - service: light.turn_on
-            data: !include /config/general_utilities/lights/warm_light.yaml
-            entity_id: light.entrance
-    default:
-      - service: light.turn_on
-        data: !include /config/general_utilities/lights/white_light.yaml
-        entity_id: light.entrance
-  - wait_for_trigger:
-      - platform: state
-        entity_id: binary_sensor.motion_sensor_2
-        from: 'on'
-        to: 'off'
-  - service: light.turn_off
-    entity_id: light.entrance
-mode: restart
+use_blueprint:
+  path: lights/automatic_light.yaml
+  input:
+    light_entity: light.toilet
+    motion_entity: binary_sensor.motion_sensor_2
+    no_motion_wait: 120
