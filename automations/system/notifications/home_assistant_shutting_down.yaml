@@ -1,5 +1,5 @@
 ---
-alias:  System notification - Home Assistant shutting down
+alias: System notification - Home Assistant shutting down
 trigger:
   - platform: homeassistant
     event: shutdown
