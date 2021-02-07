@@ -1,0 +1,2 @@
+Scripts are used instead of scenes to have the possibility to turn
+them off and restore the previous state of the involved lights.
