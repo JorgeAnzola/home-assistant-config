@@ -5,6 +5,8 @@ use_blueprint:
   path: lights/turn_on_circadian_light.yaml
   input:
     light_entity: light.living_room
+    input_boolean_white_light: input_boolean.living_room_white_light
+    input_boolean_warm_light: input_boolean.living_room_warm_light
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_3_right
