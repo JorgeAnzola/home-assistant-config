@@ -17,7 +17,7 @@ blueprint:
         entity:
           domain: binary_sensor
           device_class: motion
-    light.toilet:
+    light_entity:
       name: Light
       selector:
         target:
