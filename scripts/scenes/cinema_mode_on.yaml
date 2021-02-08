@@ -11,9 +11,14 @@ sequence:
       entity_id:
         - light.kitchen
         - light.living_room
+        - light.hyperion
   - service: light.turn_on
     entity_id: light.kitchen
     data: !include /config/general_utilities/lights/warm_light.yaml
   - service: light.turn_on
     entity_id: light.living_room
     data: !include /config/general_utilities/lights/warm_light.yaml
+  - service: light.turn_on
+    data:
+      entity_id: light.hyperion
+      effect: "Cinema brighten lights"
