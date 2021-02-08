@@ -2,7 +2,7 @@
 alias: Living room light - Turn off
 
 use_blueprint:
-  path: lights/turn_off_light_with_input_boolean.yaml
+  path: lights/turn_off_light.yaml
   input:
     light_entity: light.living_room
     input_boolean_white_light: input_boolean.living_room_white_light

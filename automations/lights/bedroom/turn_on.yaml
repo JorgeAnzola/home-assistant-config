@@ -2,7 +2,7 @@
 alias: Bedroom light - Turn on circadian light
 
 use_blueprint:
-  path: lights/turn_on_circadian_light_with_input_boolean.yaml
+  path: lights/turn_on_circadian_light.yaml
   input:
     light_entity: light.bedroom
     input_boolean_white_light: input_boolean.bedroom_white_light

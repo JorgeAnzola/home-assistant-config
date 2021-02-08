@@ -10,3 +10,4 @@ use_blueprint:
       entity_id: binary_sensor.wall_switch_4
       click_type: long
     data: !include /config/general_utilities/lights/warm_light.yaml
+    input_boolean: input_boolean.toilet_white_light
