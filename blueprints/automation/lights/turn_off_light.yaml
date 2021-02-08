@@ -24,12 +24,12 @@ trigger:
     event_data: !input event_data
   - platform: state
     entity_id: !input input_boolean_white_light
-    from: 'off'
-    to: 'on'
+    from: 'on'
+    to: 'off'
   - platform: state
     entity_id: !input input_boolean_warm_light
-    from: 'off'
-    to: 'on'
+    from: 'on'
+    to: 'off'
 
 condition:
   - condition: state

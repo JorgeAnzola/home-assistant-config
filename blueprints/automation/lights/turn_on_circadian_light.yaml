@@ -28,6 +28,14 @@ condition:
   - condition: state
     entity_id: !input light_entity
     state: "off"
+  - platform: state
+    entity_id: !input input_boolean_white_light
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: !input input_boolean_warm_light
+    from: 'off'
+    to: 'on'
 
 action:
   - choose:
