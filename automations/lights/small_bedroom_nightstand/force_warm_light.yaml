@@ -8,5 +8,5 @@ use_blueprint:
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_4
-      click_type: long
+      click_type: long_click_press
     data: !include /config/general_utilities/lights/warm_light.yaml

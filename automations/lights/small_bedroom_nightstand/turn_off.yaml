@@ -7,5 +7,5 @@ use_blueprint:
     light_entity: light.e14_color_1
     event_type: xiaomi_aqara.click
     event_data:
-      entity_id: binary_sensor.wall_switch_2
+      entity_id: binary_sensor.wall_switch_4
       click_type: single
