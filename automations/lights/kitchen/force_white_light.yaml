@@ -10,4 +10,3 @@ use_blueprint:
       entity_id: binary_sensor.wall_switch_3_left
       click_type: double
     data: !include /config/general_utilities/lights/white_light.yaml
-    input_boolean: input_boolean.kitchen_white_light
