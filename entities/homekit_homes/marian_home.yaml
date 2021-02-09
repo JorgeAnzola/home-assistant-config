@@ -17,3 +17,4 @@ include_entities:
   - input_boolean.living_room_warm_light
   - input_boolean.small_bedroom_white_light
   - input_boolean.small_bedroom_warm_light
+  - light.e14_color_1
