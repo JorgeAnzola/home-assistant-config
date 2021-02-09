@@ -1,6 +1,6 @@
 ---
 blueprint:
-  name: Turn on light based on an event
+  name: Turn on light and its relative input boolean based on an event
   description: >
     A blueprint that turns on the selected light when an event occurs.
 

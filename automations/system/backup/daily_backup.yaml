@@ -1,5 +1,5 @@
 ---
-alias: Daily backup
+alias: Backup - Daily
 description: >-
   A full snapshot will be taken daily and stored on Dropbox.
 initial_state: "on"

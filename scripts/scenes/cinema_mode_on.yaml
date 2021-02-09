@@ -1,0 +1,24 @@
+---
+alias: Scene - Cinema mode - turn on
+icon: mdi:popcorn
+description: >
+  Turns on the Cinema mode storing the involved lights state.
+
+sequence:
+  - service: python_script.light_store
+    data:
+      store_name: cinema_mode_previous_states
+      entity_id:
+        - light.kitchen
+        - light.living_room
+        - light.hyperion
+  - service: light.turn_on
+    entity_id: light.kitchen
+    data: !include /config/general_utilities/lights/warm_light.yaml
+  - service: light.turn_on
+    entity_id: light.living_room
+    data: !include /config/general_utilities/lights/warm_light.yaml
+  - service: light.turn_on
+    data:
+      entity_id: light.hyperion
+      effect: "Cinema brighten lights"

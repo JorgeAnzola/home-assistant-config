@@ -7,6 +7,6 @@ use_blueprint:
     light_entity: light.kitchen
     event_type: xiaomi_aqara.click
     event_data:
-      entity_id: binary_sensor.wall_switch_5
+      entity_id: binary_sensor.wall_switch_3_left
       click_type: double
     data: !include /config/general_utilities/lights/white_light.yaml

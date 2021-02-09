@@ -1,0 +1,4 @@
+---
+kitchen_warm_light:
+  name: Kitchen warm light
+  icon: mdi:ceiling-light

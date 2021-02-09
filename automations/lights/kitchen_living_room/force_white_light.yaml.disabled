@@ -1,0 +1,19 @@
+---
+alias: Kitchen + Living room light - Turn on white light
+
+trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_3_both
+      click_type: double_both
+
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.kitchen
+    data: !include /config/general_utilities/lights/white_light.yaml
+  - service: light.turn_on
+    target:
+      entity_id: light.living_room
+    data: !include /config/general_utilities/lights/white_light.yaml

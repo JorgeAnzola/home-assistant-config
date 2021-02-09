@@ -1,0 +1,11 @@
+---
+alias: Shower light - Turn off
+
+use_blueprint:
+  path: lights/turn_off_light.yaml
+  input:
+    light_entity: light.shower
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_5
+      click_type: single

@@ -1,0 +1,11 @@
+---
+alias: Scene - Cinema mode - turn off
+icon: mdi:popcorn
+description: >
+  Restore light states
+
+sequence:
+  - service: python_script.light_store
+    data:
+      store_name: cinema_mode_previous_states
+      operation: restore

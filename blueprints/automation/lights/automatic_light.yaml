@@ -1,0 +1,103 @@
+---
+blueprint:
+  name: Automatic light
+  description: >
+    This automation will turn on the target light on based on a series of conditions.
+    For example:
+      - There's motion between a set time and day combination
+      - The cinema mode is on
+      - The light of the kitchen or the living room is on
+
+    It will turn off the light when there's no more motion for X seconds.
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    light_entity:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+    no_motion_wait:
+      name: Wait time
+      description: Time to leave the light on after last motion is detected.
+      default: 120
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: seconds
+
+trigger:
+  - platform: state
+    entity_id: !input motion_entity
+    from: 'off'
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: sun
+            before: sunrise
+          - condition: time
+            after: 09:00
+            before: '23:59'
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+      - condition: time
+        after: '10:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+        before: '23:59'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: light.kitchen
+            state: 'on'
+          - condition: state
+            entity_id: light.living_room
+            state: 'on'
+action:
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: input_boolean.cinema_mode
+                state: 'on'
+              - condition: time
+                after: 00:00
+                before: '10:00'
+        sequence:
+          - service: light.turn_on
+            data: !include /config/general_utilities/lights/warm_light.yaml
+            entity_id: !input light_entity
+    default:
+      - service: light.turn_on
+        data: !include /config/general_utilities/lights/white_light.yaml
+        entity_id: !input light_entity
+  - wait_for_trigger:
+      - platform: state
+        entity_id: !input motion_entity
+        from: 'on'
+        to: 'off'
+  - delay: !input no_motion_wait
+  - service: light.turn_off
+    entity_id: !input light_entity
+mode: restart

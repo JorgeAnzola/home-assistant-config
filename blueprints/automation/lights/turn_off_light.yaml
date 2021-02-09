@@ -1,6 +1,6 @@
 ---
 blueprint:
-  name: Turn off light based on an event
+  name: Turn off light and its relative input boolean based on an event
   description: >
     A blueprint that turns off the selected light when an event occurs
 

@@ -1,0 +1,16 @@
+---
+alias: Shower light - automatic light
+description: >
+  This automation will turn on the shower light on based on a series of conditions.
+  For example:
+    - There's motion between a set time and day combination
+    - The light of the kitchen or the living room is on
+
+  It will turn off the light when there's no more motion for 5 seconds and the door is closed
+
+use_blueprint:
+  path: lights/automatic_light.yaml
+  input:
+    light_entity: light.shower
+    motion_entity: group.shower_sensors
+    no_motion_wait: 360

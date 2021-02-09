@@ -1,9 +1,9 @@
 ---
-alias: "Home Assistant restarted notification"
+alias: System notification - Home Assistant restarted
 trigger:
   - platform: homeassistant
     event: start
 action:
   - service: notify.admin_telegram
     data:
-      message: "Home Assistant is back online"
+      message: "Home Assistant is back online!"
