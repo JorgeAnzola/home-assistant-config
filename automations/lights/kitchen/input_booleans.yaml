@@ -1,0 +1,23 @@
+---
+alias: Kitchen light - Mutually exclusive input booleans
+
+trigger:
+  - platform: state
+    entity_id: input_boolean.kitchen_warm_light, input_boolean.kitchen_white_light
+    from: 'off'
+    to: 'on'
+action:
+  - service: input_boolean.turn_off
+    data_template:
+      entity_id: >
+        {% set booleans = [ 'input_boolean.kitchen_warm_light', 'input_boolean.kitchen_white_light' ] | reject('equalto', trigger.entity_id) | list %}
+        {{ booleans[0] }}
+  - service: light.turn_on
+    data_template:
+      entity_id: light.kitchen
+      data: >
+        {% if trigger.entity_id == 'input_boolean.kitchen_white_light' %}
+          !include /config/general_utilities/lights/white_light.yaml
+        {% else %}
+          !include /config/general_utilities/lights/warm_light.yaml
+        {% endif %}
