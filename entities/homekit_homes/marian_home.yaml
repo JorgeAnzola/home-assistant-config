@@ -5,15 +5,11 @@
 
 name: Marian's home
 port: !secret marian_homekit_home_port
-exclude_domains:
-  - light
-  - fan
-  - switch
-  - media_player
-include_entities:
-  - input_boolean.kitchen_white_light
-  - input_boolean.kitchen_warm_light
-  - input_boolean.living_room_white_light
-  - input_boolean.living_room_warm_light
-  - input_boolean.small_bedroom_white_light
-  - input_boolean.small_bedroom_warm_light
+filter:
+  include_entities:
+    - input_boolean.kitchen_white_light
+    - input_boolean.kitchen_warm_light
+    - input_boolean.living_room_white_light
+    - input_boolean.living_room_warm_light
+    - input_boolean.small_bedroom_white_light
+    - input_boolean.small_bedroom_warm_light
