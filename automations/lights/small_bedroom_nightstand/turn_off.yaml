@@ -1,0 +1,11 @@
+---
+alias: Small bedroom nightstand light - Turn off
+
+use_blueprint:
+  path: lights/turn_off_light.yaml
+  input:
+    light_entity: light.e14_color_1
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_2
+      click_type: single
