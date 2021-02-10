@@ -1,6 +1,0 @@
-platform: template
-sensors:
-  plug_4_amps:
-    friendly_name_template: "{{ states.switch.plug_4.name}} Current"
-    value_template: '{{ states.switch.plug_4.attributes["current_a"] | float }}'
-    unit_of_measurement: "A"

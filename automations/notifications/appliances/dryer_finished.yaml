@@ -1,0 +1,11 @@
+---
+alias: Notification - Dryer - Finished
+
+trigger:
+  platform: state
+  entity_id: input_boolean.dryer
+  to: "off"
+action:
+  - service: notify.admin_telegram
+    data:
+      message: "The dryer has finished"
