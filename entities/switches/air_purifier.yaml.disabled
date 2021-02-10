@@ -1,6 +1,6 @@
 platform: template
 switches:
-  xiaomi_airpurifier_led:
+  air_purifier_led:
     friendly_name: "LED"
     value_template: "{{ is_state_attr('fan.xiaomi_miio_device', 'led', true) }}"
     turn_on:
@@ -13,7 +13,7 @@ switches:
         entity_id: fan.xiaomi_miio_device
     icon_template: "mdi:lightbulb-outline"
 
-  xiaomi_airpurifier_child_lock:
+  air_purifier_child_lock:
     friendly_name: "Child lock"
     value_template: "{{ is_state_attr('fan.xiaomi_miio_device', 'child_lock', true) }}"
     turn_on:
@@ -26,7 +26,7 @@ switches:
         entity_id: fan.xiaomi_miio_device
     icon_template: "mdi:lock-outline"
 
-  xiaomi_airpurifier_buzzer:
+  air_purifier_buzzer:
     friendly_name: "Buzzer"
     value_template: "{{ is_state_attr('fan.xiaomi_miio_device', 'buzzer', true) }}"
     turn_on:

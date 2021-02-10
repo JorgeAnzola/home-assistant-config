@@ -1,5 +1,5 @@
 ---
-xiaomi_airpurifier_favorite_level:
+air_purifier_favorite_level:
   name: "Favorite level"
   initial: 0
   min: 0

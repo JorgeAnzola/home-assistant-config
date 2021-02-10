@@ -1,5 +1,5 @@
 ---
-xiaomi_airpurifier_mode:
+air_purifier_mode:
   name: Mode
   options:
     - Off
