@@ -15,3 +15,4 @@ filter:
     - input_boolean.living_room_warm_light
     - input_boolean.small_bedroom_white_light
     - input_boolean.small_bedroom_warm_light
+    - fan.air_purifier

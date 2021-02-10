@@ -14,3 +14,4 @@ filter:
     - input_boolean.small_bedroom_white_light
     - input_boolean.small_bedroom_warm_light
     - light.e14_color_1
+    - fan.air_purifier
