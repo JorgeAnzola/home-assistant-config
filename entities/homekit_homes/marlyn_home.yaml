@@ -16,3 +16,6 @@ filter:
     - input_boolean.small_bedroom_white_light
     - input_boolean.small_bedroom_warm_light
     - fan.air_purifier
+    - sensor.air_purifier_humidity
+    - sensor.air_purifier_air_quality_pm25
+    - sensor.air_purifier_temp
