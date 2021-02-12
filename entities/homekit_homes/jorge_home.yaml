@@ -5,6 +5,3 @@
 
 name: Jorge's home
 port: !secret jorge_homekit_home_port
-filter:
-  include_domains:
-    - media_player

@@ -2,30 +2,30 @@ platform: template
 sensors:
   air_purifier_temp:
     friendly_name: "Temperature"
-    value_template: "{{ state_attr('fan.xiaomi_miio_device', 'temperature') }}"
+    value_template: "{{ state_attr('fan.air_purifier', 'temperature') }}"
     unit_of_measurement: "°C"
     device_class: "temperature"
 
   air_purifier_humidity:
     friendly_name: "Humidity"
-    value_template: "{{ state_attr('fan.xiaomi_miio_device', 'humidity') }}"
+    value_template: "{{ state_attr('fan.air_purifier', 'humidity') }}"
     unit_of_measurement: "%"
     device_class: "humidity"
 
   air_purifier_air_quality_pm25:
     friendly_name: "Air quality"
-    value_template: "{{ state_attr('fan.xiaomi_miio_device', 'aqi') }}"
+    value_template: "{{ state_attr('fan.air_purifier', 'aqi') }}"
     unit_of_measurement: "μg/m³"
     icon_template: "mdi:weather-fog"
 
   air_purifier_speed:
     friendly_name: "Fan speed"
-    value_template: "{{ state_attr('fan.xiaomi_miio_device', 'motor_speed') }}"
+    value_template: "{{ state_attr('fan.air_purifier', 'motor_speed') }}"
     unit_of_measurement: "rpm"
     icon_template: "mdi:speedometer"
 
-  air_purifier_filter_remaining:
-    friendly_name: "Filter remaining"
-    value_template: "{{ state_attr('fan.xiaomi_miio_device', 'filter_life_remaining') }}"
-    unit_of_measurement: "%"
-    icon_template: "mdi:heart-outline"
+  # air_purifier_filter_remaining:
+  #   friendly_name: "Filter remaining"
+  #   value_template: "{{ state_attr('fan.air_purifier', 'filter_life_remaining') }}"
+  #   unit_of_measurement: "%"
+  #   icon_template: "mdi:heart-outline"
