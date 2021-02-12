@@ -6,4 +6,4 @@ trigger:
 action:
   - service: notify.group_telegram
     data:
-      message: "Home Assistant is restarting. Lights and automations *won't* work for a moment..."
+      message: "Home Assistant is restarting. Lights and automations *won't work* for a moment..."
