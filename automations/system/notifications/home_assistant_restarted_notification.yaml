@@ -4,6 +4,6 @@ trigger:
   - platform: homeassistant
     event: start
 action:
-  - service: notify.admin_telegram
+  - service: notify.group_telegram
     data:
-      message: "Home Assistant is back online!"
+      message: "Home Assistant is back online! Everything should be working normally now."
