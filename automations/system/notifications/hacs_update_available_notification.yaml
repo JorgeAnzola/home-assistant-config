@@ -1,0 +1,10 @@
+---
+alias: System notification - Update available
+trigger:
+  - platform: state
+    entity_id: sensor.hacs
+    to: 1
+action:
+  - service: notify.admin_telegram
+    data:
+      message: 'There is a new HACS release available.'
