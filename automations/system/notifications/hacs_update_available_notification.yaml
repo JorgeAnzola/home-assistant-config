@@ -1,10 +1,10 @@
 ---
 alias: System notification - Update available
 trigger:
-  - platform: state
+  - platform: numeric_state
     entity_id: sensor.hacs
-    to: '1'
+    above: 0
 action:
   - service: notify.admin_telegram
     data:
-      message: 'There is a new HACS release available.'
+      message: 'There are HACS updates available.'
