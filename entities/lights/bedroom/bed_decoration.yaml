@@ -1,0 +1,11 @@
+
+---
+# Light group: Bed decoration
+#
+# https://www.home-assistant.io/integrations/light.group/
+#
+platform: group
+name: Bed decoration
+entities:
+  - light.e14_filament_3
+  - light.e14_filament_4
