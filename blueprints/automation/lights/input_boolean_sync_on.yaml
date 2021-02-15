@@ -1,0 +1,36 @@
+---
+blueprint:
+  name: Sync input boolean - on
+  description: >
+    Syncs the input boolean when the lights goes on
+
+  domain: automation
+
+  input:
+    light_entity:
+      name: Light entity ID
+    white_input_boolean:
+      name: White input boolean
+    warm_input_boolean:
+      name: Warm input boolean
+
+trigger:
+  - platform: state
+    entity_id: !input light_entity
+    from: 'off'
+    to: 'on'
+condition: [ ]
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: !input light_entity
+            state: '445'
+            attribute: color_temp
+        sequence:
+          - service: input_boolean.turn_on
+            entity_id: !input warm_input_boolean
+    default:
+      - service: input_boolean.turn_on
+        entity_id: !input white_input_boolean
+mode: single

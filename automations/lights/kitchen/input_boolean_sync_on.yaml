@@ -1,22 +1,9 @@
 alias: Kitchen light - Sync input boolean - on
 description: Syncs the input boolean when the lights goes on
-trigger:
-  - platform: state
-    entity_id: light.kitchen
-    from: 'off'
-    to: 'on'
-condition: [ ]
-action:
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.kitchen
-            state: '445'
-            attribute: color_temp
-        sequence:
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.kitchen_warm_light
-    default:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.kitchen_white_light
-mode: single
+
+use_blueprint:
+  path: lights/input_boolean_sync_on.yaml
+  input:
+    light_entity: light.kitchen
+    white_input_boolean: input_boolean.kitchen_white_light
+    warm_input_boolean: input_boolean.kitchen_warm_light
