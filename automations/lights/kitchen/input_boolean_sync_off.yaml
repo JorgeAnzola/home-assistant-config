@@ -1,0 +1,16 @@
+alias: Kitchen light - Sync input boolean - on
+description: Syncs the input booleans when the lights goes on
+trigger:
+  - platform: state
+    entity_id: light.kitchen
+    from: 'on'
+    to: 'off'
+condition: [ ]
+action:
+  - service: input_boolean.turn_off
+    data: { }
+    entity_id: input_boolean.kitchen_warm_light
+  - service: input_boolean.turn_off
+    data: { }
+    entity_id: input_boolean.kitchen_white_light
+mode: single
