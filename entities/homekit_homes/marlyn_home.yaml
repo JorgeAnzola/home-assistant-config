@@ -19,3 +19,4 @@ filter:
     - sensor.air_purifier_humidity
     - sensor.air_purifier_air_quality_pm25
     - sensor.air_purifier_temp
+    - light.bed_decoration
