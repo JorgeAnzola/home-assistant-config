@@ -1,0 +1,14 @@
+---
+alias: Small bedroom nightstand light - Toggles
+
+trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_4
+      click_type: single
+
+action:
+  - service: light.toggle
+    target:
+      entity_id: light.e14_color_1
