@@ -1,0 +1,9 @@
+alias: Small bedroom light - Sync input boolean - on
+description: Syncs the input boolean when the lights goes on
+
+use_blueprint:
+  path: lights/input_boolean_sync_on.yaml
+  input:
+    light_entity: light.small_bedroom
+    white_input_boolean: input_boolean.small_bedroom_white_light
+    warm_input_boolean: input_boolean.small_bedroom_warm_light
