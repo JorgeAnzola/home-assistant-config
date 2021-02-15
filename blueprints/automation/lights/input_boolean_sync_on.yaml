@@ -17,15 +17,23 @@ blueprint:
 trigger:
   - platform: state
     entity_id: !input light_entity
-    from: 'off'
-    to: 'on'
-condition: [ ]
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: !input light_entity
+    to: 153
+    attribute: color_temp
+  - platform: state
+    entity_id: !input light_entity
+    to: 445
+    attribute: color_temp
+condition: []
 action:
   - choose:
       - conditions:
           - condition: state
             entity_id: !input light_entity
-            state: '445'
+            state: 445
             attribute: color_temp
         sequence:
           - service: input_boolean.turn_on
