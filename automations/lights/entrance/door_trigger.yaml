@@ -1,5 +1,5 @@
 ---
-alias: Entrance light - automatic light
+alias: Entrance light - door triggered light
 
 description: Turns on the entrance light when the door is opened
 trigger:
