@@ -6,7 +6,7 @@ description: >
     - There's motion between a set time and day combination
     - The light of the kitchen or the living room is on
 
-  It will turn off the light when there's no more motion for 5 seconds and the door is closed
+  It will turn off the light when there's no more motion for 360 seconds
 
 use_blueprint:
   path: lights/automatic_light.yaml

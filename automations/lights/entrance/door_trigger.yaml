@@ -1,0 +1,24 @@
+---
+alias: Entrance light - automatic light
+
+description: Turns on the entrance light when the door is opened
+trigger:
+  - platform: state
+    entity_id: binary_sensor.door_sensor_1
+    to: 'on'
+condition: [ ]
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: sun.sun
+            state: below_horizon
+        sequence:
+          - service: light.turn_on
+            data: !include /config/general_utilities/lights/warm_light.yaml
+            entity_id: light.entrance
+    default:
+      - service: light.turn_on
+        data: !include /config/general_utilities/lights/white_light.yaml
+        entity_id: light.entrance
+mode: single
