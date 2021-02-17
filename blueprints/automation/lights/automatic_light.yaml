@@ -38,60 +38,68 @@ trigger:
     entity_id: !input motion_entity
     from: 'off'
     to: 'on'
-condition:
-  - condition: or
-    conditions:
-      - condition: and
+condition: []
+action:
+  - choose:
+    - conditions:
+      - condition: or
         conditions:
-          - condition: sun
-            before: sunrise
-          - condition: time
-            after: 09:00
-            before: '23:59'
-            weekday:
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-      - condition: time
-        after: '10:00'
-        weekday:
+        - condition: state
+          entity_id: sun.sun
+          state: below_horizon
+        - condition: time
+          after: '10:00'
+          before: 00:00
+          weekday:
           - mon
           - tue
           - wed
           - thu
           - fri
+        - condition: time
+          after: '11:00'
+          before: 00:00
+          weekday:
           - sat
           - sun
-        before: '23:59'
+        - condition: state
+          entity_id: light.kitchen
+          state: 'on'
+        - condition: state
+          entity_id: light.living_room
+          state: 'on'
+      sequence:
+      - service: light.turn_on
+        data: !include /config/general_utilities/lights/warm_light.yaml
+        entity_id: !input light_entity
+
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
       - condition: or
         conditions:
-          - condition: state
-            entity_id: light.kitchen
-            state: 'on'
-          - condition: state
-            entity_id: light.living_room
-            state: 'on'
-action:
-  - choose:
-      - conditions:
-          - condition: or
-            conditions:
-              - condition: state
-                entity_id: input_boolean.cinema_mode
-                state: 'on'
-              - condition: state
-                entity_id: sun.sun
-                state: "below_horizon"
-        sequence:
-          - service: light.turn_on
-            data: !include /config/general_utilities/lights/warm_light.yaml
-            entity_id: !input light_entity
-    default:
+        - condition: time
+          after: '10:00'
+          before: 00:00
+          weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+        - condition: time
+          after: '11:00'
+          before: 00:00
+          weekday:
+          - sat
+          - sun
+      sequence:
       - service: light.turn_on
         data: !include /config/general_utilities/lights/white_light.yaml
         entity_id: !input light_entity
+
+    default: []
   - wait_for_trigger:
       - platform: state
         entity_id: !input motion_entity
