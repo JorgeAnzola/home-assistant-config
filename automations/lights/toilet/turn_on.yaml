@@ -9,3 +9,5 @@ use_blueprint:
     event_data:
       entity_id: binary_sensor.wall_switch_4
       click_type: single
+    data_white: !include /config/general_utilities/lights/white_light.yaml
+    data_warm: !include /config/general_utilities/lights/dim_warm_light.yaml
