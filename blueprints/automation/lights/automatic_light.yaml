@@ -81,9 +81,9 @@ action:
               - condition: state
                 entity_id: input_boolean.cinema_mode
                 state: 'on'
-              - condition: time
-                after: 00:00
-                before: '10:00'
+              - condition: state
+                entity_id: sun.sun
+                state: "below_horizon"
         sequence:
           - service: light.turn_on
             data: !include /config/general_utilities/lights/warm_light.yaml
