@@ -13,6 +13,10 @@ blueprint:
       name: White input boolean
     warm_input_boolean:
       name: Warm input boolean
+    white_color_temp:
+      name: White color temp
+    warm_color_temp:
+      name: Warm color temp
 
 trigger:
   - platform: state
@@ -21,11 +25,11 @@ trigger:
     to: "on"
   - platform: state
     entity_id: !input light_entity
-    to: 153
+    to: !input white_color_temp
     attribute: color_temp
   - platform: state
     entity_id: !input light_entity
-    to: 445
+    to: !input warm_color_temp
     attribute: color_temp
 condition: []
 action:
@@ -33,7 +37,7 @@ action:
       - conditions:
           - condition: state
             entity_id: !input light_entity
-            state: 445
+            to: !input warm_color_temp
             attribute: color_temp
         sequence:
           - service: input_boolean.turn_on

@@ -7,3 +7,5 @@ use_blueprint:
     light_entity: light.living_room
     white_input_boolean: input_boolean.living_room_white_light
     warm_input_boolean: input_boolean.living_room_warm_light
+    white_color_temp: 153
+    warm_color_temp: 445

@@ -7,3 +7,5 @@ use_blueprint:
     light_entity: light.kitchen
     white_input_boolean: input_boolean.kitchen_white_light
     warm_input_boolean: input_boolean.kitchen_warm_light
+    white_color_temp: 153
+    warm_color_temp: 445
