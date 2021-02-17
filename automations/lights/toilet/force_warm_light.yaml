@@ -9,4 +9,4 @@ use_blueprint:
     event_data:
       entity_id: binary_sensor.wall_switch_4
       click_type: long
-    data: !include /config/general_utilities/lights/warm_light.yaml
+    data: !include /config/general_utilities/lights/dim_warm_light.yaml
