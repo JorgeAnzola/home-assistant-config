@@ -42,37 +42,45 @@ condition: []
 action:
   - choose:
     - conditions:
-      - condition: or
+      - condition: and
         conditions:
         - condition: state
           entity_id: sun.sun
           state: below_horizon
-        - condition: time
-          after: '10:00'
-          before: 00:00
-          weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-        - condition: time
-          after: '11:00'
-          before: 00:00
-          weekday:
-          - sat
-          - sun
-        - condition: state
-          entity_id: light.kitchen
-          state: 'on'
-        - condition: state
-          entity_id: light.living_room
-          state: 'on'
+        - condition: or
+          conditions:
+          - condition: time
+            after: '10:00'
+            before: 00:00
+            weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+          - condition: time
+            after: '11:00'
+            before: 00:00
+            weekday:
+            - sat
+            - sun
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: sun.sun
+              state: below_horizon
+            - condition: or
+              conditions:
+              - condition: state
+                entity_id: light.kitchen
+                state: 'on'
+              - condition: state
+                entity_id: light.living_room
+                state: 'on'
       sequence:
       - service: light.turn_on
         data: !include /config/general_utilities/lights/warm_light.yaml
         entity_id: !input light_entity
-
     - conditions:
       - condition: state
         entity_id: sun.sun
@@ -98,7 +106,6 @@ action:
       - service: light.turn_on
         data: !include /config/general_utilities/lights/white_light.yaml
         entity_id: !input light_entity
-
     default: []
   - wait_for_trigger:
       - platform: state
