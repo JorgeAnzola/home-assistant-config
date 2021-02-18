@@ -9,3 +9,5 @@ use_blueprint:
     event_data:
       entity_id: binary_sensor.switch_4
       click_type: long_click_press
+    data_white: !include /config/general_utilities/lights/white_light.yaml
+    data_warm: !include /config/general_utilities/lights/warm_light.yaml

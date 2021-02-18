@@ -23,4 +23,4 @@ action:
     default:
       - service: light.turn_on
         entity_id: light.toilet
-        data: !include /config/general_utilities/lights/warm_light.yaml
+        data: !include /config/general_utilities/lights/dim_warm_light.yaml
