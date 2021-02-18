@@ -32,6 +32,10 @@ blueprint:
           min: 0
           max: 3600
           unit_of_measurement: seconds
+    data_white:
+      name: Data for the white light
+    data_warm:
+      name: Data for the warm light
 
 trigger:
   - platform: state
@@ -79,7 +83,7 @@ action:
                 state: 'on'
       sequence:
       - service: light.turn_on
-        data: !include /config/general_utilities/lights/warm_light.yaml
+        data: !input data_warm
         entity_id: !input light_entity
     - conditions:
       - condition: state
@@ -104,7 +108,7 @@ action:
           - sun
       sequence:
       - service: light.turn_on
-        data: !include /config/general_utilities/lights/white_light.yaml
+        data: !input data_white
         entity_id: !input light_entity
     default: []
   - wait_for_trigger:

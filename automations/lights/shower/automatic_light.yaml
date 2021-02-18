@@ -14,3 +14,5 @@ use_blueprint:
     light_entity: light.shower
     motion_entity: group.shower_sensors
     no_motion_wait: 360
+    data_white: !include /config/general_utilities/lights/slow_white_light.yaml
+    data_warm: !include /config/general_utilities/lights/slow_warm_light.yaml
