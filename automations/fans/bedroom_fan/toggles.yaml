@@ -1,0 +1,14 @@
+---
+alias: Bedroom fan - Toggles
+
+trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_1
+      click_type: double
+
+action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.plug_1
