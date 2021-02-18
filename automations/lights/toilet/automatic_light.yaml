@@ -15,3 +15,5 @@ use_blueprint:
     light_entity: light.toilet
     motion_entity: binary_sensor.motion_sensor_2
     no_motion_wait: 120
+    data_white: !include /config/general_utilities/lights/white_light.yaml
+    data_warm: !include /config/general_utilities/lights/warm_light.yaml

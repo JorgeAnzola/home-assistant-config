@@ -14,3 +14,5 @@ use_blueprint:
     light_entity: light.entrance
     motion_entity: binary_sensor.motion_sensor_1
     no_motion_wait: 0
+    data_white: !include /config/general_utilities/lights/white_light.yaml
+    data_warm: !include /config/general_utilities/lights/warm_light.yaml
