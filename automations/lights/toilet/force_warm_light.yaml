@@ -4,9 +4,8 @@ alias: Toilet light - Turn on warm light
 use_blueprint:
   path: lights/force_turn_on_light.yaml
   input:
-    light_entity: light.toilet
+    light_entity: light.toilet_warm_light
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_4
       click_type: long
-    data: !include /config/general_utilities/lights/dim_warm_light.yaml
