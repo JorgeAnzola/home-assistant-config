@@ -1,12 +1,12 @@
 ---
 platform: template
 lights:
-  bedroom_white_light:
-    friendly_name: "Bedroom white light"
+  toilet_white_light:
+    friendly_name: "Toilet white light"
     turn_on:
       - service: light.turn_on
-        entity_id: light.bedroom
+        entity_id: light.toilet
         data: !include /config/general_utilities/lights/white_light.yaml
     turn_off:
       - service: light.turn_off
-        entity_id: light.bedroom
+        entity_id: light.toilet

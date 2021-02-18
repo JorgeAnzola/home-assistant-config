@@ -1,12 +1,12 @@
 ---
 platform: template
 lights:
-  bedroom_warm_light:
-    friendly_name: "Bedroom warm light"
+  entrance_warm_light:
+    friendly_name: "Entrance warm light"
     turn_on:
       - service: light.turn_on
-        entity_id: light.bedroom
+        entity_id: light.entrance
         data: !include /config/general_utilities/lights/warm_light.yaml
     turn_off:
       - service: light.turn_off
-        entity_id: light.bedroom
+        entity_id: light.entrance

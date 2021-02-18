@@ -1,0 +1,12 @@
+---
+platform: template
+lights:
+  shower_white_light:
+    friendly_name: "Shower white light"
+    turn_on:
+      - service: light.turn_on
+        entity_id: light.shower
+        data: !include /config/general_utilities/lights/slow_white_light.yaml
+    turn_off:
+      - service: light.turn_off
+        entity_id: light.shower
