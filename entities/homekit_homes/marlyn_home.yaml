@@ -7,14 +7,14 @@ name: Marlyn's home
 port: !secret marlyn_homekit_home_port
 filter:
   include_entities:
-    - input_boolean.bedroom_white_light
-    - input_boolean.bedroom_warm_light
-    - input_boolean.kitchen_white_light
-    - input_boolean.kitchen_warm_light
-    - input_boolean.living_room_white_light
-    - input_boolean.living_room_warm_light
-    - input_boolean.small_bedroom_white_light
-    - input_boolean.small_bedroom_warm_light
+    - light.bedroom_white_light
+    - light.bedroom_warm_light
+    - light.kitchen_white_light
+    - light.kitchen_warm_light
+    - light.living_room_white_light
+    - light.living_room_warm_light
+    - light.small_bedroom_white_light
+    - light.small_bedroom_warm_light
     - fan.air_purifier
     - sensor.air_purifier_humidity
     - sensor.air_purifier_air_quality_pm25
