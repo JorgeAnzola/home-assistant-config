@@ -7,12 +7,12 @@ name: Marian's home
 port: !secret marian_homekit_home_port
 filter:
   include_entities:
-    - input_boolean.kitchen_white_light
-    - input_boolean.kitchen_warm_light
-    - input_boolean.living_room_white_light
-    - input_boolean.living_room_warm_light
-    - input_boolean.small_bedroom_white_light
-    - input_boolean.small_bedroom_warm_light
+    - light.kitchen_white_light
+    - light.kitchen_warm_light
+    - light.living_room_white_light
+    - light.living_room_warm_light
+    - light.small_bedroom_white_light
+    - light.small_bedroom_warm_light
     - light.e14_color_1
     - fan.air_purifier
     - sensor.air_purifier_humidity

@@ -1,0 +1,12 @@
+---
+platform: template
+lights:
+  entrance_white_light:
+    friendly_name: "Entrance white light"
+    turn_on:
+      - service: light.turn_on
+        entity_id: light.entrance
+        data: !include /config/general_utilities/lights/white_light.yaml
+    turn_off:
+      - service: light.turn_off
+        entity_id: light.entrance

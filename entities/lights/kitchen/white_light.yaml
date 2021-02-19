@@ -1,0 +1,12 @@
+---
+platform: template
+lights:
+  kitchen_white_light:
+    friendly_name: "Kitchen white light"
+    turn_on:
+      - service: light.turn_on
+        entity_id: light.kitchen
+        data: !include /config/general_utilities/lights/white_light.yaml
+    turn_off:
+      - service: light.turn_off
+        entity_id: light.kitchen
