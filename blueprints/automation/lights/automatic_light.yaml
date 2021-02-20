@@ -119,4 +119,6 @@ action:
   - delay: !input no_motion_wait
   - service: light.turn_off
     entity_id: !input light_entity
+    data:
+      transition: 1
 mode: restart
