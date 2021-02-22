@@ -19,3 +19,6 @@ action:
         command: upload
   - service: input_boolean.turn_off
     entity_id: input_boolean.start_backup
+  - service: notify.admin_telegram
+    data:
+      message: "Home assistant has been backed-up successfully."

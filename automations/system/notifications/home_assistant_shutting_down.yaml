@@ -3,6 +3,10 @@ alias: System notification - Home Assistant shutting down
 trigger:
   - platform: homeassistant
     event: shutdown
+condition:
+  - condition: state
+    entity_id: input_boolean.group_system_notifications
+    state: "on"
 action:
   - service: notify.group_telegram
     data:

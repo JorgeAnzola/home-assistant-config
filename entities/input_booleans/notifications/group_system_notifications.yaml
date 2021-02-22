@@ -1,0 +1,4 @@
+---
+group_system_notifications:
+  name: Group system notifications
+  icon: mdi:bell
