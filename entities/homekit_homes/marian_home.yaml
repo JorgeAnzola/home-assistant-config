@@ -18,3 +18,5 @@ filter:
     - sensor.air_purifier_humidity
     - sensor.air_purifier_air_quality_pm25
     - sensor.air_purifier_temp
+    - input_boolean.cinema_mode
+    - input_boolean.dryer
