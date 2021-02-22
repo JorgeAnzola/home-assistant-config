@@ -1,0 +1,49 @@
+---
+google_actions:
+  filter:
+    include_entities:
+      - light.kitchen_white_light
+      - light.kitchen_warm_light
+      - light.living_room_white_light
+      - light.living_room_warm_light
+      - light.small_bedroom_white_light
+      - light.small_bedroom_warm_light
+      - light.e14_color_1
+  entity_config:
+    light.kitchen_white_light:
+      name: Kitchen white light
+      aliases:
+        - Kitchen white light
+      room: Kitchen
+    light.kitchen_warm_light:
+      name: Kitchen warm light
+      aliases:
+        - Kitchen warm light
+      room: Kitchen
+    light.living_room_warm_light:
+      name: Living room warm light
+      aliases:
+        - Living room warm light
+      room: Living room
+    light.living_room_white_light:
+      name: Living room white light
+      aliases:
+        - Living room white light
+      room: Living room
+    light.small_bedroom_warm_light:
+      name: Small bedroom warm light
+      aliases:
+        - Small bedroom warm light
+      room: Small bedroom
+    light.small_bedroom_white_light:
+      name: Small bedroom white light
+      aliases:
+        - Small bedroom white light
+      room: Small bedroom
+    light.e14_color_1:
+      name: Small bedroom nightstand light
+      aliases:
+        - Small bedroom nightstand
+        - Small bedroom night table
+        - Small bedroom side table
+      room: Small bedroom
