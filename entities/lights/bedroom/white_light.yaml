@@ -19,5 +19,5 @@ lights:
         data_template:
           entity_id: >
             {%- if is_state("light.bedroom_warm_light", "on") -%}
-              "light.bedroom"
+              light.bedroom
             {%- endif -%}
