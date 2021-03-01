@@ -43,55 +43,55 @@ trigger:
     from: 'off'
     to: 'on'
 condition: [ ]
-  action:
-    - choose:
-        - conditions:
-            - condition: or
-              conditions:
-                - condition: time
-                  after: 09:00
-                  before: '20:00'
-                  weekday:
-                    - mon
-                    - tue
-                    - wed
-                    - thu
-                    - fri
-                - condition: time
-                  after: '10:00'
-                  before: '20:00'
-                  weekday:
-                    - sat
-                    - sun
-          sequence:
-            - service: light.turn_on
-              data: !input data_white
-              entity_id: !input light_entity
-        - conditions:
-            - condition: or
-              conditions:
-                - condition: time
-                  after: '20:00'
-                  before: '23:00'
-                - condition: state
-                  entity_id: light.kitchen
-                  state: 'on'
-                - condition: state
-                  entity_id: light.living_room
-                  state: 'on'
-          sequence:
-            - service: light.turn_on
-              data: !input data_warm
-              entity_id: !input light_entity
-      default: [ ]
-    - wait_for_trigger:
-        - platform: state
-          entity_id: !input motion_entity
-          from: 'on'
-          to: 'off'
-    - delay: !input no_motion_wait
-    - service: light.turn_off
-      entity_id: !input light_entity
-      data:
-        transition: 1
+action:
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: time
+                after: 09:00
+                before: '20:00'
+                weekday:
+                  - mon
+                  - tue
+                  - wed
+                  - thu
+                  - fri
+              - condition: time
+                after: '10:00'
+                before: '20:00'
+                weekday:
+                  - sat
+                  - sun
+        sequence:
+          - service: light.turn_on
+            data: !input data_white
+            entity_id: !input light_entity
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: time
+                after: '20:00'
+                before: '23:00'
+              - condition: state
+                entity_id: light.kitchen
+                state: 'on'
+              - condition: state
+                entity_id: light.living_room
+                state: 'on'
+        sequence:
+          - service: light.turn_on
+            data: !input data_warm
+            entity_id: !input light_entity
+    default: [ ]
+  - wait_for_trigger:
+      - platform: state
+        entity_id: !input motion_entity
+        from: 'on'
+        to: 'off'
+  - delay: !input no_motion_wait
+  - service: light.turn_off
+    entity_id: !input light_entity
+    data:
+      transition: 1
 mode: restart
