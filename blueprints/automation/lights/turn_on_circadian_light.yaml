@@ -32,9 +32,13 @@ condition:
 action:
   - choose:
       - conditions:
-          - condition: state
-            entity_id: sun.sun
-            state: "above_horizon"
+          - condition: and
+            conditions:
+              - condition: time
+                after: '10:00'
+              - condition: state
+                entity_id: sun.sun
+                state: "above_horizon"
         sequence:
           - service: light.turn_on
             entity_id: !input light_entity
