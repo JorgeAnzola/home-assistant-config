@@ -10,9 +10,17 @@ condition: [ ]
 action:
   - choose:
       - conditions:
-          - condition: state
-            entity_id: sun.sun
-            state: below_horizon
+          - condition: or
+            conditions:
+              - condition: time
+                after: '20:00'
+                before: '10:00'
+              - condition: state
+                entity_id: light.kitchen
+                state: 'on'
+              - condition: state
+                entity_id: light.living_room
+                state: 'on'
         sequence:
           - service: light.turn_on
             data: !include /config/general_utilities/lights/warm_light.yaml

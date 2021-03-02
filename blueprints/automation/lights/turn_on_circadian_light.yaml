@@ -35,7 +35,7 @@ action:
           - condition: and
             conditions:
               - condition: time
-                after: '10:00'
+                after: '11:00'
               - condition: state
                 entity_id: sun.sun
                 state: "above_horizon"
