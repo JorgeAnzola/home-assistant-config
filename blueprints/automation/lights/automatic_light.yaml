@@ -42,75 +42,48 @@ trigger:
     entity_id: !input motion_entity
     from: 'off'
     to: 'on'
-condition: []
+condition: [ ]
 action:
   - choose:
-    - conditions:
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: sun.sun
-          state: below_horizon
-        - condition: or
-          conditions:
-          - condition: time
-            after: '10:00'
-            before: 00:00
-            weekday:
-            - mon
-            - tue
-            - wed
-            - thu
-            - fri
-          - condition: time
-            after: '11:00'
-            before: 00:00
-            weekday:
-            - sat
-            - sun
-          - condition: and
+      - conditions:
+          - condition: or
             conditions:
-            - condition: state
-              entity_id: sun.sun
-              state: below_horizon
-            - condition: or
-              conditions:
+              - condition: time
+                after: 10:00
+                before: '20:00'
+                weekday:
+                  - mon
+                  - tue
+                  - wed
+                  - thu
+                  - fri
+              - condition: time
+                after: '11:00'
+                before: '20:00'
+                weekday:
+                  - sat
+                  - sun
+        sequence:
+          - service: light.turn_on
+            data: !input data_white
+            entity_id: !input light_entity
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: time
+                after: '20:00'
+                before: '23:00'
               - condition: state
                 entity_id: light.kitchen
                 state: 'on'
               - condition: state
                 entity_id: light.living_room
                 state: 'on'
-      sequence:
-      - service: light.turn_on
-        data: !input data_warm
-        entity_id: !input light_entity
-    - conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: above_horizon
-      - condition: or
-        conditions:
-        - condition: time
-          after: '10:00'
-          before: 00:00
-          weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-        - condition: time
-          after: '11:00'
-          before: 00:00
-          weekday:
-          - sat
-          - sun
-      sequence:
-      - service: light.turn_on
-        data: !input data_white
-        entity_id: !input light_entity
-    default: []
+        sequence:
+          - service: light.turn_on
+            data: !input data_warm
+            entity_id: !input light_entity
+    default: [ ]
   - wait_for_trigger:
       - platform: state
         entity_id: !input motion_entity
