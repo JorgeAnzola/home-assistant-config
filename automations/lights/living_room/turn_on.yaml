@@ -10,3 +10,4 @@ use_blueprint:
       click_type: single
     white_light_entity: light.living_room_white_light
     warm_light_entity: light.living_room_warm_light
+    light_entity: light.living_room
