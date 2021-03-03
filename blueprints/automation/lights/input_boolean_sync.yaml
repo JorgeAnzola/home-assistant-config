@@ -19,11 +19,6 @@ trigger:
     to: "off"
 
   - platform: state
-    entity_id: !input main_light_entity
-    from: "off"
-    to: "on"
-
-  - platform: state
     entity_id: !input warm_light_entity
     from: "on"
     to: "off"
