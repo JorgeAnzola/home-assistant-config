@@ -46,29 +46,6 @@ action:
       entity_id: !input warm_light_entity
     - service: light.turn_off
       entity_id: !input white_light_entity
-
-  - conditions:
-    - condition: state
-      entity_id: !input main_light_entity
-      state: 'on'
-    - condition: numeric_state
-      value_template: '{{ state.attributes.color_temp }}'
-      above: 444
-    sequence:
-    - service: light.turn_on
-      entity_id: !input warm_light_entity
-
-  - conditions:
-    - condition: state
-      entity_id: !input main_light_entity
-      state: 'on'
-    - condition: numeric_state
-      value_template: '{{ state.attributes.color_temp }}'
-      below: 154
-    sequence:
-    - service: light.turn_on
-      entity_id: !input white_light_entity
-
   - conditions:
     - condition: and
       conditions:
