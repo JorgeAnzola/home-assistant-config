@@ -12,6 +12,8 @@ blueprint:
       name: Event type
     event_data:
       name: Event data
+    light_entity:
+      name: light entity
     white_light_entity:
       name: White light entity
     warm_light_entity:
