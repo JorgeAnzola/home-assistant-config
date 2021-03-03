@@ -55,7 +55,7 @@ action:
             data: !input data_white
       - conditions:
           - condition: time
-            after: "21:00"
+            after: "20:00"
             before: "23:00"
         sequence:
           - service: light.turn_on
