@@ -6,6 +6,9 @@ lights:
     turn_on:
       - service: light.turn_on
         entity_id: light.kitchen_warm_light
+      - service: light.turn_on
+        entity_id: light.kitchen
+        data: !include /config/general_utilities/lights/warm_light.yaml
       - service: light.turn_off
         entity_id: light.kitchen_white_light
     turn_off:
