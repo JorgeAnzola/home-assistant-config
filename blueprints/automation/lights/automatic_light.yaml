@@ -85,7 +85,7 @@ action:
     default: []
   - wait_for_trigger:
       - platform: state
-        entity_id: !input light_entity
+        entity_id: !input motion_entity
         from: "on"
         to: "off"
     continue_on_timeout: false
