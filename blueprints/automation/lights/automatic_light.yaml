@@ -39,9 +39,9 @@ blueprint:
 
 trigger:
   - platform: state
-    entity_id: !input light_entity
-    to: "on"
+    entity_id: !input motion_entity
     from: "off"
+    to: "on"
 condition: []
 action:
   - choose:
