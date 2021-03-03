@@ -5,11 +5,15 @@ lights:
     friendly_name: "Bedroom warm light"
     turn_on:
       - service: light.turn_on
+        entity_id: light.bedroom_warm_light
+      - service: light.turn_on
         entity_id: light.bedroom
         data: !include /config/general_utilities/lights/warm_light.yaml
+      - service: light.turn_off
+        entity_id: light.bedroom_white_light
     turn_off:
       - service: light.turn_off
-        entity_id: light.bedroom
+        entity_id: light.bedroom_warm_light
     set_level:
       - service: light.turn_on
         data_template:
