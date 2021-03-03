@@ -1,0 +1,57 @@
+---
+blueprint:
+  name: Turn off the light connected to a input boolean
+
+  domain: automation
+
+  input:
+    main_light_entity:
+      name: Main light entity
+    warm_light_entity:
+      name: Warm light entity
+    white_light_entity:
+      name: White light entity
+
+trigger:
+  - platform: state
+    entity_id: !input main_light_entity
+    from: "on"
+    to: "off"
+
+  - platform: state
+    entity_id: !input warm_light_entity
+    from: "on"
+    to: "off"
+
+  - platform: state
+    entity_id: !input white_light_entity
+    from: "on"
+    to: "off"
+
+condition: []
+
+action:
+- choose:
+  - conditions:
+    - condition: state
+      entity_id: !input main_light_entity
+      state: 'off'
+    sequence:
+    - service: light.turn_off
+      entity_id: !input warm_light_entity
+    - service: light.turn_off
+      entity_id: !input white_light_entity
+  - conditions:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: !input warm_light_entity
+        state: 'off'
+      - condition: state
+        entity_id: !input white_light_entity
+        state: 'off'
+    sequence:
+    - service: light.turn_off
+      entity_id: !input main_light_entity
+  default: []
+mode: single
