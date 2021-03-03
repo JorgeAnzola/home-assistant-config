@@ -4,7 +4,7 @@ lights:
   small_bedroom_white_light:
     friendly_name: "Small bedroom white light"
     turn_on:
-      - service: light.turn_off
+      - service: light.turn_on
         entity_id: light.small_bedroom_white_light
     turn_off:
       - service: light.turn_off

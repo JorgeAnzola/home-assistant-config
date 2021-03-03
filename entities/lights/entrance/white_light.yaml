@@ -4,7 +4,7 @@ lights:
   entrance_white_light:
     friendly_name: "Entrance white light"
     turn_on:
-      - service: light.turn_off
+      - service: light.turn_on
         entity_id: light.entrance_white_light
     turn_off:
       - service: light.turn_off
