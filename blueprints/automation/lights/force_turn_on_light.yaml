@@ -22,5 +22,3 @@ trigger:
 action:
   - service: light.turn_on
     entity_id: !input light_entity
-    data:
-      transition: 1

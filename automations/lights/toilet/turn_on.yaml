@@ -4,10 +4,9 @@ alias: Toilet light - Turn on circadian light
 use_blueprint:
   path: lights/turn_on_circadian_light.yaml
   input:
-    light_entity: light.toilet
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_4
       click_type: single
-    data_white: !include /config/general_utilities/lights/white_light.yaml
-    data_warm: !include /config/general_utilities/lights/dim_warm_light.yaml
+    white_light_entity: light.toilet_white_light
+    warm_light_entity: light.toilet_room_warm_light
