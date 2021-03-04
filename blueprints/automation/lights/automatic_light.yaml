@@ -78,9 +78,6 @@ action:
                   - condition: state
                     entity_id: light.shower
                     state: "on"
-                  - condition: state
-                    entity_id: light.toilet
-                    state: "on"
         sequence:
           - service: light.turn_on
             data: !input data_warm
