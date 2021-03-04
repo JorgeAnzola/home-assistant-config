@@ -8,11 +8,61 @@ description: >
 
   It will turn off the light when there's no more motion for 360 seconds
 
-use_blueprint:
-  path: lights/automatic_light.yaml
-  input:
-    light_entity: light.shower
-    motion_entity: group.shower_sensors
-    no_motion_wait: 360
-    data_white: !include /config/general_utilities/lights/slow_white_light.yaml
-    data_warm: !include /config/general_utilities/lights/slow_white_light.yaml
+trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_4
+    from: "off"
+    to: "on"
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: time
+            after: "09:00"
+            before: "20:00"
+        sequence:
+          - service: light.turn_on
+            entity_id: light.shower
+            data: !include /config/general_utilities/lights/slow_white_light.yaml
+      - conditions:
+          - condition: time
+            after: "20:00"
+            before: "23:00"
+        sequence:
+          - service: light.turn_on
+            entity_id: light.shower
+            data: !include /config/general_utilities/lights/slow_dim_white_light.yaml
+      - conditions:
+          - condition: and
+            conditions:
+              - condition: time
+                after: "23:00"
+                before: "09:00"
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: light.kitchen
+                    state: "on"
+                  - condition: state
+                    entity_id: light.living_room
+                    state: "on"
+                  - condition: state
+                    entity_id: light.shower
+                    state: "on"
+        sequence:
+          - service: light.turn_on
+            data: !include /config/general_utilities/lights/slow_dim_white_light.yaml
+            entity_id: light.shower
+    default: []
+  - wait_for_trigger:
+      - platform: state
+        entity_id: group.shower_sensors
+        from: "on"
+        to: "off"
+    continue_on_timeout: false
+  - delay: 360
+  - service: light.turn_off
+    data:
+      transition: 1
+    entity_id: light.shower
+mode: restart
