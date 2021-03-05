@@ -3,7 +3,6 @@ alias: System notification - Update available
 trigger:
   - platform: state
     entity_id: binary_sensor.updater
-    from: 'off'
     to: 'on'
 action:
   - service: notify.admin_telegram
