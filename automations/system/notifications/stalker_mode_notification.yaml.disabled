@@ -1,0 +1,15 @@
+---
+alias: System notification - Stalker mode
+trigger:
+  - platform: event
+    event_type:
+      - state_changed
+
+condition:
+  - condition: template
+    value_template: "{{ trigger.event.data.entity_id.startswith('light.') }}"
+
+action:
+  - service: notify.admin_telegram
+    data:
+      message: "{{ state_attr(trigger.event.data.entity_id, 'domain') }}, {{ state_attr(trigger.event.data.entity_id, 'friendly_name') }} has changed to {{ trigger.event.data.new_state.state }}"
