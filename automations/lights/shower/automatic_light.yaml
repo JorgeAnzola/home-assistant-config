@@ -19,19 +19,11 @@ action:
       - conditions:
           - condition: time
             after: "09:00"
-            before: "20:00"
-        sequence:
-          - service: light.turn_on
-            entity_id: light.shower
-            data: !include /config/general_utilities/lights/slow_white_light.yaml
-      - conditions:
-          - condition: time
-            after: "20:00"
             before: "23:00"
         sequence:
           - service: light.turn_on
             entity_id: light.shower
-            data: !include /config/general_utilities/lights/slow_dim_white_light.yaml
+            data: !include /config/general_utilities/lights/slow_white_light.yaml
       - conditions:
           - condition: and
             conditions:
@@ -51,7 +43,7 @@ action:
                     state: "on"
         sequence:
           - service: light.turn_on
-            data: !include /config/general_utilities/lights/slow_dim_white_light.yaml
+            data: !include /config/general_utilities/lights/slow_white_light.yaml
             entity_id: light.shower
     default: []
   - wait_for_trigger:
