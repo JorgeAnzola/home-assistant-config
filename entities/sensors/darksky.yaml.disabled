@@ -1,7 +1,12 @@
 platform: darksky
 api_key: !secret darksky_api_key
 language: en
-scan_interval:
-  minutes: 1
+forecast:
+  - 0
+hourly_forecast:
+  - 0
+  - 1
 monitored_conditions:
-  - minutely_summary
+  - summary
+  - icon
+  - temperature
