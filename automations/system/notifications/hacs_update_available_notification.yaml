@@ -1,5 +1,5 @@
 ---
-alias: System notification - Update available
+alias: System notification - HACS update available
 trigger:
   - platform: numeric_state
     entity_id: sensor.hacs

@@ -3,8 +3,9 @@ alias: System notification - Update available
 trigger:
   - platform: state
     entity_id: binary_sensor.updater
-    to: 'on'
+    from: "off"
+    to: "on"
 action:
   - service: notify.admin_telegram
     data:
-      message: 'There is a new Home Assistant release available.'
+      message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
