@@ -9,15 +9,16 @@ sequence:
     data:
       store_name: cinema_mode_previous_states
       entity_id:
-        - light.kitchen
-        - light.living_room
+        - light.kitchen_warm_light
+        - light.kitchen_white_light
+        - light.kitchen_cinema_light
+        - light.living_room_warm_light
+        - light.living_room_white_light
         - light.hyperion
   - service: light.turn_on
-    entity_id: light.kitchen
-    data: !include /config/general_utilities/lights/warm_light.yaml
-  - service: light.turn_on
+    entity_id: light.kitchen_cinema_light
+  - service: light.turn_off
     entity_id: light.living_room
-    data: !include /config/general_utilities/lights/warm_light.yaml
   - service: light.turn_on
     data:
       entity_id: light.hyperion
