@@ -1,0 +1,13 @@
+---
+alias: Telegram Assistant - Weather brief by command
+
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: "/weather"
+action:
+  - service: notify.group_telegram
+    data_template:
+      message: >
+        {{ states('sensor.brief') }}

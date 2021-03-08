@@ -1,0 +1,12 @@
+---
+alias: Telegram Assistant - Dialy weather brief
+
+trigger:
+  - platform: time
+    at: "09:00:00"
+    
+action:
+  - service: notify.group_telegram
+    data_template:
+      message: >
+        {{ states('sensor.brief') }}

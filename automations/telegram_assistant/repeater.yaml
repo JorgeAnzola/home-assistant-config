@@ -1,0 +1,13 @@
+---
+alias: Telegram Assistant - Message repeater
+
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: "/repeat"
+action:
+  - service: notify.group_telegram
+    data:
+      message: >
+        {% for msg in trigger.event.data["args"] %} {{ msg }} {% endfor %}
