@@ -5,7 +5,10 @@ description: >
   Restore light states
 
 sequence:
-  - service: python_script.light_store
+  - service: light.turn_on
+    entity_id: light.kitchen_warm_light
+  - service: light.turn_on
+    entity_id: light.living_room_warm_light
+  - service: light.turn_off
     data:
-      store_name: cinema_mode_previous_states
-      operation: restore
+      entity_id: light.hyperion

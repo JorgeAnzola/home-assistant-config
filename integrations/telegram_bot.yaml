@@ -5,3 +5,4 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_group_id
       - !secret telegram_admin_id
+      - !secret telegram_alternative_group_id

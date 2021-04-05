@@ -44,7 +44,7 @@ sensors:
         {% set condition_emoji = '🌩️⚡️️' %}
       {% endif %}
 
-      {% if 5 < now().hour < 12 %}
+      {% if 5 < now().hour < 11 %}
         {% set greetings = "Good morning ☕️🥐" %}
       {% elif now().hour < 18 %}
         {% set greetings = "Good afternoon 👋🏻" %}
