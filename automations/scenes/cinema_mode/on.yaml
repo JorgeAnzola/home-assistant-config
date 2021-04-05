@@ -1,11 +1,14 @@
 ---
-alias: Scene - Cinema mode - Turn off
+alias: Scene - Cinema mode - Turn on
 
 trigger:
-  platform: state
-  entity_id: input_boolean.cinema_mode
-  to: "off"
+  - platform: state
+    entity_id: input_boolean.cinema_mode
+    to: "on"
+  - platform: state
+    entity_id: input_boolean.modo_cine
+    to: "on"
 action:
   service: script.turn_on
   data:
-    entity_id: script.cinema_mode_off
+    entity_id: script.cinema_mode_on
