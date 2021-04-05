@@ -22,5 +22,5 @@ esphome/.esphome/*
 .Trash*
 .idea/*
 workspace.xml
-
+.DS_Store
 !.gitkeep
