@@ -1,4 +1,5 @@
 ---
+id: '20188182112389'
 alias: System notification - HACS update available
 trigger:
   - platform: numeric_state

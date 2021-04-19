@@ -1,4 +1,5 @@
 ---
+id: '30740539789395'
 alias: System notification - Stalker mode
 trigger:
   - platform: event

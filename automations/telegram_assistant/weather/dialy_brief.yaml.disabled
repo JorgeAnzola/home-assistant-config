@@ -1,10 +1,11 @@
 ---
+id: '94163715848805'
 alias: Telegram Assistant - Dialy weather brief
 
 trigger:
   - platform: time
     at: "09:00:00"
-    
+
 action:
   - service: notify.group_telegram
     data_template:

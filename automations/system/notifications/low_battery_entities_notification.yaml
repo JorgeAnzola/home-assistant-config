@@ -1,4 +1,5 @@
 ---
+id: '95532824989760'
 alias: System notification - Low battery entities
 trigger:
   - platform: time

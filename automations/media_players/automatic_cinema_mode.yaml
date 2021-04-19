@@ -1,4 +1,5 @@
 ---
+id: '26188521072094'
 alias: Media players - Apple TV - Automatic Cinema Mode
 description: "Turns on the Cinema Mode when the Apple TV has been playing for 30 seconds."
 trigger:
