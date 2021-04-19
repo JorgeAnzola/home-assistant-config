@@ -1,5 +1,5 @@
 ---
-alias: Shower light - automatic light
+alias: Shower light - Automatic light
 description: >
   This automation will turn on the shower light on based on a series of conditions.
   For example:
@@ -10,42 +10,14 @@ description: >
 
 trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_4
+    entity_id: group.shower_sensors
     from: "off"
     to: "on"
 condition: []
 action:
-  - choose:
-      - conditions:
-          - condition: time
-            after: "09:00"
-            before: "23:00"
-        sequence:
-          - service: light.turn_on
-            entity_id: light.shower
-            data: !include /config/general_utilities/lights/slow_white_light.yaml
-      - conditions:
-          - condition: and
-            conditions:
-              - condition: time
-                after: "23:00"
-                before: "09:00"
-              - condition: or
-                conditions:
-                  - condition: state
-                    entity_id: light.kitchen
-                    state: "on"
-                  - condition: state
-                    entity_id: light.living_room
-                    state: "on"
-                  - condition: state
-                    entity_id: light.shower
-                    state: "on"
-        sequence:
-          - service: light.turn_on
-            data: !include /config/general_utilities/lights/slow_white_light.yaml
-            entity_id: light.shower
-    default: []
+  - service: light.turn_on
+    entity_id: light.shower
+    data: !include /config/general_utilities/lights/slow_white_light.yaml
   - wait_for_trigger:
       - platform: state
         entity_id: group.shower_sensors
