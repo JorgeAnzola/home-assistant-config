@@ -5,3 +5,23 @@
 
 name: Jorge's home
 port: !secret jorge_homekit_home_port
+filter:
+  include_entities:
+    - light.bedroom_white_light
+    - light.bedroom_warm_light
+    - light.kitchen_white_light
+    - light.kitchen_warm_light
+    - light.living_room_white_light
+    - light.living_room_warm_light
+    - light.small_bedroom_white_light
+    - light.small_bedroom_warm_light
+    - fan.air_purifier
+    - sensor.air_purifier_humidity
+    - sensor.air_purifier_air_quality_pm25
+    - sensor.air_purifier_temp
+    - light.bed_decoration
+    - switch.plug_1
+    - light.e14_filament_2
+    - input_boolean.cinema_mode
+    - input_boolean.dryer
+    - switch.plug_2
