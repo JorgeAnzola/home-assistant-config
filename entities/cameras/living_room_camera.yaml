@@ -1,0 +1,4 @@
+---
+platform: mjpeg
+mjpeg_url: http://192.168.178.85:8081
+name: Test camera
