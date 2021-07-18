@@ -1,5 +1,5 @@
 ---
-id: '29931871079410'
+id: "29931871079410"
 alias: Shower light - Automatic light
 description: >
   This automation will turn on the shower light on based on a series of conditions.
@@ -15,6 +15,6 @@ use_blueprint:
   input:
     light_entity: light.shower
     motion_entity: group.shower_sensors
-    no_motion_wait: 360
+    no_motion_wait: 120
     data_white: !include /config/general_utilities/lights/slow_white_light.yaml
     data_warm: !include /config/general_utilities/lights/slow_white_light.yaml
