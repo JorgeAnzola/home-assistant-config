@@ -16,3 +16,6 @@
 #  # Number of failed login attempts from a single IP after which it will
 #  # be automatically banned.
 #  login_attempts_threshold: 5
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
