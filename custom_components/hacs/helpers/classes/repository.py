@@ -269,7 +269,7 @@ class HacsRepository(RepositoryHelpers):
             )
             return False
 
-        # Update last updaeted
+        # Update last updated
         self.data.last_updated = self.repository_object.attributes.get("pushed_at", 0)
 
         # Update last available commit
@@ -384,7 +384,7 @@ class HacsRepository(RepositoryHelpers):
             self.hacs.common.installed.remove(self.data.id)
         for repository in self.hacs.repositories:
             if repository.data.id == self.data.id:
-                self.hacs.repositories.remove(repository)
+                self.hacs.async_remove_repository(repository)
 
     async def uninstall(self):
         """Run uninstall tasks."""
@@ -418,7 +418,6 @@ class HacsRepository(RepositoryHelpers):
 
     async def remove_local_directory(self):
         """Check the local directory."""
-        import shutil
         from asyncio import sleep
 
         try:
