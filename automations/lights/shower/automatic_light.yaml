@@ -5,29 +5,16 @@ description: >
   This automation will turn on the shower light on based on a series of conditions.
   For example:
     - There's motion between a set time and day combination
+    - The cinema mode is on
     - The light of the kitchen or the living room is on
 
-  It will turn off the light when there's no more motion for 360 seconds
+  It will turn off the light when there's no more motion for 5 minutes.
 
-trigger:
-  - platform: state
-    entity_id: group.shower_sensors
-    from: "off"
-    to: "on"
-condition: []
-action:
-  - service: light.turn_on
-    entity_id: light.shower
-    data: !include /config/general_utilities/lights/slow_white_light.yaml
-  - wait_for_trigger:
-      - platform: state
-        entity_id: group.shower_sensors
-        from: "on"
-        to: "off"
-    continue_on_timeout: false
-  - delay: 360
-  - service: light.turn_off
-    data:
-      transition: 1
-    entity_id: light.shower
-mode: restart
+use_blueprint:
+  path: lights/automatic_light.yaml
+  input:
+    light_entity: light.shower
+    motion_entity: group.shower_sensors
+    no_motion_wait: 360
+    data_white: !include /config/general_utilities/lights/slow_white_light.yaml
+    data_warm: !include /config/general_utilities/lights/slow_white_light.yaml
