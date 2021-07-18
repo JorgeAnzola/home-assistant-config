@@ -20,7 +20,8 @@ filter:
     - sensor.air_purifier_air_quality_pm25
     - sensor.air_purifier_temp
     - light.bed_decoration
-    - switch.plug_1
     - light.e14_filament_2
     - input_boolean.cinema_mode
     - input_boolean.dryer
+    - switch.plug_2
+    - switch.plug_1

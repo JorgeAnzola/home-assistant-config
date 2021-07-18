@@ -1,4 +1,5 @@
 ---
+id: '28550001216411'
 alias: System notification - Home Assistant restarted
 trigger:
   - platform: homeassistant

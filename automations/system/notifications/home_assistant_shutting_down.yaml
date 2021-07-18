@@ -1,4 +1,5 @@
 ---
+id: '24854022592018'
 alias: System notification - Home Assistant shutting down
 trigger:
   - platform: homeassistant

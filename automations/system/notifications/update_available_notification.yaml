@@ -1,4 +1,5 @@
 ---
+id: '27714014329885'
 alias: System notification - Update available
 trigger:
   - platform: state

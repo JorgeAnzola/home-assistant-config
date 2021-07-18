@@ -22,5 +22,8 @@ esphome/.esphome/*
 .Trash*
 .idea/*
 workspace.xml
-
+.DS_Store
 !.gitkeep
+
+# Zigbee 2 MQTT, ignored until I know what to do with this
+zigbee2mqtt/

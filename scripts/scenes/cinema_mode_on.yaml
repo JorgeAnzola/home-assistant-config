@@ -5,16 +5,16 @@ description: >
   Turns on the Cinema mode storing the involved lights state.
 
 sequence:
-  - service: python_script.light_store
-    data:
-      store_name: cinema_mode_previous_states
-      entity_id:
-        - light.kitchen_warm_light
-        - light.kitchen_white_light
-        - light.kitchen_cinema_light
-        - light.living_room_warm_light
-        - light.living_room_white_light
-        - light.hyperion
+  # - service: python_script.light_store
+  #   data:
+  #     store_name: cinema_mode_previous_states
+  #     entity_id:
+  #       - light.kitchen_warm_light
+  #       - light.kitchen_white_light
+  #       - light.kitchen_cinema_light
+  #       - light.living_room_warm_light
+  #       - light.living_room_white_light
+  #       - light.hyperion
   - service: light.turn_on
     entity_id: light.kitchen_cinema_light
   - service: light.turn_off
@@ -22,4 +22,4 @@ sequence:
   - service: light.turn_on
     data:
       entity_id: light.hyperion
-      effect: "Cinema brighten lights"
+      effect: "V4L"
