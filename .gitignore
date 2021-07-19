@@ -26,4 +26,7 @@ workspace.xml
 !.gitkeep
 
 # Zigbee 2 MQTT, ignored until I know what to do with this
-zigbee2mqtt/
+zigbee2mqtt/logs/
+zigbee2mqtt/configuration.yaml
+zigbee2mqtt/.configuration.yaml.bk
+zigbee2mqtt/state.json
