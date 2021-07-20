@@ -1,0 +1,6 @@
+---
+type: entities
+title: Test card
+entities:
+  - entity: light.bedroom
+    name: Light
