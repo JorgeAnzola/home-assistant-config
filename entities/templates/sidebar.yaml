@@ -87,13 +87,6 @@ sensor:
           <font color='#6a7377'>Everything is off</font>
         {%- endif -%}
         </b>
-      vacuum: |
-        {% set entity_id = 'vacuum.valetudo_robot' %}
-        {%- if is_state(entity_id, 'cleaning') -%}
-          <b>Morty dammsuger</b>
-        {%- elif is_state(entity_id, 'returning') -%}
-          <b>Morty är färdig</b>
-        {%- endif %}
       weather: |
         {%- set temperature = states('sensor.br_temperature') %}
         {%- set apparent = states('sensor.br_feel_temperature') | round %}
@@ -114,6 +107,3 @@ sensor:
         {%- set time = as_timestamp(date) | timestamp_custom('%H:%M') -%}
           Nästa buss går {{ time }} från {{ state_attr(entity_id, 'name').split()[1] }}
         {% endif %}
-  - unique_id: public_ip
-    icon: mdi:ip
-    state: !secret public_ip
