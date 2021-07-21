@@ -1,6 +1,8 @@
 ---
 tablet:
   #default dark mode
+  background-image: "center / cover no-repeat fixed url('/local/background.png')"
+  lovelace-background: var(--background-image)
   primary-text-color: '#e1e1e1'
   primary-background-color: '#111111'
   secondary-background-color: '#202020'
