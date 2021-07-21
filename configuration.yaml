@@ -6,4 +6,6 @@ homeassistant:
   unit_system: metric
   temperature_unit: C
   time_zone: Europe/Amsterdam
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   packages: !include_dir_named integrations
