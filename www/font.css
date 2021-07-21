@@ -1,222 +1,222 @@
 @font-face {
 	font-family: sf display;
 	font-weight: 900;
-	src: url(/local/fonts/SF-UI-Display-Black.otf)
+	src: url(/local/fonts/SF-UI-Display-Black.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 700;
-	src: url(/local/fonts/SF-UI-Display-Bold.otf)
+	src: url(/local/fonts/SF-UI-Display-Bold.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 800;
-	src: url(/local/fonts/SF-UI-Display-Heavy.otf)
+	src: url(/local/fonts/SF-UI-Display-Heavy.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 200;
-	src: url(/local/fonts/SF-UI-Display-Light.otf)
+	src: url(/local/fonts/SF-UI-Display-Light.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 500;
-	src: url(/local/fonts/SF-UI-Display-Medium.otf)
+	src: url(/local/fonts/SF-UI-Display-Medium.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 400;
-	src: url(/local/fonts/SF-UI-Display-Regular.otf)
+	src: url(/local/fonts/SF-UI-Display-Regular.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 600;
-	src: url(/local/fonts/SF-UI-Display-Semibold.otf)
+	src: url(/local/fonts/SF-UI-Display-Semibold.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 300;
-	src: url(/local/fonts/SF-UI-Display-Thin.otf)
+	src: url(/local/fonts/SF-UI-Display-Thin.ttf)
 }
 
 @font-face {
 	font-family: sf display;
 	font-weight: 100;
-	src: url(/local/fonts/SF-UI-Display-Ultralight.otf)
+	src: url(/local/fonts/SF-UI-Display-Ultrathin.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 700;
-	src: url(/local/fonts/SF-UI-Display-Bold.otf)
+	src: url(/local/fonts/SF-UI-Text-Bold.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 700;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-BoldItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-BoldItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 800;
-	src: url(/local/fonts/SF-UI-Display-Heavy.otf)
+	src: url(/local/fonts/SF-UI-Text-Heavy.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 800;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-HeavyItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-HeavyItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 200;
-	src: url(/local/fonts/SF-UI-Display-Light.otf)
+	src: url(/local/fonts/SF-UI-Text-Light.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 200;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-LightItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-LightItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 500;
-	src: url(/local/fonts/SF-UI-Display-Medium.otf)
+	src: url(/local/fonts/SF-UI-Text-Medium.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 500;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-MediumItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-MediumItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 400;
-	src: url(/local/fonts/SF-UI-Display-Regular.otf)
+	src: url(/local/fonts/SF-UI-Text-Regular.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 400;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-RegularItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-RegularItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 600;
-	src: url(/local/fonts/SF-UI-Display-Semibold.otf)
+	src: url(/local/fonts/SF-UI-Text-Semibold.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 600;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-SemiboldItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-SemiboldItalic.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 100;
-	src: url(/local/fonts/SF-UI-Display-Ultrathin.otf)
+	src: url(/local/fonts/SF-UI-Text-Ultrathin.ttf)
 }
 
 @font-face {
 	font-family: sf text;
 	font-weight: 100;
 	font-style: italic;
-	src: url(/local/fonts/SF-UI-Display-UltrathinItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-Ultrathin.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 700;
-	src: url(/local/fonts/SFMono-Bold.otf)
+	src: url(/local/fonts/SF-UI-Text-Bold.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 700;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-BoldItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-BoldItalic.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 800;
-	src: url(/local/fonts/SFMono-Heavy.otf)
+	src: url(/local/fonts/SF-UI-Text-Heavy.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 800;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-HeavyItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-HeavyItalic.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 200;
-	src: url(/local/fonts/SFMono-Light.otf)
+	src: url(/local/fonts/SF-UI-Text-Light.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 200;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-LightItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-LightItalic.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 500;
-	src: url(/local/fonts/SFMono-Medium.otf)
+	src: url(/local/fonts/SF-UI-Text-Medium.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 500;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-MediumItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-MediumItalic.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 400;
-	src: url(/local/fonts/SFMono-Regular.otf)
+	src: url(/local/fonts/SF-UI-Text-Regular.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 400;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-RegularItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-RegularItalic.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 600;
-	src: url(/local/fonts/SFMono-Semibold.otf)
+	src: url(/local/fonts/SF-UI-Text-Semibold.ttf)
 }
 
 @font-face {
 	font-family: sf mono;
 	font-weight: 600;
 	font-style: italic;
-	src: url(/local/fonts/SFMono-SemiboldItalic.otf)
+	src: url(/local/fonts/SF-UI-Text-SemiboldItalic.ttf)
 }
