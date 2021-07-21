@@ -84,7 +84,7 @@ sensor:
         {%- elif (lights_on | length > 1) and (switches_on | length == 0) -%}
           {{ lights_on | length }} lampor är på
         {%- else %}
-          <font color='#6a7377'>Allt är avstängt</font>
+          <font color='#6a7377'>Everything is off</font>
         {%- endif -%}
         </b>
       vacuum: |
