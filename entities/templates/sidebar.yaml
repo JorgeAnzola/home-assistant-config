@@ -4,9 +4,9 @@ sensor:
     state: template
     attributes:
       time: |
-        {%- set hours = '<span>' + now().strftime('%H') + '<span>' %}
+        {%- set hours = '<span class="clock">' + now().strftime('%H') + '<span>' %}
         {%- set minutes = '</span>' + now().strftime('%M') + '</span>' %}
-        <p>{{ hours }}:{{ minutes }}</p>
+        {{ hours }}:{{ minutes }}
       date: |
         <font color='#6a7377'><b>
         {%- if strptime(states('sensor.date'), '%Y-%m-%d').day != null %}
