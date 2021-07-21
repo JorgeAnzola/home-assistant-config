@@ -6,7 +6,7 @@ sensor:
       time: |
         {%- set hours = '<span>' + now().strftime('%H') + '<span>' %}
         {%- set minutes = '</span>' + now().strftime('%M') + '</span>' %}
-        {{ hours }}:{{ minutes }}
+        <p>{{ hours }}:{{ minutes }}</p>
       date: |
         <font color='#6a7377'><b>
         {%- if strptime(states('sensor.date'), '%Y-%m-%d').day != null %}

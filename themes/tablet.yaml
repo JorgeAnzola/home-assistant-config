@@ -1,7 +1,7 @@
 ---
 tablet:
   #default dark mode
-  background-image: "center / cover no-repeat fixed url('/local/background.jpg')"
+  background-image: "center / cover no-repeat fixed url('/local/background3.jpg')"
   lovelace-background: var(--background-image)
   primary-text-color: '#e1e1e1'
   primary-background-color: '#111111'
@@ -58,7 +58,7 @@ tablet:
 
   card-mod-root: |
     ha-app-layout {
-      background: url('/local/background.jpg');
+      background: url('/local/background3.jpg');
       background-size: cover;
     }
 
