@@ -1,7 +1,7 @@
 ---
 tablet:
   #default dark mode
-  background-image: "center / cover no-repeat fixed url('/local/background3.jpg')"
+  background-image: "center / cover no-repeat fixed url('/local/background5.jpg')"
   lovelace-background: var(--background-image)
   primary-text-color: "#e1e1e1"
   primary-background-color: "#111111"
@@ -13,7 +13,7 @@ tablet:
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
   sidebar-background-color: var(--card-background-color)
-  divider-color: rgba(225, 225, 225, 0.12)
+  divider-color: rgba(225, 225, 225, 0.12)F
 
   #edited
   ha-card-box-shadow: none
