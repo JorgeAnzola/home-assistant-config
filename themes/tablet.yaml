@@ -41,7 +41,7 @@ tablet:
   #custom variables
   ha-card-background-color: rgba(34,38,39,0.9)
   ha-card-header-background-color: rgba(48,52,52,0.8)
-  custom-layout-card-padding: 3.3vw
+  #custom-layout-card-padding: 3.3vw
   custom-button-card-border-radius: 8%
   markdown-sidebar-clock-font-size: 5vw
   markdown-sidebar-clock-line-height: 4vw
@@ -139,7 +139,7 @@ tablet:
       "$ha-card>ha-markdown":
         .: |
           ha-markdown {
-            padding: var(--custom-layout-card-padding) 2vw 0 var(--custom-layout-card-padding) !important;
+            padding: 3.3vw 2vw 0 3.3vw!important;
             pointer-events: none;
           }
 

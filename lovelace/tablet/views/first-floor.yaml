@@ -6,7 +6,8 @@ cards: !include_dir_list ../cards/first-floor
 type: custom:grid-layout
 layout:
   #default
-  grid-gap: var(--custom-layout-card-padding)
+  #grid-gap: var(--custom-layout-card-padding)
+  grid-gap: 3.3vw
   grid-template-columns: repeat(4, 1fr) 0
   grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
   grid-template-areas: |
@@ -17,7 +18,8 @@ layout:
   mediaquery:
     #phone
     "(max-width: 800px)":
-      grid-gap: calc(var(--custom-layout-card-padding) * 1.5)
+      #grid-gap: calc(var(--custom-layout-card-padding) * 1.5)
+      grid-gap: calc(3.3vw * 1.5)
       grid-template-columns: 0 repeat(2, 1fr) 0
       grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
       grid-template-areas: |
@@ -30,7 +32,8 @@ layout:
         ".  .           .        ."
     #portrait
     "(max-width: 1200px)":
-      grid-gap: var(--custom-layout-card-padding)
+      #grid-gap: var(--custom-layout-card-padding)
+      grid-gap: 3.3vw
       grid-template-columns: repeat(3, 1fr) 0
       grid-template-rows: 0 repeat(3, fit-content(100%)) 0fr
       grid-template-areas: |
