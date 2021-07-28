@@ -4,4 +4,4 @@ wall-mounted-tablet:
   title: Wall mounted tablet
   icon: mdi:tablet
   show_in_sidebar: true
-  filename: lovelace/wall-mounted-tablet/dashboard.yaml
+  filename: lovelace/tablet/dashboard.yaml
