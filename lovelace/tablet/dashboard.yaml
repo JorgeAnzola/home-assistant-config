@@ -4,13 +4,13 @@ resources:
     type: css
   - url: /local/community/bar-card/bar-card.js
     type: module
-  - url: /local/community/button-card/button-card.js
+  - url: /local/community/button-card/button-card.js.gz
     type: module
   - url: /local/community/kiosk-mode/kiosk-mode.js
     type: module
-  - url: /local/community/light-entity-card/light-entity-card.js
+  - url: /local/community/light-entity-card/light-entity-card.js.gz
     type: module
-  - url: /local/community/light-popup-card/light-popup-card.js
+  - url: /local/community/light-popup-card/light-popup-card.js.gz
     type: module
   - url: /local/community/lovelace-card-mod/card-mod.js
     type: module
@@ -30,4 +30,5 @@ resources:
     type: module
   - url: /local/custom-icons.js?v=25052001
     type: module
+button_card_templates: !include button_card_templates.yaml
 views: !include_dir_list ./views

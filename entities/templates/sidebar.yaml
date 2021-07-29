@@ -10,9 +10,9 @@ sensor:
       date: |
         <font color='#6a7377'><b>
         {%- if strptime(states('sensor.date'), '%Y-%m-%d').day != null %}
-        {%- set days = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'] %}
-        {%- set months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
-        'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'] %}
+        {%- set days = ['Monday', 'Tuesday ', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+        {%- set months = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'] %}
           {{- days[now().weekday()] }}<br>
           {{- strptime(states('sensor.date'), '%Y-%m-%d').day }} {{ months[now().month-1] }}
         {%- endif -%}
@@ -100,10 +100,3 @@ sensor:
         {%- else %}
           Weather information not available
         {%- endif %}
-      transport: |
-        {% set entity_id = 'sensor.skanetrafiken' %}
-        {% if states(entity_id) != 'unknown' %}
-        {%- set date = strptime(state_attr(entity_id, 'date') + ' ' + state_attr(entity_id, 'time'), "%X") %}
-        {%- set time = as_timestamp(date) | timestamp_custom('%H:%M') -%}
-          Nästa buss går {{ time }} från {{ state_attr(entity_id, 'name').split()[1] }}
-        {% endif %}
