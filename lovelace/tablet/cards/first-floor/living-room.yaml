@@ -1,0 +1,38 @@
+---
+type: grid
+title: Vardagsrum
+columns: 2
+cards:
+  - type: custom:button-card
+    entity: light.vardagsrum
+    name: Belysning
+    template:
+      - light
+      - icon_shade
+
+  - type: custom:button-card
+    entity: light.bedroom
+    name: Bedroom
+    hold_action: !include popups/living-room-light.yaml
+    template:
+      - base
+      - icon_hue
+      - loader
+
+  - type: custom:button-card
+    entity: media_player.sony_bravia_tv
+    name: Tv
+    # hold_action: !include popup/vardagsrum_tv.yaml
+    template:
+      - base
+      - icon_tv
+      - loader
+
+  - type: custom:button-card
+    entity: switch.playstation_5
+    name: Playstation
+    # hold_action: !include popup/vardagsrum_playstation.yaml
+    template:
+      - base
+      - icon_ps5
+      - loader
