@@ -1,2 +1,11 @@
 homeassistant:
+  name: !secret home_name
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  temperature_unit: C
+  time_zone: Europe/Amsterdam
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   packages: !include_dir_named integrations

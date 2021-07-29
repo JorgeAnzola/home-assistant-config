@@ -1,0 +1,33 @@
+---
+resources:
+  - url: /local/font.css
+    type: css
+  - url: /local/community/bar-card/bar-card.js
+    type: module
+  - url: /local/community/button-card/button-card.js
+    type: module
+  - url: /local/community/kiosk-mode/kiosk-mode.js
+    type: module
+  - url: /local/community/light-entity-card/light-entity-card.js
+    type: module
+  - url: /local/community/light-popup-card/light-popup-card.js
+    type: module
+  - url: /local/community/lovelace-card-mod/card-mod.js
+    type: module
+  - url: /local/community/lovelace-hui-element/hui-element.js
+    type: module
+  - url: /local/community/lovelace-layout-card/layout-card.js
+    type: module
+  - url: /local/community/lovelace-slider-entity-row/slider-entity-row.js
+    type: module
+  - url: /local/community/lovelace-valetudo-map-card/valetudo-map-card.js
+    type: module
+  - url: /local/community/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+  - url: /local/community/swipe-card/swipe-card.js
+    type: module
+  - url: /local/calendar-card.js?v=31091
+    type: module
+  - url: /local/custom-icons.js?v=25052001
+    type: module
+views: !include_dir_list ./views
