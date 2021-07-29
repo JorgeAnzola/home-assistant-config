@@ -1,5 +1,7 @@
 http:
-  ssl_certificate: /ssl/fullchainha.pem
-  ssl_key: /ssl/privkeyha.pem
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  server_host: !secret server_host
+  server_port: !secret server_port
   ip_ban_enabled: true
   login_attempts_threshold: 3
