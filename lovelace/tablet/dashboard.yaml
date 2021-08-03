@@ -30,5 +30,7 @@ resources:
     type: module
   - url: /local/custom-icons.js?v=25052001
     type: module
+  - url: /browser_mod.js
+    type: module
 button_card_templates: !include button_card_templates.yaml
 views: !include_dir_list ./views

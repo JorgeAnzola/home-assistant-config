@@ -48,319 +48,239 @@ tablet:
   markdown-sidebar-font-size: 1.5vw
   markdown-sidebar-line-height: 2.1vw
 
-  ####################################################
-  #                                                  #
-  #                     CARD-MOD                     #
-  #                                                  #
-  ####################################################
-
   card-mod-theme: tablet
 
   card-mod-root: |
     ha-app-layout {
-      background: url('/local/background5.jpg');
+      background: url('/local/background.png');
       background-size: cover;
     }
 
-  card-mod-view-yaml: |
-    .: |
-      hui-view {
-        background: none !important;
-        min-height: 100vh;
+
+    card-mod-card: |
+    .card-content {
+      padding: 1.8em 2em 1.8em 2em;
+    }
+
+    .card-header {
+      font-family: SF Text;
+      letter-spacing: 0.005em;
+      font-size: 1.6em;
+      font-weight: 500;
+      padding: 1.25em 0 0 1.68em;
+      line-height: initial;
+      cursor: default;
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *           BUTTON CARD           *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
+
+    .type-button {
+      display: block;
+      color: rgb(255, 255, 255);
+      opacity: 0.2;
+      transition: 0.4s;
+    }
+
+    .type-button:hover {
+      opacity: 0.5;
+      transition: none;
+    }
+
+    .type-button:active {
+      opacity: 0.7;
+      transition: none;
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *            MAP CARD             *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
+
+    .type-map {
+      animation: type-map 1s forwards;
+    }
+
+    @keyframes type-map {
+      0%, 100% {
+        border-top: 2px solid #1e1e1e;
       }
+    }
 
-    grid-layout:
-      $: |
-        #root {
-          margin: 0 !important;
-        }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *         CUSTOM BAR CARD         *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-    #################################################
-    #                                               #
-    #               GRID CARD HEADER                #
-    #                                               #
-    #################################################
+    .type-custom-bar-card bar-card-name {
+      padding-left: 0.25em;
+    }
 
-    "grid-layout$":
-      hui-grid-card:
-        $: |
-          h1 {
-            line-height: 0 !important;
-            padding: 1vw 0 2vw 0 !important;
-            font-weight: 500 !important;
-          }
+    .type-custom-bar-card bar-card-iconbar {
+      padding-left: 0.23em;
+    }
 
-          /* portrait */
-          @media screen and (max-width: 1200px) {
-            h1 {
-              font-size: 3.3vw !important;
-              line-height: 1.1vw !important;
-            }
-          }
+    .type-custom-bar-card bar-card-value {
+      font-size: 1em;
+      font-weight: 400;
+      color: #e0e1e1;
+      letter-spacing: 0.01em;
+      text-shadow: none;
+      margin-right: auto;
+      margin-top: 5px;
+    }
 
-          /* phone */
-          @media screen and (max-width: 800px) {
-            h1 {
-              font-size: 5.5vw !important;
-              line-height: 6vw !important;
-              margin: 2vw 0 0 0 !important;
-            }
-          }
+    .type-custom-bar-card bar-card-backgroundbar {
+      background: none;
+    }
 
-    #################################################
-    #                                               #
-    #             SIDEBAR MARKDOWN CARD             #
-    #                                               #
-    #################################################
+    .type-custom-bar-card bar-card-background  {
+      background: radial-gradient(circle, rgba(52, 57, 58, 0.1) 0%, rgba(17, 18, 18, 0.2) 75%);
+      box-shadow: inset 0 0 25px #00000045;
+      border-radius: 0.3em;
+      overflow: hidden;
+    }
 
-    "grid-layout$hui-markdown-card:first-of-type":
-      $: |
-        ha-card {
-          background-color: #00000010;
-          border-radius: 0;
-          min-height: 100vh;
-          animation: ha-card 1s forwards;
-        }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *      CUSTOM CALENDAR CARD       *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-        @keyframes ha-card {
-          0%, 100% {
-            border-right: 0.1vw solid rgba(58, 69, 73, 0.2);
-          }
-        }
+    .type-custom-calendar-card > table > tbody > tr > td > div {
+      opacity: 0.5;
+      cursor: default;
+    }
 
-        /* phone */
-        @media screen and (max-width: 800px) {
-          ha-card {
-            background: none;
-            min-height: 100%;
-            animation: none;
-          }
+    .type-custom-calendar-card > table > tbody > tr > td {
+      cursor: default;
+    }
 
-      "$ha-card>ha-markdown":
-        .: |
-          ha-markdown {
-            padding: 3.3vw 2vw 0 3.3vw!important;
-            pointer-events: none;
-          }
+    .type-custom-calendar-card > table > tbody > tr > td.overview.no-pointer > div {
+      opacity: 1;
+    }
 
-          /* phone */
-          @media screen and (max-width: 800px) {
-            ha-markdown {
-              padding: 0 !important;
-            }
+    .type-custom-calendar-card .day-wrapper.day-wrapper-last > td {
+      border-color: rgba(225, 225, 225, 0.1);
+    }
 
-        $: |
-          /* clock */
-          p > span {
-            font-family: SF Text;
-            font-size: var(--markdown-sidebar-clock-font-size);
-            font-weight: 200;
-            line-height: var(--markdown-sidebar-clock-line-height);
-            letter-spacing: -0.05vw;
-            margin-left: -0.3vw;
-            color: var(--ha-card-header-color);
-          }
 
-          /* colon */
-          p > span > span {
-            position: relative;
-            top: -.09em;
-          }
+    card-mod-card: |
+    .card-content {
+      padding: 1.8em 2em 1.8em 2em;
+    }
 
-          /* text */
-          p {
-            font-family: SF Display;
-            font-size: var(--markdown-sidebar-font-size);
-            line-height: var(--markdown-sidebar-line-height);
-            font-weight: 300;
-            letter-spacing: 0.06vw;
-            color: #6a7377;
-          }
+    .card-header {
+      font-family: SF Text;
+      letter-spacing: 0.005em;
+      font-size: 1.6em;
+      font-weight: 500;
+      padding: 1.25em 0 0 1.68em;
+      line-height: initial;
+      cursor: default;
+    }
 
-          p > b {
-            color: var(--ha-card-header-color);
-          }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *           BUTTON CARD           *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-          /* portrait */
-          @media screen and (max-width: 1200px) {
-            p > span {
-              font-size: calc(var(--markdown-sidebar-clock-font-size) * 1.4 );
-              line-height: calc(var(--markdown-sidebar-clock-line-height) * 1.4 );
-            }
-            p {
-              font-size: calc(var(--markdown-sidebar-font-size) * 1.4 );
-              line-height: calc(var(--markdown-sidebar-line-height) * 1.4 );
-            }
-          }
+    .type-button {
+      display: block;
+      color: rgb(255, 255, 255);
+      opacity: 0.2;
+      transition: 0.4s;
+    }
 
-          /* phone */
-          @media screen and (max-width: 800px) {
-            p > span {
-              font-size: calc(var(--markdown-sidebar-clock-font-size) * 2.6 );
-              line-height: calc(var(--markdown-sidebar-clock-line-height) * 2.6 );
-            }
-            p {
-              font-size: calc(var(--markdown-sidebar-font-size) * 2.6 );
-              line-height: calc(var(--markdown-sidebar-line-height) * 2.6 );
-              letter-spacing: 0.16vw;
-            }
-          }
+    .type-button:hover {
+      opacity: 0.5;
+      transition: none;
+    }
 
-    #################################################
-    #                                               #
-    #             SIDEBAR LAUNDRY TIMER             #
-    #                                               #
-    #################################################
+    .type-button:active {
+      opacity: 0.7;
+      transition: none;
+    }
 
-    "grid-layout$hui-conditional-card":
-      .: |
-        hui-conditional-card {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          padding: 0 0 45% 0;
-        }
-        button-card {
-          width: 65%;
-        }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *            MAP CARD             *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-        /* phone */
-        @media screen and (max-width: 800px) {
-          hui-conditional-card {
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 15vw 0 0 0;
-          }
-          button-card {
-            width: 40%;
-            zoom: 250%;
-            filter: contrast(75%)
-          }
-        }
+    .type-map {
+      animation: type-map 1s forwards;
+    }
 
-    #################################################
-    #                                               #
-    #             SIDEBAR BUTTON CARDS              #
-    #                                               #
-    #################################################
+    @keyframes type-map {
+      0%, 100% {
+        border-top: 2px solid #1e1e1e;
+      }
+    }
 
-    "grid-layout$hui-grid-card:first-of-type":
-      .: |
-        hui-grid-card:first-of-type {
-          display: flex;
-          align-items: flex-end;
-          animation: fade 0.3s ease-out;
-        }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *         CUSTOM BAR CARD         *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-        @keyframes fade {
-          0%, 30% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
+    .type-custom-bar-card bar-card-name {
+      padding-left: 0.25em;
+    }
 
-        /* phone */
-        @media screen and (max-width: 800px) {
-          hui-grid-card:first-of-type {
-            align-items: flex-start;
-          }
-        }
+    .type-custom-bar-card bar-card-iconbar {
+      padding-left: 0.23em;
+    }
 
-      $: |
-        #root {
-          padding: 0 13% 13% 13%;
-          gap: 8% !important;
-        }
+    .type-custom-bar-card bar-card-value {
+      font-size: 1em;
+      font-weight: 400;
+      color: #e0e1e1;
+      letter-spacing: 0.01em;
+      text-shadow: none;
+      margin-right: auto;
+      margin-top: 5px;
+    }
 
-        /* phone */
-        @media screen and (max-width: 800px) {
-          #root {
-            padding: 0 0 0 60%;
-          }
-        }
+    .type-custom-bar-card bar-card-backgroundbar {
+      background: none;
+    }
 
-      #conditional color
-      "$hui-button-card:last-of-type$": |
-        {% if is_state('binary_sensor.sidebar_update_color', 'on') %}
+    .type-custom-bar-card bar-card-background  {
+      background: radial-gradient(circle, rgba(52, 57, 58, 0.1) 0%, rgba(17, 18, 18, 0.2) 75%);
+      box-shadow: inset 0 0 25px #00000045;
+      border-radius: 0.3em;
+      overflow: hidden;
+    }
 
-          ha-card, ha-icon {
-            color: rgb(35, 78 ,106) !important;
-            opacity: 1 !important;
-            animation: update 1.5s ease-out infinite;
-          }
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *      CUSTOM CALENDAR CARD       *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
 
-          ha-card:hover {
-            filter: brightness(130%);
-            animation-play-state: paused;
-          }
+    .type-custom-calendar-card > table > tbody > tr > td > div {
+      opacity: 0.5;
+      cursor: default;
+    }
 
-        {% endif %}
+    .type-custom-calendar-card > table > tbody > tr > td {
+      cursor: default;
+    }
 
-          @keyframes update {
-            0% {
-              transform: scale(1);
-            }
-            40% {
-              transform: scale(1.08);
-            }
-            50% {
-              transform: scale(0.98);
-            }
-            55% {
-              transform: scale(1.02);
-            }
-            60% {
-              transform: scale(0.98);
-            }
-            100% {
-              transform: scale(1);
-            }
-          }
+    .type-custom-calendar-card > table > tbody > tr > td.overview.no-pointer > div {
+      opacity: 1;
+    }
 
-    #################################################
-    #                                               #
-    #           CORONAVIRUS MARKDOWN CARD           #
-    #                                               #
-    #################################################
-
-    "grid-layout$hui-markdown-card:last-of-type$":
-      .: |
-        ha-card, ha-markdown {
-          background: none;
-          padding: 0 !important;
-          pointer-events: none;
-          margin-top: -1vw;
-        }
-
-        ha-markdown {
-          overflow: hidden;
-        }
-
-      ha-card>ha-markdown$: |
-        ha-markdown-element {
-          opacity: 0.6;
-          font-size: 1.26vw;
-          font-weight: 400;
-          --mdc-icon-size: 1.2vw;
-          font-family: SF Display;
-          letter-spacing: 0.05vw;
-          line-height: 0px;
-          white-space: nowrap;
-        }
-
-        ha-icon {
-          vertical-align: 3%;
-          opacity: 0.4;
-        }
-
-        /* phone */
-        @media screen and (max-width: 800px) {
-          ha-markdown-element {
-            display: none;
-          }
-        }
+    .type-custom-calendar-card .day-wrapper.day-wrapper-last > td {
+      border-color: rgba(225, 225, 225, 0.1);
+    }
 
   card-mod-card: |
     .card-content {

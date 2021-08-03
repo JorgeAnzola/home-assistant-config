@@ -1,0 +1,20 @@
+type: grid
+view_layout:
+  grid-area: sidebar
+cards:
+  # - type: button
+  #   icon: mdi:robot-vacuum
+  #   tap_action: !include popup/sidebar_vacuum.yaml
+
+  - type: button
+    icon: mdi:information-outline
+    tap_action: !include ../../popups/sidebar_information.yaml
+
+  - type: button
+    icon: mdi:arrow-up-bold-circle-outline
+    tap_action: !include ../../popups/sidebar_update.yaml
+    hold_action:
+      action: call-service
+      service: homeassistant.update_entity
+      service_data:
+        entity_id: sensor.hacs
