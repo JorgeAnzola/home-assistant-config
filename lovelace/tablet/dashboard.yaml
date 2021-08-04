@@ -1,6 +1,8 @@
 ---
 resources:
-  - url: /local/font.css
+  - url: "https://fonts.googleapis.com/css?family=Raleway"
+    type: css
+  - url: /local/font.css?v=3
     type: css
   - url: /local/community/bar-card/bar-card.js
     type: module

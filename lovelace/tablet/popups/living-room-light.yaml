@@ -10,7 +10,7 @@ browser_mod:
         }
   card:
     type: grid
-    columns: 2
+    columns: 1
     square: false
     cards:
       - type: entities

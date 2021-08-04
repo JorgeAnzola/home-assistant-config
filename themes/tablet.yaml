@@ -18,7 +18,7 @@ tablet:
   grid-card-gap: 5%
   masonry-view-card-margin: 0px
   ha-card-header-color: "rgba(255, 255, 255, 0.8)"
-  ha-card-header-font-family: SF Text
+  ha-card-header-font-family: "SF Text, Arial, sans-serif"
   ha-card-header-font-size: 2.4vw
   state-icon-color: "#9da0a2"
   state-icon-active-color: "#3182b7"
@@ -149,7 +149,7 @@ tablet:
         $: |
           /* clock */
           p > span {
-            font-family: SF Text;
+            font-family: SF Text, Arial, sans-serif;
             font-size: var(--markdown-sidebar-clock-font-size);
             font-weight: 200;
             line-height: var(--markdown-sidebar-clock-line-height);
@@ -166,7 +166,7 @@ tablet:
 
           /* text */
           p {
-            font-family: SF Display;
+            font-family: SF Display, Arial, sans-serif;
             font-size: var(--markdown-sidebar-font-size);
             line-height: var(--markdown-sidebar-line-height);
             font-weight: 300;
@@ -247,7 +247,6 @@ tablet:
           background: none;
           padding: 0 !important;
           pointer-events: none;
-          margin-top: -1vw;
         }
 
         ha-markdown {
@@ -260,7 +259,7 @@ tablet:
           font-size: 1.26vw;
           font-weight: 400;
           --mdc-icon-size: 1.2vw;
-          font-family: SF Display;
+          font-family: SF Display, Arial, sans-serif;
           letter-spacing: 0.05vw;
           line-height: 0px;
           white-space: nowrap;
@@ -284,7 +283,7 @@ tablet:
     }
 
     .card-header {
-      font-family: SF Text;
+      font-family: SF Text, Arial, sans-serif;
       letter-spacing: 0.005em;
       font-size: 1.6em;
       font-weight: 500;
@@ -398,7 +397,7 @@ tablet:
 
       .main-title {
         margin-top: 5px;
-        font-family: SF Text;
+        font-family: SF Text, Arial, sans-serif;
         letter-spacing: 0.005em;
       }
 
@@ -500,7 +499,7 @@ tablet:
         font-weight: 400;
         position: absolute;
         z-index: 100;
-        font-family: SF Display;
+        font-family: SF Display, Arial, sans-serif;
         letter-spacing: 0.02em;
         pointer-events: none;
         mix-blend-mode: difference;
