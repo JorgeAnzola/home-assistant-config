@@ -68,7 +68,6 @@ base:
       - justify-self: start
       - line-height: 115%
     card:
-      - font-family: Sf Display
       - border-radius: var(--custom-button-card-border-radius)
       - -webkit-tap-highlight-color: rgba(0,0,0,0)
       - transition: none
@@ -740,7 +739,6 @@ laundry:
       - border: "0.2vw solid #292c2e"
     state:
       - font-size: 2.7vw
-      - font-family: SF Mono
       - opacity: 0.65
       - padding: 0.55vw 1.2vw 0.5vw 1.2vw
 
