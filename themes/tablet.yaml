@@ -247,7 +247,6 @@ tablet:
           background: none;
           padding: 0 !important;
           pointer-events: none;
-          margin-top: -1vw;
         }
 
         ha-markdown {
