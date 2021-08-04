@@ -55,7 +55,7 @@ tablet:
 
   card-mod-root: |
     ha-app-layout {
-      background: url('/local/bg.png');
+      background: url('/local/bg.jpg');
       background-size: cover;
     }
 
