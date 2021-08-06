@@ -1,0 +1,34 @@
+---
+alias: Conditional media - Paused/idle
+id: "3603627624707"
+initial_state: true
+mode: restart
+trigger:
+  - platform: state
+    entity_id:
+      - media_player.living_room
+      - media_player.spotify
+    to: ["off", "idle", "standby"]
+  - platform: state
+    entity_id:
+      - media_player.living_room
+      - media_player.spotify
+    to: paused
+    for:
+      minutes: 10
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.conditional_media
+      option: >
+        {% set media_players = 
+          [states.media_player.living_room, states.media_player.spotify] %}
+        {% if media_players | selectattr('state','eq','playing') | list | count == 0 %}
+          {% if media_players | selectattr('state','eq','paused') | list | count == 0 %}
+          Recently added
+          {% else %}
+          {{ media_players | selectattr('state','eq','paused') | map(attribute='name') | max }}
+          {% endif %}
+        {% else %}
+        {{ media_players | selectattr('state','eq','playing') | map(attribute='name') | max }}
+        {% endif %}

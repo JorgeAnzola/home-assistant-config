@@ -31,3 +31,6 @@ zigbee2mqtt/log/
 zigbee2mqtt/configuration.yaml
 zigbee2mqtt/.configuration.yaml.bk
 zigbee2mqtt/state.json
+
+# Plex recently added artwork
+www/Plex_Recently_Added

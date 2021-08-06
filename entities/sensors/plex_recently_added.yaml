@@ -1,0 +1,7 @@
+platform: plex_recently_added
+token: !secret plex_token
+host: !secret plex_host
+port: !secret plex_port
+max: 1
+img_dir: /
+image_resolution: 700

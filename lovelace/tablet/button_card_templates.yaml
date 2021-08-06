@@ -599,7 +599,7 @@ conditional_media:
 #################################################
 
 recently_downloaded:
-  name: Senast nedladdat
+  name: Recently added
   state_display: >
     [[[
       if (entity != undefined) {
