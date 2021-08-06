@@ -1,7 +1,3 @@
 http:
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
-  server_host: !secret server_host
-  server_port: !secret server_port
-  ip_ban_enabled: !secret ip_ban_enabled
-  login_attempts_threshold: !secret login_attempts_threshold
+  ip_ban_enabled: true
+  login_attempts_threshold: 3

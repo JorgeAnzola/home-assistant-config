@@ -2,6 +2,7 @@
 platform: template
 fans:
   ventilador_del_cuarto:
+    value_template: "{{ states('switch.plug_1') }}"
     friendly_name: "Ventilador del cuarto"
     turn_on:
       - service: switch.turn_on
