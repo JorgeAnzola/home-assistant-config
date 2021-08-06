@@ -18,7 +18,7 @@ base:
   show_state: true
   show_icon: false
   state_display: >
-    [[[ if (variables.state === true) return 'Okänd'; ]]]
+    [[[ if (variables.state === true) return 'Unknown'; ]]]
   tap_action:
     ui_sound_tablet: |
       [[[
@@ -74,19 +74,19 @@ base:
       - padding: 10%
       - --mdc-ripple-color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home') ?
+            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
               'rgb(0, 0, 0)' :
               'rgba(255, 255, 255, 0.3)';
           ]]]
       - color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home') ?
+            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
               'rgba(0, 0, 0, 0.6)' :
               'rgba(255, 255, 255, 0.3)';
           ]]]
       - background-color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home') ?
+            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
               'rgba(255, 255, 255, 0.8)' :
               'rgba(115, 115, 115, 0.2)';
           ]]]
@@ -335,7 +335,7 @@ person:
     - base
     - circle
   state_display: >
-    [[[ return variables.state === 'home' ? 'Ja' : 'Nej'; ]]]
+    [[[ return variables.state === 'home' ? 'Home' : 'Away'; ]]]
   triggers_update: sensor.time
   styles:
     custom_fields:
@@ -1714,7 +1714,8 @@ icon_away:
       ]]]
 
 icon_home:
-  state_display: Auto
+  state_display: >
+    [[[ return variables.state === 'disarmed' ? 'Disarmed' : 'Armed'; ]]]
   styles:
     card:
       - transition: all 0.3s ease-out
@@ -1722,7 +1723,7 @@ icon_home:
       icon:
         - width: 70%
         - fill: >
-            [[[ return variables.state === 'on' ? '#c7983e' : '#9da0a2'; ]]]
+            [[[ return variables.state === 'disarmed' ? '#9da0a2' : '#DF4C1E'; ]]]
   custom_fields:
     icon: >
       [[[
