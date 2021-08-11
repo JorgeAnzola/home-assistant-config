@@ -1,0 +1,3 @@
+platform: version
+name: Home Assistant current version
+source: local

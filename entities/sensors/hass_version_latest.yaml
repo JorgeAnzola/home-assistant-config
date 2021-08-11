@@ -1,0 +1,4 @@
+---
+platform: version
+name: Home Assistant latest version
+source: container
