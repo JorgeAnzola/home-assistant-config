@@ -12,19 +12,18 @@ browser_mod:
     type: custom:layout-card
     layout_type: custom:grid-layout
     layout:
-      grid-template-columns: repeat(3, 1fr)
+      grid-template-columns: repeat(2, 2fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        "hass tablet nas"
+        "hass network"
       mediaquery:
         #phone
         "(max-width: 800px)":
-          grid-template-columns: 1fr
-          grid-template-rows: repeat(3, 1fr)
+          grid-template-columns: 2fr
+          grid-template-rows: repeat(2, 2fr)
           grid-template-areas: |
             "hass"
-            "tablet"
-            "nas"
+            "network"
     cards:
       #################################################
       #                                               #
@@ -58,17 +57,17 @@ browser_mod:
             }
           }
         entities:
-          - entity: sensor.hass_version
+          - entity: sensor.home_assistant_current_version
 
-          - entity: switch.watchtower
+          - entity: sensor.home_assistant_latest_version
 
-          - entity: sensor.hass_dev_release
+          - entity: sensor.instance_latest_commit
 
-          - entity: sensor.databas
-
-          - entity: sensor.home_assistant_log
+          - entity: sensor.hacs
 
           - entity: sensor.uptime
+
+          - entity: sensor.last_boot
 
           - type: custom:bar-card
             width: 55%
@@ -88,19 +87,26 @@ browser_mod:
                 to: 200
             entity_row: true
             entities:
-              - entity: sensor.docker_cpu
+              - entity: sensor.processor_use_percent
                 tap_action:
                   action: call-service
                   service: homeassistant.update_entity
                   service_data:
-                    entity_id: sensor.docker_cpu
+                    entity_id: sensor.processor_use_percent
 
-              - entity: sensor.template_dockermon_mem
+              - entity: sensor.memory_use_percent
                 tap_action:
                   action: call-service
                   service: homeassistant.update_entity
                   service_data:
-                    entity_id: sensor.template_dockermon_mem
+                    entity_id: sensor.memory_use_percent
+
+              - entity: sensor.disk_use_percent_home
+                tap_action:
+                  action: call-service
+                  service: homeassistant.update_entity
+                  service_data:
+                    entity_id: sensor.memory_use_percent
 
           - type: custom:hui-element
             card_type: horizontal-stack
@@ -136,223 +142,132 @@ browser_mod:
 
       #################################################
       #                                               #
-      #                    TABLET                     #
+      #                    NETWORK.                   #
       #                                               #
       #################################################
-
       - type: entities
         view_layout:
-          grid-area: tablet
-        title: Galaxy Tab A 10.1
+          grid-area: network
+        title: Network
         show_header_toggle: false
         style: *border
         entities:
-          - entity: switch.galaxy_tab_a_screensaver
-
-          - entity: light.galaxy_tab_a_screen
-
-          - type: custom:slider-entity-row
-            entity: light.galaxy_tab_a_screen
-            name: Ljusstyrka
-            icon: mdi:brightness-6
-            hide_state: false
-
-          - entity: binary_sensor.galaxy_tab_a_plugged_in
-
-          - entity: sensor.template_fullykiosk_last_app_start
-
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: "%"
-            positions: *bar_card_positions
-            severity:
-              - color: "#6d2525"
-                from: 0
-                to: 89
-              - color: "#303435"
-                from: 90
-                to: 100
-            entity_row: true
-            entities:
-              - entity: sensor.galaxy_tab_a_battery_level
-                icon: mdi:battery
-
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: "%"
-            positions: *bar_card_positions
-            severity: *bar_card_severity
-            entity_row: true
-            entities:
-              - entity: sensor.template_fullykiosk_memory
-                name: Minne - 2GB
-                icon: mdi:memory
-                tap_action:
-                  action: call-service
-                  service: homeassistant.update_entity
-                  service_data:
-                    entity_id: sensor.template_fullykiosk_memory
-
-              - entity: sensor.template_fullykiosk_storage
-                name: Lagring - 32GB
-                icon: mdi:sd
-                tap_action:
-                  action: call-service
-                  service: homeassistant.update_entity
-                  service_data:
-                    entity_id: sensor.template_fullykiosk_storage
-
-          - type: custom:hui-element
-            card_type: horizontal-stack
-            style: *horizontal-style
-            cards:
-              - type: custom:button-card
-                name: Startsidan
-                icon: mdi:reload
-                tap_action:
-                  services: |
-                    [[[
-                      hass.callService('browser_mod', 'toast', {
-                        message: 'Laddar om startsidan...'
-                      });
-                      hass.callService('fullykiosk', 'load_start_url', {
-                        entity_id: 'media_player.galaxy_tab_a'
-                      });
-                    ]]]
-                template: icon_name
-
-              - type: custom:button-card
-                name: Hela appen
-                icon: mdi:reload
-                tap_action:
-                  services: |
-                    [[[
-                      hass.callService('browser_mod', 'toast', {
-                        message: 'Startar om Fully Kiosk Browser...'
-                      });
-                      hass.callService('fullykiosk', 'restart', {
-                        entity_id: 'media_player.galaxy_tab_a'
-                      });
-                    ]]]
-                template: icon_name
-
-      #################################################
-      #                                               #
-      #                      NAS                      #
-      #                                               #
-      #################################################
-
-      - type: entities
-        view_layout:
-          grid-area: nas
-        title: Synology DS918+
-        show_header_toggle: false
-        entities:
-          - entity: sensor.template_nas_status
-
-          - entity: sensor.nas_volume_1_average_disk_temp
-
-          - entity: sensor.last_boot
-            name: Senast omstart
-
-          - entity: sensor.template_nas_vpn
+          - entity: sensor.speedtest_ping
             style: |
               :host {
-                --paper-item-icon-color: {{ '#9e9e9e' if is_state(config.entity, 'Ansluten') else '#9c2525' }};
-                }
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: "%"
-            positions: *bar_card_positions
-            severity: *bar_card_severity
-            entity_row: true
-            entities:
-              - entity: sensor.processor_use_percent
-                name: Processor
-                tap_action:
-                  action: call-service
-                  service: homeassistant.update_entity
-                  service_data:
-                    entity_id: sensor.processor_use_percent
-
-              - entity: sensor.memory_use_percent
-                name: Minne - 4GB
-                tap_action:
-                  action: call-service
-                  service: homeassistant.update_entity
-                  service_data:
-                    entity_id: sensor.memory_use_percent
-
-              - entity: sensor.disk_use_percent
-                name: Lagring - 10.5TB
-                tap_action:
-                  action: call-service
-                  service: homeassistant.update_entity
-                  service_data:
-                    entity_id: sensor.disk_use_percent
-
-          - type: custom:hui-element
-            card_type: horizontal-stack
+                --paper-item-icon-color: #ffa219;
+              }
+          - entity: sensor.speedtest_download
             style: |
-              #root {
-                justify-content: space-evenly;
-                margin-top: 1em;
-                width: 95% !important;
+              :host {
+                --paper-item-icon-color: green;
               }
-              #root > * {
-                flex: none !important;
+
+          - entity: sensor.speedtest_upload
+            style: |
+              :host {
+                --paper-item-icon-color: #385581;
               }
-            cards:
-              - type: entities
-                style: |
-                  #states {
-                    padding: 0;
-                  }
-                entities:
-                  - entity: sensor.nas_net_down
-                    style: |
-                      :host {
-                        --paper-item-icon-color: green;
-                      }
-              - type: entities
-                style: |
-                  #states {
-                    padding: 0;
-                  }
-                entities:
-                  - entity: sensor.nas_net_up
-                    style: |
-                      :host {
-                        --paper-item-icon-color: #385581;
-                      }
+
+          # - type: custom:mini-graph-card
+          #   entities:
+          #     - color: green
+          #       entity: sensor.speedtest_download
+          #   align_state: left
+          #   group: false
+          #   points_per_hour: 15
+          #   line_width: 1
+          #   hour24: true
+          #   hours_to_show: 1
+          #   show:
+          #     {
+          #       fill: fade,
+          #       icon: false,
+          #       name: false,
+          #       state: false,
+          #       name_adaptive_color: false,
+          #       labels: hover,
+          #       legend: true,
+          #       extrema: true,
+          #       average: true,
+          #     }
+          #   tap_action:
+          #     action: none
+
+          # - type: custom:mini-graph-card
+          #   entities:
+          #     - color: "#385581"
+          #       entity: sensor.speedtest_upload
+          #   align_state: left
+          #   group: false
+          #   points_per_hour: 15
+          #   line_width: 1
+          #   hour24: true
+          #   hours_to_show: 1
+          #   show:
+          #     {
+          #       fill: fade,
+          #       icon: false,
+          #       name: false,
+          #       state: false,
+          #       name_adaptive_color: false,
+          #       labels: hover,
+          #       legend: true,
+          #       extrema: true,
+          #       average: true,
+          #     }
+          #   tap_action:
+          #     action: none
+
+          # - type: custom:mini-graph-card
+          #   entities:
+          #     - color: "#ffa219"
+          #       entity: sensor.speedtest_ping
+          #   align_state: left
+          #   group: false
+          #   points_per_hour: 15
+          #   line_width: 1
+          #   hour24: true
+          #   hours_to_show: 1
+          #   show:
+          #     {
+          #       fill: fade,
+          #       icon: false,
+          #       name: true,
+          #       state: false,
+          #       name_adaptive_color: false,
+          #       labels: hover,
+          #       legend: true,
+          #       extrema: true,
+          #       average: true,
+          #     }
+          #   tap_action:
+          #     action: none
+
         footer:
           type: custom:mini-graph-card
           entities:
             - color: "#385581"
-              entity: sensor.nas_network_up
+              entity: sensor.speedtest_upload
             - color: green
-              entity: sensor.nas_network_down
+              entity: sensor.speedtest_download
           align_state: left
           group: false
           points_per_hour: 15
-          line_width: 3
+          line_width: 1
           hour24: true
-          hours_to_show: 1.5
+          hours_to_show: 1
           show:
             {
               fill: fade,
               icon: false,
               name: false,
               state: false,
-              name_adaptive_color: true,
-              labels: hover,
-              legend: false,
+              name_adaptive_color: false,
+              labels: true,
+              legend: true,
+              extrema: false,
+              average: false,
             }
           tap_action:
             action: none

@@ -60,6 +60,7 @@ cards:
           - type: custom:button-card
             name: Apple TV
             entity: media_player.living_room
+            tap_action: !include ../../popups/apple_tv_controls.yaml
             template:
               - media
               - icon_apple_tv
@@ -67,7 +68,7 @@ cards:
           - type: custom:button-card
             entity: media_player.spotify
             name: Spotify
-            tap_action: !include ../../popups/spotify_controls.yaml
+            top_action: !include ../../popups/spotify_controls.yaml
             template:
               - media
               - icon_spotify

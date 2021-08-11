@@ -2,7 +2,6 @@
 title: First floor
 path: first-floor
 icon: mdi:home-floor-1
-cards: !include_dir_list ../cards/first-floor
 type: custom:grid-layout
 layout:
   #default
@@ -41,5 +40,5 @@ layout:
         "sidebar  vardagsrum  sovrum  ."
         "sidebar  studio      övrigt  ."
         "sidebar  media       hemma   ."
-        "sidebar  footer      footer  ."
         "sidebar  .           .       ."
+cards: !include_dir_list ../cards/first-floor
