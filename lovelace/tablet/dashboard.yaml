@@ -28,6 +28,10 @@ resources:
     type: module
   - url: /local/community/swipe-card/swipe-card.js
     type: module
+  - url: /local/community/lovelace-digital-clock/digital-clock.js
+    type: module
+  - url: /local/community/simple-clock-card/simple-clock-card.js
+    type: module
   - url: /local/calendar-card.js?v=31091
     type: module
   - url: /local/custom-icons.js?v=25052001

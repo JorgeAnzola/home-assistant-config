@@ -12,19 +12,3 @@ cards:
     template:
       - light
       - icon_hue
-
-  - type: custom:button-card
-    entity: alarm_control_panel.ha_alarm
-    name: Home
-    tap_action: !include ../../popups/security.yaml
-    template:
-      - base
-      - icon_home
-
-  - type: custom:button-card
-    entity: person.jorge
-    name: Jorge
-    tap_action: !include ../../popups/jorge.yaml
-    hold_action:
-      action: none
-    template: person

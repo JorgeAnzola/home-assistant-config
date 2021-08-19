@@ -1,8 +1,13 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Security system
+  title: House state
   style:
+    .: |
+      :host .content {
+        width: calc(385px + 385px + 385px);
+        max-width: 90vw;
+      }
     hui-grid-card:
       $hui-entities-card$: |
         #states {
@@ -31,9 +36,67 @@ browser_mod:
         }
   card:
     type: grid
-    columns: 1
+    columns: 2
     square: false
+    styles:
+      card:
+        - margin: 30px
     cards:
+      - type: grid
+        columns: 3
+        square: false
+        name: Mood
+        cards:
+          - type: custom:button-card
+            entity: person.jorge
+            name: Party
+            hold_action:
+              action: none
+            template:
+              - base
+              - person
+              - circle
+
+          - type: custom:button-card
+            entity: alarm_control_panel.ha_alarm
+            name: Visitors
+            template:
+              - base
+              - icon_home
+              - circle
+
+          - type: custom:button-card
+            entity: alarm_control_panel.ha_alarm
+            name: Cinema
+            template:
+              - base
+              - icon_home
+              - circle
+
+          - type: custom:button-card
+            entity: alarm_control_panel.ha_alarm
+            name: Visitors
+            template:
+              - base
+              - icon_home
+              - circle
+
+          - type: custom:button-card
+            entity: alarm_control_panel.ha_alarm
+            name: Cinema
+            template:
+              - base
+              - icon_home
+              - circle
+
+          - type: custom:button-card
+            entity: alarm_control_panel.ha_alarm
+            name: Visitors
+            template:
+              - base
+              - icon_home
+              - circle
+
       - type: alarm-panel
         states:
           - arm_home

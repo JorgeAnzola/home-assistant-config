@@ -1,0 +1,5 @@
+type: grid
+columns: 2
+view_layout:
+  grid-area: sidebar
+cards:

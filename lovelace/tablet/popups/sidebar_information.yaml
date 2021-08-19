@@ -118,26 +118,16 @@ browser_mod:
               }
             cards:
               - type: custom:button-card
-                name: Home Assistant
+                name: Restart Home Assistant
                 icon: mdi:reload
                 tap_action:
                   services: |
                     [[[
                       hass.callService('browser_mod', 'toast', {
-                        message: 'Startar om Home Assistant...'
+                        message: 'Restarting Home Assistant...'
                       });
                       hass.callService('homeassistant', 'restart');
                     ]]]
-                template: icon_name
-
-              - type: custom:button-card
-                name: Container
-                icon: mdi:reload
-                tap_action:
-                  action: call-service
-                  service: script.turn_on
-                  service_data:
-                    entity_id: script.homeassistant_restart
                 template: icon_name
 
       #################################################
