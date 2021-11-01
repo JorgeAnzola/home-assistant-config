@@ -1,6 +1,7 @@
 # General ignores
 *.log
 *.db
+*.db.backup
 *.db-shm
 *.db-wal
 *.pyc
