@@ -1,0 +1,6 @@
+---
+
+name: the Lake House
+port: !secret main_homekit_home_port
+filter:
+  include_entities:

@@ -1,9 +1,0 @@
----
-air_purifier_mode:
-  name: Mode
-  options:
-    - Off
-    - Auto
-    - Silent
-    - Favorite
-  icon: "mdi:animation-outline"

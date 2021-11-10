@@ -1,7 +1,0 @@
----
-shower_sensors:
-  name: Shower sensors
-  icon: mdi:walk
-  entities:
-    - binary_sensor.motion_sensor_3
-    - binary_sensor.motion_sensor_4
