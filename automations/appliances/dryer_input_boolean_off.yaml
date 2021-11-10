@@ -4,7 +4,7 @@ alias: Dryer - Turn off the input boolean
 
 trigger:
   platform: numeric_state
-  entity_id: sensor.plug_4_watts
+  entity_id: sensor.plug_1_watts
   below: 1
   for:
     minutes: 2
