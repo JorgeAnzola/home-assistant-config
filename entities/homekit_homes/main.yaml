@@ -1,4 +1,8 @@
 ---
-
-name: the Lake House
+name: !secret home_name
 port: !secret main_homekit_home_port
+filter:
+  include_entities:
+    - fan.air_purifier
+    - camera.backdoor_last_event
+    - camera.front_door_last_event
