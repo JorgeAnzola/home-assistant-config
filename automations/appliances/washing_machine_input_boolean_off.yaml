@@ -7,7 +7,7 @@ trigger:
   entity_id: sensor.plug_1_current
   below: 0.1
   for:
-    minutes: 2
+    minutes: 1
 action:
   service: input_boolean.turn_off
   entity_id: input_boolean.washing_machine
