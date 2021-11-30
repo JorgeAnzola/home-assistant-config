@@ -30,6 +30,9 @@ workspace.xml
 .DS_Store
 !.gitkeep
 
+# Glances
+glances/glances.conf
+
 # Zigbee 2 MQTT, ignored until I know what to do with this
 zigbee2mqtt/logs/
 zigbee2mqtt/log/
