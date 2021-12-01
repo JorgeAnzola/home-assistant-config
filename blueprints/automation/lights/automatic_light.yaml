@@ -47,7 +47,7 @@ action:
   - choose:
       - conditions:
           - condition: time
-            after: "09:00"
+            after: "10:00"
             before: "20:00"
         sequence:
           - service: light.turn_on
@@ -66,7 +66,7 @@ action:
             conditions:
               - condition: time
                 after: "23:00"
-                before: "09:00"
+                before: "10:00"
               - condition: or
                 conditions:
                   - condition: state

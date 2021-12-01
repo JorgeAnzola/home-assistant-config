@@ -1,0 +1,21 @@
+platform: template
+fans:
+  air_purifier:
+    friendly_name: "Air purifier"
+    value_template: "{{ states('fan.xiaomi_air_purifier') }}"
+    percentage_template: "{{ states('input_number.percentage') }}"
+    turn_on:
+      service: fan.turn_on
+      data:
+        entity_id: fan.xiaomi_air_purifier
+        percentage: 66
+    turn_off:
+      service: fan.turn_off
+      data:
+        entity_id: fan.xiaomi_air_purifier
+    set_percentage:
+      service: fan.set_percentage
+      data:
+        entity_id: fan.xiaomi_air_purifier
+        percentage: "{{ percentage }}"
+    speed_count: 3

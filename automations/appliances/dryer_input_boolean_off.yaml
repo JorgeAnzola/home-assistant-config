@@ -1,13 +1,14 @@
 ---
-id: '66556286250218'
+id: "66556252950218"
 alias: Dryer - Turn off the input boolean
 
 trigger:
   platform: numeric_state
-  entity_id: sensor.plug_4_watts
-  below: 1
+  entity_id: sensor.plug_1_current
+  below: 0.1
   for:
-    minutes: 2
+    minutes: 1
 action:
   service: input_boolean.turn_off
   entity_id: input_boolean.dryer
+mode: single

@@ -1,0 +1,14 @@
+---
+id: "66556280950218"
+alias: Washing machine - Turn off the input boolean
+
+trigger:
+  platform: numeric_state
+  entity_id: sensor.plug_2_current
+  below: 0.1
+  for:
+    minutes: 1
+action:
+  service: input_boolean.turn_off
+  entity_id: input_boolean.washing_machine
+mode: single

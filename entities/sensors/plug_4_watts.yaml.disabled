@@ -1,7 +1,0 @@
----
-platform: template
-sensors:
-  plug_4_watts:
-    friendly_name_template: "{{ states.switch.plug_4.name}} Current Consumption"
-    value_template: '{{ states.switch.plug_4.attributes["current_power_w"] | float }}'
-    unit_of_measurement: "W"
