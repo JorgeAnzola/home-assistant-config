@@ -4,10 +4,10 @@ alias: Washing machine - Turn on the input boolean
 
 trigger:
   platform: numeric_state
-  entity_id: sensor.plug_2_current
-  above: 0.1
+  entity_id: sensor.plug_2_power
+  above: 4
   for:
-    minutes: 1
+    minutes: 5
 action:
   service: input_boolean.turn_on
   entity_id: input_boolean.washing_machine
