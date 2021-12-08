@@ -2,4 +2,4 @@
 # cause I live really close to the supermarket
 # and the zones were overlapping. :)
 zone.home:
-  radius: 50
+  radius: 100
