@@ -4,4 +4,10 @@ filter:
   include_entities:
     - fan.air_purifier
     - light.terrace
+    - light.front_door
+    - light.backdoor
     - switch.plug_3
+    - binary_sensor.door_sensor_1
+    - binary_sensor.motion_sensor_1
+    - binary_sensor.motion_sensor_2
+    - binary_sensor.motion_sensor_3

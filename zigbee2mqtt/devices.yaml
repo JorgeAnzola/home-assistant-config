@@ -1,2 +1,26 @@
-"0x54ef4410002c956d":
+'0x54ef4410002c956d':
   friendly_name: Plug 2
+'0x00158d00052774cb':
+  friendly_name: Door sensor 1
+'0x00158d0002b7d4a2':
+  friendly_name: Motion sensor 1
+'0x00158d00053f7ef2':
+  friendly_name: Motion sensor 2
+'0x00158d000451ab34':
+  friendly_name: Motion sensor 3
+'0x00158d00044cf73a':
+  friendly_name: Button 1
+'0x00158d00044ad328':
+  friendly_name: Button 2
+'0x8cf681fffe55a05e':
+  friendly_name: Front door 1
+'0x0c4314fffeae4d00':
+  friendly_name: Front door 2
+'0x2c1165fffeaef322':
+  friendly_name: Backdoor 2
+'0x0c4314fffeb08704':
+  friendly_name: Backdoor 1
+'0x50325ffffe21af27':
+  friendly_name: Terrace 1
+'0x8cf681fffe55a1cc':
+  friendly_name: Terrace 2

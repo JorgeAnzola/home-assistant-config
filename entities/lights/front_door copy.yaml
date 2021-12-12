@@ -1,0 +1,5 @@
+platform: group
+name: Backdoor
+entities:
+  - light.backdoor_1
+  - light.backdoor_2
