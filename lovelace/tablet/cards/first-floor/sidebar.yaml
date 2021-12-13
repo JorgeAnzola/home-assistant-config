@@ -24,8 +24,8 @@ cards:
     columns: 3
     cards:
       - type: custom:button-card
-        entity: person.jorge
-        name: Jorge
+        entity: person.marlyn
+        name: MG
         tap_action: !include ../../popups/jorge.yaml
         hold_action:
           action: none
@@ -56,4 +56,4 @@ cards:
 
       - type: button
         icon: mdi:information-outline
-        tap_action: !include ../../popups/sidebar_information.yaml 
+        tap_action: !include ../../popups/sidebar_information.yaml
