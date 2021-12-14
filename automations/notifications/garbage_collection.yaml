@@ -31,7 +31,17 @@ action:
         ] | random}}
         {{ "*Tomorrow, they will pick-up the trash.*" }}
 
-        {% if is_state_attr('sensor.hvc_groep_gft', 'day', 'Morgen') %}{{ "They will pick-up GTF (the green container 🟢) "}}{% endif %}
-        {% if is_state_attr('sensor.hvc_groep_papier', 'day', 'Morgen') %}{{ "They will pick-up paper (the blue container 🔵) "}}{% endif %}
-        {% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen') %}{{ "They will take plastic (the orange container 🟠) "}}{% endif %}
+        {% if is_state_attr('sensor.hvc_groep_gft', 'day', 'Morgen') %}
+
+        {{ "They will pick-up GTF (green container 🟢) "}}
+        {% endif %}
+        {% if is_state_attr('sensor.hvc_groep_papier', 'day', 'Morgen') %}
+
+        {{ "They will pick-up paper (blue container 🔵) "}}
+        {% endif %}
+
+        {% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen') %}
+
+        {{ "They will take plastic (orange container 🟠) "}}
+        {% endif %}
 mode: single
