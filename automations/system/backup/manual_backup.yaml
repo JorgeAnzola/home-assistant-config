@@ -8,7 +8,7 @@ trigger:
   entity_id: input_boolean.start_backup
   to: "on"
 action:
-  - service: hassio.snapshot_full
+  - service: hassio.backup_full
     data_template:
       name: Manual backup - {{now().strftime('%Y%m%d%H%M%S')}}
   - delay:
