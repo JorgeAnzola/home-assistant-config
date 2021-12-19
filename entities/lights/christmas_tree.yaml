@@ -1,0 +1,4 @@
+---
+platform: switch
+name: Christmas tree
+entity_id: switch.plug_3

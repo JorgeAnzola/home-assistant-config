@@ -1,0 +1,10 @@
+---
+platform: group
+name: Decorative outdoor
+entities:
+  - light.terrace_1
+  - light.terrace_2
+  - light.front_door_1
+  - light.front_door_2
+  - light.backdoor_1
+  - light.backdoor_2

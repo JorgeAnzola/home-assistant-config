@@ -1,8 +1,13 @@
 ---
 name: !secret home_name
-port: !secret main_homekit_home_port
 filter:
   include_entities:
     - fan.air_purifier
-    - camera.backdoor_last_event
-    - camera.front_door_last_event
+    - light.terrace
+    - light.front_door
+    - light.backdoor
+    - light.christmas_tree
+    - binary_sensor.door_sensor_1
+    - binary_sensor.motion_sensor_1
+    - binary_sensor.motion_sensor_2
+    - binary_sensor.motion_sensor_3

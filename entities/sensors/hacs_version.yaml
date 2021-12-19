@@ -1,5 +1,0 @@
-platform: command_line
-name: hacs_version
-scan_interval: 86400
-command: >
-  grep -oP 'INTEGRATION_VERSION = "\K[^"]+' custom_components/hacs/const.py
