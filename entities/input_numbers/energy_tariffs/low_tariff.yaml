@@ -1,0 +1,9 @@
+---
+low_tariff:
+  name: Low tariff
+  icon: mdi:cash
+  initial: 0.30405
+  min: 0
+  max: 1
+  step: 0.01
+  unit_of_measurement: "EUR/kWh"
