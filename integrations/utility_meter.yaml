@@ -1,0 +1,8 @@
+---
+utility_meter:
+  monthly_energy_consumption:
+    source: sensor.power_consumed
+    cycle: monthly
+  monthly_energy_production:
+    source: sensor.power_produced
+    cycle: monthly
