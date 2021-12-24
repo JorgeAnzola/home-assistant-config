@@ -1,3 +1,4 @@
+---
 homeassistant:
   name: !secret home_name
   external_url: !secret external_url
@@ -8,22 +9,5 @@ homeassistant:
   unit_system: metric
   temperature_unit: C
   time_zone: Europe/Amsterdam
+
   packages: !include_dir_named integrations
-
-browser_mod:
-
-panel_custom:
-  - name: panel-redirect
-    url_path: redirect-server-controls
-    sidebar_title: Server Controls
-    sidebar_icon: mdi:server
-    module_url: /local/panel-redirect.js
-    config:
-      target: /config/server_control
-  - name: panel-redirect
-    url_path: redirect-supervisor
-    sidebar_title: Supervisor
-    sidebar_icon: mdi:home-assistant
-    module_url: /local/panel-redirect.js
-    config:
-      target: /hassio/dashboard
