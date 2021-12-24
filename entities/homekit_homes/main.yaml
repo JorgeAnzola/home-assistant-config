@@ -3,11 +3,14 @@ name: !secret home_name
 filter:
   include_entities:
     - fan.air_purifier
-    - light.terrace
     - light.front_door
     - light.backdoor
+    - light.terrace
     - light.christmas_tree
+    - light.e14_filament_1_tasmota
     - binary_sensor.door_sensor_1
+    - binary_sensor.door_sensor_2
     - binary_sensor.motion_sensor_1
     - binary_sensor.motion_sensor_2
     - binary_sensor.motion_sensor_3
+    - binary_sensor.motion_sensor_4

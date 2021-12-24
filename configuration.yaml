@@ -1,5 +1,7 @@
 homeassistant:
   name: !secret home_name
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   elevation: !secret home_elevation

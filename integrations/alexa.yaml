@@ -1,3 +1,5 @@
 ---
 alexa:
   smart_home:
+    exclude_domains:
+      - automations
