@@ -8,10 +8,10 @@ cards:
     view_layout:
       grid-area: sidebar
     content: |
-      {% set attributes = states.sensor.template_sidebar.attributes | default %}
-      {% for template in attributes %}
-      {{ state_attr('sensor.template_sidebar', template) }}
-      {% endfor %}
+      {{ states('sensor.sidebar_time') }}
+      {{ states('sensor.sidebar_date') }}
+      {{ states('sensor.sidebar_weather') }}
+
     style:
       {
         ha-markdown:

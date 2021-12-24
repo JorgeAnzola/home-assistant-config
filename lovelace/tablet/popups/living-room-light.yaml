@@ -18,7 +18,7 @@ browser_mod:
         show_header_toggle: false
         entities:
           - type: custom:light-popup-card
-            entity: light.small_bedroom
+            entity: light.decorative_outdoor
             icon: none
             fullscreen: false
             brightnessWidth: 130px
@@ -80,7 +80,7 @@ browser_mod:
                   action: call-service
                   service: light.turn_on
                   service_data:
-                    entity_id: light.small_bedroom
+                    entity_id: light.decorative_outdoor
                     brightness: 20
                     color_temp: 445
                     transition: 1
@@ -102,7 +102,7 @@ browser_mod:
                     title: Small bedroom
                     card:
                       type: custom:light-entity-card
-                      entity: light.small_bedroom
+                      entity: light.decorative_outdoor
                       brightness: true
                       color_temp: true
                       full_width_sliders: false

@@ -2,11 +2,11 @@
 type: grid
 title: Testing
 view_layout:
-  grid-area: vardagsrum
+  grid-area: lights
 columns: 2
 cards:
   - type: custom:button-card
-    entity: light.small_bedroom
+    entity: light.decorative_outdoor
     name: Living room button
     hold_action: !include ../../popups/living-room-light.yaml
     template:
