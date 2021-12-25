@@ -11,4 +11,25 @@ cards:
     hold_action: !include ../../popups/living-room-light.yaml
     template:
       - light
-      - icon_hue
+      - icon_bathroom
+  - type: custom:button-card
+    entity: light.decorative_outdoor
+    name: Living room button
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_fan2
+  - type: custom:button-card
+    entity: light.decorative_outdoor
+    name: Living room button
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_away
+  - type: custom:button-card
+    entity: light.decorative_outdoor
+    name: Living room button
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_home

@@ -26,7 +26,7 @@ cards:
       - type: custom:button-card
         entity: person.marlyn
         name: MG
-        tap_action: !include ../../popups/jorge.yaml
+        tap_action: !include ../../popups/marlyn.yaml
         hold_action:
           action: none
         template:

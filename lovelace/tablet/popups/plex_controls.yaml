@@ -1,0 +1,38 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Plex
+  style:
+    hui-grid-card:
+      $hui-entities-card$: |
+        #states {
+          padding-bottom: 0 !important;
+        }
+      $hui-history-graph-card$: |
+        .content {
+          padding: 1.8em 2em 1.8em 2em !important;
+        }
+      $hui-glance-card$: |
+        .entities.no-header {
+          padding-top: 0 !important;
+        }
+      $: |
+        button-card {
+          justify-self: center;
+          margin: 0.8em 0 2.5em 0;
+          width: 100%;
+        }
+        #root {
+          grid-gap: 0 !important;
+        }
+      $hui-entities-card:last-of-type$: |
+        #states {
+          padding-top: 0 !important;
+        }
+  card:
+    type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: media-control
+        entity: media_player.plex_plex_for_apple_tv_living_room

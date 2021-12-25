@@ -25,8 +25,7 @@ cards:
             card:
               type: custom:button-card
               entity: sensor.plex_recently_added
-              tap_action:
-                action: none
+              tap_action: !include ../../popups/apple_tv_controls.yaml
               template:
                 - conditional_media
                 - recently_downloaded
