@@ -1,0 +1,18 @@
+---
+platform: template
+sensors:
+  weather_summary:
+    friendly_name: "Weather - Summary"
+    value_template: >
+      {%- set temperature = states('sensor.buienradar_feel_temperature') %}
+      {%- set apparent = states('sensor.buienradar_feel_temperature') | round %}
+      {%- set precip = states('sensor.buienradar_rain_1d') | round %}
+      {% if not is_state('sensor.buienradar_feel_temperature', 'unknown') %}
+        {%- if temperature | float <= 0.0 -%}
+          Feels like {{ apparent }}° with {{ precip }}% chance of snow {{'\u2744\uFE0F'}}
+        {%- elif temperature | float > 0.0 -%}
+          Feels like {{ apparent}}° with {{ precip }}% chance of rain {{ '\u2614\uFE0F' if precip > 30 }}
+        {%- endif %}
+      {%- else %}
+        Weather information not available
+      {%- endif %}
