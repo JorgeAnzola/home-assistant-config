@@ -10,6 +10,7 @@ cards:
     content: |
       {{ states('sensor.sidebar_time') }}
       {{ states('sensor.sidebar_date') }}
+      {{ states('sensor.sidebar_active') }}
       {{ states('sensor.sidebar_weather') }}
 
     style:
