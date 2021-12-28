@@ -1,0 +1,31 @@
+---
+id: "1639494917775"
+alias: Backdoor lighting - Door opening
+description: "Turns on the light when the door is open, then turns it off one minute after it's closed"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.door_sensor_2
+    from: "off"
+    to: "on"
+action:
+  - service: scene.create
+    data:
+      scene_id: before
+      snapshot_entities:
+        - light.backdoor
+  - service: light.turn_on
+    target:
+      entity_id: light.decorative_outdoor
+    data:
+      brightness_pct: 100
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.door_sensor_2
+        from: "on"
+        to: "off"
+    continue_on_timeout: false
+  - delay: 5
+  - service: scene.turn_on
+    target:
+      entity_id: scene.before
+mode: single
