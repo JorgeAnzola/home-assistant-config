@@ -30,3 +30,5 @@
   friendly_name: Motion sensor 4
 '0x00158d0007b6e8ae':
   friendly_name: Door sensor 2
+'0x00124b002370f0f2':
+  friendly_name: Sonoff zb mini 1
