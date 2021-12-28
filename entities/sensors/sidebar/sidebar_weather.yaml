@@ -4,4 +4,4 @@ sensors:
   sidebar_weather:
     friendly_name: "Sidebar - weather"
     value_template: >
-      {{ states('sensor.weather_summary') }}
+      {{- states('sensor.weather_summary') -}}
