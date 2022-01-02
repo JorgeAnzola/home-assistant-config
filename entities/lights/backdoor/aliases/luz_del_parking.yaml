@@ -1,0 +1,5 @@
+---
+platform: group
+name: Luz del parking
+entities:
+  - light.backdoor

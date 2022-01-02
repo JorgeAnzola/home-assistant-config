@@ -1,6 +1,6 @@
 ---
 platform: group
-name: Decorative outdoor
+name: Outdoor
 entities:
   - light.terrace_1
   - light.terrace_2
