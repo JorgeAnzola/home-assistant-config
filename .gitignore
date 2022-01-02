@@ -42,3 +42,6 @@ zigbee2mqtt/state.json
 
 # Plex recently added artwork
 www/Plex_Recently_Added
+
+# Sonoff
+.sonoff.json
