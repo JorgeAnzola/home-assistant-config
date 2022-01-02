@@ -31,9 +31,7 @@ cards:
         hold_action:
           action: none
         template:
-          - base
           - person
-          - circle
 
       - type: custom:button-card
         entity: person.jorge
@@ -42,9 +40,7 @@ cards:
         hold_action:
           action: none
         template:
-          - base
           - person
-          - circle
 
       - type: custom:button-card
         entity: alarm_control_panel.ha_alarm
@@ -53,7 +49,6 @@ cards:
         template:
           - base
           - icon_home
-          - circle
 
       - type: button
         icon: mdi:information-outline

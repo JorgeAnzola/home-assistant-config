@@ -8,6 +8,9 @@ filter:
     - light.terrace
     - light.christmas_tree
     - light.e14_filament_1_tasmota
+    - light.kitchen
+    - light.dinning_table
+    - light.closets
     - binary_sensor.door_sensor_1
     - binary_sensor.door_sensor_2
     - binary_sensor.motion_sensor_1

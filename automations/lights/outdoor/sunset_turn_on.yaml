@@ -11,4 +11,5 @@ action:
     target:
       entity_id: light.decorative_outdoor
     data:
-      brightness_pct: 70
+      brightness_pct: 30
+      transition: 1

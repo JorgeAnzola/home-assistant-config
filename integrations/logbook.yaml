@@ -1,2 +1,16 @@
 ---
-logbook: ~
+logbook:
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.time_utc
+      - sensor.uptime
+      - sensor.date_time
+      - sensor.date_time_iso
+      - sensor.date_time_utc
+    entity_globs:
+      - sensor.weather_*
+      - sensor.sidebar_*
+      - sensor.buienradar_*
+      - sensor.*_linkquality

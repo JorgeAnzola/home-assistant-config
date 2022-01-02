@@ -24,11 +24,11 @@
   friendly_name: Terrace 1
 '0x8cf681fffe55a1cc':
   friendly_name: Terrace 2
-'0x804b50fffe515c50':
-  friendly_name: Closets
 '0x00158d0002c635a1':
   friendly_name: Motion sensor 4
 '0x00158d0007b6e8ae':
   friendly_name: Door sensor 2
 '0x00124b002370f0f2':
   friendly_name: Sonoff zb mini 1
+'0x00124b0024c09c31':
+  friendly_name: Sonoff zb mini 2

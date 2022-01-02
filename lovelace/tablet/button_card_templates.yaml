@@ -9,7 +9,7 @@
 base:
   variables:
     state: >
-      [[[ return entity === undefined || entity.state; ]]]
+      [[[ return entity.state; ]]]
     timeout: >
       [[[ return entity === undefined || Date.now() - Date.parse(entity.last_changed); ]]]
     light_color: >
@@ -74,19 +74,20 @@ base:
       - padding: 10%
       - --mdc-ripple-color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
+            return (variables.state === 'on' || variables.state === 'home') ?
               'rgb(0, 0, 0)' :
               'rgba(255, 255, 255, 0.3)';
           ]]]
       - color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
+            return (variables.state === 'on' || variables.state === 'home') ?
               'rgba(0, 0, 0, 0.6)' :
               'rgba(255, 255, 255, 0.3)';
           ]]]
       - background-color: >
           [[[
-            return (variables.state === 'on' || variables.state === 'home' || variables.state !== 'disarmed') ?
+
+            return (variables.state === 'on' || variables.state === 'home') ?
               'rgba(255, 255, 255, 0.8)' :
               'rgba(115, 115, 115, 0.2)';
           ]]]
@@ -208,6 +209,64 @@ loader:
         - opacity: 0.5
         - filter: >
             [[[ return variables.state === 'off' ? 'invert(1)' : 'none'; ]]]
+
+washing_machine:
+  template:
+    - base
+    - circle
+  triggers_update: sensor.time
+  custom_fields:
+    circle: >
+      [[[
+        if (states['input_boolean.washing_machine'].state === 'on') {
+          let last_changed = states['input_boolean.washing_machine'].state === 'on' ? states['sensor.washing_machine'].state : '-';
+          const stroke_color = '#b2b2b2';
+          const fill_color = 'none';
+          return `
+            <svg viewBox="0 0 50 50">
+              <style>
+                circle {
+                  transform: none;
+                  transform-origin: none;
+                  stroke-dasharray: none;
+                  stroke-dashoffset: none;
+                }
+              </style>
+              <circle cx="25" cy="25" r="20.5" stroke="${stroke_color}" stroke-width="1.5" fill="${fill_color}" />
+              <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${last_changed}</text>
+            </svg>
+          `;
+        }
+      ]]]
+
+dryer:
+  template:
+    - base
+    - circle
+  triggers_update: sensor.time
+  custom_fields:
+    circle: >
+      [[[
+        if (states['input_boolean.dryer'].state === 'on') {
+          let last_changed = states['input_boolean.dryer'].state === 'on' ? states['sensor.dryer_time_on'].state : '-';
+          const stroke_color = '#b2b2b2';
+          const fill_color = 'none';
+          return `
+            <svg viewBox="0 0 50 50">
+              <style>
+                circle {
+                  transform: none;
+                  transform-origin: none;
+                  stroke-dasharray: none;
+                  stroke-dashoffset: none;
+                }
+              </style>
+              <circle cx="25" cy="25" r="20.5" stroke="${stroke_color}" stroke-width="1.5" fill="${fill_color}" />
+              <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${last_changed}</text>
+            </svg>
+          `;
+        }
+      ]]]
 
 #################################################
 #                                               #
@@ -365,8 +424,8 @@ person:
           }
         };
         let last_changed = entity === undefined || time(Date.now() - Date.parse(states[entity.entity_id].last_changed));
-        const stroke_color = variables.state === 'home' ? '#b2b2b2' : '#313638';
-        const fill_color = variables.state === 'home' ? 'none' : '#FFFFFF08';
+        const stroke_color = '#b2b2b2';
+        const fill_color = 'none';
         return `
           <svg viewBox="0 0 50 50">
             <style>
@@ -729,7 +788,7 @@ laundry:
           entity_id: entity.entity_id
         });
         hass.callService('input_boolean', 'turn_off', {
-          entity_id: 'input_boolean.laundry_display'
+          entity_id: 'input_boolean.washing_machine'
         });
       ]]]
   styles:
@@ -1374,6 +1433,75 @@ icon_washing_machine:
             transform-origin: center 60%;
             fill: #9ca2a5;
             animation-timing-function: cubic-bezier(.61, 1, .88, 1);
+        }
+
+        .off {
+          fill: #9ca2a5;
+        }
+          </style>
+        `;
+        
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          return `${style}<path style="fill:#9ca2a5;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble end" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'off' && variables.timeout > 2000) {
+          return `${style}<path style="fill:#9ca2a5;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble off" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'on' && variables.timeout > 2000) {
+          return `${style}<path style="fill:#5daeea;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble on_no_delay" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'on' && variables.timeout < 2000) {
+        return `${style}<path style="fill:#5daeea;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble start" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+
+      ]]]
+
+icon_dryer:
+  styles:
+    custom_fields:
+      icon:
+        - width: 75%
+        - margin-left: -3%
+  custom_fields:
+    icon: >
+      [[[
+        const style = `
+        <svg viewBox="0 0 50 63">
+          <style>
+            @keyframes rotate {
+              0% {
+                visibility: visible;
+                transform: rotate(0deg);
+              }
+
+              100% {
+                transform: rotate(1080deg);
+              }
+            }
+
+            .on_no_delay {
+              animation: rotate 4s linear infinite;
+              transform-origin: center 60%;
+              fill: #5daeea;
+              will-change: transform;
+            }
+
+        .start {
+                      animation: rotate 2.8s ease-in;
+              transform-origin: center 60%;
+                      fill: #5daeea;
+
+                    }
+
+        .end {
+            animation: rotate 2.8s;
+            transform-origin: center 60%;
+            fill: #9ca2a5;
+            animation-timing-function: cubic-bezier(.61, 1, .88, 1);
+        }
+
+        .off {
+          fill: #9ca2a5;
         }
           </style>
         `;

@@ -9,6 +9,14 @@ trigger:
   for:
     minutes: 1
 action:
-  service: input_boolean.turn_off
-  entity_id: input_boolean.dryer
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.dryer
+
+  - service: logbook.log
+    data:
+      name: Dryer run time
+      domain: input_datetime
+      message: >
+        The dryer ran for {{ states('sensor.dryer_time_on') }}
+
 mode: single

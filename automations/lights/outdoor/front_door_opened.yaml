@@ -1,13 +1,10 @@
 ---
-id: "1639494917775"
-alias: Backdoor lighting - Door opening
+id: "1639494917776"
+alias: Front door lighting - Door opening
 description: "Turns on the light when the door is open, then turns it off one minute after it's closed"
 trigger:
   - platform: state
-    entity_id: binary_sensor.door_sensor_2
-    to: "on"
-  - platform: state
-    entity_id: binary_sensor.motion_sensor_4
+    entity_id: binary_sensor.door_sensor_1
     to: "on"
 condition:
   - alias: "Sun down"
@@ -17,25 +14,23 @@ condition:
 action:
   - service: scene.create
     data:
-      scene_id: backdoor_before
+      scene_id: front_door_before
       snapshot_entities:
-        - light.backdoor
+        - light.front_door
   - service: light.turn_on
     target:
-      entity_id: light.backdoor
+      entity_id: light.front_door
     data:
       brightness_pct: 100
       transition: 1
   - wait_for_trigger:
       - platform: state
-        entity_id: binary_sensor.door_sensor_2
-        to: "off"
-      - platform: state
-        entity_id: binary_sensor.motion_sensor_4
+        entity_id: binary_sensor.door_sensor_1
+        from: "on"
         to: "off"
     continue_on_timeout: false
   - delay: 60
   - service: scene.turn_on
     target:
-      entity_id: scene.backdoor_before
+      entity_id: scene.front_door_before
 mode: single

@@ -9,6 +9,10 @@ trigger:
   for:
     minutes: 5
 action:
-  service: input_boolean.turn_on
-  entity_id: input_boolean.washing_machine
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.washing_machine
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.washing_machine_start_time
+    data_template:
+      datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 mode: single
