@@ -8,8 +8,6 @@
   friendly_name: Motion sensor 2
 '0x00158d000451ab34':
   friendly_name: Motion sensor 3
-'0x00158d00044cf73a':
-  friendly_name: Button 1
 '0x00158d00044ad328':
   friendly_name: Button 2
 '0x8cf681fffe55a05e':
@@ -24,11 +22,31 @@
   friendly_name: Terrace 1
 '0x8cf681fffe55a1cc':
   friendly_name: Terrace 2
-'0x00158d0002c635a1':
-  friendly_name: Motion sensor 4
 '0x00158d0007b6e8ae':
   friendly_name: Door sensor 2
+'0x00158d0003d12d65':
+  friendly_name: Button 3
+'0x00158d0007b6e8b2':
+  friendly_name: Door sensor 4
+'0x00158d0007b7b8cb':
+  friendly_name: Door sensor 5
+'0x00158d0007b7b7bc':
+  friendly_name: Door sensor 3
+'0x00158d00044cf73a':
+  friendly_name: Button 1
+'0x00158d0002c635a1':
+  friendly_name: Motion sensor 4
+'0x00124b00258bbb6a':
+  friendly_name: ZBMini 1
+'0x00124b0024c6e00d':
+  friendly_name: ZBMini 2
 '0x00124b002370f0f2':
-  friendly_name: Sonoff zb mini 1
-'0x00124b0024c09c31':
-  friendly_name: Sonoff zb mini 2
+  friendly_name: ZBMini 3
+'0x00124b0024c0e5b7':
+  friendly_name: ZBMini 4
+'0x00124b0024c22606':
+  friendly_name: ZBMini 5
+'0x00124b0024c15325':
+  friendly_name: ZBMini 6
+'0x00124b0024c15b1b':
+  friendly_name: ZBMini 7

@@ -6,7 +6,7 @@ view_layout:
 columns: 2
 cards:
   - type: custom:button-card
-    entity: light.decorative_outdoor
+    entity: light.outdoor
     name: All
     hold_action: !include ../../popups/living-room-light.yaml
     template:

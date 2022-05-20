@@ -1,3 +1,55 @@
-# This file is required by the Home Assistant frontend
-# See automations folder.
-[ ]
+- id: "1641218134725"
+  alias: Toggle closets
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: sensor.button_3_action
+      to: single
+  condition: []
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.closets
+  mode: single
+- id: "1642246828915"
+  alias: Find my phone - Jorge
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: input_boolean.jorge_find_my_phone
+      to: "on"
+  condition: []
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.jorge_find_my_phone
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.jorge_find_my_phone
+  mode: single
+- id: "1642246828916"
+  alias: Find my phone - Marlyn
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: input_boolean.marlyn_find_my_phone
+      to: "on"
+  condition: []
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.marlyn_find_my_phone
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.marlyn_find_my_phone
+  mode: single
