@@ -8,5 +8,5 @@ trigger:
 action:
   - service: light.turn_off
     target:
-      entity_id: light.decorative_outdoor
+      entity_id: light.outdoor
 mode: single

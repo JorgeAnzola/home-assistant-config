@@ -1,0 +1,22 @@
+---
+id: "1649329168215"
+alias: Bathroom heater - on
+description: ""
+trigger:
+  - platform: time
+    at: "22:00:00"
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: person.jorge
+        state: home
+      - condition: state
+        entity_id: person.marlyn
+        state: home
+action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.plug_4
+mode: single

@@ -1,0 +1,43 @@
+id: "1649328597287"
+alias: Living room repellent - off
+trigger:
+  - platform: sun
+    event: sunset
+  - platform: state
+    entity_id: person.jorge
+    to: away
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  - platform: state
+    entity_id: person.marlyn
+    to: away
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+condition:
+  - condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: person.jorge
+            state: away
+            for:
+              hours: 1
+              minutes: 0
+              seconds: 0
+          - condition: state
+            entity_id: person.marlyn
+            state: away
+            for:
+              hours: 1
+              minutes: 0
+              seconds: 0
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.plug_5
+mode: single
