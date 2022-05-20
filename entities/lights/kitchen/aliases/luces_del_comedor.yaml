@@ -1,6 +1,0 @@
----
-platform: group
-name: Luces del comedor
-entities:
-  - light.dinning_table
-  - light.kitchen

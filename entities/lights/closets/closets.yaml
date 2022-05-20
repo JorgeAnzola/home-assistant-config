@@ -1,4 +1,0 @@
----
-platform: switch
-name: closets
-entity_id: switch.plug_4

@@ -1,5 +1,0 @@
----
-platform: group
-name: Luz del closet
-entities:
-  - light.closets

@@ -1,6 +1,0 @@
----
-platform: group
-name: Luces de la cocina
-entities:
-  - light.kitchen
-  - light.dinning_table

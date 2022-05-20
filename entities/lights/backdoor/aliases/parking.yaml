@@ -1,5 +1,5 @@
 ---
 platform: group
-name: Luz del parking
+name: Parking
 entities:
   - light.backdoor
