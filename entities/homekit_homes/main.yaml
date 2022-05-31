@@ -10,11 +10,13 @@ filter:
     - light.dinning_table
     - light.bedroom_wall_led_strip
     - light.laundry_room_light
+    - light.closets
+    - light.jorges_nightstand
+    - light.marlyns_nightstand
+    - light.plant_decoration
+    - light.bedroom
     - switch.plug_4
     - switch.plug_5
-    - switch.zbmini_1
-    - switch.zbmini_2
-    - switch.zbmini_3
     - camera.entrance
     - camera.kitchen
     - binary_sensor.door_sensor_1
