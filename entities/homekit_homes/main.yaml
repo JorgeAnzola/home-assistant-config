@@ -7,7 +7,7 @@ filter:
     - light.backdoor
     - light.terrace
     - light.kitchen
-    - light.dinning_table
+    - light.dinning_room
     - light.bedroom_wall_led_strip
     - light.laundry_room_light
     - light.closets
@@ -19,6 +19,7 @@ filter:
     - switch.plug_5
     - camera.entrance
     - camera.kitchen
+    - camera.living_room
     - binary_sensor.door_sensor_1
     - binary_sensor.door_sensor_2
     - binary_sensor.door_sensor_3
@@ -27,3 +28,4 @@ filter:
     - binary_sensor.motion_sensor_2
     - binary_sensor.motion_sensor_3
     - binary_sensor.motion_sensor_4
+    - sensor.kitchen_temperature

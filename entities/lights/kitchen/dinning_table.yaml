@@ -1,4 +1,0 @@
----
-platform: switch
-name: Dinning table
-entity_id: switch.ns_panel_1_channel_2

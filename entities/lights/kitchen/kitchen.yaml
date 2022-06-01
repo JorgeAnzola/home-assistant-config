@@ -1,4 +1,0 @@
----
-platform: switch
-name: Kitchen
-entity_id: switch.ns_panel_1_channel_1
