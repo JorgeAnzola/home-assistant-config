@@ -9,6 +9,12 @@ trigger:
   for:
     minutes: 5
 action:
-  service: input_boolean.turn_off
-  entity_id: input_boolean.washing_machine
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washing_machine
+  - service: logbook.log
+    data:
+      name: Washing machine run time
+      domain: input_datetime
+      message: >
+        The washing machine ran for {{ states('sensor.washing_machine_time_on') }}
 mode: single

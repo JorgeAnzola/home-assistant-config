@@ -1,3 +1,7 @@
+---
 http:
-  ip_ban_enabled: true
-  login_attempts_threshold: 3
+  ip_ban_enabled: !secret ip_ban_enabled
+  login_attempts_threshold: !secret login_attempts_threshold
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.0.0.0/8

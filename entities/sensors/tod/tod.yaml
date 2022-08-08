@@ -1,0 +1,13 @@
+---
+platform: template
+sensors:
+  tod:
+    friendly_name: "Time of the day"
+    value_template: >
+      {% if is_state('binary_sensor.morning', 'on') %}
+        {{ 'morning' }}
+      {%- elif is_state('binary_sensor.afternoon', 'on') %}
+        {{ 'afternoon' }}
+      {%- else %}
+        {{ 'night' }}
+      {%- endif -%}

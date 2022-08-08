@@ -1,0 +1,13 @@
+---
+platform: template
+sensors:
+  washing_machine_time_on:
+    value_template: >
+      {%- set time =  (as_timestamp(now()) - state_attr('input_datetime.washing_machine_start_time', 'timestamp')) -%}
+      {%- set hours = time | timestamp_custom('%H', false) | int -%}
+      {%- set minutes = time | timestamp_custom('%M', false) | int -%}
+      {%- if hours > 0 -%}
+        {{ hours }}h {{ minutes }}m
+      {%- else -%}
+        {{ minutes }}m
+      {%- endif -%}

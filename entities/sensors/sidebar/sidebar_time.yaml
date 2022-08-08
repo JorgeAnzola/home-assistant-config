@@ -1,0 +1,9 @@
+---
+platform: template
+sensors:
+  sidebar_time:
+    friendly_name: "Sidebar - time"
+    value_template: >
+      {%- set hours = '<span class="clock">' + now().strftime('%H') + '<span>' %}
+      {%- set minutes = '</span>' + now().strftime('%M') + '</span>' %}
+      {{ hours }}:{{ minutes }}

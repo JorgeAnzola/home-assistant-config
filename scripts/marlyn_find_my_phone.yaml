@@ -1,0 +1,39 @@
+---
+alias: MG - Find my phone
+icon: mdi:volume-high
+sequence:
+  - service: notify.mobile_app_marlyns_iphone
+    data:
+      message: HERE I AM! HERE I AM!
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1
+
+  - delay:
+      seconds: 2
+
+  - service: notify.mobile_app_marlyns_iphone
+    data:
+      message: Did you find it yet?
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1
+
+  - delay:
+      seconds: 2
+
+  - service: notify.mobile_app_marlyns_iphone
+    data:
+      message: RRRRRRR DING DING DING DING RRRRRR
+      data:
+        push:
+          sound:
+            name: default
+            critical: 1
+            volume: 1

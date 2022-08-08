@@ -10,9 +10,9 @@ layout:
   grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
   grid-template-areas: |
     "sidebar  .           .       .       ."
-    "sidebar  vardagsrum  studio  sovrum  ."
-    "sidebar  media       övrigt  hemma   ."
-    "sidebar  footer      footer  footer  ."
+    "sidebar  lights  media   sovrum  ."
+    "sidebar  lights2  övrigt  hemma   ."
+    "sidebar  footer  footer  footer  ."
   mediaquery:
     #phone
     "(max-width: 800px)":

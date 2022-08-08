@@ -1,0 +1,4 @@
+washing_machine_start_time:
+  name: "Washing machine start time"
+  has_date: true
+  has_time: true

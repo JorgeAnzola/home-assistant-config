@@ -1,0 +1,35 @@
+---
+id: "1639494912775"
+alias: Terrace lighting - Door opening
+description: "Turns on the light when the door is open, then turns it off one minute after it's closed"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.door_sensor_3
+    to: "on"
+condition:
+  - alias: "Sun down"
+    condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - service: scene.create
+    data:
+      scene_id: terrace_before
+      snapshot_entities:
+        - light.terrace
+  - service: light.turn_on
+    target:
+      entity_id: light.terrace
+    data:
+      brightness_pct: 100
+      transition: 1
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.door_sensor_3
+        to: "off"
+    continue_on_timeout: false
+  - delay: 60
+  - service: scene.turn_on
+    target:
+      entity_id: scene.terrace_before
+mode: single

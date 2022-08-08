@@ -1,0 +1,9 @@
+---
+high_tariff:
+  name: High tariff
+  icon: mdi:cash
+  initial: 0.24719
+  min: 0
+  max: 1
+  step: 0.01
+  unit_of_measurement: "EUR/kWh"

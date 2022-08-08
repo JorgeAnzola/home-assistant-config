@@ -1,0 +1,54 @@
+id: "1649329597287"
+alias: Bathroom heater - off
+description: ""
+trigger:
+  - platform: time
+    at: "00:00:00"
+  - platform: state
+    entity_id: person.jorge
+    to: away
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  - platform: state
+    entity_id: person.marlyn
+    to: away
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+condition:
+  - condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: person.jorge
+            state: away
+            for:
+              hours: 1
+              minutes: 0
+              seconds: 0
+          - condition: state
+            entity_id: person.marlyn
+            state: away
+            for:
+              hours: 1
+              minutes: 0
+              seconds: 0
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.plug_4
+mode: single

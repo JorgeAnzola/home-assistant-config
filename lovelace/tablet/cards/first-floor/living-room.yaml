@@ -1,14 +1,49 @@
 ---
 type: grid
-title: Testing
+title: Outdoor
 view_layout:
-  grid-area: vardagsrum
+  grid-area: lights
 columns: 2
 cards:
   - type: custom:button-card
-    entity: light.small_bedroom
-    name: Living room button
+    entity: light.outdoor
+    name: All
     hold_action: !include ../../popups/living-room-light.yaml
     template:
       - light
-      - icon_hue
+      - icon_spot
+  - type: custom:button-card
+    entity: light.terrace
+    name: Terrace
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_spot
+  - type: custom:button-card
+    entity: light.front_door
+    name: Front door
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_spot
+  - type: custom:button-card
+    entity: light.backdoor
+    name: Backdoor
+    hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_spot
+
+  - type: custom:button-card
+    entity: input_boolean.washing_machine
+    name: Washing machine
+    template:
+      - dryer
+      - icon_washing_machine
+
+  - type: custom:button-card
+    entity: input_boolean.dryer
+    name: Dryer
+    template:
+      - dryer
+      - icon_dryer

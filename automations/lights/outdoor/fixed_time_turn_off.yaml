@@ -1,0 +1,12 @@
+---
+id: "1639494917495"
+alias: Outdoor lighting  - Fixed time turn off
+description: "Turns off the decorative outdoor lightning at a fixed time"
+trigger:
+  - platform: time
+    at: 01:00:00
+action:
+  - service: light.turn_off
+    target:
+      entity_id: light.outdoor
+mode: single

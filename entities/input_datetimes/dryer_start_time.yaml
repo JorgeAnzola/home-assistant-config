@@ -1,0 +1,4 @@
+dryer_start_time:
+  name: "Dryer start time"
+  has_date: true
+  has_time: true

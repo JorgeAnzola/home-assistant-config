@@ -1,0 +1,18 @@
+---
+id: "66574252952218"
+alias: Dryer - Time on
+
+trigger:
+  platform: time_pattern
+  minutes: "*"
+
+condition:
+  condition: state
+  entity_id: input_boolean.dryer
+  state: "on"
+
+action:
+  service: homeassistant.update_entity
+  entity_id: sensor.dryer_time_on
+
+mode: single

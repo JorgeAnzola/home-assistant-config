@@ -1,0 +1,7 @@
+---
+platform: template
+sensors:
+  sidebar_active:
+    friendly_name: "Sidebar - weather"
+    value_template: >
+      WIP

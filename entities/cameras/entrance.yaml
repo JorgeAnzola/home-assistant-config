@@ -1,0 +1,8 @@
+platform: generic
+name: Entrance
+still_image_url: !secret entrance_cam_still_image_url
+stream_source: !secret entrance_cam_stream_source
+verify_ssl: false
+username: !secret entrance_cam_username
+password: !secret entrance_cam_password
+authentication: digest
