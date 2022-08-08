@@ -35,4 +35,4 @@ browser_mod:
     square: false
     cards:
       - type: media-control
-        entity: media_player.living_room
+        entity: media_player.bedroom_apple_tv

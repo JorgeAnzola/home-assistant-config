@@ -1,3 +1,3 @@
 ---
 logger:
-  default: fatal
+  default: error

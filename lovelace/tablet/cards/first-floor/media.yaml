@@ -37,7 +37,7 @@ cards:
                 state: Apple TV
             card:
               type: custom:button-card
-              entity: media_player.living_room
+              entity: media_player.bedroom_apple_tv
               template:
                 - conditional_media
                 - icon_apple_tv
@@ -58,7 +58,7 @@ cards:
         cards:
           - type: custom:button-card
             name: Apple TV
-            entity: media_player.living_room
+            entity: media_player.bedroom_apple_tv
             tap_action: !include ../../popups/apple_tv_controls.yaml
             template:
               - media

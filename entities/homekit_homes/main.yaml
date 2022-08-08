@@ -15,6 +15,7 @@ filter:
     - light.marlyns_nightstand
     - light.plant_decoration
     - light.bedroom
+    - light.living_room
     - switch.plug_4
     - switch.plug_5
     - camera.entrance
@@ -29,3 +30,5 @@ filter:
     - binary_sensor.motion_sensor_3
     - binary_sensor.motion_sensor_4
     - sensor.kitchen_temperature
+    - media_player.living_room_tv
+    - media_player.bedroom_apple_tv
