@@ -1,6 +1,0 @@
----
-platform: group
-name: Terrace
-entities:
-  - light.terrace_1
-  - light.terrace_2

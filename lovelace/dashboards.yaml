@@ -1,7 +1,1 @@
----
-wall-mounted-tablet:
-  mode: yaml
-  title: Wall mounted tablet
-  icon: mdi:tablet
-  show_in_sidebar: true
-  filename: lovelace/tablet/dashboard.yaml
+~

@@ -1,5 +1,0 @@
----
-platform: group
-name: Exterior
-entities:
-  - light.outdoor
