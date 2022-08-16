@@ -1,1 +1,11 @@
 ---
+template:
+  binary_sensor:
+    - name: Washing machine
+      icon: mdi:washing-machine
+      state: >
+        {{ states('sensor.plug_2_power') | float > 4 }}
+    - name: Dryer
+      icon: mdi:tumble-dryer
+      state: >
+        {{ states('sensor.plug_1_current') | float > 0.3 }}
