@@ -1,0 +1,14 @@
+---
+id: '1660660102768'
+alias: Brush Bruno - Done notification
+trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.brushed_bruno
+    to: 'on'
+condition: []
+action:
+  - service: notify.group_telegram
+    data:
+      message: "✅ Bruno was brushed today \U0001F436"
+  mode: single
