@@ -28,3 +28,5 @@
   friendly_name: Kitchen door
 '0x00158d0002c635a1':
   friendly_name: Toilet motion
+'0x00158d0007b6e8ae':
+  friendly_name: Parking door
