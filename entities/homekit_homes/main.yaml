@@ -3,8 +3,15 @@ name: !secret home_name
 filter:
   include_entities:
     - light.bedroom_wall_led_strip
-    - camera.entrance
-    - camera.kitchen
-    - camera.living_room
+    # - camera.entrance
+    # - camera.kitchen
+    # - camera.living_room
     - switch.plug_3
     - switch.plug_4
+    - light.kitchen
+    - light.dinning_room
+    - sensor.kitchen_temperature
+    - light.living_room_lamp
+    - light.parking
+    - light.terrace
+    - light.front_door

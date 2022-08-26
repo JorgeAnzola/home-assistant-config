@@ -1,3 +1,10 @@
 ---
 alexa:
   smart_home:
+    filter:
+      include_entities:
+        - light.kitchen
+        - light.dinning_room
+        - light.parking
+        - light.front_door
+        - light.terrace

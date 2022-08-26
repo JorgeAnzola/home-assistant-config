@@ -3,9 +3,13 @@ template:
   binary_sensor:
     - name: Washing machine
       icon: mdi:washing-machine
+      delay_on: "00:03:00"
+      delay_off: "00:03:00"
       state: >
         {{ states('sensor.plug_2_power') | float > 4 }}
     - name: Dryer
       icon: mdi:tumble-dryer
+      delay_on: "00:03:00"
+      delay_off: "00:03:00"
       state: >
         {{ states('sensor.plug_1_current') | float > 0.3 }}

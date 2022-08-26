@@ -2,7 +2,7 @@
 alias: Jorge - Find my phone
 icon: mdi:volume-high
 sequence:
-  - service: notify.mobile_app_jorges_iphone
+  - service: !secret notify_jorges_iphone
     data:
       message: HERE I AM! HERE I AM!
       data:
@@ -15,7 +15,7 @@ sequence:
   - delay:
       seconds: 2
 
-  - service: notify.mobile_app_jorges_iphone
+  - service: !secret notify_jorges_iphone
     data:
       message: Did you find it yet?
       data:
@@ -28,7 +28,7 @@ sequence:
   - delay:
       seconds: 2
 
-  - service: notify.mobile_app_jorges_iphone
+  - service: !secret notify_jorges_iphone
     data:
       message: RRRRRRR DING DING DING DING RRRRRR
       data:

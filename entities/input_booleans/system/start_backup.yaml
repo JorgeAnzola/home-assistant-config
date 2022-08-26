@@ -1,5 +1,0 @@
----
-start_backup:
-  name: Start backup
-  icon: mdi:restore
-  initial: "off"
