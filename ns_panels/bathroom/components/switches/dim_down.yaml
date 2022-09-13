@@ -1,10 +1,10 @@
 platform: template
-name: $device_name Disable dim-down
+name: $device_name Dim-down
 id: disp1_disdim
 restore_state: true
-assumed_state: off
+assumed_state: on
 optimistic: true
 on_turn_on:
-  - lambda: id(disp1).send_command_printf("Home.disdim.val=1");
-on_turn_off:
   - lambda: id(disp1).send_command_printf("Home.disdim.val=0");
+on_turn_off:
+  - lambda: id(disp1).send_command_printf("Home.disdim.val=1");
