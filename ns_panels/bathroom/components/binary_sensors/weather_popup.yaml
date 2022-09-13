@@ -1,0 +1,7 @@
+platform: nextion
+name: $device_name Weather Details
+page_id: 0
+component_id: 21
+on_click:
+  - lambda: id(disp1).send_command_printf("page 5");
+  - lambda: id(disp1).set_component_text_printf("WeatherDetails.full_condition", "%s", id(full_condition).state.c_str());

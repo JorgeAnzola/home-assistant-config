@@ -19,6 +19,7 @@ from .const import (
     EVENT_CONFIGURATION,
     GET_DEVICE_PROPERTIES_MESSAGE,
     GET_DEVICE_PROPERTIES_METADATA_MESSAGE,
+    GET_DEVICE_VOICES_MESSAGE,
     GET_P2P_LIVESTREAM_STATUS_MESSAGE,
     GET_RTSP_LIVESTREAM_STATUS_MESSAGE,
     GET_STATION_PROPERTIES_MESSAGE,
@@ -30,6 +31,7 @@ from .const import (
     POLL_REFRESH_MESSAGE,
     RTSP_LIVESTREAM_STARTED,
     RTSP_LIVESTREAMING_STATUS,
+    QUICK_RESPONSE_MESSAGE,
     SET_API_SCHEMA,
     SET_CAPTCHA_MESSAGE,
     SET_DEVICE_STATE_MESSAGE,
@@ -37,6 +39,7 @@ from .const import (
     SET_LOCK_MESSAGE,
     SET_P2P_LIVESTREAM_MESSAGE,
     SET_PROPERTY_MESSAGE,
+    SET_PTZ_MESSAGE,
     SET_RTSP_LIVESTREAM_MESSAGE,
     SET_RTSP_STREAM_MESSAGE,
     START_LISTENING_MESSAGE,
@@ -171,10 +174,13 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
             )
 
     async def async_driver_connect(self):
-        await self.async_send_message(json.dumps(SET_API_SCHEMA))
         await self.async_send_message(json.dumps(START_LISTENING_MESSAGE))
-        self.driver_connected = None
+        # await asyncio.sleep(5)
+        await self.async_send_message(json.dumps(SET_API_SCHEMA))
+        # await asyncio.sleep(5)
         await self.async_send_message(json.dumps(DRIVER_CONNECT_MESSAGE))
+        # await asyncio.sleep(5)
+        self.driver_connected = None
         # check if driver_connected response had received independent of result, could be True or False
         return await wait_for_value(self.__dict__, "driver_connected", None)
 
@@ -190,6 +196,8 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         for device in self.devices.values():
             await self.async_get_properties_for_device(device.serial_number)
             await self.async_get_properties_metadata_for_device(device.serial_number)
+            if device.is_doorbell() is True:
+                await self.async_get_device_voices(device.serial_number)
 
         for station in self.stations.values():
             await self.async_get_properties_for_station(station.serial_number)
@@ -219,13 +227,14 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         return True
 
     async def process_driver_connect_response(self, connected: bool):
-        self.driver_connected = connected
+        pass
+        # self.driver_connected = connected
 
     async def process_start_listening_response(self, states: dict):
-        if (
-            states["driver"]["connected"] is False
-            or states["driver"]["pushConnected"] is False
-        ):
+        self.driver_connected = (states["driver"]["connected"] is True) or (
+            states["driver"]["pushConnected"] is True
+        )
+        if self.driver_connected is False:
             return
 
         self.data["devices"] = {}
@@ -259,6 +268,10 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         device: Device = self.devices.get(serial_number, None)
         device.set_properties_metadata(properties_metadata)
 
+    async def process_get_device_voices_response(self, serial_number, voices: dict):
+        device: Device = self.devices.get(serial_number, None)
+        device.set_voices(voices)
+
     async def process_get_station_properties_response(
         self, serial_number, properties: dict
     ):
@@ -277,66 +290,70 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         # _LOGGER.debug(f"{DOMAIN} - on_message - {payload}")
         if message_type not in MESSAGE_TYPES_TO_PROCESS:
             return
-        try:
-            message = payload[message_type]
-        except Exception as ex:
-            return
 
         if message_type == "result":
             message_id = payload["messageId"]
+            message_success = payload["success"]
+            message_result = payload[message_type]
             _LOGGER.debug(f"{DOMAIN} - on_message - {payload}")
 
             if message_id not in MESSAGE_IDS_TO_PROCESS:
                 return
 
             if message_id == DRIVER_CONNECT_MESSAGE["messageId"]:
-                await self.process_driver_connect_response(message["result"])
+                await self.process_driver_connect_response(message_success)
 
             if message_id == SET_CAPTCHA_MESSAGE["messageId"]:
-                self.captcha_config.result = message["result"]
+                self.captcha_config.result = message_success
 
             if message_id == START_LISTENING_MESSAGE["messageId"]:
-                await self.process_start_listening_response(message["state"])
+                await self.process_start_listening_response(message_result["state"])
 
             if message_id == GET_DEVICE_PROPERTIES_MESSAGE["messageId"]:
                 await self.process_get_device_properties_response(
-                    message["serialNumber"], message["properties"]
+                    message_result["serialNumber"], message_result["properties"]
                 )
 
             if message_id == GET_DEVICE_PROPERTIES_METADATA_MESSAGE["messageId"]:
                 await self.process_get_device_properties_metadata_response(
-                    message["serialNumber"], message["properties"]
+                    message_result["serialNumber"], message_result["properties"]
+                )
+
+            if message_id == GET_DEVICE_VOICES_MESSAGE["messageId"]:
+                await self.process_get_device_voices_response(
+                    message_result["serialNumber"], message_result["voices"]
                 )
 
             if message_id == GET_STATION_PROPERTIES_MESSAGE["messageId"]:
                 await self.process_get_station_properties_response(
-                    message["serialNumber"], message["properties"]
+                    message_result["serialNumber"], message_result["properties"]
                 )
 
             if message_id == GET_STATION_PROPERTIES_METADATA_MESSAGE["messageId"]:
                 await self.process_get_station_properties_metadata_response(
-                    message["serialNumber"], message["properties"]
+                    message_result["serialNumber"], message_result["properties"]
                 )
 
             if message_id == GET_P2P_LIVESTREAM_STATUS_MESSAGE["messageId"]:
-                if message["livestreaming"] is True:
+                if message_result["livestreaming"] is True:
                     self.set_value_for_property(
                         "device",
-                        message["serialNumber"],
+                        message_result["serialNumber"],
                         P2P_LIVESTREAMING_STATUS,
                         P2P_LIVESTREAM_STARTED,
                     )
 
             if message_id == GET_RTSP_LIVESTREAM_STATUS_MESSAGE["messageId"]:
-                if message["livestreaming"] is True:
+                if message_result["livestreaming"] is True:
                     self.set_value_for_property(
                         "device",
-                        message["serialNumber"],
+                        message_result["serialNumber"],
                         RTSP_LIVESTREAMING_STATUS,
                         RTSP_LIVESTREAM_STARTED,
                     )
 
         if message_type == "event":
+            message = payload[message_type]
             event_type = message["event"]
             # _LOGGER.debug(f"{DOMAIN} - on_message - {payload}")
             if event_type not in EVENT_CONFIGURATION.keys():
@@ -366,16 +383,10 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
                 )
 
             if event_data_type == "event":
-                # with open("data.txt", "a") as file_object:
-                # file_object.write(json.dumps(message))
-                # file_object.write("\n")
-                # _LOGGER.debug(f"{DOMAIN} - video_bytes - {len(json.dumps(event_value))}")
                 self.devices[serial_number].set_codec(
                     message["metadata"]["videoCodec"].lower()
                 )
-                self.hass.bus.fire(
-                    f"{DOMAIN}_{serial_number}_event_received", event_value
-                )
+                self.devices[serial_number].queue.put(event_value)
 
     def set_value_for_property(
         self, source: str, serial_number: str, property_name: str, value: str
@@ -392,7 +403,7 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
             device.set_property(property_name, value)
         except Exception as ex:
             _LOGGER.error(
-                f"{DOMAIN} - Event received but device is missing, maybe not connected"
+                f"{DOMAIN} - Event received but device is missing, maybe not connected - {ex}"
             )
         _LOGGER.debug(
             f"{DOMAIN} - set_event_for_entity - {source} / {serial_number} / {property_name} / {value}"
@@ -422,6 +433,11 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         message["serialNumber"] = serial_no
         await self.async_send_message(json.dumps(message))
 
+    async def async_get_device_voices(self, serial_no: str):
+        message = GET_DEVICE_VOICES_MESSAGE.copy()
+        message["serialNumber"] = serial_no
+        await self.async_send_message(json.dumps(message))
+
     async def async_get_properties_metadata_for_station(self, serial_no: str):
         message = GET_STATION_PROPERTIES_METADATA_MESSAGE.copy()
         message["serialNumber"] = serial_no
@@ -440,6 +456,12 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
     async def async_get_p2p_livestream_status(self, serial_no: str):
         message = GET_P2P_LIVESTREAM_STATUS_MESSAGE.copy()
         message["serialNumber"] = serial_no
+        await self.async_send_message(json.dumps(message))
+
+    async def async_quick_response(self, serial_no: str, voice_id: str):
+        message = QUICK_RESPONSE_MESSAGE.copy()
+        message["serialNumber"] = serial_no
+        message["voiceId"] = voice_id
         await self.async_send_message(json.dumps(message))
 
     async def async_set_rtsp(self, serial_no: str, value: bool):
@@ -499,6 +521,12 @@ class EufySecurityDataUpdateCoordinator(DataUpdateCoordinator):
         message["serialNumber"] = serial_no
         message["name"] = name
         message["value"] = value
+        await self.async_send_message(json.dumps(message))
+
+    async def async_set_ptz(self, serial_no: str, direction: int):
+        message = SET_PTZ_MESSAGE.copy()
+        message["serialNumber"] = serial_no
+        message["direction"] = direction
         await self.async_send_message(json.dumps(message))
 
     async def async_set_lock(self, serial_no: str, value: bool):

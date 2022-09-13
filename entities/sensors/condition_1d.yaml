@@ -1,0 +1,8 @@
+---
+platform: template
+sensors:
+  condition_1d:
+    friendly_name: "Condition 1D"
+    value_template: >
+      {% set forecast_1d = state_attr("weather.buienradar", "forecast")[0] %}
+      {{ as_timestamp(forecast_1d.datetime) | timestamp_custom('%a') }}, {{ forecast_1d.condition | title }}

@@ -1,0 +1,5 @@
+platform: gpio
+name: $device_name Relay 1
+id: relay_1
+pin:
+  number: 22

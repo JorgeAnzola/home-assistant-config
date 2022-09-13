@@ -1,0 +1,20 @@
+---
+platform: template
+sensors:
+  last_changed_jorge:
+    friendly_name: "Last changed Jorge"
+    value_template: >
+      {%- set last_changed = now().timestamp() - states.person.jorge.last_changed | as_timestamp -%}
+      {%- set minutes = (last_changed // 60)|int(0) -%}
+      {%- set hours = (minutes // 60) -%}
+      {%- set days = (hours // 24) -%}
+      {%- set weeks = (days // 7) -%}
+      {%- if (minutes < 60) -%}
+        {{ minutes ~ 'm' }}
+      {%- elif (hours < 24) -%}
+        {{ hours ~ 'h' }}
+      {%- elif (days < 7) -%}
+        {{ days ~ 'd' }}
+      {%- else -%}
+        {{ weeks ~ 'w' }}
+      {%- endif -%}

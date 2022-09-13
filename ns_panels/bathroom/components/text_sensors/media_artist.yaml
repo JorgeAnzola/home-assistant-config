@@ -1,0 +1,7 @@
+platform: homeassistant
+id: music_artist
+entity_id: media_player.spotify_mg
+attribute: media_artist
+on_value:
+  then:
+    - lambda: id(disp1).set_component_text_printf("Music.music_an", "%s", id(music_artist).state.c_str());

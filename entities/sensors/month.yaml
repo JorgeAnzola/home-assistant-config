@@ -1,0 +1,7 @@
+---
+platform: template
+sensors:
+  ns_panel_date:
+    friendly_name: "Month of the year"
+    value_template: >
+      {{ now().strftime('%A %d, %b') }}

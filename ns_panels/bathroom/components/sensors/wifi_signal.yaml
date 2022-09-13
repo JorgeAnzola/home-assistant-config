@@ -1,0 +1,4 @@
+# WiFi signals strength sensor
+platform: wifi_signal
+name: $device_name WiFi Signal Sensor
+update_interval: 60s

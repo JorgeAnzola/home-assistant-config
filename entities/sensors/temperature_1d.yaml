@@ -1,0 +1,8 @@
+---
+platform: template
+sensors:
+  temperature_1d:
+    friendly_name: "Temperature 1D"
+    value_template: >
+      {% set forecast = state_attr("weather.buienradar", "forecast")[0] %}
+      {{ forecast.temperature | round }}°C

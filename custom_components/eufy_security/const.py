@@ -37,9 +37,10 @@ CONF_SYNC_INTERVAL: str = "sync_interval"
 CONF_AUTO_START_STREAM: str = "auto_start_stream"
 CONF_FIX_BINARY_SENSOR_STATE: str = "fix_binary_sensor_state"
 CONF_MAP_EXTRA_ALARM_MODES: str = "map_extra_alarm_modes"
-CONF_NAME_FOR_CUSTOM1 = "name_for_custom1"
-CONF_NAME_FOR_CUSTOM2 = "name_for_custom2"
-CONF_NAME_FOR_CUSTOM3 = "name_for_custom3"
+CONF_NAME_FOR_CUSTOM1: str = "name_for_custom1"
+CONF_NAME_FOR_CUSTOM2: str = "name_for_custom2"
+CONF_NAME_FOR_CUSTOM3: str = "name_for_custom3"
+CONF_GENERATE_FFMPEG_LOGS: str = "generate_ffmpeg_logs"
 
 DEFAULT_HOST: str = "0.0.0.0"
 DEFAULT_PORT: int = 3000
@@ -54,6 +55,7 @@ DEFAULT_MAP_EXTRA_ALARM_MODES: bool = False
 DEFAULT_NAME_FOR_CUSTOM1: str = "Custom 1"
 DEFAULT_NAME_FOR_CUSTOM2: str = "Custom 2"
 DEFAULT_NAME_FOR_CUSTOM3: str = "Custom 3"
+DEFAULT_GENERATE_FFMPEG_LOGS: bool = False
 
 
 P2P_LIVESTREAMING_STATUS = "p2pLiveStreamingStatus"
@@ -63,7 +65,7 @@ LATEST_CODEC = "latest codec"
 SET_API_SCHEMA = {
     "messageId": "set_api_schema",
     "command": "set_api_schema",
-    "schemaVersion": 7,
+    "schemaVersion": 11,
 }
 DRIVER_CONNECT_MESSAGE = {"messageId": "driver_connect", "command": "driver.connect"}
 SET_CAPTCHA_MESSAGE = {
@@ -86,6 +88,11 @@ GET_DEVICE_PROPERTIES_MESSAGE = {
     "command": "device.get_properties",
     "serialNumber": None,
 }
+GET_DEVICE_VOICES_MESSAGE = {
+    "messageId": "get_voices",
+    "command": "device.get_voices",
+    "serialNumber": None,
+}
 GET_STATION_PROPERTIES_METADATA_MESSAGE = {
     "messageId": "get_station_properties_metadata",
     "command": "station.get_properties_metadata",
@@ -105,6 +112,13 @@ GET_P2P_LIVESTREAM_STATUS_MESSAGE = {
     "messageId": "get_p2p_livestream_status",
     "command": "device.is_livestreaming",
     "serialNumber": None,
+}
+QUICK_RESPONSE_MESSAGE = {
+    "messageId": "quick_response",
+    "command": "device.quick_response",
+    "serialNumber": None,
+    "voiceId": None,
+    "value": True,
 }
 SET_RTSP_STREAM_MESSAGE = {
     "messageId": "set_rtsp_stream_on",
@@ -169,12 +183,19 @@ SET_LOCK_MESSAGE = {
     "serialNumber": None,
     "value": None,
 }
+SET_PTZ_MESSAGE = {
+    "messageId": "device_set_ptz",
+    "command": "device.pan_and_tilt",
+    "serialNumber": None,
+    "direction": None,
+}
 
 
 MESSAGE_IDS_TO_PROCESS = [
     START_LISTENING_MESSAGE["messageId"],
     GET_DEVICE_PROPERTIES_MESSAGE["messageId"],
     GET_DEVICE_PROPERTIES_METADATA_MESSAGE["messageId"],
+    GET_DEVICE_VOICES_MESSAGE["messageId"],
     GET_STATION_PROPERTIES_MESSAGE["messageId"],
     GET_STATION_PROPERTIES_METADATA_MESSAGE["messageId"],
     GET_P2P_LIVESTREAM_STATUS_MESSAGE["messageId"],
@@ -244,14 +265,28 @@ EVENT_CONFIGURATION: dict = {
         "value": "alarmEvent",
         "type": "state",
     },
+    "alarm delay event": {
+        "name": "alarmDelayEvent",
+        "value": "alarmDelayEvent",
+        "type": "state",
+    },
 }
 
 STATE_ALARM_CUSTOM1 = "custom1"
 STATE_ALARM_CUSTOM2 = "custom2"
 STATE_ALARM_CUSTOM3 = "custom3"
+STATE_ALARM_DELAYED = "delayed"
 STATE_GUARD_SCHEDULE = "schedule"
 STATE_GUARD_GEO = "geo"
 STATE_GUARD_OFF = "off"
+
+
+class PTZ(Enum):
+    ROTATE360 = 0
+    LEFT = 1
+    RIGHT = 2
+    UP = 3
+    DOWN = 4
 
 
 class DEVICE_TYPE(Enum):
@@ -288,6 +323,8 @@ class DEVICE_TYPE(Enum):
     SOLO_CAMERA_SPOTLIGHT_1080 = 60
     SOLO_CAMERA_SPOTLIGHT_2K = 61
     SOLO_CAMERA_SPOTLIGHT_SOLAR = 62
+    DOORBELL_DUAL = 91
+    BATTERY_DOORBELL_DUAL = 93
 
 
 DEVICE_CATEGORY = {
@@ -324,6 +361,8 @@ DEVICE_CATEGORY = {
     DEVICE_TYPE.SOLO_CAMERA_SPOTLIGHT_1080: "CAMERA",
     DEVICE_TYPE.SOLO_CAMERA_SPOTLIGHT_2K: "CAMERA",
     DEVICE_TYPE.SOLO_CAMERA_SPOTLIGHT_SOLAR: "CAMERA",
+    DEVICE_TYPE.BATTERY_DOORBELL_DUAL: "DOORBELL",
+    DEVICE_TYPE.DOORBELL_DUAL: "DOORBELL",
 }
 
 
@@ -332,13 +371,12 @@ async def wait_for_value(
 ):
     _LOGGER.debug(f"{DOMAIN} - wait start - {ref_key}")
     for counter in range(max_counter):
-        _LOGGER.debug(
-            f"{DOMAIN} - wait - {counter} - {ref_key} {ref_dict.get(ref_key)}"
-        )
         if ref_dict.get(ref_key, value) == value:
             await asyncio.sleep(interval)
         else:
+            _LOGGER.debug(f"{DOMAIN} - wait finish - {ref_key} - return True")
             return True
+    _LOGGER.debug(f"{DOMAIN} - wait finish - {ref_key} - return False")
     return False
 
 
@@ -366,6 +404,7 @@ class Device:
 
         self.properties: dict = None
         self.properties_metadata: dict = None
+        self.voices: dict = None
         self.type_raw: str = None
         self.type: str = None
         self.category: str = None
@@ -385,14 +424,19 @@ class Device:
         self.set_global_motion_sensor()
 
     def set_properties(self, properties: dict):
-        self.properties = properties
-        self.type_raw = get_child_value(self.properties, "type")
+        self.state.update(properties)
+
+        self.type_raw = get_child_value(self.state, "type")
         type = DEVICE_TYPE(self.type_raw)
         self.type = str(type)
         self.category = DEVICE_CATEGORY.get(type, "UNKNOWN")
+        self.properties = {}
 
     def set_properties_metadata(self, properties_metadata: dict):
         self.properties_metadata = properties_metadata
+
+    def set_voices(self, voices):
+        self.voices = voices
 
     def is_base_station(self):
         if self.category in ["STATION"]:
@@ -401,6 +445,11 @@ class Device:
 
     def is_camera(self):
         if self.category in ["CAMERA", "DOORBELL"]:
+            return True
+        return False
+
+    def is_doorbell(self):
+        if self.category in ["DOORBELL"]:
             return True
         return False
 
@@ -440,6 +489,7 @@ class Device:
 
     def set_property(self, property_name, value):
         self.state[property_name] = value
+
         self.set_global_motion_sensor()
         if property_name in STREAMING_EVENT_NAMES:
             self.set_streaming_status()
@@ -489,6 +539,9 @@ class EufyConfig:
         )
         self.name_for_custom3: str = config_entry.options.get(
             CONF_NAME_FOR_CUSTOM3, DEFAULT_NAME_FOR_CUSTOM3
+        )
+        self.generate_ffmpeg_logs: bool = config_entry.options.get(
+            CONF_GENERATE_FFMPEG_LOGS, DEFAULT_GENERATE_FFMPEG_LOGS
         )
 
         _LOGGER.debug(f"{DOMAIN} - config class initialized")

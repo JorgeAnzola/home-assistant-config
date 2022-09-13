@@ -1,0 +1,6 @@
+# Current page displayed on the HMi
+platform: nextion
+name: $device_name Current display page
+id: disp1_current_page
+variable_name: dp
+update_interval: 1s

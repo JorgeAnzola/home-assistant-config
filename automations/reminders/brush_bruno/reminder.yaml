@@ -19,7 +19,7 @@ condition:
           - sat
           - sun
       - condition: state
-        entity_id: input_boolean.brushed_bruno
+        entity_id: input_boolean.bruno_brushed
         state: "off"
 action:
   - service: telegram_bot.send_message

@@ -1,7 +1,0 @@
-id: "1660740759954"
-alias: Parking light - nighttime light
-use_blueprint:
-  path: homeassistant/nighttime_light.yaml
-  input:
-    target_light:
-      entity_id: light.parking

@@ -1,0 +1,4 @@
+# Service to update the HMI file - this will be used to update and change our tft
+service: upload_tft_panel
+then:
+  - lambda: "id(disp1)->upload_tft();"

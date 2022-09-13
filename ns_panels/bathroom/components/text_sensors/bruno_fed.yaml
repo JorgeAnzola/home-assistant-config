@@ -1,0 +1,15 @@
+platform: homeassistant
+id: bruno_fed
+entity_id: input_boolean.bruno_fed
+on_value:
+  then:
+    - wait_until:
+        switch.is_on: nextion_init
+    - lambda: |-
+        int symbol=27; // off symbol
+
+        if (id(bruno_fed).state == "on") {
+          symbol=28; // on symbol
+        }
+
+        id(disp1).send_command_printf("Bruno.fed.pic=%i", symbol);

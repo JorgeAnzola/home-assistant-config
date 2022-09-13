@@ -15,3 +15,11 @@ filter:
     - light.parking
     - light.terrace
     - light.front_door
+    - light.living_room_1
+    - light.living_room_2
+    - light.living_room_3
+    - light.third_floor
+    - light.bedroom
+    - light.closets
+    - light.jorge_nightstand
+    - light.marlyn_nightstand

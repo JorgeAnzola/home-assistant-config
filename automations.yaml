@@ -1,43 +1,43 @@
-- id: '1642246828915'
+- id: "1642246828915"
   alias: Find my phone - Jorge
   trigger:
-  - platform: state
-    entity_id: input_button.jorge_find_my_phone
+    - platform: state
+      entity_id: input_button.jorge_find_my_phone
   condition: []
   action:
-  - service: script.turn_on
-    target:
-      entity_id: script.jorge_find_my_phone
+    - service: script.turn_on
+      target:
+        entity_id: script.jorge_find_my_phone
   mode: single
-- id: '1642246828916'
+- id: "1642246828916"
   alias: Find my phone - Marlyn
   trigger:
-  - platform: state
-    entity_id: input_button.marlyn_find_my_phone
+    - platform: state
+      entity_id: input_button.marlyn_find_my_phone
   condition: []
   action:
-  - service: script.turn_on
-    target:
-      entity_id: script.marlyn_find_my_phone
+    - service: script.turn_on
+      target:
+        entity_id: script.marlyn_find_my_phone
   mode: single
-- id: '1661349052368'
+- id: "1661349052368"
   alias: Toilet light - Door open
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.toilet_door
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.toilet_door
+      to: "on"
   condition: []
   action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.toilet
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.toilet
   mode: single
-- id: '1661350105564'
+- id: "1661350105564"
   alias: Toilet light - Motion activated light
-  description: ''
+  description: ""
   use_blueprint:
     path: homeassistant/motion_light.yaml
     input:
@@ -45,11 +45,99 @@
       light_target:
         entity_id: light.toilet
       no_motion_wait: 300
-- id: '1661358388889'
-  alias: Parking light - Nighttime light
-  description: ''
-  use_blueprint:
-    path: homeassistant/nighttime_light.yaml
-    input:
-      target_light:
-        entity_id: light.parking
+- id: "1662193818087"
+  alias: Find my phone - Jorge
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_ns_panel_person_2
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_ns_panel_person_2
+      to: "on"
+  condition: []
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.jorge_find_my_phone
+  mode: single
+- id: "1662193818088"
+  alias: Find my phone - MG
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_ns_panel_person_1
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_ns_panel_person_1
+      to: "on"
+  condition: []
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.marlyn_find_my_phone
+  mode: single
+
+- id: "1639589269235"
+  alias: "Telegram helper - alert"
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: "/alert"
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: "Who do you want to alert?"
+        target: !secret telegram_group_id
+        inline_keyboard:
+          - "Jorge:/alert_jorge, MG:/alert_mg"
+
+- id: "1639589269236"
+  alias: "Telegram helper - alert callback Jorge"
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: "/alert_jorge"
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.jorge_find_my_phone
+    - service: notify.group_telegram
+      data:
+        message: "Ok, I'm ringing his phone"
+
+- id: "1639589269237"
+  alias: "Telegram helper - alert callback MG"
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: "/alert_mg"
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.marlyn_find_my_phone
+    - service: notify.group_telegram
+      data:
+        message: "Ok, I'm ringing her phone"
+
+- id: "123123123123123123"
+  alias: scanned_tag_example
+  description: ""
+  trigger:
+    - platform: event
+      event_type: tag_scanned
+  condition: []
+  action:
+    - service: notify.admin_telegram
+      data_template:
+        message: >
+          {% set person = states.person|selectattr('attributes.user_id', 'eq', trigger.event.context.user_id)|first %}
+          Hi {{ person.attributes.friendly_name}}. 🚗 You parked the car here: https://www.google.com/maps/@{{ person.attributes.latitude}},{{ person.attributes.longitude}},21z
+  mode: single

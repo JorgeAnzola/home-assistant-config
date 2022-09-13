@@ -1,0 +1,6 @@
+platform: nextion
+name: $device_name Exit Weather Details
+page_id: 5
+component_id: 10
+on_click:
+  - lambda: id(disp1).send_command_printf("page 0");
