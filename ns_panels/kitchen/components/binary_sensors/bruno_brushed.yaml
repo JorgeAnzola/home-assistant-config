@@ -1,0 +1,9 @@
+platform: nextion
+name: $device_name Bruno Brushed
+page_id: 2
+component_id: 6
+on_click:
+  - homeassistant.service:
+      service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.bruno_brushed

@@ -1,0 +1,7 @@
+platform: template
+name: $device_name Popup person 1
+id: popup_person_1
+icon: mdi:account-question
+restore_state: false
+assumed_state: off
+optimistic: true

@@ -1,0 +1,13 @@
+# Screen brightness dimmed down
+platform: template
+name: $device_name Brightness dimdown
+id: brightness_dim
+entity_category: config
+unit_of_measurement: "%"
+min_value: 0
+max_value: 100
+initial_value: 80
+step: 1
+set_action:
+  then:
+    - lambda: 'id(disp1).send_command_printf("Home.brightdd.val=%i", int(x));'

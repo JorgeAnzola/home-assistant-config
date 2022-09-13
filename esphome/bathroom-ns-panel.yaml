@@ -3,6 +3,7 @@ substitutions:
   wifi_ssid: !secret wifi_ssid
   wifi_pass: !secret wifi_password
   tft_url: !secret bathroom_ns_panel_tft_url_upload
+  media_player: media_player.spotify
 
 esphome:
   name: bathroom-ns-panel
@@ -18,6 +19,9 @@ wifi:
     static_ip: !secret bathroom_ns_panel_static_ip
     gateway: !secret wifi_gateway
     subnet: !secret wifi_subnet
+  ap:
+    ssid: $device_name Hotspot
+    password: !secret esphome_ap_password
 
 logger:
   baud_rate: 115200
@@ -27,23 +31,24 @@ logger:
     resistance: WARN
     text_sensor: WARN
     ntc: WARN
-    
+
 ota:
+  password: !secret esphome_ota_password
 
 uart:
   tx_pin: 16
   rx_pin: 17
   baud_rate: 115200
   id: tf_uart
-  
+
 rtttl:
   id: buzzer
   output: buzzer_out
 
 #### SERVICES ####
 api:
-  services: !include_dir_list $base_path/services
-            
+  services: !include_dir_list /config/ns_panels/bathroom/services
+
 #### COMPONENTS ####
 external_components: !include /config/ns_panels/bathroom/components/external_components.yaml
 
@@ -54,7 +59,7 @@ time: !include_dir_list /config/ns_panels/bathroom/components/time
 button: !include_dir_list /config/ns_panels/bathroom/components/buttons
 
 output: !include_dir_list /config/ns_panels/bathroom/components/outputs
-      
+
 switch: !include_dir_list /config/ns_panels/bathroom/components/switches
 
 number: !include_dir_list /config/ns_panels/bathroom/components/numbers
@@ -62,5 +67,5 @@ number: !include_dir_list /config/ns_panels/bathroom/components/numbers
 sensor: !include_dir_list /config/ns_panels/bathroom/components/sensors
 
 text_sensor: !include_dir_list /config/ns_panels/bathroom/components/text_sensors
-      
+
 display: !include_dir_list /config/ns_panels/bathroom/components/displays

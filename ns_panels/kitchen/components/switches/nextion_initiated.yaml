@@ -1,0 +1,7 @@
+platform: template
+name: $device_name Nextion inited
+id: nextion_init
+entity_category: config
+restore_state: false
+assumed_state: off
+optimistic: true

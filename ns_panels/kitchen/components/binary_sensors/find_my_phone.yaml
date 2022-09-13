@@ -1,0 +1,48 @@
+platform: nextion
+name: $device_name Find My Phone
+page_id: 4
+component_id: 6
+on_click:
+  if:
+    condition:
+      switch.is_on: popup_person_1
+    then:
+      if:
+        condition:
+          lambda: 'return id(person_1).state == "home";'
+        then:
+          - homeassistant.service:
+              service: esphome.kitchen_ns_panel_notification
+              data:
+                header: Success
+                message: Ringing your phone 🔔
+          - homeassistant.service:
+              service: input_button.press
+              data:
+                entity_id: input_button.marlyn_find_my_phone
+        else:
+          - homeassistant.service:
+              service: esphome.kitchen_ns_panel_notification
+              data:
+                header: Error
+                message: Sorry, you cannot locate a phone\rthat's not in the house.
+    else:
+      if:
+        condition:
+          lambda: 'return id(person_2).state == "home";'
+        then:
+          - homeassistant.service:
+              service: esphome.kitchen_ns_panel_notification
+              data:
+                header: Success
+                message: Ringing your phone 🔔
+          - homeassistant.service:
+              service: input_button.press
+              data:
+                entity_id: input_button.jorge_find_my_phone
+        else:
+          - homeassistant.service:
+              service: esphome.kitchen_ns_panel_notification
+              data:
+                header: Error
+                message: Sorry, you cannot locate a phone\rthat's not in the house.

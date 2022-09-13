@@ -1,0 +1,13 @@
+platform: template
+name: $device_name Brightness
+id: brightness
+entity_category: config
+unit_of_measurement: "%"
+min_value: 0
+max_value: 100
+step: 1
+initial_value: 100
+set_action:
+  then:
+    - lambda: "id(disp1).set_backlight_brightness(x/100);"
+    - lambda: 'id(disp1).send_command_printf("Home.brightness.val=%i", int(x));'

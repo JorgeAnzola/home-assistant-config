@@ -1,6 +1,6 @@
 platform: homeassistant
 id: music_artist
-entity_id: media_player.spotify_mg
+entity_id: $media_player
 attribute: media_artist
 on_value:
   then:

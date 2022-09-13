@@ -1,0 +1,3 @@
+source: github://pr#2956
+components: [nextion]
+refresh: 1h

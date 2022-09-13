@@ -1,0 +1,10 @@
+platform: template
+name: $device_name Disable screensaver
+id: disp1_dissleep
+restore_state: true
+assumed_state: off
+optimistic: true
+on_turn_on:
+  - lambda: id(disp1).send_command_printf("Home.dissleep.val=1");
+on_turn_off:
+  - lambda: id(disp1).send_command_printf("Home.dissleep.val=0");

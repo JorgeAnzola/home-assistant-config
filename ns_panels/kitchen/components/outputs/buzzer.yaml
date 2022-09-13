@@ -1,0 +1,4 @@
+platform: ledc
+id: buzzer_out
+pin:
+  number: 21

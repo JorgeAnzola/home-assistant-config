@@ -1,0 +1,7 @@
+platform: gpio
+name: $device_name Right Button-
+pin:
+  number: 27
+  inverted: true
+on_click:
+  - switch.toggle: relay_2
