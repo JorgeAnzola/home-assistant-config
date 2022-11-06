@@ -1,0 +1,16 @@
+---
+id: "1661349052368"
+alias: Toilet light - Door open
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.toilet_door
+    to: "on"
+condition: []
+action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.toilet
+mode: single

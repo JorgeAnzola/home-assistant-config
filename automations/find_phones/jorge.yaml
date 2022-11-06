@@ -1,0 +1,12 @@
+---
+id: "1642246828915"
+alias: Find my phone - Jorge
+trigger:
+  - platform: state
+    entity_id: input_button.jorge_find_my_phone
+condition: []
+action:
+  - service: script.turn_on
+    target:
+      entity_id: script.jorge_find_my_phone
+mode: single

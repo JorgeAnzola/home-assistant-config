@@ -1,0 +1,15 @@
+---
+id: "1639589269236"
+alias: Telegram helper - alert callback Jorge
+trigger:
+  platform: event
+  event_type: telegram_callback
+  event_data:
+    data: /alert_jorge
+action:
+  - service: script.turn_on
+    target:
+      entity_id: script.jorge_find_my_phone
+  - service: notify.group_telegram
+    data:
+      message: Ok, I'm ringing his phone

@@ -1,0 +1,49 @@
+---
+id: "1665167162070"
+alias: Hallway - Automatic light on
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.front_door
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.parking_door
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.entrance_motion
+    to: "on"
+condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.hallway
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.entrance_motion
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.front_door
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.parking_door
+        to: "off"
+  - delay:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.hallway
+mode: single

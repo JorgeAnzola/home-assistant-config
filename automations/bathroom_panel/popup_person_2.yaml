@@ -1,0 +1,19 @@
+---
+id: "1662193818087"
+alias: Find my phone - Jorge
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.bathroom_ns_panel_person_2
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.kitchen_ns_panel_person_2
+    to: "on"
+condition: []
+action:
+  - service: script.turn_on
+    target:
+      entity_id: script.jorge_find_my_phone
+mode: single

@@ -1,0 +1,44 @@
+---
+id: "1665436739497"
+alias: Third floor - Automatic light
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.third_floor_motion
+    to: "on"
+condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: time
+    before: "23:00:00"
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      - sat
+      - sun
+    after: 09:00:00
+action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.third_floor
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.third_floor_motion
+        to: "off"
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.third_floor
+mode: single
