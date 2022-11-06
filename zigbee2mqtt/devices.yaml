@@ -13,7 +13,7 @@
 '0x54ef4410002c956d':
   friendly_name: Plug 2
 '0x84b4dbfffebf865a':
-  friendly_name: Plug 5
+  friendly_name: Lamp
 '0x84b4dbfffec501d3':
   friendly_name: Plug 6
 '0x84b4dbfffebfb49f':
@@ -43,6 +43,22 @@
 '0x00124b002370f0f2':
   friendly_name: Marlyn's nightstand
 '0x00124b0024c6e00d':
-  friendly_name: Jorge Nightstand
+  friendly_name: Jorge's Nightstand
 '0x00124b00258bbb6a':
   friendly_name: Bedroom
+'0x00124b0024c020ee':
+  friendly_name: Hallway
+'0x00158d00052774cb':
+  friendly_name: Front door
+'0x000d6ffffea457f6':
+  friendly_name: Closets driver
+'0x00158d00053f7ef2':
+  friendly_name: Third floor motion
+'0x00158d000451ab34':
+  friendly_name: Kitchen motion
+'0x00124b0024c230d7':
+  friendly_name: Guests bathroom
+'0x00158d0007b7b7bc':
+  friendly_name: Terrace door
+'0x00158d0002b7d4a2':
+  friendly_name: Entrance motion
