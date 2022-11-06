@@ -1,9 +1,0 @@
-platform: nextion
-name: $device_name Bruno Walked
-page_id: 2
-component_id: 4
-on_click:
-  - homeassistant.service:
-      service: input_boolean.toggle
-      data:
-        entity_id: input_boolean.bruno_walked

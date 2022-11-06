@@ -1,0 +1,13 @@
+id: "1661676577237"
+alias: Bruno Fed8- Reset
+trigger:
+  - platform: time
+    at: "09:00:00"
+  - platform: time
+    at: "21:00:00"
+condition: []
+action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.bruno_fed
+mode: single

@@ -2,4 +2,4 @@
 title: First floor
 path: first-floor
 icon: mdi:home-floor-1
-type: custom:grid-layout
+cards: !include_dir_list ../cards/first-floor

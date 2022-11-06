@@ -1,0 +1,19 @@
+---
+id: "1660645128115"
+alias: Brush Bruno - Telegram callback
+trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /brush_bruno_done
+condition: []
+action:
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: "{{ trigger.event.data.id }}"
+      message: "Thanks! \U0001F436"
+      show_alert: true
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.bruno_brushed
+mode: single

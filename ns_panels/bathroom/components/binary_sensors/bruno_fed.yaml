@@ -1,9 +1,0 @@
-platform: nextion
-name: $device_name Bruno Fed
-page_id: 2
-component_id: 5
-on_click:
-  - homeassistant.service:
-      service: input_boolean.toggle
-      data:
-        entity_id: input_boolean.bruno_fed

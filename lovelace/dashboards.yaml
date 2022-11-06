@@ -1,7 +1,8 @@
 ---
-mobile:
-  mode: yaml
-  title: Mobile
-  icon: mdi:tablet
-  show_in_sidebar: true
-  filename: lovelace/mobile/dashboard.yaml
+#---
+#mobile:
+#  mode: yaml
+#  title: Mobile
+#  icon: mdi:cellphone
+#  show_in_sidebar: true
+#  filename: ./mobile/dashboard.yaml

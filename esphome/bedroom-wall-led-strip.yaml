@@ -30,7 +30,7 @@ light:
   - platform: fastled_clockless
     chipset: WS2812B
     pin: D4
-    num_leds: 314
+    num_leds: 628
     rgb_order: GRB
     name: "Bedroom Wall Led Strip"
     effects:
