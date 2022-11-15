@@ -1,0 +1,22 @@
+id: "1667743895400"
+alias: Scene - Sunset
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sun.sun
+    to: below_horizon
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: person.jorge
+        state: home
+      - condition: state
+        entity_id: person.marlyn
+        state: home
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.sunset
+mode: single

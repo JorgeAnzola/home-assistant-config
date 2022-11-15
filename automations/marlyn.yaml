@@ -1,3 +1,4 @@
+---
 id: "1642246828916"
 alias: Find my phone - Marlyn
 trigger:
@@ -5,7 +6,7 @@ trigger:
     entity_id: input_button.marlyn_find_my_phone
 condition: []
 action:
-  - service: script.turn_on
-    target:
-      entity_id: script.marlyn_find_my_phone
-mode: single
+  - service: script.find_phone
+    data:
+      service: !secret notify_marlyns_iphone
+mode: restart

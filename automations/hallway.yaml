@@ -1,7 +1,6 @@
 ---
 id: "1665167162070"
 alias: Hallway - Automatic light on
-description: ""
 trigger:
   - platform: state
     entity_id:
@@ -9,7 +8,7 @@ trigger:
     to: "on"
   - platform: state
     entity_id:
-      - binary_sensor.parking_door
+      - binary_sensor.backdoor
     to: "on"
   - platform: state
     entity_id:
@@ -21,7 +20,6 @@ condition:
     state: below_horizon
 action:
   - service: light.turn_on
-    data: {}
     target:
       entity_id: light.hallway
   - wait_for_trigger:
@@ -35,15 +33,11 @@ action:
         to: "off"
       - platform: state
         entity_id:
-          - binary_sensor.parking_door
+          - binary_sensor.backdoor
         to: "off"
   - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
+      minutes: 30
   - service: light.turn_off
-    data: {}
     target:
       entity_id: light.hallway
-mode: single
+mode: restart
