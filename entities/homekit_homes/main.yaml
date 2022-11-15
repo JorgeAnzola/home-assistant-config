@@ -2,16 +2,8 @@
 name: !secret home_name
 filter:
   include_entities:
+    # Lights
     - light.bedroom_wall_led_strip
-    - camera.entrance
-    - camera.kitchen
-    - camera.living_room
-    - camera.parking
-    - switch.plug_3
-    - switch.plug_4
-    - light.kitchen
-    - light.dinning_room
-    - sensor.kitchen_temperature
     - light.lamp
     - light.living_room_1
     - light.living_room_2
@@ -23,6 +15,18 @@ filter:
     - light.marlyn_nightstand
     - light.hallway
     - light.deco_lamp
+    - light.kitchen
+    - light.dinning_room
+    - light.guests_bathroom
+    # Cameras
+    - camera.entrance
+    - camera.kitchen
+    - camera.living_room
+    - camera.parking
+    # Switches
+    - switch.bathroom_heater
+    # Motion/door sensors
+    - sensor.kitchen_temperature
     - binary_sensor.kitchen_door
     - binary_sensor.front_door
     - binary_sensor.backdoor
@@ -30,3 +34,5 @@ filter:
     - binary_sensor.entrance_motion
     - binary_sensor.kitchen_motion
     - binary_sensor.third_floor_motion
+    # Scenes
+    - scene.movies

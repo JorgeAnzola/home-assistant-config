@@ -1,0 +1,27 @@
+blueprint:
+  name: Pause doorbell motion sensor
+  description: >-
+    Pauses the motion sensors in the Eufy Doorbell
+  domain: script
+  input:
+    target:
+      name: Target
+    trigger:
+      name: Trigger
+
+mode: single
+
+sequence:
+  - service: switch.turn_off
+    target:
+      entity_id: !input target
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - !input trigger
+        to: "off"
+  - delay:
+      minutes: 30
+  - service: switch.turn_on
+    target:
+      entity_id: !input target

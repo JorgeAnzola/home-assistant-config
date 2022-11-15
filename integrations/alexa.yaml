@@ -4,6 +4,8 @@ alexa:
     filter:
       include_domains:
         - light
+        - scene
+        - media_player
       exclude_entities:
         - light.parking_1
         - light.parking_2

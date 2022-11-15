@@ -1,0 +1,25 @@
+---
+alias: Find My Phone
+icon: mdi:volume-high
+
+mode: restart
+
+sequence:
+  repeat:
+    count: 4
+    sequence:
+      - service: "{{ service }}"
+        data:
+          message: Home Assistant is try to locate this phone.
+          data:
+            tag: "find-my-phone"
+            sound:
+              name: default
+              critical: 1
+              volume: 1
+      - delay: 2
+      - service: "{{ service }}"
+        data:
+          message: "clear_notification"
+          data:
+            tag: "find-my-phone"

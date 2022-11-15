@@ -62,3 +62,7 @@
   friendly_name: Terrace door
 '0x00158d0002b7d4a2':
   friendly_name: Entrance motion
+'0x00158d00044cf73a':
+  friendly_name: Button 2
+'0x00158d00044ad328':
+  friendly_name: Button 1
