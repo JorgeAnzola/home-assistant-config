@@ -8,11 +8,7 @@ sequence:
   - service: switch.turn_off
     target:
       entity_id: "{{ target }}"
-  - wait_for_trigger:
-      - platform: state
-        entity_id:
-          - "{{ trigger }}"
-        to: "{{ trigger_state }}"
+  - wait_template: "{{ wait_template }}"
   - delay:
       minutes: 30
   - service: switch.turn_on

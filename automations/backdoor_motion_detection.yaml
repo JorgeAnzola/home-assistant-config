@@ -12,6 +12,5 @@ action:
   - service: script.pause_doorbell_motion_sensor
     data:
       target: switch.backdoor_motion_detection
-      trigger: binary_sensor.backdoor
-      trigger_state: off
+      wait_template: "{{ is_state('binary_sensor.backdoor', 'off') }}"
 mode: restart
