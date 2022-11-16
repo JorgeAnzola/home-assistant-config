@@ -1,0 +1,20 @@
+---
+alias: Pause doorbell motion sensor
+icon: mdi:motion-sensor-off
+
+mode: restart
+
+sequence:
+  - service: switch.turn_off
+    target:
+      entity_id: "{{ target }}"
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - "{{ trigger }}"
+        to: "{{ trigger_state }}"
+  - delay:
+      minutes: 30
+  - service: switch.turn_on
+    target:
+      entity_id: "{{ target }}"

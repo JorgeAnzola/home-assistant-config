@@ -1,6 +1,7 @@
+---
 id: "1668191360130"
 alias: Front door - Motion detection
-description: Disables motion detection when the door is open
+description: Pauses motion detection when the door is open
 trigger:
   - platform: state
     entity_id:
@@ -8,22 +9,9 @@ trigger:
     to: "on"
 condition: []
 action:
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.front_door_motion_detection
-  - wait_for_trigger:
-      - platform: state
-        entity_id:
-          - binary_sensor.front_door
-        to: "off"
-  - delay:
-      hours: 0
-      minutes: 30
-      seconds: 0
-      milliseconds: 0
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.front_door_motion_detection
+  - service: script.pause_doorbell_motion_sensor
+    data:
+      target: switch.front_door_motion_detection
+      trigger: binary_sensor.front_door
+      trigger_state: off
 mode: restart
