@@ -9,8 +9,7 @@ sequence:
     target:
       entity_id: "{{ target }}"
   - wait_template: "{{ wait_template }}"
-  - delay:
-      minutes: 30
+  - delay: "{{ delay }}"
   - service: switch.turn_on
     target:
       entity_id: "{{ target }}"

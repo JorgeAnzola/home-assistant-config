@@ -13,4 +13,5 @@ action:
     data:
       target: switch.front_door_motion_detection
       wait_template: "{{ is_state('binary_sensor.front_door', 'off') }}"
+      delay: "00:30:00"
 mode: restart

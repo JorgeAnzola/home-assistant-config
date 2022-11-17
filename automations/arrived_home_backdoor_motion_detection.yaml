@@ -1,0 +1,21 @@
+---
+id: "1668191360132"
+alias: Backdoor - Arrived - Motion detection
+description: Pauses motion detection when we arrived home
+trigger:
+  - platform: state
+    entity_id:
+      - person.jorge
+    to: "home"
+  - platform: state
+    entity_id:
+      - person.marlyn
+    to: "home"
+condition: []
+action:
+  - service: script.pause_doorbell_motion_sensor
+    data:
+      target: switch.backdoor_motion_detection
+      wait_template: true
+      delay: "00:15:00"
+mode: restart
