@@ -1,7 +1,6 @@
 ---
 id: "1668191360131"
 alias: Backdoor - Door open - Motion detection
-description: Pauses motion detection when the door is open
 trigger:
   - platform: state
     entity_id:

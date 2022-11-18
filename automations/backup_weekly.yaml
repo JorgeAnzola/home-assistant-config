@@ -1,8 +1,6 @@
 ---
-id: '40065332104243'
+id: "40065332104243"
 alias: Backup - Weekly
-description: >-
-  A full backup will be taken weekly and stored on Dropbox.
 initial_state: on
 trigger:
   platform: time
@@ -10,7 +8,7 @@ trigger:
 condition:
   condition: time
   weekday:
-  - mon
+    - mon
 action:
   - service: hassio.backup_full
     data_template:

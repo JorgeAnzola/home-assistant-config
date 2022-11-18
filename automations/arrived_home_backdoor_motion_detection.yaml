@@ -1,7 +1,6 @@
 ---
 id: "1668191360132"
 alias: Backdoor - Arrived - Motion detection
-description: Pauses motion detection when we arrived home
 trigger:
   - platform: state
     entity_id:

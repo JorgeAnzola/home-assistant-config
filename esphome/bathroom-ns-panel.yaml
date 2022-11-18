@@ -24,13 +24,7 @@ wifi:
     password: !secret esphome_ap_password
 
 logger:
-  baud_rate: 115200
-  level: DEBUG
-  logs:
-    sensor: WARN
-    resistance: WARN
-    text_sensor: WARN
-    ntc: WARN
+  level: ERROR
 
 ota:
   password: !secret esphome_ota_password
@@ -47,25 +41,25 @@ rtttl:
 
 #### SERVICES ####
 api:
-  services: !include_dir_list /config/ns_panels/bathroom/services
+  services: !include_dir_list ./bathroom-ns-panel/services
 
 #### COMPONENTS ####
-external_components: !include /config/ns_panels/bathroom/components/external_components.yaml
+external_components: !include ./bathroom-ns-panel/components/external_components.yaml
 
-binary_sensor: !include_dir_list /config/ns_panels/bathroom/components/binary_sensors
+binary_sensor: !include_dir_list ./bathroom-ns-panel/components/binary_sensors
 
-time: !include_dir_list /config/ns_panels/bathroom/components/time
+time: !include_dir_list ./bathroom-ns-panel/components/time
 
-button: !include_dir_list /config/ns_panels/bathroom/components/buttons
+button: !include_dir_list ./bathroom-ns-panel/components/buttons
 
-output: !include_dir_list /config/ns_panels/bathroom/components/outputs
+output: !include_dir_list ./bathroom-ns-panel/components/outputs
 
-switch: !include_dir_list /config/ns_panels/bathroom/components/switches
+switch: !include_dir_list ./bathroom-ns-panel/components/switches
 
-number: !include_dir_list /config/ns_panels/bathroom/components/numbers
+number: !include_dir_list ./bathroom-ns-panel/components/numbers
 
-sensor: !include_dir_list /config/ns_panels/bathroom/components/sensors
+sensor: !include_dir_list ./bathroom-ns-panel/components/sensors
 
-text_sensor: !include_dir_list /config/ns_panels/bathroom/components/text_sensors
+text_sensor: !include_dir_list ./bathroom-ns-panel/components/text_sensors
 
-display: !include_dir_list /config/ns_panels/bathroom/components/displays
+display: !include_dir_list ./bathroom-ns-panel/components/displays

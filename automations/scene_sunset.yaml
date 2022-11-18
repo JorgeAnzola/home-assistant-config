@@ -1,6 +1,5 @@
 id: "1667743895400"
 alias: Scene - Sunset
-description: ""
 trigger:
   - platform: state
     entity_id:

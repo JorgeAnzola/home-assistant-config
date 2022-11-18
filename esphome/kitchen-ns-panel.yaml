@@ -24,13 +24,7 @@ wifi:
     password: !secret esphome_ap_password
 
 logger:
-  baud_rate: 115200
-  level: DEBUG
-  logs:
-    sensor: WARN
-    resistance: WARN
-    text_sensor: WARN
-    ntc: WARN
+  level: ERROR
 
 ota:
   password: !secret esphome_ota_password
@@ -47,25 +41,25 @@ rtttl:
 
 #### SERVICES ####
 api:
-  services: !include_dir_list /config/ns_panels/kitchen/services
+  services: !include_dir_list kitchen-ns-panel/servicess
 
 #### COMPONENTS ####
-external_components: !include /config/ns_panels/kitchen/components/external_components.yaml
+external_components: !include kitchen-ns-panel/components/external_components.yaml
 
-binary_sensor: !include_dir_list /config/ns_panels/kitchen/components/binary_sensors
+binary_sensor: !include_dir_list kitchen-ns-panel/components/binary_sensors
 
-time: !include_dir_list /config/ns_panels/kitchen/components/time
+time: !include_dir_list kitchen-ns-panel/components/time
 
-button: !include_dir_list /config/ns_panels/kitchen/components/buttons
+button: !include_dir_list kitchen-ns-panel/components/buttons
 
-output: !include_dir_list /config/ns_panels/kitchen/components/outputs
+output: !include_dir_list kitchen-ns-panel/components/outputs
 
-switch: !include_dir_list /config/ns_panels/kitchen/components/switches
+switch: !include_dir_list kitchen-ns-panel/components/switches
 
-number: !include_dir_list /config/ns_panels/kitchen/components/numbers
+number: !include_dir_list kitchen-ns-panel/components/numbers
 
-sensor: !include_dir_list /config/ns_panels/kitchen/components/sensors
+sensor: !include_dir_list kitchen-ns-panel/components/sensors
 
-text_sensor: !include_dir_list /config/ns_panels/kitchen/components/text_sensors
+text_sensor: !include_dir_list kitchen-ns-panel/components/text_sensors
 
-display: !include_dir_list /config/ns_panels/kitchen/components/displays
+display: !include_dir_list kitchen-ns-panel/components/displays

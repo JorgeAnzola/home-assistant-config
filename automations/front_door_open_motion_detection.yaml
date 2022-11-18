@@ -1,7 +1,6 @@
 ---
 id: "1668191360130"
 alias: Front door - Motion detection
-description: Pauses motion detection when the door is open
 trigger:
   - platform: state
     entity_id:

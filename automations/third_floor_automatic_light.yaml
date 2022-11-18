@@ -1,7 +1,6 @@
 ---
 id: "1665436739497"
 alias: Third floor - Automatic light
-description: ""
 trigger:
   - platform: state
     entity_id:

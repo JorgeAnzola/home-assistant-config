@@ -7,6 +7,7 @@ esp8266:
     version: 2.7.4  
 
 logger:
+  level: ERROR
 
 api:
 
@@ -29,30 +30,5 @@ light:
     pin: D4
     num_leds: 207
     rgb_order: GRB
-    name: TV Backlight"
-    effects:
-      - addressable_rainbow:
-      - addressable_rainbow:
-          name: Rainbow Effect With Custom Values
-          speed: 10
-          width: 50
-      - addressable_fireworks:
-      - addressable_fireworks:
-          name: Fireworks Effect With Custom Values
-          update_interval: 32ms
-          spark_probability: 10%
-          use_random_color: false
-          fade_out_rate: 120
-      - addressable_flicker:
-      - addressable_flicker:
-          name: Flicker Effect With Custom Values
-          update_interval: 16ms
-          intensity: 5%
-      - pulse:
-      - pulse:
-          name: "Fast Pulse"
-          transition_length: 0.5s
-          update_interval: 0.5s
-      - pulse:
-          name: "Slow Pulse"
-          update_interval: 2s
+    name: "TV Backlight"
+    effects: !include_dir_list light-effects

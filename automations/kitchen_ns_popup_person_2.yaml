@@ -13,7 +13,7 @@ trigger:
     to: "on"
 condition: []
 action:
-  - service: script.turn_on
-    target:
-      entity_id: script.jorge_find_my_phone
+  - service: script.find_phone
+    data:
+      service: !secret notify_jorges_iphone
 mode: single

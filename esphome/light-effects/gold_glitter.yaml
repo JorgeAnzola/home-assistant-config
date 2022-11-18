@@ -1,0 +1,24 @@
+addressable_lambda:
+  name: Gold Glitter
+  update_interval: 18ms
+  lambda: static int state = 0;
+
+    if (initial_run){
+    state = 0;
+
+    it.all() = ESPColor(218,165,32);
+
+    ESP_LOGD("custom", "Gold Glitter");
+    } else {
+
+    it.all() = ESPColor(218,165,32);
+
+    if(state==0){
+    int i = rand() % it.size();
+    it[i] = ESPColor::WHITE;
+    state += 1;
+    } else {
+    state += 1;
+    state = state % 10;
+    }
+    }

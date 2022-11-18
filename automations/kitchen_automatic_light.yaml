@@ -1,7 +1,6 @@
 ---
 id: "1665167162071"
 alias: Kitchen - Automatic light on
-description: ""
 trigger:
   - platform: state
     entity_id:

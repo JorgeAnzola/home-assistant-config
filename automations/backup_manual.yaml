@@ -1,8 +1,6 @@
 ---
 id: "16709288334239"
 alias: Backup - Manual
-description: >-
-  Manually triggered backup
 trigger:
   - platform: state
     entity_id: input_button.backup

@@ -1,16 +1,31 @@
 ---
-id: "1661349052368"
-alias: Toilet light - Door open
-description: ""
+id: "1665167162078"
+alias: Toilet - Automatic light on
 trigger:
   - platform: state
     entity_id:
       - binary_sensor.toilet_door
     to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.toilet_motion
+    to: "on"
 condition: []
 action:
   - service: light.turn_on
-    data: {}
     target:
       entity_id: light.toilet
-mode: single
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.toilet_motion
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.toilet_door
+        to: "off"
+  - delay: "00:05:00"
+  - service: light.turn_off
+    target:
+      entity_id: light.toilet
+mode: restart

@@ -1,7 +1,6 @@
 ---
 id: "1639489269700"
 alias: Garbage pick-up notification
-description: "Notifies when HVC will pick the trash containers"
 trigger:
   - platform: time
     at: "20:00:00"
