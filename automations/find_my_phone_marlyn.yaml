@@ -6,7 +6,7 @@ trigger:
     entity_id: input_button.marlyn_find_my_phone
 condition: []
 action:
-  - service: script.find_phone
+  - service: script.find_my_phone
     data:
       service: !secret notify_marlyns_iphone
 mode: restart

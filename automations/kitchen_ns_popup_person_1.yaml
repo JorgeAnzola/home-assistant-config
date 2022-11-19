@@ -12,7 +12,7 @@ trigger:
     to: "on"
 condition: []
 action:
-  - service: script.find_phone
+  - service: script.find_my_phone
     data:
       service: !secret notify_marlyns_iphone
 mode: single

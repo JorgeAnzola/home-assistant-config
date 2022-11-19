@@ -1,0 +1,23 @@
+id: "1668815474110"
+alias: Living room TV - backlight
+trigger:
+  - platform: state
+    entity_id:
+      - media_player.living_room_tv
+condition: []
+action:
+  - if:
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: "off"
+    then:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.tv_backlight
+    else:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.tv_backlight
+mode: single

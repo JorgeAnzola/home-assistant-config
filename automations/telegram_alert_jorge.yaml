@@ -7,7 +7,7 @@ trigger:
   event_data:
     data: /alert_jorge
 action:
-  - service: script.find_phone
+  - service: script.find_my_phone
     data:
       service: !secret notify_jorges_iphone
   - service: notify.group_telegram
