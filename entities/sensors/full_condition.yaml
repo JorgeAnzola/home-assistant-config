@@ -3,5 +3,6 @@ platform: template
 sensors:
   full_condition:
     friendly_name: "Weather full condition"
+    icon: mdi:weather-rainy
     value_template: >
       {{ states('sensor.buienradar_full_condition') }}.\r{{ state_attr("weather.buienradar", "temperature") | round }}°C and feels like {{ states('sensor.buienradar_temperature_feels_like') | round }}°C

@@ -1,0 +1,21 @@
+---
+id: "1669980007387"
+alias: Bathroom heater - Automatic turn off
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - switch.bathroom_heater
+    to: "on"
+condition: []
+action:
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.bathroom_heater
+mode: restart

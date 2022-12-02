@@ -2,7 +2,8 @@
 platform: template
 sensors:
   last_changed_jorge:
-    friendly_name: "Last changed Jorge"
+    friendly_name: "Last changed - Jorge"
+    icon: mdi:clock-outline
     value_template: >
       {%- set last_changed = now().timestamp() - states.person.jorge.last_changed | as_timestamp -%}
       {%- set minutes = (last_changed // 60)|int(0) -%}
