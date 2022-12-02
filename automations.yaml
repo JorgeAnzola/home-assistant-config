@@ -1,1 +1,32 @@
-
+- id: '1669983746702'
+  alias: Bathroom heater - auto on
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition:
+  - condition: numeric_state
+    entity_id: weather.buienradar
+    attribute: temperature
+    below: 15
+  action:
+  - if:
+    - condition: state
+      entity_id: sensor.home
+      state: empty
+    then:
+    - wait_for_trigger:
+      - platform: state
+        entity_id:
+        - sensor.home
+        to: occupied
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.bathroom_heater
+    else:
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.bathroom_heater
+  mode: restart
