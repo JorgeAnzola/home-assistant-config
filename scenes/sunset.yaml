@@ -1,4 +1,4 @@
 name: Sunset
 entities:
-  light.living_room_3: on
   light.lamp: on
+  light.stairs_photo_frame: on
