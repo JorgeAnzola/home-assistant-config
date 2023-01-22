@@ -18,13 +18,22 @@ filter:
     - light.kitchen
     - light.dinning_room
     - light.guests_bathroom
+    - light.christmas_tree
+    - light.tv_backlight
+    - light.stairs_photo_frame
+    - light.bathroom_light
+    - light.bathroom_mirror
     # Cameras
     - camera.entrance
     - camera.kitchen
     - camera.living_room
     - camera.parking
+    - camera.backdoor
+    - camera.front_door
     # Switches
     - switch.bathroom_heater
+    - switch.entrance_air_freshener
+    - switch.living_room_air_freshener
     # Motion/door sensors
     - sensor.kitchen_temperature
     - binary_sensor.kitchen_door
@@ -36,3 +45,5 @@ filter:
     - binary_sensor.third_floor_motion
     # Scenes
     - scene.movies
+    # Fans
+    - fan.bedroom
