@@ -21,7 +21,7 @@ filter:
     - light.christmas_tree
     - light.tv_backlight
     - light.stairs_photo_frame
-    - light.bathroom_light
+    - light.bathroom
     - light.bathroom_mirror
     # Cameras
     - camera.entrance

@@ -1,5 +1,5 @@
 platform: gpio
-name: $device_name Relay 2
+name: Dinning room light
 id: relay_2
 pin:
   number: 19

@@ -1,0 +1,5 @@
+name: Sunrise
+entities:
+  light.lamp: off
+  light.stairs_photo_frame: off
+  light.bedroom_wall_led_strip: off

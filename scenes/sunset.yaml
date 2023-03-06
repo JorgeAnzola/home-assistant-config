@@ -2,3 +2,4 @@ name: Sunset
 entities:
   light.lamp: on
   light.stairs_photo_frame: on
+  light.bedroom_wall_led_strip: on

@@ -2,14 +2,23 @@
 alexa:
   smart_home:
     filter:
-      include_domains:
-        - light
-        - scene
-        - media_player
-      exclude_entities:
-        - light.parking_1
-        - light.parking_2
-        - light.terrace_1
-        - light.terrace_2
-        - light.front_door_1
-        - light.front_door_2
+      include_entities:
+        - fan.bedroom
+        - light.kitchen
+        - light.dinning_room
+        - light.entrance
+        - light.toilet
+        - light.living_room_1
+        - light.living_room_2
+        - light.living_room_3
+        - light.deco_lamp
+        - light.lamp
+        - light.third_floor
+        - light.guests_bathroom
+        - light.bathroom_mirror
+        - light.bathroom
+        - light.closets
+        - light.bedroom_wall_led_strip
+        - light.bedroom
+        - light.jorge_nightstand
+        - light.marlyn_nightstand
