@@ -1,0 +1,42 @@
+---
+id: "1660643921878"
+alias: Brush Bruno - Trigger reminder
+trigger:
+  - platform: time_pattern
+    hours: "/1"
+condition:
+  - condition: state
+    entity_id: input_boolean.brushed_bruno
+    state: "off"
+  - condition: time
+    before: 00:00:00
+    after: "18:00:00"
+
+action:
+  - repeat:
+      until:
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: input_boolean.brushed_bruno
+              state: "on"
+            - condition: time
+              before: 00:00:00
+              after: "12:00:00"
+      sequence:
+        - service: script.set_brusher
+          data: {}
+        - service: telegram_bot.send_message
+          data:
+            title: "*Important: Brush Bruno \U0001F436*\n"
+            target: !secret telegram_group_id
+            message: Hi *{{ states('input_select.brusher') }}*! Please, remember to brush Bruno today
+            inline_keyboard:
+              - I brushed him ✅:/brushing_bruno_done
+              - Not today 😕:/brushing_bruno_snooze
+        - delay:
+            hours: 1
+            minutes: 0
+            seconds: 0
+            milliseconds: 0
+mode: single

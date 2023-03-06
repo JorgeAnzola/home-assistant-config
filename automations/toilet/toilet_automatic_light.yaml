@@ -10,7 +10,14 @@ trigger:
     entity_id:
       - binary_sensor.toilet_motion
     to: "on"
-condition: []
+condition:
+  - condition: state
+    entity_id: light.toilet
+    state: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
 action:
   - service: light.turn_on
     target:

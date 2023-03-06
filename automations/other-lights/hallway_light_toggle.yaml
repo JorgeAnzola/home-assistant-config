@@ -1,0 +1,16 @@
+---
+id: "1670329303436"
+alias: Hallway light - Toggle
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.wall_switch_1_action
+    to: single
+condition: []
+action:
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.hallway
+mode: single

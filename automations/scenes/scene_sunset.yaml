@@ -5,15 +5,6 @@ trigger:
     entity_id:
       - sun.sun
     to: below_horizon
-condition:
-  - condition: or
-    conditions:
-      - condition: state
-        entity_id: person.jorge
-        state: home
-      - condition: state
-        entity_id: person.marlyn
-        state: home
 action:
   - service: scene.turn_on
     target:

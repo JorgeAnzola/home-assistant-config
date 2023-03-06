@@ -1,0 +1,38 @@
+---
+id: "1660645128115"
+alias: Brush Bruno - callback
+trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /brushing_bruno_done
+condition: []
+action:
+  - if:
+      - condition: template
+        value_template: !secret user_id_evaluator
+    then:
+      - service: input_select.select_option
+        data:
+          option: Jorge
+        target:
+          entity_id: input_select.previous_brusher
+    else:
+      - service: input_select.select_option
+        data:
+          option: Marlyn
+        target:
+          entity_id: input_select.previous_brusher
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.brushed_bruno
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: "{{ trigger.event.data.id }}"
+      message: "Thanks! \U0001F436"
+      show_alert: true
+  - service: telegram_bot.send_message
+    data:
+      target: !secret telegram_group_id
+      message: "*{{ states('input_select.previous_brusher') }}* brushed Bruno!"
+mode: restart

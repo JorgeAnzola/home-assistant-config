@@ -1,0 +1,27 @@
+---
+id: "16606451281650"
+alias: Brush Bruno - callback snooze
+trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /brushing_bruno_snooze
+condition: []
+action:
+  - if:
+      - condition: template
+        value_template: !secret user_id_evaluator
+    then:
+      - service: telegram_bot.send_message
+        data:
+          target: !secret telegram_group_id
+          message: "*Jorge* snoozed  the reminder for today. Please do not skip brushing for many days."
+    else:
+      - service: telegram_bot.send_message
+        data:
+          target: !secret telegram_group_id
+          message: "*Marlyn* snoozed  the reminder for today. Please do not skip brushing for many days."
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.brushed_bruno
+mode: restart

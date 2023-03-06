@@ -1,0 +1,12 @@
+---
+id: "1674769824602"
+alias: Brush Bruno - Reminder reset
+description: ""
+trigger:
+  - platform: time
+    at: 00:00:00
+condition: []
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.brushed_bruno
+mode: single

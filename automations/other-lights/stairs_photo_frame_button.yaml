@@ -1,0 +1,15 @@
+- id: "1673802954885"
+  alias: Button - Stairs photo frame
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.button_3_action
+      to: single
+  condition: []
+  action:
+    - service: light.toggle
+      data: {}
+      target:
+        entity_id: light.stairs_photo_frame
+  mode: single

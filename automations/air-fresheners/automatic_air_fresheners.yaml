@@ -1,0 +1,19 @@
+---
+id: "1675090243891"
+alias: Air fresheners - Automatic toggling
+description: ""
+trigger:
+  - platform: time_pattern
+    hours: /2
+condition:
+  - condition: state
+    entity_id: binary_sensor.quiet_hours
+    state: "off"
+action:
+  - service: switch.toggle
+    data: {}
+    target:
+      entity_id:
+        - switch.entrance_air_freshener
+        - switch.living_room_air_freshener
+mode: single
