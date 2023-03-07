@@ -1,15 +1,15 @@
 ---
-id: "1676928551144"
-alias: Automatic mirror light
+id: "1676928551764"
+alias: Mirror Light - Automatic on
 description: ""
 trigger:
   - platform: state
     entity_id:
       - light.bathroom
-    to: "off"
+    to: "on"
 condition: []
 action:
-  - service: light.turn_off
+  - service: light.turn_on
     data: {}
     target:
       entity_id: light.bathroom_mirror

@@ -1,0 +1,16 @@
+---
+id: "1676928551144"
+alias: Mirror Light - Automatic off
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - light.bathroom
+    to: "off"
+condition: []
+action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bathroom_mirror
+mode: single
