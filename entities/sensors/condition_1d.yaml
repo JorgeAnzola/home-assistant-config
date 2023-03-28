@@ -1,9 +1,0 @@
----
-platform: template
-sensors:
-  condition_1d:
-    friendly_name: "Weather cxondition 1D"
-    icon_template: mdi:weather-rainy
-    value_template: >
-      {% set forecast_1d = state_attr("weather.buienradar", "forecast")[0] %}
-      {{ as_timestamp(forecast_1d.datetime) | timestamp_custom('%a') }}, {{ forecast_1d.condition | title }}
