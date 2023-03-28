@@ -1,5 +1,0 @@
----
-title: First floor
-path: first-floor
-icon: mdi:home-floor-1
-cards: !include_dir_list ../cards/first-floor
