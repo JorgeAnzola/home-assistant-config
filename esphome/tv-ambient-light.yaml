@@ -27,8 +27,8 @@ captive_portal:
 light:
   - platform: neopixelbus
     variant: WS2812X
-    pin: D4
+    pin: GPIO2
     type: GRB
     num_leds: 735
     name: "TV Ambient Light"
-    # effects: !include_dir_list light-effects
+    effects: !include_dir_list light-effects

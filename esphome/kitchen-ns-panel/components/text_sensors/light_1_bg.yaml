@@ -1,0 +1,8 @@
+platform: homeassistant
+id: light_1_bg
+entity_id: light.hallway
+on_value:
+  then:
+    - wait_until:
+        switch.is_on: nextion_init
+    - lambda: id(disp1).send_command_printf("Lights.light0.pic=%i", 60);

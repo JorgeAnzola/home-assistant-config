@@ -41,25 +41,25 @@ rtttl:
 
 #### SERVICES ####
 api:
-  services: !include_dir_list kitchen-ns-panel/servicess
+  services: !include_dir_list ./kitchen-ns-panel/services
 
 #### COMPONENTS ####
-external_components: !include kitchen-ns-panel/components/external_components.yaml
+external_components: !include ./kitchen-ns-panel/components/external_components.yaml
 
-binary_sensor: !include_dir_list kitchen-ns-panel/components/binary_sensors
+binary_sensor: !include_dir_list ./kitchen-ns-panel/components/binary_sensors
 
-time: !include_dir_list kitchen-ns-panel/components/time
+time: !include_dir_list ./kitchen-ns-panel/components/time
 
-button: !include_dir_list kitchen-ns-panel/components/buttons
+button: !include_dir_list ./kitchen-ns-panel/components/buttons
 
-output: !include_dir_list kitchen-ns-panel/components/outputs
+output: !include_dir_list ./kitchen-ns-panel/components/outputs
 
-switch: !include_dir_list kitchen-ns-panel/components/switches
+switch: !include_dir_list ./kitchen-ns-panel/components/switches
 
-number: !include_dir_list kitchen-ns-panel/components/numbers
+number: !include_dir_list ./kitchen-ns-panel/components/numbers
 
-sensor: !include_dir_list kitchen-ns-panel/components/sensors
+sensor: !include_dir_list ./kitchen-ns-panel/components/sensors
 
-text_sensor: !include_dir_list kitchen-ns-panel/components/text_sensors
+text_sensor: !include_dir_list ./kitchen-ns-panel/components/text_sensors
 
-display: !include_dir_list kitchen-ns-panel/components/displays
+display: !include_dir_list ./kitchen-ns-panel/components/displays

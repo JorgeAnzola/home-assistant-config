@@ -4,7 +4,7 @@ esphome:
 esp8266:
   board: d1_mini
   framework:
-    version: 2.7.4  
+    version: recommended
 
 logger:
   level: ERROR
@@ -25,10 +25,10 @@ wifi:
 captive_portal:
     
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
-    pin: D4
+  - platform: neopixelbus
+    variant: WS2812X
+    pin: GPIO2
+    type: GRB
     num_leds: 628
-    rgb_order: GRB
     name: "Bedroom Wall Led Strip"
     effects: !include_dir_list light-effects
