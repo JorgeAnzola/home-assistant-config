@@ -2,4 +2,15 @@ name: Sunset
 entities:
   light.lamp: on
   light.stairs_photo_frame: on
-  light.bedroom_wall_led_strip: on
+  light.stairs:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 50
+  light.bedroom_wall_led_strip:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 50
+  light.tv_ambient:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 100

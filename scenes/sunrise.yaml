@@ -3,3 +3,5 @@ entities:
   light.lamp: off
   light.stairs_photo_frame: off
   light.bedroom_wall_led_strip: off
+  light.stairs: off
+  light.tv_ambient: off

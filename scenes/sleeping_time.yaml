@@ -16,4 +16,5 @@ entities:
   light.third_floor: off
   light.toilet: off
   light.stairs_photo_frame: off
+  light.stairs: off
   switch.bathroom_heater: off
