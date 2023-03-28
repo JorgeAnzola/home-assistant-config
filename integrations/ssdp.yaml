@@ -1,3 +1,0 @@
-# “Simple Service Discovery Protocol” (part of UPnP) integration will scan the network for supported devices and services.
----
-ssdp: ~
