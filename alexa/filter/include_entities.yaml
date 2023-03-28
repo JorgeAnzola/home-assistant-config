@@ -1,7 +1,7 @@
 # Lights
 - light.kitchen
 - light.dinning_room
-- light.entrance
+- light.hallway
 - light.toilet
 - light.living_room_1
 - light.living_room_2
@@ -27,3 +27,9 @@
 # Doors
 - binary_sensor.front_door
 - binary_sensor.backdoor
+# Media player
+- media_player.bedroom_apple_tv
+- media_player.tv
+# Scenes
+- scene.movies
+- scene.sleeping_time

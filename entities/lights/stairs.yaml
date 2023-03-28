@@ -1,0 +1,7 @@
+# Combined two ESP Home entities.
+---
+platform: group
+name: Stairs
+entities:
+  - light.stairs_1
+  - light.stairs_2

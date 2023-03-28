@@ -43,5 +43,6 @@
 - binary_sensor.third_floor_motion
 # Scenes
 - scene.movies
+- scene.sleeping_time
 # Fans
 - fan.bedroom
