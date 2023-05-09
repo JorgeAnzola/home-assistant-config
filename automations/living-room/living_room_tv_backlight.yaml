@@ -14,10 +14,12 @@ action:
       - service: light.turn_off
         data: {}
         target:
-          entity_id: light.tv_backlight
+          entity_id: light.tv_ambient
     else:
       - service: light.turn_on
-        data: {}
+        data:
+          effect: "Gold Glitter"
+          brightness_pct: 100
         target:
-          entity_id: light.tv_backlight
+          entity_id: light.tv_ambient
 mode: single

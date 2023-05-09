@@ -1,7 +1,6 @@
 ---
 id: "1675088799692"
 alias: Bathroom - Automatic light
-description: ""
 trigger:
   - platform: state
     entity_id:
@@ -35,10 +34,7 @@ action:
           - binary_sensor.bathroom_motion
         to: "off"
   - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
+      hours: 1
   - service: light.turn_off
     data: {}
     target:

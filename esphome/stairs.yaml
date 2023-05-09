@@ -23,7 +23,11 @@ wifi:
     password: !secret esphome_ap_password
 
 captive_portal:
-    
+
+switch:
+  - platform: gpio
+    name: "Stairs photo frame"
+    pin: GPIO4
 light:
   - platform: neopixelbus
     variant: WS2812X

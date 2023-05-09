@@ -1,5 +1,0 @@
-# Service to wake up screen
-service: wake_up_screen
-then:
-  - lambda: |-
-      id(disp1).send_command_printf("page 0");

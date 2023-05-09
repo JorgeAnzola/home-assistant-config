@@ -1,7 +1,6 @@
 ---
 id: "1676928551144"
 alias: Mirror Light - Automatic off
-description: ""
 trigger:
   - platform: state
     entity_id:

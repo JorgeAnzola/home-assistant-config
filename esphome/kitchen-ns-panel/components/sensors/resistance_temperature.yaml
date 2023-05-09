@@ -1,9 +1,0 @@
-# Internal temperature sensor, resistance to temperature (calculation)
-platform: ntc
-id: temperature
-sensor: resistance_sensor
-calibration:
-  b_constant: 3950
-  reference_temperature: 25°C
-  reference_resistance: 10kOhm
-name: $device_name Temperature

@@ -1,7 +1,6 @@
 ---
 id: "1669983746702"
 alias: Bathroom heater - auto on
-description: ""
 trigger:
   - platform: time
     at: "21:00:00"

@@ -1,6 +1,6 @@
 platform: nextion
 name: $device_name Exit Notifications
-page_id: 7
-component_id: 4
+page_id: 6
+component_id: 3
 on_click:
   - lambda: id(disp1).send_command_printf("page 0");

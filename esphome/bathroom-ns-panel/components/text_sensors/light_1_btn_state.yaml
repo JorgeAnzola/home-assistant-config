@@ -1,0 +1,13 @@
+platform: homeassistant
+id: hallway_btn
+entity_id: light.hallway
+on_value:
+  then:
+    - wait_until:
+        switch.is_on: nextion_init
+    - lambda: |-
+        int symbol = 62;
+        if (id(hallway_btn).state == "off") {
+          symbol=61;
+        }
+        id(disp1).send_command_printf("Lights.entity_btn_1.pic=%i", symbol);

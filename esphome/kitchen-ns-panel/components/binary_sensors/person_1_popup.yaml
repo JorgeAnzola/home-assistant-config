@@ -3,7 +3,7 @@ name: $device_name Person 1 Details
 page_id: 0
 component_id: 15
 on_click:
-  - lambda: id(disp1).send_command_printf("PersonDetails.person_profile.pic=%i", 37);
+  - lambda: id(disp1).send_command_printf("PersonDetails.person_profile.pic=%i", 30);
   - lambda: id(disp1).set_component_text_printf("PersonDetails.location", "%s", id(person_1).state.c_str());
   - lambda: id(disp1).set_component_text_printf("PersonDetails.person_name","MG");
   - lambda: id(disp1).set_component_text_printf("PersonDetails.last_changed", "%s ago", id(person_1_time).state.c_str());

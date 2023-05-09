@@ -7,7 +7,7 @@ then:
   - lambda: |-
       id(disp1).set_component_text_printf("Notifications.head", "%s", header.c_str());
       id(disp1).set_component_text_printf("Notifications.body", "%s", message.c_str());
-      id(disp1).send_command_printf("page 7");
+      id(disp1).send_command_printf("page 6");
   - delay: 15s
   - lambda: |-
       id(disp1).send_command_printf("page 0");

@@ -1,7 +1,6 @@
 ---
 id: "1675090021425"
 alias: Guests bathroom - Automatic light
-description: ""
 trigger:
   - platform: state
     entity_id:
@@ -13,16 +12,11 @@ condition:
     state: "off"
 action:
   - service: light.turn_on
-    data: {}
     target:
       entity_id: light.guests_bathroom
   - delay:
       hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
   - service: light.turn_off
-    data: {}
     target:
       entity_id: light.guests_bathroom
 mode: restart

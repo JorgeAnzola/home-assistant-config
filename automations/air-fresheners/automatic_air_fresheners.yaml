@@ -1,7 +1,6 @@
 ---
 id: "1675090243891"
 alias: Air fresheners - Automatic toggling
-description: ""
 trigger:
   - platform: time_pattern
     hours: /2

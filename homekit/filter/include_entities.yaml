@@ -14,8 +14,9 @@
 - light.kitchen
 - light.dinning_room
 - light.guests_bathroom
-- light.christmas_tree
-- light.tv_backlight
+- light.living_room_plant
+- light.kitchen_plant
+- light.bar_plant
 - light.stairs_photo_frame
 - light.bathroom
 - light.bathroom_mirror
@@ -44,5 +45,6 @@
 # Scenes
 - scene.movies
 - scene.sleeping_time
+- scene.sunset
 # Fans
 - fan.bedroom

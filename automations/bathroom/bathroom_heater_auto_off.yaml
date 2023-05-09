@@ -1,7 +1,6 @@
 ---
 id: "1669980007387"
 alias: Bathroom heater - Automatic turn off
-description: ""
 trigger:
   - platform: state
     entity_id:

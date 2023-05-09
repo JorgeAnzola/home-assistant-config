@@ -1,8 +1,0 @@
-platform: homeassistant
-id: condition_2d
-entity_id: sensor.condition_2d
-on_value:
-  then:
-    - wait_until:
-        switch.is_on: nextion_init
-    - lambda: id(disp1).set_component_text_printf("WeatherDetails.weather_2d", "%s", id(condition_2d).state.c_str());
