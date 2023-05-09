@@ -1,0 +1,12 @@
+- id: '1682950874169'
+  alias: NFC Tags - Dishwasher tabs
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 616f054c-8bb0-426c-8e8b-f32cc885aa27
+  condition: []
+  action:
+  - service: shopping_list.add_item
+    data:
+      name: Action - Dishwasher tabs
+  mode: single
