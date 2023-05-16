@@ -1,0 +1,35 @@
+---
+type: grid
+title: Bar & terrace
+view_layout:
+  grid-area: bar
+columns: 2
+cards:
+  - type: custom:button-card
+    entity: light.living_room_3
+    name: Light
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_spot
+  - type: custom:button-card
+    entity: light.bar_plant
+    name: Plant
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_lamp
+  - type: custom:button-card
+    entity: light.terrace
+    name: Terrace
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_lamp
+  - type: custom:button-card
+    entity: light.terrace
+    name: Pergola
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_lamp

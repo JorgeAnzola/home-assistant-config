@@ -11,6 +11,5 @@ layout:
   grid-template-areas: |
     "sidebar         .           .       .     ."
     "sidebar         living    bar    kitchen  ."
-    "sidebar         media   bedroom  others   ."
-    "sidebar-footer  footer   footer  footer   ."
+    "sidebar-footer   media  bedroom   others  ."
 cards: !include_dir_list ../cards/main
