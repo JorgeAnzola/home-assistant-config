@@ -1,0 +1,7 @@
+---
+tablet-yaml:
+  mode: yaml
+  title: Tablet
+  icon: mdi:tablet
+  show_in_sidebar: true
+  filename: lovelace/tablet/dashboard.yaml

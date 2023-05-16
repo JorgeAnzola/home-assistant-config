@@ -1,0 +1,16 @@
+---
+title: Main
+path: main
+icon: mdi:home
+type: custom:grid-layout
+layout:
+  #default
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar         .           .       .     ."
+    "sidebar         living    bar    kitchen  ."
+    "sidebar         media   bedroom  others   ."
+    "sidebar-footer  footer   footer  footer   ."
+cards: !include_dir_list ../cards/main

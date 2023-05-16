@@ -1,0 +1,20 @@
+---
+type: grid
+view_layout:
+  grid-area: sidebar
+columns: 1
+cards:
+  - type: markdown
+    view_layout:
+      grid-area: sidebar
+    content: |
+      "10:10"
+      "10 May"
+    style:
+      {
+        ha-markdown:
+          {
+            .: "ha-markdown{padding:3.3vw 2vw 0 v3.3vw!important;pointer-events:none}@media screen and (max-width:800px){ha-markdown{padding:0!important}}\n",
+            $: "p>span{font-size:var(--markdown-sidebar-clock-font-size);font-weight:200;line-height:var(--markdown-sidebar-clock-line-height);letter-spacing:-.05vw;margin-left:-.3vw;color:var(--ha-card-header-color)}p>span>span{position:relative;top:-.09em}p{font-size:var(--markdown-sidebar-font-size);line-height:var(--markdown-sidebar-line-height);font-weight:300;letter-spacing:.06vw;color:#6a7377}p>b{color:var(--ha-card-header-color)}@media screen and (max-width:1200px){p>span{font-size:calc(var(--markdown-sidebar-clock-font-size) * 1.4);line-height:calc(var(--markdown-sidebar-clock-line-height) * 1.4)}p{font-size:calc(var(--markdown-sidebar-font-size) * 1.4);line-height:calc(var(--markdown-sidebar-line-height) * 1.4)}}@media screen and (max-width:800px){p>span{font-size:calc(var(--markdown-sidebar-clock-font-size) * 2.6);line-height:calc(var(--markdown-sidebar-clock-line-height) * 2.6)}p{font-size:calc(var(--markdown-sidebar-font-size) * 2.6);line-height:calc(var(--markdown-sidebar-line-height) * 2.6);letter-spacing:.16vw}}\n",
+          },
+      }

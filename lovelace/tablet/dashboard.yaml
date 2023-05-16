@@ -1,0 +1,3 @@
+---
+views: !include_dir_list ./views
+button_card_templates: !include button-card-templates.yaml
