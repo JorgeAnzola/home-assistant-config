@@ -1,35 +1,62 @@
----
 type: grid
-title: Bar & terrace
+title: Bar & Terrace
 view_layout:
   grid-area: bar
-columns: 2
+columns: 1
 cards:
-  - type: custom:button-card
-    entity: light.living_room_3
-    name: Light
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_spot
-  - type: custom:button-card
-    entity: light.bar_plant
-    name: Plant
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_lamp
-  - type: custom:button-card
-    entity: light.terrace
-    name: Terrace
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_lamp
-  - type: custom:button-card
-    entity: light.terrace
-    name: Pergola
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_lamp
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      roundLengths: true
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: media_player.living_room_tv
+            name: TV
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_tv
+          - type: custom:button-card
+            entity: light.living_room_1
+            name: Light
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.lamp
+            name: Lamp
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - light
+              - icon_lamp
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: media_player.living_room_tv
+            name: TV
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_tv
+          - type: custom:button-card
+            entity: light.living_room_1
+            name: Light
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.lamp
+            name: Lamp
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - light
+              - icon_lamp

@@ -68,7 +68,7 @@ base:
       - justify-self: start
       - line-height: 115%
     card:
-      - border-radius: var(--custom-button-card-border-radius)
+      - border-radius: var(--button-card-border-radius)
       - -webkit-tap-highlight-color: rgba(0,0,0,0)
       - transition: none
       - padding: 10%
@@ -590,7 +590,7 @@ conditional_media:
       - z-index: 3
     card:
       - padding: 5%
-      - border-radius: calc(var(--custom-button-card-border-radius) / 2)
+      - border-radius: calc(var(--button-card-border-radius) / 2)
       - backdrop-filter: blur(0) #fix chrome bug
     custom_fields:
       blur:
