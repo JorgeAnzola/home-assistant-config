@@ -3,33 +3,77 @@ type: grid
 title: Bedroom
 view_layout:
   grid-area: bedroom
-columns: 2
+columns: 1
 cards:
-  - type: custom:button-card
-    entity: light.bedroom
-    name: Light
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_spot
-  - type: custom:button-card
-    entity: light.closets
-    name: Closets
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_closet
-  - type: custom:button-card
-    entity: light.bathroom
-    name: Bathroom
-    # hold_action: !include ../../popups/living-room-light.yaml
-    template:
-      - light
-      - icon_bathroom
-  # - type: custom:button-card
-  #   entity: light.bedroom_wall_led_strip
-  #   name: Third floor
-  #   # hold_action: !include ../../popups/living-room-light.yaml
-  #   template:
-  #     - media
-  #     - icon_apple_tv
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5000
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.bedroom
+            name: Light
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_spot
+          - type: custom:button-card
+            entity: light.bedroom_wall_led_strip
+            name: Led wall
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - light
+              - icon_hue
+          - type: custom:button-card
+            entity: light.marlyn_nightstand
+            name: Marlyn's nightstand
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_hue
+          - type: custom:button-card
+            entity: light.jorge_nightstand
+            name: Jorge's nightstand
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_hue
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: fan.bedroom
+            name: Fan
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_fan
+          - type: custom:button-card
+            entity: light.closets
+            name: Closets
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_closet
+          - type: custom:button-card
+            entity: light.bathroom
+            name: Bathroom
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_bathroom
+          - type: custom:button-card
+            entity: switch.bathroom_heater
+            name: Heater
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_climate

@@ -1,5 +1,5 @@
 type: grid
-title: Media
+title: Music
 view_layout:
   grid-area: media
 columns: 1
