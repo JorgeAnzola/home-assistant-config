@@ -9,7 +9,8 @@ layout:
   grid-template-columns: repeat(4, 1fr) 0
   grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
   grid-template-areas: |
-    "sidebar         .           .       .     ."
-    "sidebar         living    bar    kitchen  ."
-    "sidebar         bedroom  others   media  ."
+    "sidebar    .           .       .     ."
+    "sidebar    living    bar    kitchen  ."
+    "sidebar   bedroom   others    media  ."
+    "sidebar    footer   footer   footer  ."
 cards: !include_dir_list ../cards/main

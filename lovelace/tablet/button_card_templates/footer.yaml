@@ -22,7 +22,7 @@ footer:
       ]]]
   size: 2vw
   show_icon: false
-  color: '#9da0a2'
+  color: "#9da0a2"
   custom_fields:
     notify: >
       [[[
@@ -34,7 +34,7 @@ footer:
       ]]]
   styles:
     card:
-      - color: '#97989c'
+      - color: "#97989c"
       - width: fit-content
       - border: 0.12vw solid rgba(115, 115, 115, 0.2)
       - transition: none
@@ -58,8 +58,8 @@ footer:
             ]]]
         - position: absolute
         - font-weight: 700
-        - color: '#d6d6d6'
-        - background: '#8b3333'
+        - color: "#d6d6d6"
+        - background: "#8b3333"
         - border-radius: 50%
         - text-align: center
         - text-overflow: unset

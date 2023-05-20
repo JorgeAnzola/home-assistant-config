@@ -26,6 +26,8 @@ cards:
         template:
           - person
 
-      - type: button
-        icon: mdi:information-outline
-        tap_action: !include ../../pop-ups/information.yaml
+      # - type: custom:button-card
+      #   name: Home
+      #   template:
+      #     - base
+      #     - icon_home

@@ -102,6 +102,7 @@ base:
     name:
       - justify-self: start
       - line-height: 121%
+      - padding: 0
     state:
       - justify-self: start
       - line-height: 115%

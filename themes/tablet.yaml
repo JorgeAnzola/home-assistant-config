@@ -132,7 +132,7 @@ tablet:
   popup-min-width: 440px
   tablet-popup-header-color: rgba(200, 218, 222, 0.05)
   tablet-popup-content-padding: 1.4em 2.2em 1.6em 1.5em
-  tablet-popup-button-padding: 0.1em 2em 1.8em 2em
+  tablet-popup-button-padding: 25px
   tablet-popup-border-style: 1.5px solid rgba(0,0,0,0.2)
   tablet-popup-align-dialog: center
   tablet-popup-margin-top: 0px
@@ -147,7 +147,7 @@ tablet:
 
   card-mod-root: |
     #view {
-      background: url('/local/background.png');
+      background: url('/local/bg.jpg');
       background-size: cover;
     }
 
@@ -281,7 +281,7 @@ tablet:
         @media screen and (min-width: 1200px) {
           #root {
             flex-wrap: nowrap;
-            justify-content: space-between;
+            justify-content: space-evenly;
             margin-top: -1.6vh;
             padding-bottom: 0;
           }

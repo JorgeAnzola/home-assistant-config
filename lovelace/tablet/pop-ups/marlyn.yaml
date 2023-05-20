@@ -28,27 +28,6 @@ browser_mod:
           entities:
             - entity: person.marlyn
 
-        - type: custom:mod-card
-          card_mod:
-            style:
-              hui-horizontal-stack-card$: |
-                #root {
-                  justify-content: space-evenly !important;
-                  padding: var(--tablet-popup-button-padding);
-                }
-          card:
-            type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                name: Find my phone
-                icon: mdi:volume-high
-                template: icon_name
-                tap_action:
-                  action: call-service
-                  service: input_button.press
-                  service_data:
-                    entity_id: input_button.marlyn_find_my_phone
-
         - type: map
           default_zoom: 16
           dark_mode: true
@@ -92,3 +71,25 @@ browser_mod:
                 .leaflet-pane.leaflet-tile-pane {
                   filter: invert(0.95) grayscale(0.95) contrast(95%);
                 }
+
+        - type: custom:mod-card
+          card_mod:
+            style:
+              hui-horizontal-stack-card$: |
+                #root {
+                  display: flex;
+                  justify-content: center !important;
+                  padding: var(--tablet-popup-button-padding);
+                }
+          card:
+            type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                name: Find my phone
+                icon: mdi:volume-high
+                template: icon_name
+                tap_action:
+                  action: call-service
+                  service: input_button.press
+                  service_data:
+                    entity_id: input_button.marlyn_find_my_phone

@@ -33,23 +33,6 @@ cards:
               - light
               - icon_hue
           - type: custom:button-card
-            entity: light.marlyn_nightstand
-            name: Marlyn's nightstand
-            # hold_action: !include ../../popups/living-room-light.yaml
-            template:
-              - base
-              - icon_hue
-          - type: custom:button-card
-            entity: light.jorge_nightstand
-            name: Jorge's nightstand
-            # hold_action: !include ../../popups/living-room-light.yaml
-            template:
-              - base
-              - icon_hue
-      - type: grid
-        columns: 2
-        cards:
-          - type: custom:button-card
             entity: fan.bedroom
             name: Fan
             # hold_action: !include ../../popups/living-room-light.yaml
@@ -63,9 +46,19 @@ cards:
             template:
               - base
               - icon_closet
+      - type: grid
+        columns: 2
+        cards:
           - type: custom:button-card
             entity: light.bathroom
             name: Bathroom
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_bathroom
+          - type: custom:button-card
+            entity: light.bathroom_mirror
+            name: Mirror
             # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
@@ -77,3 +70,13 @@ cards:
             template:
               - base
               - icon_climate
+      - type: grid
+        columns: 1
+        cards:
+          - type: custom:button-card
+            name: Apple TV
+            entity: media_player.bedroom_apple_tv
+            # tap_action: !include ../../popups/apple_tv_controls.yaml
+            template:
+              - media
+              - icon_apple_tv
