@@ -1,6 +1,6 @@
 ---
-id: "1665167162070"
-alias: Stairs - Automatic light on
+id: "2365167125070"
+alias: "Stairs - Automatic light on"
 trigger:
   - platform: state
     entity_id:
@@ -22,9 +22,9 @@ action:
   - service: light.turn_on
     target:
       entity_id: light.stairs
-      data:
-        effect: "Gold Glitter"
-        brightness_pct: 100
+    data:
+      effect: "Gold Glitter"
+      brightness_pct: 100
   - wait_for_trigger:
       - platform: state
         entity_id:

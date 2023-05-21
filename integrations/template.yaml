@@ -25,101 +25,116 @@ template:
             </span>
           date: >
             <font color='#6a7377'><b>
-            {% if strptime(states('sensor.date'), '%Y-%m-%d').day != None %}
-            {% set days = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'] %}
-            {% set months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
-            'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'] %}
-              {{ days[now().weekday()] }}<br>
-              {{ strptime(states('sensor.date'), '%Y-%m-%d').day }} {{ months[now().month-1] }}
-            {% endif %}
+              {{ now().strftime('%A') }}<br>
+              {{ now().strftime('%d %b') }}
             </b></font>
           greet: >
             <b>
             {% set time = now().hour %}
-            {% if time <= 1 %} God natt {{'\U0001F611'}}
-            {% elif time <= 3 %} God natt {{'\U0001F62A'}}
-            {% elif time <= 5 %} God natt {{'\U0001F634'}}
-            {% elif time <= 7 %} God morgon {{'\U0001F4A9'}}
-            {% elif time <= 9 %} God morgon {{'\u2615\uFE0F'}}
-            {% elif time <= 10 %} God morgon {{'\U0001F642'}}
-            {% elif time <= 13 %} God dag {{'\U0001F60A'}}
-            {% elif time <= 15 %} God dag {{'\U0001F60E'}}
-            {% elif time <= 17 %} God dag {{'\U0001F44B\U0001F3FB'}}
-            {% elif time <= 19 %} God kväll {{'\U0001F44B\U0001F3FB'}}
-            {% elif time <= 22 %} God kväll {{'\U0001F60C'}}
-            {% elif time <= 23 %} God kväll {{'\U0001F974'}}
-            {% else %} God kväll {{'\U0001F974'}}
+            {% if time <= 1 %} Good night 😑
+            {% elif time <= 3 %} God night 😪
+            {% elif time <= 5 %} God night 😴
+            {% elif time <= 7 %} Good morning 🥱
+            {% elif time <= 9 %} Good morning {{'\U00002615'}}
+            {% elif time <= 12 %} Good afternoon 😄 
+            {% elif time <= 15 %} Good afternoon 😎
+            {% elif time <= 17 %} Good afternoon 👋🏻
+            {% elif time <= 19 %} Good evening 😬
+            {% elif time <= 22 %} Good evening 😌
+            {% elif time <= 23 %} Good evening 🥱
+            {% else %} Good evening 😪
             {% endif %}
             </b>
           active: >
             <b>
             {% set lights = [
-              states.light.vardagsrum_tv,
-              states.light.vardagsrum_golv,
-              states.light.vardagsrum_horna,
-              states.light.studio_dator,
-              states.light.badrum_vask_2,
-              states.light.badrum_vask_1,
-              states.light.sovrum_tv,
-              states.light.garderob_lampa,
-              states.light.hall_spot_1,
-              states.light.hall_spot_2,
-              states.light.hall_spot_3,
-              states.light.sovrum_mattias,
-              states.light.sovrum_sanja,
-              states.light.studio_spot_1,
-              states.light.studio_spot_2,
-              states.switch.deltaco_sh_p01_socket
+              states.light.living_room_1,
+              states.light.living_room_2,
+              states.light.living_room_3,
+              states.light.kitchen,
+              states.light.dinning_room,
+              states.light.hallway,
+              states.light.third_floor,
+              states.light.bedroom,
+              states.light.closets
             ] %}
 
             {% set devices = [
-              states.switch.imac,
-              states.switch.ps5_635_power,
-              states.switch.gosund_monitors_switch,
-              states.switch.gosund_fan_switch,
-              states.media_player.samsung,
-              states.media_player.sony_bravia_tv,
-              states.climate.ac
+              states.fan.bedroom,
+              states.switch.living_room_air_freshener,
+              states.switch.entrance_air_freshener
             ] %}
 
             {% set lights_on = lights | selectattr('state','eq','on') | list %}
-            {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
+            {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') | lower %}
 
             {% set devices_on = devices | selectattr('state','search','(on|cool|fan_only|playing)') | list %}
-            {% set devices_name = devices_on | map(attribute='name') | join(', ') %}
+            {% set devices_name = devices_on | map(attribute='name') | join(', ') | lower %}
 
             {% if (lights_on | length == 0) and (devices_on | length > 0) %}
-              {{ devices_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+              {{ devices_name | regex_replace(',([^,]*)$',' and\\1') }} is on
 
             {% elif (lights_on | length == 1) and (devices_on | length == 1) %}
-              {{ lights_name }} och {{devices_name }} är på
+              {{ lights_name }} and the {{devices_name }} is on
 
             {% elif (lights_on | length == 1) and (devices_on | length > 1) %}
-              {{ lights_name }}, {{ devices_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+              {{ lights_name }}, {{ devices_name | regex_replace(',([^,]*)$',' and\\1') }} is on
 
             {% elif (lights_on | length > 1) and (devices_on | length == 1) %}
-              {{ lights_on | length }} lampor och {{ devices_name }} är på
+              {{ lights_on | length }} lights and the {{ devices_name }} are on
 
             {% elif (lights_on | length > 1) and (devices_on | length > 1) %}
-              {{ lights_on | length }} lampor, {{ devices_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+              {{ lights_on | length }} lights, {{ devices_name | regex_replace(',([^,]*)$',' and\\1') }} are on
 
             {% elif (lights_on | length == 1) and (devices_on | length == 0) %}
-              {{ lights_name }} är på
+              {{ lights_name }} are on
 
             {% elif (lights_on | length > 1) and (devices_on | length == 0) %}
-              {{ lights_on | length }} lampor är på
+              {{ lights_on | length }} lights are on
 
             {% else %}
-              <font color='#6a7377'>Allt är avstängt</font>
+              <font color='#6a7377'>Everything is turned off</font>
             {% endif %}
             </b>
           weather: >
-            {% set entity = 'weather.buienradar' %}
-            {% if not is_state(entity, 'unknown') %}
-              {% set temp = state_attr(entity, 'temperature') | round %}
-              {% set precip = state_attr(entity, 'forecast')[0]['precipitation'] | round %}
-                Känns som {{ temp }}° med {{ 'ingen risk för regn' if precip == 0
-                else precip | string + 'mm regn \u2614\uFE0F' }}
+            {% set feels_like = states('sensor.buienradar_temperature_feels_like') | round %}
+            {% set condition = states('sensor.buienradar_condition') | lower %}
+            {% set full_condition = states('sensor.buienradar_full_condition') | lower %}
+            {% set precipitation_probability = states('sensor.openweathermap_forecast_precipitation_probability') | int %}
+            {% set season = states('sensor.season') %}
+
+            {% set emoji %}
+            {% if condition == 'clear' %}🌞
+            {% elif condition == 'partly cloudy' %}🌤️
+            {% elif condition == 'cloudy' %}☁️
+            {% elif condition == 'rain' %}☔️
+            {% elif condition == 'thunderstorm' %}🌩️
+            {% elif condition == 'snow' %}❄️☃️
+            {% else %}🏡
+            {% endif %}
+            {% endset %}
+
+            It feels like {{ feels_like }}°, {{ full_condition }} {{ emoji }}<br>
+            With {{ precipitation_probability }}% chance of precipitation.
+
+            {% if condition == 'rain' %}
+            Don't forget your umbrella! ☂️
+            {% elif condition == 'thunderstorm' %}
+            Stay safe and take necessary precautions during the thunderstorm. ⚡️
+            {% elif precipitation_probability >= 50 %}
+            You might want to consider bringing an umbrella, just in case. ☔️
             {% else %}
-              Kan inte läsa in väder...
+            No significant precipitation expected. Enjoy your day! 😊
+            {% endif %}
+
+            {% if season == 'spring' %}
+            It's a lovely spring day! 🌸🌼
+            {% elif season == 'summer' %}
+            Enjoy the summer vibes! 🌞🌴
+            {% elif season == 'autumn' %}
+            Embrace the beauty of autumn! 🍂🍁
+            {% elif season == 'winter' %}
+            Keep warm during the winter chill! ❄️⛄️
+            {% else %}
+            Have a great day! 😄
             {% endif %}

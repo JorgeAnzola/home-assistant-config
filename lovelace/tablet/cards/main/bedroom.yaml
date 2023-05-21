@@ -9,7 +9,7 @@ cards:
     start_card: 1
     parameters:
       autoplay:
-        delay: 5000
+        delay: 5100
         disableOnInteraction: false
       spaceBetween: 30
       speed: 650
