@@ -25,4 +25,4 @@ cards:
     # hold_action: !include ../../popups/living-room-light.yaml
     template:
       - light
-      - icon_lamp
+      - icon_plant

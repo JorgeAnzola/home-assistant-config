@@ -1,0 +1,26 @@
+type: grid
+title: Spotify
+view_layout:
+  grid-area: media
+columns: 1
+cards:
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5000
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 1
+        cards:
+          - type: custom:button-card
+            entity: media_player.spotify
+            name: Spotify
+            tap_action: !include ../../pop-ups/spotify_controls.yaml
+            template:
+              - media
+              - icon_spotify

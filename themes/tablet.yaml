@@ -167,7 +167,7 @@ tablet:
       hui-grid-card:
         .: |
           hui-grid-card {
-            padding-bottom: 1vw;
+            padding: 1vw;
           }
         $: |
           /* default */
@@ -179,21 +179,6 @@ tablet:
             padding: 0.2vw 0 2vw 0 !important;
             letter-spacing: normal !important;
             width: 100%;
-          }
-          /* portrait */
-          @media screen and (max-width: 1200px) {
-            h1 {
-              font-size: 3.3vw !important;
-              line-height: 1.1vw !important;
-            }
-          }
-          /* phone */
-          @media screen and (max-width: 800px) {
-            h1 {
-              font-size: 5.5vw !important;
-              line-height: 6vw !important;
-              margin: 2vw 0 0 0 !important;
-            }
           }
 
     #################################################
@@ -231,16 +216,6 @@ tablet:
         border-right: 0.1vw solid rgba(58, 69, 73, 0.2);
         min-height: 100vh;
       }
-      /* phone */
-      @media screen and (max-width: 800px) {
-        #root {
-          background-color: rgba(0,0,0,0);
-          border-right: none;
-          min-height: 100%;
-          margin-left: -0.8%;
-          margin-bottom: -6%;
-        }
-      }
 
     #################################################
     #                                               #
@@ -253,14 +228,6 @@ tablet:
         hui-conditional-card {
           display: flex;
           justify-content: center;
-        }
-        /* phone */
-        @media screen and (max-width: 800px) {
-          hui-conditional-card > button-card {
-            zoom: 250%;
-            width: 100%;
-            filter: contrast(85%);
-          }
         }
 
     #################################################
@@ -278,21 +245,6 @@ tablet:
           margin-top: -1.95vw !important;
           padding-bottom: 2.5em;
         }
-        @media screen and (min-width: 1200px) {
-          #root {
-            flex-wrap: nowrap;
-            justify-content: space-evenly;
-            margin-top: -1.6vh;
-            padding-bottom: 0;
-          }
-        }
-        /* phone */
-        @media screen and (max-width: 800px) {
-          #root {
-            padding-top: 4vw !important;
-          }
-        }
-
   card-mod-card: |
     .header .card-header {
       letter-spacing: 0.005em;

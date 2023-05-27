@@ -595,9 +595,7 @@ icon_climate:
             [[[ return variables.state === 'cool' || variables.state === 'fan_only' ? '#5daeea' : '#9da0a2'; ]]]
   custom_fields:
     icon: >
-      <svg viewBox="0 0 50 50">
-        <path d="M36.8 1.2v1.7a5.34 5.34 0 0 1-5.3 5.3H18.4a5.34 5.34 0 0 1-5.3-5.3V1.2c-2.6.4-4.7 2.8-4.7 5.6v36.5c0 3.1 2.6 5.7 5.7 5.7h21.8c3.1 0 5.7-2.6 5.7-5.7V6.8c0-2.8-2.1-5.2-4.8-5.6zm-1.7 35.6c-.2 0-.4 0-.5-.1-.4-.1-1.2-.2-2.4-.6-.5-.2-.8-.3-1.2-.4-.3-.1-.7-.3-1.4-.5-1-.4-1.5-.5-1.9-.6-.5-.1-1.1-.2-1.9-.2s-1.4.2-1.9.4c-1 .3-1.8.7-2.1.9l-.6.3a9.75 9.75 0 0 1-1.4.6c-.3.1-.9.3-1.6.3h-.3c-.4 0-1 0-2-.2-.3-.1-.6-.1-.8-.2v-2.7l1.3.3c.5.1 1.3.2 1.7.2.5 0 .9-.2 1.1-.2.4-.1.6-.2 1-.4.2-.1.4-.2.7-.4.4-.2 1.3-.7 2.5-1 .6-.2 1.4-.4 2.5-.5s2 .1 2.5.2c.6.1 1.2.3 2.2.7l1.5.5c.3.1.6.2 1 .4 1 .3 1.8.5 2.1.5h.1v2.7zm0-6c-.2 0-.4 0-.5-.1-.4-.1-1.2-.2-2.4-.6-.5-.2-.8-.3-1.2-.4-.3-.1-.7-.3-1.4-.5-1-.4-1.5-.5-1.9-.6-.5-.1-1.1-.2-1.9-.2s-1.4.2-1.9.4c-1 .3-1.8.7-2.1.9l-.6.3a9.75 9.75 0 0 1-1.4.6c-.3.1-.9.3-1.6.3h-.3c-.4 0-1 0-2-.2-.3-.1-.6-.1-.8-.2v-2.7l1.3.3c.5.1 1.3.2 1.7.2.5 0 .9-.2 1.1-.2.4-.1.6-.2 1-.4.2-.1.4-.2.7-.4.4-.2 1.3-.7 2.5-1 .6-.2 1.4-.4 2.5-.5s2 .1 2.5.2c.6.1 1.2.3 2.2.7l1.5.5c.3.1.6.2 1 .4 1 .3 1.8.5 2.1.5h.1v2.7zm0-6c-.2 0-.4 0-.5-.1-.4-.1-1.2-.2-2.4-.6-.5-.2-.8-.3-1.2-.4-.3-.1-.7-.3-1.4-.5-1-.4-1.5-.5-1.9-.6-.5-.1-1.1-.2-1.9-.2s-1.4.2-1.9.4c-1 .3-1.8.7-2.1.9l-.6.3c-.4.2-.8.4-1.4.6-.3.1-.9.3-1.6.3h-.3c-.4 0-1 0-2-.2-.3-.1-.6-.1-.8-.2v-2.7l1.3.3c.5.1 1.3.2 1.7.2.5 0 .9-.2 1.1-.2.4-.1.6-.2 1-.4.2-.1.4-.2.7-.4.4-.2 1.3-.7 2.5-1 .6-.2 1.4-.4 2.5-.5s2 .1 2.5.2c.6.1 1.2.3 2.2.7l1.5.5c.3.1.6.2 1 .4 1 .3 1.8.5 2.1.5h.1v2.7zM15.7 1.9v-.8h18.6V3c0 1.5-1.2 2.8-2.8 2.8H18.4c-1.5 0-2.8-1.2-2.8-2.8V1.9z"/>
-      </svg>
+      <svg viewBox="0 0 613.33 800"><path d="M640,786.67a13.32,13.32,0,0,0-13.33-13.34H613.33V760h40V720h53.34V640H653.33V613.33h13.34a40,40,0,0,0,0-80H653.33V506.67h13.34a40,40,0,0,0,0-80H653.33V400h13.34a40,40,0,1,0,0-80H653.33V293.33h13.34a40,40,0,1,0,0-80H653.33V186.67h13.34a40,40,0,1,0,0-80H653.33V80h53.34V0H93.33V80h53.34v26.67H133.33a40,40,0,0,0,0,80h13.34v26.66H133.33a40,40,0,0,0,0,80h13.34V320H133.33a40,40,0,0,0,0,80h13.34v26.67H133.33a40,40,0,0,0,0,80h13.34v26.66H133.33a40,40,0,0,0,0,80h13.34V640H93.33v80h13.34v40h40v26.67a13.33,13.33,0,1,0,26.66,0V760h40V720H546.67v40h40v13.33H573.33a13.34,13.34,0,0,0,0,26.67h53.34A13.32,13.32,0,0,0,640,786.67ZM173.33,80H626.67v26.67H173.33Zm0,106.67H626.67v26.66H173.33Zm0,106.66H626.67V320H173.33Zm0,106.67H626.67v26.67H173.33Zm0,106.67H626.67v26.66H173.33Zm0,106.66H626.67V640H173.33Z" transform="translate(-93.33)"/></svg>
 
 icon_bathroom:
   styles:
@@ -961,5 +959,368 @@ icon_home:
             </style>
             <path class="${state}" d="M42.2 28.3c0-.8-.2-1-.2-1L26 12.1s-.5-.4-1-.4-1 .3-1 .3L8.2 27.1c-.4.5-.4.9-.4.9v18.3c0 1.1.9 2 1.9 2h8.2a1.47 1.47 0 0 0 1.5-1.5v-14a1.47 1.47 0 0 1 1.5-1.5h8.4a1.47 1.47 0 0 1 1.5 1.5v14a1.47 1.47 0 0 0 1.5 1.5h8.2c1.1 0 2-.9 2-1.9 0-.2-.3-18.1-.3-18.1zM7.3 25l-1.6 1.5s-.3.3-.5.3-.5 0-.8-.2c-.2-.2-2-2.8-2-2.8s-.1-.4-.1-.7c.1-.3.2-.7.3-.8.4-.1 21.5-20.1 21.5-20.1s.4-.3.9-.3c.4 0 .8.1.9.2s.5.4.5.4l8.9 8.5V6s.1-.4.2-.7c.1-.2.3-.3.4-.3s.3-.1.3-.1h3s.3.1.4.3a1.08 1.08 0 0 1 .3.7v9.8l7.2 6.9s.2.3.3.4c.1.2.1.7.1.7 0 .1-.1.4-.2.5s-1.6 2.5-1.6 2.5-.1.3-.3.3c-.2.1-.4.1-.7 0-.2-.1-.5-.4-.5-.4L26.4 9.4s-.3-.3-.5-.4-.4-.2-.8-.2-.5.1-.8.1c-.1.1-.4.3-.7.5C23.3 9.8 7.3 25 7.3 25z"/>
           </svg>
+        `;
+      ]]]
+
+icon_air_freshener:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+            <svg class="${state} light-color" viewBox="0 0 237.84 414.2" width="20">
+            <path d="M239,114.91c0,59.63-.24,83.74-.89,83.49-.49-.16-14.32-31.22-30.74-69s-30-68.77-30.1-68.85c-.48-.48-22,9.47-21.84,10,.08.41,12.54,29.21,27.67,64s27.58,63.51,27.58,63.67-6.39.32-14.15.32H182.37v72.81H132.21V445.31H370.06V271.37H319.9V198.56H305.74c-7.77,0-14.16-.16-14.16-.32s12.38-28.8,27.59-63.67,27.59-63.58,27.67-64c.16-.65-21.36-10.51-21.85-10-.08.08-13.59,31.07-30.09,68.85s-30.26,68.84-30.74,69c-.65.25-.89-24.19-.89-83.49V31.1H239ZM295.63,247.1v24.27h-89V222.83h89ZM222,296.21c0,.4-5.18,12.54-11.49,27.1L199,349.85H156.48V295.64h32.77C207.29,295.64,222,295.89,222,296.21Zm123.78,26.53v27.11H303.31l-11.56-26.54c-6.31-14.56-11.49-26.7-11.49-27.1s14.72-.57,32.76-.57h32.77ZM239,334.88v15h-6.47c-3.56,0-6.47-.25-6.47-.65,0-.73,12.29-29.29,12.7-29.29C238.84,319.91,239,326.63,239,334.88Zm31.06-.49c3.4,7.77,6.15,14.4,6.15,14.81s-2.91.65-6.47.65h-6.47V334.72c0-8.25.16-14.89.32-14.73S266.75,326.71,270.06,334.39ZM187.55,375.9a30.79,30.79,0,0,1-2,4.85,13.93,13.93,0,0,0-1.53,4.13c0,1.37,20.95,10.75,21.76,9.7.32-.32,2.51-5.09,4.93-10.59l4.29-9.87h24v23.46h24.27V374.12h24l4.53,10.27c3.56,8,4.93,10.36,6,10.19,3.08-.32,20.47-8.57,20.47-9.7a14,14,0,0,0-1.54-4.13,29.69,29.69,0,0,1-2-4.85l-.57-1.78h31.64V421H156.48V374.12h31.63Z" transform="translate(-132.21 -31.1)"/>
+            </svg>
+        `;
+      ]]]
+
+icon_pergola:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+        </style>
+          <svg class="${state}" viewBox="0 0 800 584.05">
+            <path class="${state} light-color" d="M710.47,161.63H89.53a16,16,0,0,0-16,16V622.34a16,16,0,1,0,32.05,0V241.76h74.11V512.57a16,16,0,0,0,32.05,0V241.76H588.29V512.57a16,16,0,0,0,32.05,0V241.76h74.11V622.34a16,16,0,1,0,32,0V177.66a16,16,0,0,0-16-16ZM105.55,209.71v-16h588.9v16Z"/>
+            <path class="${state} light-color" d="M506.65,461.79H293.35a16,16,0,1,0,0,32H327.1v24.07a16,16,0,1,0,32,0V493.84h81.7v24.07a16,16,0,1,0,32,0V493.84h33.75a16,16,0,1,0,0-32Z"/>
+            <path class="${state} light-color" d="M506.65,415.08H293.35a16,16,0,1,0,0,32.05h213.3a16,16,0,0,0,0-32.05Z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_plant:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        let plant_color = variables.state_on ? '#168C84' : '--light-color';
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+                fill: #168C84;
+              }
+            </style>
+              <svg class="light-color" viewBox="0 0 800 800">
+                <path fill="none" d="M0,0V800H800V0ZM366.67,433.33V400h66.66v33.33Z"/>
+                <path class="${state}" d="M183.33,66.67H66.67v50c0,138.06,111.93,250,250,250h16.66V333.33a265.09,265.09,0,0,1,54.14-161A249.69,249.69,0,0,0,183.33,66.67Z"/>
+                <path class="${state}" d="M600,100c-128.87,0-233.33,104.47-233.33,233.33V400h100C595.53,400,700,295.53,700,166.67V100Z"/>
+                <path d="M200,433.33V666.67a66.64,66.64,0,0,0,66.67,66.66H533.33A66.64,66.64,0,0,0,600,666.67V433.33Z"/>
+              </svg>
+        `;
+      ]]]
+
+icon_stairs:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg class="${state} light-color" viewBox="0 0 512.004 512.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <polygon points="364.957,107.108 364.957,141.969 380.014,141.969 380.014,203.974 268.09,203.974 268.09,238.835 283.148,238.835 283.148,300.841 171.223,300.841 171.223,335.703 186.282,335.703 186.282,397.708 74.356,397.708 74.356,432.569 89.415,432.569 89.415,512.004 124.276,512.004 494.312,141.969 494.312,107.108 "></polygon> <rect x="-36.523" y="155.536" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -66.4634 185.4769)" width="454.363" height="34.861"></rect> </g> </g> </g> </g></svg>
+        `;
+      ]]]
+
+icon_wall_lamp:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+        </style>
+           <svg class="${state} light-color" viewBox="0 0 593 593"  width="30"><path d="M688.06,103.5H613.93a24.69,24.69,0,0,0-24.71,24.71v74.12H465.68c-87.44,0-159.79,65.33-171.2,149.71-98.19,11.42-174.71,95-174.71,196.21V573a24.69,24.69,0,0,0,24.71,24.71h51.91c11.49,56.31,61.4,98.83,121,98.83S427,654,438.48,597.67h51.91A24.69,24.69,0,0,0,515.1,573V548.25c0-99.82-74.45-182.37-170.66-195.59,10.67-57.33,60.88-100.91,121.24-100.91H589.22V375.29A24.69,24.69,0,0,0,613.93,400h74.13a24.69,24.69,0,0,0,24.71-24.71V128.21A24.69,24.69,0,0,0,688.06,103.5ZM387.33,597.67a74.15,74.15,0,0,1-139.8,0Z" transform="translate(-119.77 -103.5)"/></svg>
+        `;
+      ]]]
+
+icon_mirror:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           
+           <svg viewBox="0 0 24 24" fill="none" class="${state}"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 18C16.4183 18 20 14.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.4183 7.58172 18 12 18Z" stroke="#9da0a2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 22H18" stroke="#9da0a2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        `;
+      ]]]
+
+icon_bedroom_wall:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg width="35" class="${state} light-color" viewBox="0 0 631.83 800" fill="${variables.light_color}"><rect width="53.98" height="800"/><rect x="577.84" width="53.98" height="800"/><rect x="96.31" width="53.98" height="800"/><rect x="192.61" width="53.98" height="800"/><rect x="288.92" width="53.98" height="800"/><rect x="385.23" width="53.98" height="800"/><rect x="481.54" width="53.98" height="800"/></svg>
+        `;
+      ]]]
+
+icon_ambient_tv:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg width="35" class="${state} light-color" viewBox="0 0 32 32"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>tv</title> <path d="M26 27.25h-20c-0.414 0-0.75 0.336-0.75 0.75s0.336 0.75 0.75 0.75v0h20c0.414 0 0.75-0.336 0.75-0.75s-0.336-0.75-0.75-0.75v0zM28 3.25h-24c-1.518 0.002-2.748 1.232-2.75 2.75v16c0.002 1.518 1.232 2.748 2.75 2.75h24c1.518-0.002 2.748-1.232 2.75-2.75v-16c-0.002-1.518-1.232-2.748-2.75-2.75h-0zM29.25 22c-0.001 0.69-0.56 1.249-1.25 1.25h-24c-0.69-0.001-1.249-0.56-1.25-1.25v-16c0.001-0.69 0.56-1.249 1.25-1.25h24c0.69 0.001 1.249 0.56 1.25 1.25v0z"></path> </g></svg>
         `;
       ]]]

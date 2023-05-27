@@ -50,7 +50,7 @@ cards:
         cards:
           - type: custom:button-card
             entity: light.deco_lamp
-            name: Deco lamp
+            name: Small lamp
             # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
@@ -61,14 +61,21 @@ cards:
             # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
-              - icon_lamp
+              - icon_plant
           - type: custom:button-card
             entity: light.tv_ambient
-            name: TV ambient light
+            name: TV light
             # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - light
-              - icon_lamp
+              - icon_hue
+          - type: custom:button-card
+            entity: switch.living_room_air_freshener
+            name: Freshener
+            # hold_action: !include ../../popups/living-room-light.yaml
+            template:
+              - base
+              - icon_air_freshener
       - type: grid
         columns: 1
         cards:

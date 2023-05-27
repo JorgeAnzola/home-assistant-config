@@ -102,31 +102,6 @@ extra_styles:
             height: 3vw;
           }
 
-          /* portrait */
-          @media screen and (max-width: 1200px) {
-            #circle_slider::-webkit-slider-thumb {
-              width: 4vw;
-              height: 4vw;
-            }
-
-            #circle_slider::-moz-range-thumb {
-              width: 4vw;
-              height: 4vw;
-            }
-          }
-
-          /* phone */
-          @media screen and (max-width: 800px) {
-            #circle_slider::-webkit-slider-thumb {
-              width: 5.8vw;
-              height: 5.8vw;
-            }
-
-            #circle_slider::-moz-range-thumb {
-              width: 5.8vw;
-              height: 5.8vw;
-            }
-          }
 
         `:''}
 
@@ -155,18 +130,6 @@ extra_styles:
           letter-spacing: var(--button-card-letter-spacing);
         }
 
-        /* portrait */
-        @media screen and (max-width: 1200px) {
-          #name, #state {
-            font-size: calc(var(--button-card-font-size) * var(--card-portrait));
-          }
-        }
-        /* phone */
-        @media screen and (max-width: 800px) {
-          #name, #state {
-            font-size: calc(var(--button-card-font-size) * var(--card-phone));
-          }
-        }
 
         ${variables.tilt_enable === true ? `
 
@@ -178,20 +141,6 @@ extra_styles:
 
             #name, #state {
               font-size: calc(var(--button-card-font-size) - var(--z-axis-adjustment));
-            }
-
-            /* portrait */
-            @media screen and (max-width: 1200px) {
-              #name, #state {
-                font-size: calc(calc(var(--button-card-font-size) * var(--card-portrait)) - var(--z-axis-adjustment));
-              }
-            }
-
-            /* phone */
-            @media screen and (max-width: 800px) {
-              #name, #state {
-                font-size: calc(calc(var(--button-card-font-size) * var(--card-phone)) - var(--z-axis-adjustment));
-              }
             }
 
             #container {
@@ -243,13 +192,6 @@ extra_styles:
 
           :host {
             --blur-intensity: blur(4.5px) brightness(0.8);
-          }
-
-          /* phone */
-          @media screen and (max-width: 800px) {
-            :host {
-              --blur-intensity: blur(2.5px) brightness(0.8);
-            }
           }
 
           #ripple, .js-tilt-glare {
@@ -321,59 +263,6 @@ extra_styles:
             padding-top: 0.5%;
             top: var(--footer-notify-top);
             right: var(--footer-notify-right);
-          }
-
-          /* portrait */
-          @media screen and (max-width: 1200px) {
-            #name {
-              font-size: calc(var(--footer-card-font-size) * var(--footer-portrait));
-              padding: calc(var(--footer-card-padding-v) * var(--footer-portrait)) calc(var(--footer-card-padding-h) * var(--footer-portrait));
-            }
-
-            ha-icon {
-              width: calc(var(--footer-card-icon-size) * var(--footer-portrait));
-            }
-
-            #card {
-              border-radius: calc(var(--footer-card-border-radius) * var(--footer-portrait));
-              margin: 0 0.5vw;
-            }
-
-            #notify {
-              font-size: calc(var(--footer-notify-font-size) * var(--footer-portrait));
-              width: calc(var(--footer-notify-box-size) * var(--footer-portrait));
-              height: calc(var(--footer-notify-box-size) * var(--footer-portrait));
-              line-height: calc(var(--footer-notify-box-size) * var(--footer-portrait));
-            }
-          }
-
-          /* phone */
-          @media screen and (max-width: 800px) {
-            #name {
-              font-size: calc(var(--footer-card-font-size) * var(--footer-phone));
-              padding: calc(var(--footer-card-padding-v) * var(--footer-phone)) calc(var(--footer-card-padding-h) * var(--footer-phone));
-              letter-spacing: 0.05vw;
-            }
-
-            ha-icon {
-              width: calc(var(--footer-card-icon-size) * var(--footer-phone));
-            }
-
-            #card {
-              border-radius: calc(var(--footer-card-border-radius) * var(--footer-phone));
-              background: rgba(115, 115, 115, 0.12);
-              margin: 0 0.5vw;
-            }
-
-            #notify {
-              font-size: calc(var(--footer-notify-font-size) * var(--footer-phone));
-              width: calc(var(--footer-notify-box-size) * var(--footer-phone));
-              height: calc(var(--footer-notify-box-size) * var(--footer-phone));
-              line-height: calc(var(--footer-notify-box-size) * var(--footer-phone) + 1px);
-              top: calc(var(--footer-notify-top) * var(--footer-phone));
-              right: calc(var(--footer-notify-right) * var(--footer-phone) + 2%);
-              padding: 0;
-            }
           }
 
         `:''}
