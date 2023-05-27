@@ -1,0 +1,75 @@
+---
+unique_id: sidebar
+state: template
+attributes:
+  time: >
+    {% set hours = now().strftime('%H') %}
+    {% set minutes = now().strftime('%M') %}
+    <span class="time" style="font-size: 5.2vw;font-weight: 100;line-height: 4.3vw;letter-spacing: 0.11vw;margin-left: -0.3vw;color: rgba(255, 255, 255, 0.8);">
+      {{ hours }}<span class="time-colon">:</span>{{ minutes }}
+    </span>
+  date: >
+    <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
+      {{ now().strftime('%A') }}<br/>
+      {{ now().strftime('%d %b') }}
+      </b>
+  greet: >
+    <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
+    {% set time = now().hour %}
+    {% if time <= 1 %} Good night 😪
+    {% elif time <= 3 %} God night 😴
+    {% elif time <= 5 %} God night 😑
+    {% elif time <= 7 %} Good morning 🥱
+    {% elif time <= 9 %} Good morning {{'\U00002615'}}
+    {% elif time <= 12 %} Good afternoon 😄
+    {% elif time <= 15 %} Good afternoon 😎
+    {% elif time <= 17 %} Good afternoon 👋🏻
+    {% elif time <= 19 %} Good evening 😬
+    {% elif time <= 22 %} Good evening 😌
+    {% elif time <= 23 %} Good evening 🥱
+    {% else %} Good evening 😪
+    {% endif %}
+    </b>
+  weather: >
+    {% set feels_like = states('sensor.buienradar_temperature_feels_like') | round %}
+    {% set condition = states('sensor.buienradar_condition') | lower %}
+    {% set full_condition = states('sensor.buienradar_full_condition') | lower %}
+    {% set precipitation_probability = states('sensor.openweathermap_forecast_precipitation_probability') | int %}
+    {% set season = states('sensor.season') %}
+
+    {% set emoji %}
+    {% if condition == 'clear' %}🌞
+    {% elif condition == 'partly cloudy' %}🌤️
+    {% elif condition == 'cloudy' %}☁️
+    {% elif condition == 'rain' %}☔️
+    {% elif condition == 'thunderstorm' %}🌩️
+    {% elif condition == 'snow' %}❄️☃️
+    {% else %}🏡
+    {% endif %}
+    {% endset %}
+
+    It feels like {{ feels_like }}°, {{ full_condition }} {{ emoji }}<br/><br/>
+    With {{ precipitation_probability }}% chance of precipitation.<br/><br/>
+
+    {% if condition == 'rain' %}
+    Don't forget your umbrella! ☂️
+    {% elif condition == 'thunderstorm' %}
+    Stay safe and take necessary precautions during the thunderstorm. ⚡️
+    {% elif precipitation_probability >= 50 %}
+    You might want to consider bringing an umbrella, just in case. ☔️
+    {% else %}
+    No significant precipitation expected.
+    {% endif %}
+    <br/>
+    <br/>
+    {% if season == 'spring' %}
+    Enjoy this spring day!
+    {% elif season == 'summer' %}
+    Enjoy this summer day!
+    {% elif season == 'autumn' %}
+    Enjoy this autumn day!
+    {% elif season == 'winter' %}
+    Enjoy this winter day!
+    {% else %}
+    Have a great day!
+    {% endif %}

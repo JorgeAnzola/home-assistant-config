@@ -240,7 +240,7 @@ tablet:
       $: |
         #root {
           flex-wrap: wrap;
-          justify-content: center;
+          justify-content: space-evenly;
           overflow: visible;
           margin-top: -1.95vw !important;
           padding-bottom: 2.5em;
