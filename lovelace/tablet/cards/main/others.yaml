@@ -21,28 +21,24 @@ cards:
           - type: custom:button-card
             entity: light.hallway
             name: First floor
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_spot
           - type: custom:button-card
             entity: light.third_floor
             name: Third floor
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_spot
           - type: custom:button-card
             entity: light.stairs
             name: Stairs
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - light
               - icon_stairs
           - type: custom:button-card
             entity: light.stairs_photo_frame
             name: Stairs wall
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - light
               - icon_wall_lamp
@@ -52,7 +48,6 @@ cards:
           - type: custom:button-card
             entity: switch.entrance_air_freshener
             name: Freshener
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_air_freshener

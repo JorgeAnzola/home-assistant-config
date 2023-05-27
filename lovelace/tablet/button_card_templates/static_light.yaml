@@ -1,7 +1,6 @@
-light:
+static_light:
   template:
     - base
-    - circle
     - loader
   double_tap_action:
     action: fire-dom-event
@@ -49,18 +48,3 @@ light:
                   return lights;
               }
             ]]]
-  variables:
-    circle_input: >
-      [[[
-        if (entity && entity.attributes.brightness) {
-            // if light group get brightness from child to remove bounce
-            let child = entity.attributes.entity_id,
-                brightness = child && states[child[0]].attributes.brightness
-                    ? Math.round(states[child[0]].attributes.brightness / 2.54)
-                    : Math.round(entity.attributes.brightness / 2.54);
-            return brightness === 0 && entity.state !== 'off'
-                ? 1
-                : brightness
-        }
-      ]]]
-    circle_input_unit: "%"

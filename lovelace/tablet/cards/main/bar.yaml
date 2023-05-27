@@ -20,38 +20,24 @@ cards:
           - type: custom:button-card
             entity: light.living_room_3
             name: Light
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.bar_plant
             name: Plant
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_plant
           - type: custom:button-card
             entity: light.terrace
             name: Terrace
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - light
               - icon_spot
           - type: custom:button-card
             entity: light.hallway
             name: Pergola
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - light
               - icon_pergola
-      # - type: grid
-      #   columns: 2
-      #   cards:
-      #     - type: custom:button-card
-      #       entity: binary_sensor.terrace_door_contact
-      #       name: Terrace door
-      #       # hold_action: !include ../../popups/living-room-light.yaml
-      #       template:
-      #         - base
-      #         - icon_closet
