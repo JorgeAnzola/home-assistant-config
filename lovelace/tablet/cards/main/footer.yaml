@@ -9,6 +9,11 @@ cards:
     template: footer
   - type: custom:button-card
     name: >
+      <ha-icon icon="mdi:lightning-bolt"></ha-icon> Energy
+    tap_action: !include ../../pop-ups/energy.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
       <ha-icon icon="mdi:heart-pulse"></ha-icon> System health
     tap_action: !include ../../pop-ups/information.yaml
     template: footer
