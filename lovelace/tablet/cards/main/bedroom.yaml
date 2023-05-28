@@ -21,31 +21,26 @@ cards:
           - type: custom:button-card
             entity: light.bedroom
             name: Light
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.bedroom_wall_led_strip
             name: Wall
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
               - light
               - icon_bedroom_wall
           - type: custom:button-card
             entity: fan.bedroom
             name: Fan
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_fan
           - type: custom:button-card
             entity: light.closets
             name: Closets
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - static_light
               - icon_closet
       - type: grid
         columns: 2
@@ -53,21 +48,18 @@ cards:
           - type: custom:button-card
             entity: light.bathroom
             name: Bathroom
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - static_light
               - icon_bathroom
           - type: custom:button-card
             entity: light.bathroom_mirror
             name: Mirror
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
-              - base
+              - static_light
               - icon_mirror
           - type: custom:button-card
             entity: switch.bathroom_heater
             name: Heater
-            # hold_action: !include ../../popups/living-room-light.yaml
             template:
               - base
               - icon_climate
@@ -77,7 +69,6 @@ cards:
           - type: custom:button-card
             name: Apple TV
             entity: media_player.bedroom_apple_tv
-            # tap_action: !include ../../popups/apple_tv_controls.yaml
             template:
               - media
               - icon_apple_tv

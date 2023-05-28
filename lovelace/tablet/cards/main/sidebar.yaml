@@ -15,6 +15,11 @@ cards:
       #container {
         display: flex !important;
       }
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Weather
+    tap_action: !include ../../pop-ups/weather.yaml
+    template: sidebar_footer
   - type: grid
     columns: 2
     cards:
@@ -39,9 +44,3 @@ cards:
         styles:
           card:
             - marging: 5px
-
-      # - type: custom:button-card
-      #   name: Home
-      #   template:
-      #     - base
-      #     - icon_home

@@ -22,13 +22,13 @@ cards:
             entity: light.hallway
             name: First floor
             template:
-              - base
+              - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.third_floor
             name: Third floor
             template:
-              - base
+              - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.stairs
@@ -45,6 +45,12 @@ cards:
       - type: grid
         columns: 2
         cards:
+          - type: custom:button-card
+            entity: light.guests_bathroom
+            name: Guests bathroom
+            template:
+              - static_light
+              - icon_bathroom
           - type: custom:button-card
             entity: switch.entrance_air_freshener
             name: Freshener

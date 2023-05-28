@@ -28,10 +28,7 @@ cards:
             name: Lamp
             template:
               - static_light
-              - icon_lamp
-      - type: grid
-        columns: 2
-        cards:
+              - icon_living_lamp
           - type: custom:button-card
             entity: light.deco_lamp
             name: Small lamp
@@ -44,6 +41,9 @@ cards:
             template:
               - static_light
               - icon_plant
+      - type: grid
+        columns: 2
+        cards:
           - type: custom:button-card
             entity: light.tv_ambient
             name: TV light

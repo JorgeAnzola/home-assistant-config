@@ -1,0 +1,98 @@
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Weather details
+    style: >
+      --popup-max-width: calc(385px + 385px);
+      --ha-card-border-radius: 0;
+    card_mod:
+      style:
+        layout-card:
+          $grid-layout$:
+            hui-entities-card:
+              $: |
+                .card-content {
+                  padding: var(--tablet-popup-content-padding);
+                  padding-bottom: 0.8em;
+                }
+                ha-card {
+                  border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+                  border-radius: 0;
+                  transition: none;
+                }
+              $hui-horizontal-stack-card:
+                # horizontal bottom buttons
+                $: |
+                  #root {
+                    justify-content: space-evenly;
+                    margin-top: 1.7em;
+                  }
+    content:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        margin: 0
+        grid-template-columns: 385px 385px
+        grid-template-rows: 1fr
+        grid-template-areas: |
+          "system"
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: picture-entity
+              show_state: true
+              show_name: true
+              camera_view: auto
+              entity: camera.buienradar
+            - type: custom:hourly-weather
+              entity: weather.openweathermap
+              name: Next 12 hours
+              icons: true
+        - type: custom:platinum-weather-card
+          card_config_version: 8
+          entity_apparent_temp: sensor.openweathermap_feels_like_temperature
+          entity_extended: sensor.buienradar_full_condition
+          entity_forecast_icon: sensor.buienradar_condition
+          entity_forecast_icon_1: sensor.buienradar_condition_1d
+          entity_forecast_max: sensor.buienradar_temperature
+          entity_forecast_max_1: sensor.buienradar_temperature_1d
+          entity_forecast_min: sensor.buienradar_minimum_temperature_1d
+          entity_forecast_min_1: sensor.buienradar_minimum_temperature_1d
+          entity_humidity: sensor.buienradar_humidity
+          entity_pop: sensor.openweathermap_rain
+          entity_pop_1: sensor.buienradar_rainchance_1d
+          entity_pos: sensor.buienradar_rainchance_1d
+          entity_pos_1: sensor.buienradar_rain_1d
+          entity_pressure: sensor.openweathermap_pressure
+          entity_summary: weather.openweathermap
+          entity_sun: sun.sun
+          entity_temperature: sensor.openweathermap_temperature
+          entity_todays_uv_forecast: sensor.openweathermap_uv_index
+          entity_uv_alert_summary: sensor.current_uv_index
+          entity_visibility: sensor.openweathermap_visibility
+          entity_wind_bearing: sensor.openweathermap_forecast_wind_bearing
+          entity_wind_speed: sensor.openweathermap_forecast_wind_speed
+          option_static_icons: false
+          option_time_format: system
+          section_order:
+            - overview
+            - extended
+            - slots
+            - daily_forecast
+          slot_l1: forecast_max
+          slot_l2: forecast_min
+          slot_l3: wind
+          slot_l4: remove
+          slot_l5: visibility
+          slot_l6: remove
+          slot_l7: remove
+          slot_l8: remove
+          slot_r1: popforecast
+          slot_r2: humidity
+          slot_r3: uv_summary
+          slot_r4: sun_next
+          slot_r5: sun_following
+          slot_r6: remove
+          slot_r7: remove
+          slot_r8: remove
