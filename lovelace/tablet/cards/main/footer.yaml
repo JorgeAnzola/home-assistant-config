@@ -20,7 +20,7 @@ cards:
   - type: custom:button-card
     name: >
       <ha-icon icon="mdi:cart"></ha-icon> Groceries
-    tap_action: !include ../../pop-ups/network.yaml
+    tap_action: !include ../../pop-ups/shopping.yaml
     template: footer
   - type: custom:button-card
     name: >
