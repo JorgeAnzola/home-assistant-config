@@ -358,7 +358,7 @@ browser_mod:
                       service_data:
                         name: "ACTION - Floor detergent"
                   - type: custom:button-card
-                    name: Garbage bags
+                    name: Garbage bags (60L)
                     template: name_only
                     tap_action:
                       action: call-service
