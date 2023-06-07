@@ -1,0 +1,26 @@
+id: "168615348498332"
+alias: Shopping list - Supermarket - Marlyn
+trigger:
+  - platform: zone
+    entity_id: person.jorge
+    zone: zone.action
+    event: enter
+condition:
+  - condition: numeric_state
+    entity_id: zone.action
+    attribute: persons
+    below: 2 # means we are together and we don't want to export twice
+action:
+  - service: shopping_list_splitter.export
+  - service: shopping_list_splitter.import
+    data:
+      list_name: supermarket
+  - service: notify.mobile_app_marlyns_iphone
+    data:
+      data:
+        actions:
+          - clickAction: /shopping-list
+            url: /shopping-list
+      message: Cick here to open the Action shopping list
+      title: Shopping list
+mode: single
