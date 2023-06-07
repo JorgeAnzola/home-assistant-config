@@ -1,0 +1,8 @@
+export:
+  description: Exports the main shopping list into separate files.
+import:
+  description: Import an specific list file into the main shopping list. If no list_name is provided, will import all the files.
+  fields:
+    list_name:
+      description: Name of the list to import
+      example: "supermarket"

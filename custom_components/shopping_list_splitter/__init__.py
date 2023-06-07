@@ -1,4 +1,3 @@
-"""Example of a custom component exposing a service."""
 from __future__ import annotations
 
 import logging
@@ -8,22 +7,17 @@ from homeassistant.core import HomeAssistant, ServiceCall, callback
 from homeassistant.helpers.typing import ConfigType
 import traceback
 
-
-# The domain of your component. Should be equal to the name of your component.
 DOMAIN = "shopping_list_splitter"
 _LOGGER = logging.getLogger(__name__)
 
 
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
-    """Set up the an async service example component."""
     @callback
-    def split_shopping_list(call: ServiceCall) -> None:
-        """Split the shopping list into separate files."""
-        json_file_path = "/config/.shopping_list.json"  # Replace with the actual path to your main JSON file
-        separate_file_pattern = "/config/.shopping_list_*.json"  # Pattern to match separate file paths
-        all_file_path = "/config/.shopping_list_all.json"  # Path for the file containing all items
+    async def export_shopping_list(call: ServiceCall) -> None:
+        json_file_path = "/config/.shopping_list.json"
+        separate_file_pattern = "/config/.shopping_list_*.json"
+        all_file_path = "/config/.shopping_list_all.json"
 
-        # Create or update separate files with an empty array
         existing_separate_files = glob.glob(separate_file_pattern)
         json_data = []
 
@@ -38,7 +32,6 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
             with open(file_path, "w") as file:
                 json.dump([], file, indent=2)
 
-        # Separate items into separate files
         list_files = {}
 
         for item in json_data:
@@ -52,37 +45,32 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
             with open(list_file_path, "w") as file:
                 json.dump(list_items, file, indent=2)
 
-        # Save all items to a separate file
         with open(all_file_path, "w") as file:
             json.dump(json_data, file, indent=2)
 
         _LOGGER.info("Items separated into separate files, and all items saved to .shopping_list_all.json.")
 
-
     @callback
-    async def update_shopping_list(call: ServiceCall) -> None:
-        """Update the shopping list from a separate file."""
-        list_name = call.data.get("list_name")
-
-        if not list_name:
-            # No list name provided, update main shopping list
-            file_path = "/config/.shopping_list.json"
-        else:
-            # Update specific list
-            file_path = f"/config/.shopping_list_{list_name}.json"
+    async def import_shopping_list(call: ServiceCall) -> None:
+        list_name = call.data.get("list_name", "all")
+        file_path = f"/config/.shopping_list_{list_name}.json"
 
         try:
+            await sync_shopping_lists(hass)
+
             if glob.glob(file_path):
                 with open(file_path, "r") as file:
                     items = json.load(file)
                     await hass.services.async_call("shopping_list", "complete_all")
                     await hass.services.async_call("shopping_list", "clear_completed_items")
+
                     for item in items:
-                        name = item.get("name")
-                        if name:
-                            service_data = {"name": name}
-                            await hass.services.async_call("shopping_list", "add_item", service_data)
-                            _LOGGER.info(f"Added item to shopping list: {name}")
+                        if not item.get("complete"):
+                            item_name = item.get("name")
+                            if item_name:
+                                service_data = {"name": item_name}
+                                await hass.services.async_call("shopping_list", "add_item", service_data)
+                                _LOGGER.info(f"Added item to shopping list: {item_name}")
             else:
                 _LOGGER.info(f"No items found for {list_name}.")
         except Exception:
@@ -90,10 +78,50 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
             _LOGGER.error(traceback.format_exc())
 
 
+    @callback
+    async def sync_shopping_lists(hass: HomeAssistant) -> None:
+        main_list_path = "/config/.shopping_list.json"
+        separate_file_pattern = "/config/.shopping_list_*.json"
+        all_file_path = "/config/.shopping_list_all.json"
 
-    # Register our service with Home Assistant.
-    hass.services.async_register(DOMAIN, 'split', split_shopping_list)
-    hass.services.async_register(DOMAIN, 'update', update_shopping_list)
+        try:
+            with open(main_list_path, "r") as main_list_file:
+                main_list_items = json.load(main_list_file)
 
-    # Return boolean to indicate that initialization was successful.
+                completed_item_names = set()
+                for item in main_list_items:
+                    if item.get("complete"):
+                        completed_item_names.add(item.get("name"))
+
+        
+            separate_files = glob.glob(separate_file_pattern)
+            separate_files.append(all_file_path)
+
+            for separate_file in separate_files:
+                with open(separate_file, "r") as file:
+                    separate_items = json.load(file)
+
+            
+                updated_separate_items = []
+                for item in separate_items:
+                    item_name = item.get("name")
+                    if item_name not in completed_item_names:
+                        updated_separate_items.append(item)
+
+            
+                with open(separate_file, "w") as file:
+                    json.dump(updated_separate_items, file, indent=2)
+            
+            await hass.services.async_call("shopping_list", "sort")
+
+            _LOGGER.info("Complete state updated across all files.")
+        except Exception:
+            _LOGGER.error("Error updating complete state across files.")
+            _LOGGER.error(traceback.format_exc())
+
+
+    hass.services.async_register(DOMAIN, 'export', export_shopping_list)
+    hass.services.async_register(DOMAIN, 'import', import_shopping_list)
+
+
     return True
