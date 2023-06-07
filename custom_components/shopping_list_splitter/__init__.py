@@ -21,6 +21,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
         """Split the shopping list into separate files."""
         json_file_path = "/config/.shopping_list.json"  # Replace with the actual path to your main JSON file
         separate_file_pattern = "/config/.shopping_list_*.json"  # Pattern to match separate file paths
+        all_file_path = "/config/.shopping_list_all.json"  # Path for the file containing all items
 
         # Create or update separate files with an empty array
         existing_separate_files = glob.glob(separate_file_pattern)
@@ -51,13 +52,24 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
             with open(list_file_path, "w") as file:
                 json.dump(list_items, file, indent=2)
 
-        _LOGGER.info("Items separated into separate files.")
+        # Save all items to a separate file
+        with open(all_file_path, "w") as file:
+            json.dump(json_data, file, indent=2)
+
+        _LOGGER.info("Items separated into separate files, and all items saved to .shopping_list_all.json.")
+
 
     @callback
     async def update_shopping_list(call: ServiceCall) -> None:
         """Update the shopping list from a separate file."""
         list_name = call.data.get("list_name")
-        file_path = f"/config/.shopping_list_{list_name}.json"
+
+        if not list_name:
+            # No list name provided, update main shopping list
+            file_path = "/config/.shopping_list.json"
+        else:
+            # Update specific list
+            file_path = f"/config/.shopping_list_{list_name}.json"
 
         try:
             if glob.glob(file_path):
@@ -76,6 +88,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
         except Exception:
             _LOGGER.error(f"Error updating shopping list from file: {file_path}")
             _LOGGER.error(traceback.format_exc())
+
 
 
     # Register our service with Home Assistant.
