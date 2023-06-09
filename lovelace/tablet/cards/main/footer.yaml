@@ -2,11 +2,11 @@ type: horizontal-stack
 view_layout:
   grid-area: footer
 cards:
-  - type: custom:button-card
-    name: >
-      <ha-icon icon="mdi:washing-machine"></ha-icon> Laundry
-    tap_action: !include ../../pop-ups/network.yaml
-    template: footer
+  # - type: custom:button-card
+  #   name: >
+  #     <ha-icon icon="mdi:washing-machine"></ha-icon> Laundry
+  #   tap_action: !include ../../pop-ups/laundry.yaml
+  #   template: footer
   # - type: custom:button-card
   #   name: >
   #     <ha-icon icon="mdi:robot-vacuum"></ha-icon> Vacuum

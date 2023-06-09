@@ -1,12 +1,34 @@
-- id: "1682950874169"
+- id: '1682950874169'
   alias: NFC Tags - Dishwasher tabs
-  description: ""
+  description: ''
   trigger:
-    - platform: tag
-      tag_id: 616f054c-8bb0-426c-8e8b-f32cc885aa27
+  - platform: tag
+    tag_id: 616f054c-8bb0-426c-8e8b-f32cc885aa27
   condition: []
   action:
-    - service: shopping_list.add_item
-      data:
-        name: Action - Dishwasher tabs
+  - service: shopping_list.add_item
+    data:
+      name: Action - Dishwasher tabs
+  mode: single
+- id: '1686235932314'
+  alias: New Automation
+  description: ''
+  trigger: []
+  condition:
+  - condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.action_shopping_list_count
+      above: 0
+    - condition: or
+      conditions:
+      - condition: numeric_state
+        entity_id: zone.action
+        attribute: persons
+        below: 1
+      - condition: numeric_state
+        entity_id: zone.action_2
+        attribute: persons
+        below: 1
+  action: []
   mode: single

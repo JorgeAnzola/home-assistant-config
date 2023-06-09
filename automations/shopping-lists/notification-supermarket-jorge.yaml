@@ -9,7 +9,10 @@ trigger:
     entity_id: person.jorge
     zone: zone.supermarket_2
     event: enter
-condition: []
+condition:
+  - condition: numeric_state
+    entity_id: sensor.supermarket_shopping_list_count
+    above: 0
 action:
   - service: shopping_list_splitter.export
   - service: shopping_list_splitter.import
