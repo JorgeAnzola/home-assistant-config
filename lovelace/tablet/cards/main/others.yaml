@@ -28,7 +28,7 @@ cards:
             entity: light.third_floor
             name: Third floor
             template:
-              - light
+              - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.stairs
@@ -40,7 +40,7 @@ cards:
             entity: light.stairs_photo_frame
             name: Stairs wall
             template:
-              - light
+              - static_light
               - icon_wall_lamp
       - type: grid
         columns: 2

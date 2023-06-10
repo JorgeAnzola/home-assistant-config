@@ -28,6 +28,7 @@ cards:
             name: Plant
             template:
               - base
+              - static_light
               - icon_plant
           - type: custom:button-card
             entity: light.terrace
