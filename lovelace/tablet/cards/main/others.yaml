@@ -28,7 +28,7 @@ cards:
             entity: light.third_floor
             name: Third floor
             template:
-              - static_light
+              - light
               - icon_spot
           - type: custom:button-card
             entity: light.stairs
