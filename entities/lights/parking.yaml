@@ -1,0 +1,6 @@
+---
+platform: group
+name: Parking
+entities:
+  - light.parking_1
+  - light.parking_2

@@ -1,0 +1,30 @@
+---
+type: grid
+view_layout:
+  grid-area: sidebar
+columns: 1
+cards:
+  - type: grid
+    columns: 3
+    cards:
+      - type: custom:button-card
+        entity: person.marlyn
+        name: MG
+        tap_action: !include ../../pop-ups/marlyn.yaml
+        hold_action:
+          action: none
+        template:
+          - person
+
+      - type: custom:button-card
+        entity: person.jorge
+        name: Jorge
+        tap_action: !include ../../pop-ups/jorge.yaml
+        hold_action:
+          action: none
+        template:
+          - person
+
+      - type: button
+        icon: mdi:information-outline
+        tap_action: !include ../../pop-ups/information.yaml

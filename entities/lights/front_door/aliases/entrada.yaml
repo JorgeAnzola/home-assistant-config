@@ -1,5 +1,0 @@
----
-platform: group
-name: Entrada
-entities:
-  - light.front_door

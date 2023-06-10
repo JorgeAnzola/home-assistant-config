@@ -1,5 +1,0 @@
----
-platform: group
-name: Arbolito de navidad
-entities:
-  - light.christmas_tree

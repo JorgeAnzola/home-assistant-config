@@ -1,0 +1,24 @@
+addressable_lambda:
+  name: "Static Rainbow"
+  lambda: |-
+    for (int i = 1; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(148, 0, 211);
+    }
+    for (int i = 0; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(75, 0, 130);
+    }
+    for (int i = 1; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(0, 0, 255);
+    }
+    for (int i = 0; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(0, 255, 0);
+    }
+    for (int i = 1; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(255, 255, 0);
+    }
+    for (int i = 0; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(255, 127, 0);
+    }
+    for (int i = 0; i < it.size(); i+=7) {
+        it[i] = light::ESPColor(255, 0, 0);
+    }

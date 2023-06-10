@@ -1,5 +1,0 @@
----
-platform: group
-name: Pared
-entities:
-  - light.bedroom_wall_led_strip

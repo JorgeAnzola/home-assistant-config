@@ -1,0 +1,16 @@
+sidebar:
+  show_state: false
+  show_icon: false
+  tap_action:
+    action: none
+  name: >
+    [[[
+      if (entity) {
+          let attr = [];
+          for (let [k, value] of Object.entries(entity.attributes))
+              window.navigator.userAgent.match(/iPhone/i)
+                  ? k !== 'time' && k !== 'date' && value !== false && (attr += `<p>${k === 'greet' ? `<span class="iphone">${value}</span>` : `${value}`}</p>`)
+                  : value !== false && (attr += `<p style="white-space: normal; font-size: 1.42vw;line-height: 2vw;font-weight: 200;letter-spacing: 0.07vw;color: #6a7377;">${value}</p>`);
+          return attr;
+      }
+    ]]]

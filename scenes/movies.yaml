@@ -1,0 +1,13 @@
+name: Movies
+entities:
+  light.hallway: "off"
+  light.kitchen: "off"
+  light.dinning_room: "off"
+  light.thrird_floor: "off"
+  light.bedroom: "off"
+  light.living_room_1: "off"
+  light.living_room_2: "off"
+  light.living_room_3: "off"
+  light.deco_lamp: "on"
+  media_player.living_room_tv:
+    state: "on"

@@ -1,0 +1,74 @@
+---
+type: grid
+title: Bedroom
+view_layout:
+  grid-area: bedroom
+columns: 1
+cards:
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5100
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.bedroom
+            name: Light
+            template:
+              - static_light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.bedroom_wall_led_strip
+            name: Wall
+            template:
+              - light
+              - icon_bedroom_wall
+          - type: custom:button-card
+            entity: fan.bedroom
+            name: Fan
+            template:
+              - base
+              - icon_fan
+          - type: custom:button-card
+            entity: light.closets
+            name: Closets
+            template:
+              - static_light
+              - icon_closet
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.bathroom
+            name: Bathroom
+            template:
+              - static_light
+              - icon_bathroom
+          - type: custom:button-card
+            entity: light.bathroom_mirror
+            name: Mirror
+            template:
+              - static_light
+              - icon_mirror
+          - type: custom:button-card
+            entity: switch.bathroom_heater
+            name: Heater
+            template:
+              - base
+              - icon_climate
+      - type: grid
+        columns: 1
+        cards:
+          - type: custom:button-card
+            name: Apple TV
+            entity: media_player.bedroom_apple_tv
+            template:
+              - media
+              - icon_apple_tv

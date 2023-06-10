@@ -1,0 +1,28 @@
+---
+type: grid
+title: Kitchen
+view_layout:
+  grid-area: kitchen
+columns: 2
+cards:
+  - type: custom:button-card
+    entity: light.kitchen
+    name: Kitchen
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - base
+      - icon_spot
+  - type: custom:button-card
+    entity: light.dinning_room
+    name: Dinning
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - base
+      - icon_spot
+  - type: custom:button-card
+    entity: light.kitchen_plant
+    name: Plant
+    # hold_action: !include ../../popups/living-room-light.yaml
+    template:
+      - light
+      - icon_plant

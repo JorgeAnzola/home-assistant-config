@@ -1,0 +1,12 @@
+---
+id: "1642246828916"
+alias: Find my phone - Marlyn
+trigger:
+  - platform: state
+    entity_id: input_button.marlyn_find_my_phone
+condition: []
+action:
+  - service: script.find_my_phone
+    data:
+      service: !secret notify_marlyns_iphone
+mode: restart

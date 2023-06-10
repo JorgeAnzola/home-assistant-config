@@ -1,0 +1,199 @@
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Weather details
+    style: >
+      --popup-max-width: calc(385px + 385px);
+      --ha-card-border-radius: 0;
+    card_mod:
+      style:
+        layout-card:
+          $grid-layout$:
+            hui-entities-card:
+              $: |
+                .card-content {
+                  padding: var(--tablet-popup-content-padding);
+                  padding-bottom: 0.8em;
+                }
+                ha-card {
+                  border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+                  border-radius: 0;
+                  transition: none;
+                }
+              $hui-horizontal-stack-card:
+                # horizontal bottom buttons
+                $: |
+                  #root {
+                    justify-content: space-evenly;
+                    margin-top: 1.7em;
+                  }
+    content:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        margin: 0
+        grid-template-columns: 385px 385px
+        grid-template-rows: 1fr
+        grid-template-areas: |
+          "system"
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: "custom:weather-radar-card"
+              frame_count: 10
+              center_latitude: !secret home_latitude
+              center_longitude: !secret home_longitude
+              marker_latitude: !secret home_latitude
+              marker_longitude: !secret home_longitude
+              show_marker: true
+              show_range: true
+              show_zoom: true
+              show_recenter: true
+              show_playback: true
+              zoom_level: 8
+              extra_labels: true
+            - type: custom:hourly-weather
+              entity: weather.openweathermap
+              name: Next 12 hours
+              icons: true
+        - type: vertical-stack
+          cards:
+            - card_config_version: 8
+              entity_apparent_temp: sensor.openweathermap_feels_like_temperature
+              entity_forecast_icon: sensor.buienradar_condition
+              entity_forecast_icon_1: sensor.buienradar_condition_1d
+              entity_forecast_max: sensor.buienradar_temperature
+              entity_forecast_max_1: sensor.buienradar_temperature_1d
+              entity_forecast_min: sensor.buienradar_minimum_temperature_1d
+              entity_forecast_min_1: sensor.buienradar_minimum_temperature_1d
+              entity_humidity: sensor.buienradar_humidity
+              entity_pop: sensor.openweathermap_rain
+              entity_pop_1: sensor.buienradar_rainchance_1d
+              entity_pos: sensor.buienradar_rainchance_1d
+              entity_pos_1: sensor.buienradar_rain_1d
+              entity_pressure: sensor.openweathermap_pressure
+              entity_summary: sensor.buienradar_full_condition
+              entity_sun: sun.sun
+              entity_temperature: sensor.openweathermap_temperature
+              entity_uv_alert_summary: sensor.current_uv_index
+              entity_visibility: sensor.openweathermap_visibility
+              entity_wind_bearing: sensor.openweathermap_forecast_wind_bearing
+              entity_wind_speed: sensor.openweathermap_forecast_wind_speed
+              option_static_icons: false
+              option_time_format: system
+              section_order:
+                - overview
+                - extended
+                - slots
+                - daily_forecast
+              show_section_overview: true
+              slot_l1: forecast_max
+              slot_l2: forecast_min
+              slot_l3: wind
+              slot_l4: remove
+              slot_l5: sun_following
+              slot_l6: remove
+              slot_l7: remove
+              slot_l8: remove
+              slot_r1: popforecast
+              slot_r2: humidity
+              slot_r3: uv_summary
+              slot_r4: sun_next
+              slot_r5: remove
+              slot_r6: remove
+              slot_r7: remove
+              slot_r8: remove
+              type: custom:platinum-weather-card
+            - type: custom:html-template-card
+              title: Pollen levels
+              ignore_line_breaks: true
+              content: |
+                <style>
+                  .legend {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: 350px;
+                    margin-bottom: 15px;
+                  }
+
+                  .legend-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                  }
+
+                  .bullet {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                  }
+
+                  .none {
+                    background-color: lightgray;
+                  }
+
+                  .low {
+                    background-color: #b3e67f; /* pastel green */
+                  }
+
+                  .moderate {
+                    background-color: #ffe06d; /* pastel yellow */
+                  }
+
+                  .high {
+                    background-color: #ffad61; /* pastel orange */
+                  }
+
+                  .very-high {
+                    background-color: #ff7167; /* pastel red */
+                  }
+                  
+                  /* Level Items */
+                  .levels {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 350px;
+                  }
+                  
+                  .level-item {
+                    flex-grow: 1;
+                    text-align: center;
+                    padding: 5px;
+                    margin: 2px;
+                    color: black!important;
+                  }
+                  
+
+                </style>
+
+                <div class="legend">
+                  <div class="legend-item">
+                    <span class="none bullet"></span>
+                    <span>None</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="low bullet"></span>
+                    <span>Low</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="moderate bullet"></span>
+                    <span>Moderate</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="high bullet"></span>
+                    <span>High</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="very-high bullet"></span>
+                    <span>Very High</span>
+                  </div>
+                </div>
+
+                <div class="levels">
+                  <div class="level-item {{ state_attr("sensor.pollen_data", "Risk").grass_pollen | lower }} grass"><ha-icon icon="mdi:grass"></ha-icon> Grass</div>
+                  <div class="level-item {{ state_attr("sensor.pollen_data", "Risk").tree_pollen | lower }} tree"><ha-icon icon="mdi:tree"></ha-icon> Tree</div>
+                  <div class="level-item {{ state_attr("sensor.pollen_data", "Risk").weed_pollen | lower }} weed"><ha-icon icon="mdi:grass"></ha-icon> Weed</div>
+                </div>

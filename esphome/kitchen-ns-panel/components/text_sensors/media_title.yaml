@@ -1,0 +1,7 @@
+platform: homeassistant
+id: music_title
+entity_id: $media_player
+attribute: media_title
+on_value:
+  then:
+    - lambda: id(disp1).set_component_text_printf("Music.music_sn", "%s", id(music_title).state.c_str());

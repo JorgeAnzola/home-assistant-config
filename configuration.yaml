@@ -9,5 +9,6 @@ homeassistant:
   unit_system: metric
   temperature_unit: C
   time_zone: Europe/Amsterdam
+  country: NL
 
   packages: !include_dir_named integrations

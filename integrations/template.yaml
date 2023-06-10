@@ -1,1 +1,4 @@
 ---
+template:
+  - binary_sensor: !include_dir_merge_named ../entities/templates/binary_sensors
+  - sensor: !include_dir_merge_named ../entities/templates/sensors

@@ -1,0 +1,1504 @@
+#################################################
+#                                               #
+#                     ICONS                     #
+#                                               #
+#################################################
+
+icon_plex:
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 50 50">
+        <path d="M7.7.3h34.6c4.1 0 7.4 3.3 7.4 7.4v34.6c0 4.1-3.3 7.4-7.4 7.4H7.7c-4.1 0-7.4-3.3-7.4-7.4V7.7C.3 3.6 3.6.3 7.7.3z" fill="#282a2d"/>
+        <path d="M25,7.1H14.6L25,25L14.6,42.9H25L35.4,25L25,7.1z" fill="#e5a00d"/>
+      </svg>
+
+icon_apple_tv:
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 50 50">
+        <path d="M25.2 49.7l-13.7-.1c-2.4 0-4.6-.8-6.5-2.2-2-1.6-3.6-3.6-4.3-6.2-.2-1-.2-1.9-.3-3V11.5C.5 7.9 1.9 5 4.8 2.7 6.2 1.6 7.8.8 9.6.5c.5-.1.9-.1 1.4-.1L27.5.3l10.9.1c2.6 0 4.8.8 6.7 2.4 2.1 1.7 3.7 3.9 4.2 6.6l.2 2.4.1 20.5-.1 6.7c-.1 2.2-.9 4.2-2.2 5.9-1.7 2.2-4 3.8-6.8 4.4-.6.1-1.2.2-1.9.2-.1.1-13.4.2-13.4.2zm-4-27.8c-.9-1.2-2.2-1.6-3.7-1.2-.4.1-.8.2-1.2.4-.3.1-.6.1-.8 0-.4-.1-.8-.3-1.2-.4-.3-.1-.7-.1-1-.1-1.5.2-2.4 1.1-3 2.6-.4 1.1-.3 2.2 0 3.5.4 1.5 1 2.9 2.1 4 .5.6 1.2.9 2 .6 1.1-.5 2.2-.5 3.4 0 .8.3 1.5 0 2.1-.6.7-.8 1.1-1.8 1.6-2.8v-.2c-1-.6-1.7-1.4-1.8-2.7-.2-1.4.5-2.4 1.5-3.1zm9.9-1.4c.1.2.1.3.1.4l3.6 9.5c.1.3.3.4.6.4h.7c.6 0 .6 0 .9-.6l3.7-9.4c.1-.1.1-.3.2-.5H39l-2.9 8.3-3.1-8.3-1.9.2zM27.3 18l-1.3.4c-.5.2-.5.2-.6.7v1.4h-1.6l.1 1.4h1.5v5c0 .7.1 1.4.2 2.1.1.5.3 1 .8 1.4.8.6 2.6.7 3.5.2l-.1-1.2h-1.3c-.5 0-.9-.3-1-.8-.1-.3-.2-.6-.2-1v-5.8H30c0-.5.1-1 0-1.4h-2.7V18zm-8.8-.9c-1.9.3-3 2-2.7 3.2 1.4.2 2.9-1.7 2.7-3.2z"/>
+      </svg>
+
+icon_spotify:
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 50 50">
+        <path d="M25 .3C11.4.3.3 11.4.3 25S11.4 49.7 25 49.7 49.7 38.6 49.7 25 38.6.3 25 .3zm11.3 35.6c-.4.7-1.4 1-2.1.5-5.8-3.5-13.1-4.3-21.7-2.4-.8.2-1.7-.3-1.8-1.2-.2-.8.3-1.7 1.2-1.8 9.4-2.2 17.5-1.2 24 2.8.6.5.9 1.4.4 2.1zm3.1-6.7c-.6.9-1.7 1.2-2.6.6-6.6-4.1-16.8-5.3-24.6-2.9a1.96 1.96 0 0 1-2.4-1.3 1.96 1.96 0 0 1 1.3-2.4c9-2.7 20.1-1.4 27.7 3.3.8.6 1.1 1.8.6 2.7h0zm.2-7c-8-4.7-21.1-5.2-28.7-2.9-1.2.4-2.5-.3-2.9-1.5s.3-2.5 1.5-2.9c8.7-2.6 23.2-2.1 32.4 3.3 1.1.7 1.5 2.1.8 3.2-.6 1.1-2 1.4-3.1.8h0z"/>
+      </svg>
+
+icon_nest_mini:
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 50 50">
+        <path d="M49.7 25c0 13.6-11.1 24.7-24.8 24.7C11.3 49.7.3 38.6.3 25S11.4.3 25 .3 49.7 11.4 49.7 25zm-33.9 0a2.22 2.22 0 0 0-2.2-2.2c-1.2 0-2.3 1-2.3 2.2a2.22 2.22 0 0 0 2.2 2.2c1.3.1 2.3-.9 2.3-2.2h0zm10.8 0c0 1.2.9 2.2 2.2 2.3 1.3 0 2.3-1 2.3-2.2 0-1.3-1-2.3-2.2-2.3-1.3 0-2.3.9-2.3 2.2zm-3.2 0a2.22 2.22 0 0 0-2.2-2.2c-1.2 0-2.3 1-2.3 2.2a2.22 2.22 0 0 0 2.2 2.2c1.3 0 2.3-.9 2.3-2.2h0zm13 2.2a2.22 2.22 0 0 0 2.2-2.2c0-1.2-1-2.3-2.2-2.3a2.22 2.22 0 0 0-2.2 2.2c0 1.3 1 2.3 2.2 2.3z" />
+      </svg>
+
+icon_play_pause:
+  styles:
+    custom_fields:
+      play_pause:
+        - top: -10%
+        - right: 0
+        - bottom: 0
+        - left: 0
+        - margin: auto
+        - width: 25%
+        - height: 25%
+        - position: absolute
+        - fill: "#dedede"
+  custom_fields:
+    play_pause: >
+      [[[
+        let style = `
+          <style>
+            .scale-up {
+              animation: scale-up 1s forwards;
+              cubic-bezier(.05, .5, .3, 1);
+              transform-origin: center center;
+            }
+            @keyframes scale-up {
+              0% {
+                opacity: 0;
+                transform: scale(0);
+              }
+              20% {
+                transform: scale(1);
+              }
+              30% {
+                opacity: 1;
+              }
+              80% {
+                opacity: 1;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+          </style>
+        `;
+        if (variables.state === 'paused' && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 166 166">${style}
+                <path class="scale-up" d="M0 0h59.9v166H0zm106.1 0H166v166h-59.9z"/>
+              </svg>
+            `;
+        }
+        if (variables.state === 'playing' && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 166 166">${style}
+                <path class="scale-up" d="M0 0l166 83L0 166z"/>
+              </svg>
+            `;
+        }
+      ]]]
+
+icon_hue:
+  styles:
+    custom_fields:
+      icon:
+        - width: 77%
+        - margin-left: -14%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M27.4 47.3h-4.9s-.7.1-.7.8.4.9.7.9h4.9c.3 0 .7-.1.7-.9s-.7-.8-.7-.8zm3.3-2.9H19.3s-.8 0-.8.8.6.9.8.9h11.5c.2 0 .8-.1.8-.9-.1-.8-.9-.8-.9-.8zm0-3H19.3s-.8 0-.8.8.6.9.8.9h11.5c.2 0 .8-.1.8-.9-.1-.8-.9-.8-.9-.8zm0-2.9H19.3s-.8 0-.8.8.6.9.8.9h11.5c.2 0 .8-.1.8-.9s-.9-.8-.9-.8zm5.2-23.2c-3.3-5.3-7-5.6-10.9-5.6-3.8 0-8.4.4-10.9 5.6-.1.1-.1.3.1.7.4.8 3.3 7.2 3.2 18.8 0 1.1-.1 1.6 0 1.7 0 .1 0 .7 1.1.7h13c1 0 1-.5 1.1-.7v-1.7c-.1-11.6 2.8-18 3.2-18.8.1-.4.1-.5.1-.7"/>
+            <path class="${state} light-color" d="M14.1 15.3c3.4-.3 7-.4 10.9-.4 3.8 0 7.5.2 10.9.4.4-.4.7-.8.9-1.1C39 8.5 38.9 6.5 38.9 6c-.2-4.4-8.4-5-12.1-5h0-3.4c-3.7 0-12 .5-12.1 5 0 .5-.1 2.5 2.1 8.2 0 .3.3.8.7 1.1z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_shade:
+  styles:
+    custom_fields:
+      icon:
+        - width: 77%
+        - margin-left: -15%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+            <path class="${state} light-color" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/>
+          </svg>
+        `;
+      ]]]
+
+icon_tv:
+  styles:
+    custom_fields:
+      icon:
+        - width: 87%
+        - margin-top: -8%
+        - fill: >
+            [[[
+              return variables.state_on
+                  ? '#616161'
+                  : '#9da0a2';
+            ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let style = `
+          <style>
+            @keyframes on {
+              from {
+                transform: scaleY(0);
+              }
+              to {
+                transform: scaleY(1);
+              }
+            }
+            .on {
+              animation: on 1s;
+              transform-origin: -100% 46%;
+              animation-fill-mode: forwards;
+            }
+            @keyframes off {
+              from {
+                transform: scaleY(1);
+              }
+              to {
+                transform: scaleY(0);
+              }
+            }
+            .off {
+              animation: off 1s;
+              transform-origin: -100% 46%;
+              animation-fill-mode: forwards;
+            }
+          </style>
+        `,
+          path = `
+            <path d="M46 9.2v27.5H4.1V9.2H46m2.4-2.4H1.6v32.3h46.7c.1 0 .1-32.3.1-32.3zM11.9 43.2h26.3c.6 0 1.1-.4 1.1-1v-.3c0-.6-.4-1.1-1-1.1H11.9c-.6 0-1.1.4-1.1 1v.3a1.11 1.11 0 0 0 1.1 1.1z"/>
+          `,
+          gradient = `
+            <linearGradient id="A" gradientUnits="userSpaceOnUse" x1="5.401" y1="34.714" x2="43.817" y2="11.74">
+              <stop offset="0" stop-color="#64acb7"/>
+              <stop offset="1" stop-color="#7fdbe9"/>
+            </linearGradient>
+          `;
+        if (variables.state_on && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${gradient} 
+                <path d="M2.9,8h44.3v29.9H2.9V8z" fill="#20262890"/>
+                <path class="on" d="M2.9,8h44.3v29.9H2.9V8z" fill="url(#A)"/> ${path} 
+              </svg>
+            `;
+        }
+        if (variables.state_on && variables.timeout > 2000) {
+            return `
+              <svg viewBox="0 0 50 50"> ${gradient} 
+                <path d="M2.9,8h44.3v29.9H2.9V8z" fill="#20262890"/>
+                <path class="on" d="M2.9,8h44.3v29.9H2.9V8z" fill="url(#A)"/> ${path} 
+              </svg>
+            `;
+        }
+        if (variables.state === 'off' && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${gradient} 
+                <path class="off" d="M2.9,8h44.3v29.9H2.9V8z" fill="url(#A)"/> ${path} 
+              </svg>
+            `;
+        } else {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} 
+                ${path}
+              </svg>
+            `;
+        }
+      ]]]
+
+icon_ps5:
+  styles:
+    custom_fields:
+      icon:
+        - width: 89%
+        - margin-left: -2%
+        - margin-top: -9%
+  custom_fields:
+    icon: >
+      [[[
+        if (variables.state_on && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 50 50">
+                <style>
+                @keyframes on {
+                  50% {
+                    transform: translateY(-45%);
+                  }
+                  100% {
+                    transform: translateY(0);
+                  }
+                }
+                .on {
+                  animation: on 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                }
+              </style>
+              <g style="clip-path: url(#mask);">
+                <g class="on">
+                  <path fill="#00aa9e" d="M49.2 38.9l-75.6-25.1v7.4l75.6 25.2z"/>
+                  <path fill="#f3c202" d="M49.2 46.4l-75.6-25.2v7.5l75.6 25.1z"/>
+                  <path fill="#326db3" d="M49.2 53.8l-75.6-25.1V51l75.6 25.1zm0-22.3L-26.4 6.4v7.4l75.6 25.1z"/>
+                </g>
+              </g>
+              <defs>
+                <clipPath id="mask">
+                  <path d="M47.5 33.2c-.5-2.2-3.9-3.5-9.1-3.9-3.8-.3-7.5.6-11.1 1.9l-.6.2v-5.7l-5.7.8-4.6 1.6L6 31.9h-.1c-1.9.7-3.8 2.2-3.7 4.2.1 2.1 4.7 2.6 8.2 3.2 3.3.6 6.2.2 8.9-.7l7.3 4.8L33 41l10.7-4h.1c2.8-1 4-2.5 3.7-3.8zm-31.3 2l-3.6 1.3c-2.2.8-4.1-1.1-2.1-1.9l1.7-.6 7.2-2.7v2.8l-3.2 1.1zm22.5-1.1l-1.9.7-10.2 3.7V36l6.5-2.4 3.8-1.3c4-.9 5.6.5 1.8 1.8z"/>
+                </clipPath>
+              </defs>
+              <path fill="#de0029" d="M26.7 14.6v28.7l-7.3-2.5V7.1l9.3 2.6c6 1.7 9.6 5 9.6 10.7-.1 6.7-3 9.4-8.7 7.6V14.9c-.1-1.6-2.9-1.7-2.9-.3h0z"/>
+            </svg>
+          `;
+        }
+
+        return variables.state_on && variables.timeout > 2000
+            ? `
+              <svg viewBox="0 0 50 50">
+                <path d="M33.1 33.6L26.7 36v-4.5l6.4 2.1h0zM19.4 29l-2.9-1h-.1L6 31.9h-.1-.1l6.3 2.1h.1l7.2-2.7V29zm0 5.1l-3.2 1.1-.3.1 3.5 1.2v-2.4zm17.4.7h0l-10.1 3.7v.4L33 41l10.6-4-6.8-2.2z" fill="#00aa9e" />
+                <path d="M19.4 38.5l-.1.1c-2.7.9-5.6 1.3-8.9.7-3.5-.6-8.1-1.1-8.2-3.2-.1-2 1.7-3.4 3.6-4.2l6.3 2.1-1.6.6c-2 .8-.1 2.7 2.1 1.9l3.3-1.2 3.5 1.2v2zm7.3 4.8L33 41l-6.3-2.1v4.4" fill="#f3c202" />
+                <path d="M19.4 29l-2.9-1 2.9-1v2zm28.1 4.2c-.5-2.2-3.9-3.5-9.1-3.9-3.8-.3-7.5.6-11.1 1.9l-.6.2h0l6.5 2.1 3.7-1.3c4-.9 5.6.5 1.8 1.8l-1.9.7 6.8 2.2h.1.1c2.8-.9 4-2.4 3.7-3.7z" fill="#326db3" />
+                <path d="M26.7 14.6v28.7l-7.3-2.5V7.1l9.3 2.6c6 1.7 9.6 5 9.6 10.7-.1 6.7-3 9.4-8.7 7.6V14.9c-.1-1.6-2.9-1.7-2.9-.3z" fill="#de0029" />
+              </svg>`
+            : `
+              <svg viewBox="0 0 50 50">
+                <path fill="#9da0a2" d="M43.8 37h-.1l-10.6 4-4.2 1.6v-4.9l8-2.9 1.9-.7c3.8-1.3 2.2-2.7-1.8-1.9l-3.8 1.3-4.3 1.6v-4.5c3.1-1 6.3-1.6 9.5-1.4 5.3.4 8.7 1.6 9.1 3.9.3 1.4-.9 2.9-3.7 3.9zm-26.7-2.1l-.9.3-3.6 1.3c-2.2.8-4.1-1.1-2.1-1.9l1.7-.6 5-1.9v-4.2l-.6.2L6 31.9h-.1c-1.9.7-3.8 2.2-3.7 4.2.1 2.1 4.7 2.6 8.2 3.2 2.4.4 4.6.3 6.7-.1v-4.3zm12.4-20V28c5.7 1.7 8.7-.9 8.7-7.6.1-5.7-3.6-9-9.6-10.7l-9.3-2.6v33.8l7.2 2.5.1.1V14.6c.1-1.4 2.9-1.3 2.9.3z"/>
+              </svg>`;
+      ]]]
+
+icon_spot:
+  styles:
+    custom_fields:
+      icon:
+        - width: 74%
+        - margin-left: -8%
+        - margin-top: 3%
+  custom_fields:
+    icon: >
+      [[[
+        let state;
+        if (variables.state_on && variables.timeout < 2000) {
+            state = 'on';
+        } 
+        if (variables.state === 'off' && variables.timeout < 2000) {
+            state = 'off';
+        }
+        if (variables.state_on && variables.timeout > 2000) {
+            state = 'on_timeout';
+        }
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: rotateZ(0deg);
+                  animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+                }
+                70% {
+                  transform: rotateZ(-15deg);
+                  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                75% {
+                  transform: rotateZ(-15deg);
+                  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                88% {
+                  transform: rotateZ(-11deg);
+                }
+                100% {
+                  transform: rotateZ(-15deg);
+                }
+              }
+              @keyframes off {
+                0% {
+                  transform: rotateZ(-15deg);
+                  animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+                }
+                70% {
+                  transform: rotateZ(0deg);
+                  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                75% {
+                  transform: rotateZ(0deg);
+                  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                88% {
+                  transform: rotateZ(-4deg);
+                }
+                100% {
+                  transform: rotateZ(0deg);
+                }
+              }
+              .on {
+                animation: on 0.7s;
+                transform-origin: 40% 20%;
+                animation-fill-mode: forwards;
+                animation-delay: -0.1s;
+              }
+              .off {
+                animation: off 0.7s;
+                transform-origin: 40% 20%;
+                animation-fill-mode: forwards;
+              }
+              .on_timeout {
+                transform: rotateZ(-15deg);
+                transform-origin: 40% 20%;
+              }
+            </style>
+            <path style="clip-path: url(#mask);" fill="#9da0a2" d="M40.5.8H17.1c-.1 0-.1 0-.1.1A3.12 3.12 0 0 0 20.1 4h6.1c.1 0 .1 0 .1.1v7.4L18 19.1l3.6 3.5 9.1-8.6c.4-.4.6-1 .7-1.6V4c0-.1 0-.1.1-.1h6c1.7.1 3.1-1.3 3-3.1z"/>
+            <defs>
+              <clipPath id="mask">
+                <path class="${state}" d="M0 9.1h24l8.3 8.8H50V-9H0z"/>
+              </clipPath>
+            </defs>
+            <path class="${state} light-color" d="M25.5 46.4s1.4.5 10.4-8.2c.5-.4 6.3-6.3 5.8-7.1-.7-.8-18.6-19.5-18.6-19.5s-.6-.9-8.6 6.4c-.6.5-8.7 8-7.7 9.1l18.7 19.3z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_imac:
+  styles:
+    custom_fields:
+      icon:
+        - width: 80%
+        - margin-left: 1%
+        - margin-top: -5%
+        - fill: >
+            [[[ return variables.state_on ? '#72757c' : '#9da0a2'; ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000
+            ? 'on'
+            : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                from {
+                  opacity: 0.5;
+                  transform: scale(0.6);
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+              .on {
+                animation: on 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+                transform-origin: center;
+              }
+            </style>
+            <path class="${state}" d="M31.9 44.5c-1-.3-1.9.4-1.9-3.7h-9.9c0 4.2-.9 3.4-1.9 3.7s-.2.7-.2.7h14.1s.8-.3-.2-.7zM47.6 4.8H2.5c-1.1 0-2 .9-2 2v30.1c0 1.1.9 2 2 2h45c1.1 0 2-.9 2-2v-30a1.95 1.95 0 0 0-1.9-2.1zm-.7 26.4H3.2V7.6H47v23.6z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_monitors:
+  styles:
+    custom_fields:
+      icon:
+        - width: 73%
+        - margin-left: -9%
+  custom_fields:
+    icon: >
+      [[[
+        let style = `
+          <style>
+            @keyframes cone {
+              35% {
+                transform: scale(0.8);
+                animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+              }
+              36% {
+                transform: translateY(0%);
+              }
+              49% {
+                transform: scale(1.25);
+              }
+              63% {
+                transform: scale(0.85);
+                animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+              }
+              77% {
+                transform: scale(1.15);
+                animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+              }
+              95% {
+                transform: scale(1);
+              }
+            }
+            .cone {
+              animation: cone 1.2s;
+              transform-origin: center;
+            }
+            @keyframes speaker {
+              0% {
+                transform: scale(1);
+              }
+              40% {
+                transform: scale(1);
+              }
+              49% {
+                transform: scale(0.95);
+              }
+              63% {
+                transform: scale(1);
+              }
+              77% {
+                transform: scale(0.95);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+            .speaker {
+              animation: speaker 1.3s;
+              transform-origin: center;
+            }
+          </style>
+        `,
+          paths = `
+            <g class="speaker">
+              <path fill="#686868" d="M35.8 46.9H14.2c-1.1 0-2-1-2-2.3V6.7c0-1.3.9-2.3 2-2.3h21.5c1.1 0 2 1 2 2.3v37.9c0 1.2-.9 2.3-1.9 2.3z"/>
+              <path fill="#2a2a2a" d="M39.2 1H10.8C9.4 1 8.3 2.1 8.2 3.5v42.9a2.65 2.65 0 0 0 2.6 2.6h28.3c1.4 0 2.5-1.2 2.6-2.6V3.5c0-1.4-1.1-2.5-2.5-2.5zM25 7c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4-2.4-1.1-2.4-2.4C22.5 8 23.6 7 25 7zm10.2 35.5l-.4 1.9s-.2.6-.6.6H15.8c-.4 0-.6-.6-.6-.6s-.1-1.1-.4-1.9.6-.9.6-.9h19.3c0-.1.8-.1.5.9z"/>
+            </g>
+            <path class="cone" fill="#e5dd00" d="M25 15.7c-6.2 0-11.3 5.1-11.3 11.3S18.8 38.3 25 38.3 36.3 33.2 36.3 27c-.1-6.3-5.1-11.3-11.3-11.3zm0 14.5a3.33 3.33 0 0 1-3.3-3.3 3.33 3.33 0 0 1 3.3-3.3 3.33 3.33 0 0 1 3.3 3.3c-.1 1.9-1.5 3.3-3.3 3.3z"/>
+          `;
+        if (variables.state_on && variables.timeout < 2000) {
+            return `
+              <svg viewBox="0 0 50 50">
+                ${style}
+                ${paths}
+              </svg>
+            `;
+        }
+
+        return variables.state_on && variables.timeout > 2000
+            ? `
+              <svg viewBox="0 0 50 50">
+                ${paths}
+              </svg>
+            `
+            : `
+              <svg viewBox="0 0 50 50">
+                <path fill="#9da0a2" d="M25 18.6c-4.6 0-8.4 3.8-8.4 8.4s3.8 8.4 8.4 8.4 8.4-3.8 8.4-8.4-3.7-8.4-8.4-8.4zm0 11.7a3.33 3.33 0 0 1-3.3-3.3 3.33 3.33 0 0 1 3.3-3.3 3.33 3.33 0 0 1 3.3 3.3c0 1.8-1.4 3.3-3.3 3.3zM39.2 1H10.9C9.4 1 8.3 2.1 8.3 3.6v42.9a2.65 2.65 0 0 0 2.6 2.6h28.3a2.65 2.65 0 0 0 2.6-2.6v-43C41.7 2 40.5.9 39.2 1zM25 7c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4-2.4-1.1-2.4-2.4S23.7 7 25 7zm10.3 35.5l-.4 1.9s-.2.6-.6.6H15.8c-.4 0-.6-.6-.6-.6l-.4-1.9c-.2-.9.6-.9.6-.9h19.3s.9.1.6.9zM25 38.2c-6.2 0-11.3-5.1-11.3-11.3a11.29 11.29 0 1 1 22.6 0c.1 6.3-5 11.3-11.3 11.3z"/>
+              </svg>
+            `;
+      ]]]
+
+icon_lamp:
+  styles:
+    custom_fields:
+      icon:
+        - width: 79%
+        - margin-left: -16%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M26.5 21.8l3.8-6.1H19.7l3.8 6.1c-5 .7-6.3 5.8-5.7 10.2.7 5.1 3.2 10.1 5.7 14.4H19v2.5h11.8v-2.5h-4.5C29 42 31.4 37 32.1 32c.6-4.4-.6-9.4-5.6-10.2zm3.1 9.1c-.3 4.3-2.3 8.7-4.4 12.4l-.2.1v.1-.1c-1.8-3-3.3-6.4-4.1-9.7-.7-3.1-1-7.2 2.7-8.4 1.4-.5 3.1-.1 4.2.8 1.6 1 1.8 3 1.8 4.8z"/>
+            <path class="${state} light-color" d="M38.1 20L35.7 3.8c-.3-1.9-.4-1.7-.6-2-.9-.6-2.3-.7-2.3-.7H17.4s-1.4 0-2.3.7c-.2.3-.3.1-.6 2C14 5.7 11.9 20 11.9 20s5.8.3 13.4.3h0c7.3 0 12.8-.3 12.8-.3z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_climate:
+  styles:
+    custom_fields:
+      icon:
+        - width: 78%
+        - margin-left: -10%
+        - fill: >
+            [[[ return variables.state === 'cool' || variables.state === 'fan_only' ? '#5daeea' : '#9da0a2'; ]]]
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 613.33 800"><path d="M640,786.67a13.32,13.32,0,0,0-13.33-13.34H613.33V760h40V720h53.34V640H653.33V613.33h13.34a40,40,0,0,0,0-80H653.33V506.67h13.34a40,40,0,0,0,0-80H653.33V400h13.34a40,40,0,1,0,0-80H653.33V293.33h13.34a40,40,0,1,0,0-80H653.33V186.67h13.34a40,40,0,1,0,0-80H653.33V80h53.34V0H93.33V80h53.34v26.67H133.33a40,40,0,0,0,0,80h13.34v26.66H133.33a40,40,0,0,0,0,80h13.34V320H133.33a40,40,0,0,0,0,80h13.34v26.67H133.33a40,40,0,0,0,0,80h13.34v26.66H133.33a40,40,0,0,0,0,80h13.34V640H93.33v80h13.34v40h40v26.67a13.33,13.33,0,1,0,26.66,0V760h40V720H546.67v40h40v13.33H573.33a13.34,13.34,0,0,0,0,26.67h53.34A13.32,13.32,0,0,0,640,786.67ZM173.33,80H626.67v26.67H173.33Zm0,106.67H626.67v26.66H173.33Zm0,106.66H626.67V320H173.33Zm0,106.67H626.67v26.67H173.33Zm0,106.67H626.67v26.66H173.33Zm0,106.66H626.67V640H173.33Z" transform="translate(-93.33)"/></svg>
+
+icon_bathroom:
+  styles:
+    custom_fields:
+      icon:
+        - width: 78%
+        - margin-left: -10%
+  custom_fields:
+    icon: >
+      [[[
+        let state;
+        if (variables.state_on && variables.timeout < 2000) {
+          state = 'on';
+        } 
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          state = 'off';
+        }
+        if (variables.state_on && variables.timeout > 2000) {
+          state = 'on_timeout';
+        }
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: rotateZ(0deg) translate(0%, 0%);
+                }
+                100% {
+                  transform: rotateZ(-90deg) translate(-1.5%, 0%);
+                }
+              }
+              @keyframes off {
+                0% {
+                  transform: rotateZ(-90deg) translate(-1.5%, 0%);
+                }
+                45% {
+                  transform: rotateZ(-40deg);
+                }
+                55% {
+                  transform: rotateZ(0deg);
+                }
+                65% {
+                  transform: rotateZ(-15deg);
+                }
+                75% {
+                  transform: rotateZ(0deg);
+                }
+                85% {
+                  transform: rotateZ(-5deg);
+                }
+                95% {
+                  transform: rotateZ(0deg);
+                }
+              }
+              .on {
+                animation: on 0.45s;
+                animation-fill-mode: forwards;
+                transform-origin: 45% 41%;
+                transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+              }
+              .on_timeout {
+                transform: rotateZ(-90deg) translate(-1.5%, 0%);
+                transform-origin: 45% 41%;
+              }
+              .off {
+                animation: off 1.1s linear;
+                animation-delay: 0.05s;
+                animation-fill-mode: both;
+                transform-origin: 45% 41%;
+              }
+            </style>
+            <g class="light-color">
+              <path d="M12.9 1.2h2.5c1.6 0 2.9 1.3 2.9 2.9v18.6c0 1.4 1.1 2.5 2.4 2.5h20.5c.5 0 1 .4.9 1-.1 2.6-1.2 9.6-10.2 11v7.6c0 .2.2.4.4.4h1.5a1.58 1.58 0 0 1 1.6 1.6v.3a1.58 1.58 0 0 1-1.6 1.6H11a1.58 1.58 0 0 1-1.6-1.6v-.3a1.58 1.58 0 0 1 1.6-1.6h1.6c.2 0 .4-.2.4-.4v-7.6s-5.2-.3-5.2-5.9V4.2c0-1.6 1.3-2.9 2.9-2.9l2.2-.1c0 .1 0 0 0 0z"/>
+              <path class="${state}" d="M22.3 18.8h18.3a1.58 1.58 0 0 1 1.6 1.6v.6a1.58 1.58 0 0 1-1.6 1.6h-19c-.4 0-.7-.3-.8-.7v-2.3c0-.4.3-.7.7-.8h.8z"/>
+            </g>
+          </svg>
+        `;
+      ]]]
+
+icon_fan:
+  styles:
+    custom_fields:
+      icon:
+        - width: 75%
+        - margin-left: -3%
+  custom_fields:
+    icon: >
+      [[[
+        let path = `
+          <circle cx="25" cy="25" r="6.6"/>
+          <path d="M31.9 30.4c-.5.6-1.1 1.1-1.7 1.5-1.4 1.1-3.2 1.7-5.2 1.7-2.3 0-4.5-.9-6-2.4-.9 1.1-1.6 2.3-2.3 3.2l-4.9 5.4c-1.8 2.7.3 5.6 2.5 7 3.9 2.4 9.8 3.1 14.1 1.9 4.6-1.3 7.9-4.7 7.4-9.7-.2-3.4-1.9-6-3.9-8.6zM17 28.3c-.4-1-.6-2.1-.6-3.3a8.7 8.7 0 0 1 6.4-8.4l-1.6-3.5L19 6.2c-1.5-2.8-5-2.5-7.3-1.2-4 2.2-7.5 6.9-8.7 11.3-1.2 4.6.2 9.2 4.7 11.3 3.1 1.3 6.1 1.2 9.3.7zm26.9-17.6c-3.3-3.4-8-4.6-12.1-1.8-2.8 1.8-4.2 4.6-5.5 7.5 4.2.6 7.4 4.2 7.4 8.6 0 .9-.1 1.7-.4 2.5 1.3.2 2.8.3 3.8.4 2.3.4 4.7 1.3 7.1 1.7 3.2.3 4.7-3 4.8-5.6.3-4.6-1.9-10.1-5.1-13.3z"/>
+        `,
+        style = `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes rotate {
+                0% {
+                  visibility: visible;
+                  transform: rotate(0deg) translateZ(0);
+                }
+                100% {
+                  transform: rotate(1080deg) translateZ(0);
+                }
+              }
+              .start {
+                animation: rotate 2.8s ease-in;
+                transform-origin: center;
+                fill: #5daeea;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .on {
+                animation: rotate 1.8s linear infinite;
+                transform-origin: center;
+                fill: #5daeea;
+                animation-delay: 2.8s;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end {
+                animation: rotate 2.8s;
+                transform-origin: center;
+                fill: #9ca2a5;
+                animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+                will-change: transform;
+              }
+              .start_timeout {
+                animation: rotate 1.8s linear infinite;
+                transform-origin: center;
+                fill: #5daeea;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end_timeout {
+                fill: #9ca2a5;
+              }
+            </style>
+        `;
+        if (variables.state_on && variables.timeout < 2000) {
+          return `${style}<g class="start">${path}</g><g class="on">${path}</g></svg>`;
+        }
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          return `${style}<g class="end">${path}</g></svg>`;
+        }
+        if (variables.state_on && variables.timeout > 2000) {
+          return `${style}<g class="start_timeout">${path}</g></svg>`;
+        } else {
+          return `${style}<g class="end_timeout">${path}</g></svg>`;
+        }
+      ]]]
+
+icon_closet:
+  styles:
+    custom_fields:
+      icon:
+        - width: 80%
+        - margin-left: -16%
+  custom_fields:
+    icon: >
+      [[[
+        let room = `d="M11.4,1.4h27.2v43.1H11.4V1.4z" fill="#bcbcbc"`,
+          door = `d="M11.4 1.4v43.1h27.2V1.4H11.4zm23 23.4c0 1.1-.9 1.9-1.9 1.9h0c-1.1 0-1.9-.9-1.9-1.9V21c0-1.1.9-1.9 1.9-1.9h0c1.1 0 1.9.9 1.9 1.9v3.8z"`;
+
+        if (variables.state_on && variables.timeout < 2000) {
+          return `
+            <style>
+              .state {
+                animation: state 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
+              .opacity {
+                animation: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
+              @keyframes state {
+                0% {
+                  transform: none;
+                  fill: #9da0a2;
+                }
+                100% {
+                  transform: skewY(10deg) translate(4.5%, -3.9%) scaleX(0.8);
+                  fill: #b68349;
+                }
+              }
+              @keyframes opacity {
+                0% {
+                  opacity: 0;
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+            </style>
+            <svg viewBox="0 0 50 50">
+              <path class="opacity" ${room}/>
+              <path class="state" ${door}/>
+            </svg>
+          `;
+        }
+
+        if (variables.state_on && variables.timeout > 2000) {
+          return `
+            <svg viewBox="0 0 50 50">
+              <style>
+                .state_timeout_on {
+                  transform: skewY(10deg) translate(4.5%, -3.9%) scaleX(0.8);
+                  fill: #b68349;
+                }
+              </style>
+              <path ${room}/>
+              <path class="state_timeout_on" ${door}/>
+            </svg>
+          `;
+        }
+
+        return variables.state === 'off' && variables.timeout < 2000 ? `
+          <style>
+            .state {
+              animation: state 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+            .opacity {
+              animation: opacity 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+            .reverse {
+              animation-direction: reverse;
+            }
+            @keyframes state {
+              0% {
+                transform: none;
+                fill: #9da0a2;
+              }
+              100% {
+                transform: skewY(10deg) translate(4.5%, -3.9%) scaleX(0.8);
+                fill: #b68349;
+              }
+            }
+            @keyframes opacity {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+          </style>
+          <svg viewBox="0 0 50 50">
+            <path class="opacity reverse" ${room}/>
+            <path class="state reverse" ${door}/>
+          </svg>
+        ` : `
+          <svg viewBox="0 0 50 50">
+            <style>
+              .state_timeout_off {
+                fill: var(--state-icon-color);
+              }
+            </style>
+            <path class="state_timeout_off" ${door}/>
+          </svg>
+        `;
+      ]]]
+
+icon_away:
+  state_display: Auto
+  styles:
+    card:
+      - transition: all 0.3s ease-out
+    custom_fields:
+      icon:
+        - width: 79%
+        - margin-left: -1%
+        - margin-top: -1%
+        - fill: >
+            [[[ return variables.state_on ? '#516d82' : '#9da0a2'; ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                10%,
+                20%,
+                100% {
+                  transform: rotateZ(0deg);
+                }
+                30%,
+                50%,
+                70% {
+                  transform: rotateZ(7deg);
+                }
+                90% {
+                  transform: rotateZ(3deg);
+                }
+                40%,
+                60%,
+                80% {
+                  transform: rotateZ(-7deg);
+                }
+              }
+              .on {
+                animation: on 1.35s cubic-bezier(0.5, 1, 0.89, 1);
+                animation-fill-mode: both;
+                transform-origin: 70% 80%;
+                animation-delay: 0s;
+              }
+            </style>
+            <path class="${state}" d="M32.1 18.4s.3-1.6.7-2.1c.3-.6.9-1.4 1.6-1.8.6-.4 1.1-.7 1.4-.7s.7-.1 1 .1.6.4.8 1.3l.3 2.7.1 2.4.2 4.1c0 .3.2 3.1.2 3.3s.2 2.7.2 3.2l-.1 2.5c.1 1.6.5 3.1-.2 4.6-.6 1.4-1.7 2.7-2.9 3.6-.5.4-1.9 1.3-2.9 1.7-1.1.5-2.2.8-3.3 1.1-.5.1-1.4.4-2.3.3s-1.8-.6-2.1-1l-1.6-2.3c-.6-.8-2.1-2.3-2.3-2.5l-2.7-2.8c-.2-.2-2.7-3.5-2.9-3.8l-3.1-4.7-1.8-3.2-1.5-2.8-.9-1.8c-.1-.2-.3-1.1-.2-1.4.3-1.2 1.4-1.4 2.3-.7.3.2.9 1 1.1 1.3s6.1 8.1 6.1 8.1c.2.3.7.3.9 0s-.1-.7-.2-.9c-.4-.6-8.3-11.5-8.3-11.5s-.6-.9-.7-1.1c-.3-1.1 0-2.3 1.1-2.7s1.9.3 2.6 1.1c.3.3 8.3 11.5 8.3 11.5.2.2.3.3.5.3.3 0 .5-.4.4-.7-.1-.2-.5-.9-.5-.9L11.8 9c-.6-1-.9-2-.1-3 .7-.8 2.2-1.3 3-.2.3.3 10.1 14.3 10.1 14.3.2.2.5.4.7.3.5-.1.3-.7.1-1-.1-.2-8.4-11.8-8.4-11.8-.4-.9-.6-2 .2-2.8 1-1.1 2.5-.5 3.3.5.2.3 1 1.4 1 1.4l2.7 3.7c.1.2 3.4 4.4 3.8 4.8.9 1.1 1.8 2.2 2.7 3.2l.5.5c.1.1.1.4.1.8 0 1.3.1 2.6.1 3.9 0 .2.1.4.2.6.3.3.6.1.7-.2.1-.2 0-2.4 0-2.7-.3-.3-.5-1.3-.4-2.9zM12.2 46.9s-2.8-.8-4.8-2.7-2.6-2.7-2.8-3-1.8-3-2-3.6c-.2-.5-.2-.7.2-1 .4-.4 1-.5 1.3.1.1.2.4 1 .5 1.2s1 1.9 1.7 2.8 1.6 2.2 4.4 3.8c.6.3 1.2.6 1.9.9.3.1.6.2.8.4.1.2.1.6-.1.8-.2.4-.7.4-1.1.3zM7.1 30.7l.9 3.1c.3.7 1.1 2.3 1.9 3.3s2.4 2.6 3.4 3.2 2 1.1 3 1.5c1 .3 1.1.4 1.2.5.3.4.2 1.2-.4 1.3-.2 0-1.2 0-1.8-.3L12 41.7c-.5-.4-3.9-3.1-5.1-6S5.3 31 5.2 30.4s-.2-1.1 0-1.4c.3-.4.9-.8 1.3-.3.2.3.3.6.3.9.1 0 .2.8.3 1.1zm26.8-25s.2-.1.5-.1.8.3 1.4.7 1.9 1 3.6 2.9 2.9 3.9 3.4 5.8c.5 1.8.8 3.1.9 5.5 0 .5.1 1.6 0 1.7-.2.5-.5.7-1 .7-.6 0-.7-.5-.7-1l-.1-2.9c-.1-.6-.3-1.9-.7-2.9-.3-1-.7-2.3-1.7-3.6-.9-1.3-2.1-2.8-3.2-3.5l-2.4-1.5c-.6-.6-.7-1.2 0-1.8zm4.9-2.5s.3-.2.5-.1c.2 0 .7.3.9.4s2.1 1.3 3.6 3c1.5 1.6 3.5 5.1 3.7 7.4.1.4.2.9 0 1-.2.2-.4.4-.7.4-.2 0-.5 0-.7-.1-.1-.2-.4-1.1-.4-1.3s-.6-2-1.1-3.1C44 9.7 43.5 8.5 42 7.1s-2.2-1.9-2.8-2.2-1.1-.6-1.1-1c.1-.3.3-.6.7-.7z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_home:
+  state_display: Auto
+  styles:
+    card:
+      - transition: all 0.3s ease-out
+    custom_fields:
+      icon:
+        - width: 72%
+        - margin-left: -1%
+        - fill: >
+            [[[ return variables.state_on ? '#c7983e' : '#9da0a2'; ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+            </style>
+            <path class="${state}" d="M42.2 28.3c0-.8-.2-1-.2-1L26 12.1s-.5-.4-1-.4-1 .3-1 .3L8.2 27.1c-.4.5-.4.9-.4.9v18.3c0 1.1.9 2 1.9 2h8.2a1.47 1.47 0 0 0 1.5-1.5v-14a1.47 1.47 0 0 1 1.5-1.5h8.4a1.47 1.47 0 0 1 1.5 1.5v14a1.47 1.47 0 0 0 1.5 1.5h8.2c1.1 0 2-.9 2-1.9 0-.2-.3-18.1-.3-18.1zM7.3 25l-1.6 1.5s-.3.3-.5.3-.5 0-.8-.2c-.2-.2-2-2.8-2-2.8s-.1-.4-.1-.7c.1-.3.2-.7.3-.8.4-.1 21.5-20.1 21.5-20.1s.4-.3.9-.3c.4 0 .8.1.9.2s.5.4.5.4l8.9 8.5V6s.1-.4.2-.7c.1-.2.3-.3.4-.3s.3-.1.3-.1h3s.3.1.4.3a1.08 1.08 0 0 1 .3.7v9.8l7.2 6.9s.2.3.3.4c.1.2.1.7.1.7 0 .1-.1.4-.2.5s-1.6 2.5-1.6 2.5-.1.3-.3.3c-.2.1-.4.1-.7 0-.2-.1-.5-.4-.5-.4L26.4 9.4s-.3-.3-.5-.4-.4-.2-.8-.2-.5.1-.8.1c-.1.1-.4.3-.7.5C23.3 9.8 7.3 25 7.3 25z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_air_freshener:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+            <svg class="${state} light-color" viewBox="0 0 237.84 414.2" width="20">
+            <path d="M239,114.91c0,59.63-.24,83.74-.89,83.49-.49-.16-14.32-31.22-30.74-69s-30-68.77-30.1-68.85c-.48-.48-22,9.47-21.84,10,.08.41,12.54,29.21,27.67,64s27.58,63.51,27.58,63.67-6.39.32-14.15.32H182.37v72.81H132.21V445.31H370.06V271.37H319.9V198.56H305.74c-7.77,0-14.16-.16-14.16-.32s12.38-28.8,27.59-63.67,27.59-63.58,27.67-64c.16-.65-21.36-10.51-21.85-10-.08.08-13.59,31.07-30.09,68.85s-30.26,68.84-30.74,69c-.65.25-.89-24.19-.89-83.49V31.1H239ZM295.63,247.1v24.27h-89V222.83h89ZM222,296.21c0,.4-5.18,12.54-11.49,27.1L199,349.85H156.48V295.64h32.77C207.29,295.64,222,295.89,222,296.21Zm123.78,26.53v27.11H303.31l-11.56-26.54c-6.31-14.56-11.49-26.7-11.49-27.1s14.72-.57,32.76-.57h32.77ZM239,334.88v15h-6.47c-3.56,0-6.47-.25-6.47-.65,0-.73,12.29-29.29,12.7-29.29C238.84,319.91,239,326.63,239,334.88Zm31.06-.49c3.4,7.77,6.15,14.4,6.15,14.81s-2.91.65-6.47.65h-6.47V334.72c0-8.25.16-14.89.32-14.73S266.75,326.71,270.06,334.39ZM187.55,375.9a30.79,30.79,0,0,1-2,4.85,13.93,13.93,0,0,0-1.53,4.13c0,1.37,20.95,10.75,21.76,9.7.32-.32,2.51-5.09,4.93-10.59l4.29-9.87h24v23.46h24.27V374.12h24l4.53,10.27c3.56,8,4.93,10.36,6,10.19,3.08-.32,20.47-8.57,20.47-9.7a14,14,0,0,0-1.54-4.13,29.69,29.69,0,0,1-2-4.85l-.57-1.78h31.64V421H156.48V374.12h31.63Z" transform="translate(-132.21 -31.1)"/>
+            </svg>
+        `;
+      ]]]
+
+icon_pergola:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+        </style>
+          <svg class="${state}" viewBox="0 0 800 584.05">
+            <path class="${state} light-color" d="M710.47,161.63H89.53a16,16,0,0,0-16,16V622.34a16,16,0,1,0,32.05,0V241.76h74.11V512.57a16,16,0,0,0,32.05,0V241.76H588.29V512.57a16,16,0,0,0,32.05,0V241.76h74.11V622.34a16,16,0,1,0,32,0V177.66a16,16,0,0,0-16-16ZM105.55,209.71v-16h588.9v16Z"/>
+            <path class="${state} light-color" d="M506.65,461.79H293.35a16,16,0,1,0,0,32H327.1v24.07a16,16,0,1,0,32,0V493.84h81.7v24.07a16,16,0,1,0,32,0V493.84h33.75a16,16,0,1,0,0-32Z"/>
+            <path class="${state} light-color" d="M506.65,415.08H293.35a16,16,0,1,0,0,32.05h213.3a16,16,0,0,0,0-32.05Z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_plant:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        let plant_color = variables.state_on ? '#168C84' : '--light-color';
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+                fill: #168C84;
+              }
+            </style>
+              <svg class="light-color" viewBox="0 0 800 800">
+                <path fill="none" d="M0,0V800H800V0ZM366.67,433.33V400h66.66v33.33Z"/>
+                <path class="${state}" d="M183.33,66.67H66.67v50c0,138.06,111.93,250,250,250h16.66V333.33a265.09,265.09,0,0,1,54.14-161A249.69,249.69,0,0,0,183.33,66.67Z"/>
+                <path class="${state}" d="M600,100c-128.87,0-233.33,104.47-233.33,233.33V400h100C595.53,400,700,295.53,700,166.67V100Z"/>
+                <path d="M200,433.33V666.67a66.64,66.64,0,0,0,66.67,66.66H533.33A66.64,66.64,0,0,0,600,666.67V433.33Z"/>
+              </svg>
+        `;
+      ]]]
+
+icon_stairs:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg class="${state} light-color" viewBox="0 0 512.004 512.004" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <polygon points="364.957,107.108 364.957,141.969 380.014,141.969 380.014,203.974 268.09,203.974 268.09,238.835 283.148,238.835 283.148,300.841 171.223,300.841 171.223,335.703 186.282,335.703 186.282,397.708 74.356,397.708 74.356,432.569 89.415,432.569 89.415,512.004 124.276,512.004 494.312,141.969 494.312,107.108 "></polygon> <rect x="-36.523" y="155.536" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -66.4634 185.4769)" width="454.363" height="34.861"></rect> </g> </g> </g> </g></svg>
+        `;
+      ]]]
+
+icon_wall_lamp:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+        </style>
+           <svg class="${state} light-color" viewBox="0 0 593 593"  width="30"><path d="M688.06,103.5H613.93a24.69,24.69,0,0,0-24.71,24.71v74.12H465.68c-87.44,0-159.79,65.33-171.2,149.71-98.19,11.42-174.71,95-174.71,196.21V573a24.69,24.69,0,0,0,24.71,24.71h51.91c11.49,56.31,61.4,98.83,121,98.83S427,654,438.48,597.67h51.91A24.69,24.69,0,0,0,515.1,573V548.25c0-99.82-74.45-182.37-170.66-195.59,10.67-57.33,60.88-100.91,121.24-100.91H589.22V375.29A24.69,24.69,0,0,0,613.93,400h74.13a24.69,24.69,0,0,0,24.71-24.71V128.21A24.69,24.69,0,0,0,688.06,103.5ZM387.33,597.67a74.15,74.15,0,0,1-139.8,0Z" transform="translate(-119.77 -103.5)"/></svg>
+        `;
+      ]]]
+
+icon_mirror:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           
+           <svg viewBox="0 0 24 24" fill="none" class="${state}"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 18C16.4183 18 20 14.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.4183 7.58172 18 12 18Z" stroke="#9da0a2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 22H18" stroke="#9da0a2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        `;
+      ]]]
+
+icon_bedroom_wall:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg width="35" class="${state} light-color" viewBox="0 0 631.83 800" fill="${variables.light_color}"><rect width="53.98" height="800"/><rect x="577.84" width="53.98" height="800"/><rect x="96.31" width="53.98" height="800"/><rect x="192.61" width="53.98" height="800"/><rect x="288.92" width="53.98" height="800"/><rect x="385.23" width="53.98" height="800"/><rect x="481.54" width="53.98" height="800"/></svg>
+        `;
+      ]]]
+
+icon_ambient_tv:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+              }
+        </style>
+           <svg width="35" class="${state} light-color" viewBox="0 0 32 32"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>tv</title> <path d="M26 27.25h-20c-0.414 0-0.75 0.336-0.75 0.75s0.336 0.75 0.75 0.75v0h20c0.414 0 0.75-0.336 0.75-0.75s-0.336-0.75-0.75-0.75v0zM28 3.25h-24c-1.518 0.002-2.748 1.232-2.75 2.75v16c0.002 1.518 1.232 2.748 2.75 2.75h24c1.518-0.002 2.748-1.232 2.75-2.75v-16c-0.002-1.518-1.232-2.748-2.75-2.75h-0zM29.25 22c-0.001 0.69-0.56 1.249-1.25 1.25h-24c-0.69-0.001-1.249-0.56-1.25-1.25v-16c0.001-0.69 0.56-1.249 1.25-1.25h24c0.69 0.001 1.249 0.56 1.25 1.25v0z"></path> </g></svg>
+        `;
+      ]]]
+
+icon_living_lamp:
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : null;
+        return `
+        <style>
+
+        @keyframes on {
+                from,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                  transform: scale(0.3);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.9);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                to {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 1s;
+                transform-origin: center;
+              }
+        </style>
+           <svg class="${state} light-color" viewBox="0 -21.38 122.88 122.88" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 122.88 80.13" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style> <g> <path class="st0" d="M92.6,48.09c0.58,4.96-4.52,9.24-8.99,7.88c-0.62,1.09-1.11,2.46-1.48,4.12c-0.85,3.86-0.6,2.68-0.23,6.41 c0.5,4.98-0.04,8.37-3.24,9.82v1.91H13.88v-1.91c-2.49-0.89-3.57-3.33-3.19-7.36c0.83-7.57,0.31-9.94-1.59-12.79 c-3.34,0.12-5.75-0.68-7.26-2.36c-3.07-3.41-2.14-8.42,1.7-10.83c0.79-0.5,1.72-0.87,2.8-1.1c2.14-0.45,3.67-0.46,5.68,0.47 c4.21,1.95,7.3,6.88,9.28,12.87L42.9,55.8c1.48,0.2,2.42,0.85,3.04,1.75c0.59-0.87,1.43-1.53,2.72-1.83 c6.72-0.29,11.54,0.6,16.45,0.6h5.72c1.17,0.01,1.78-0.52,1.98-1.46c1.39-4.26,3.83-7.65,6.82-10.59c1.98-1.94,2.34-2.66,5.2-2.57 C88.14,41.81,91.76,44.1,92.6,48.09L92.6,48.09z M97.53,0h19.6l5.75,22.68H91.82L97.53,0L97.53,0z M109.24,26.1v50.24h7.59 c1.05,0,1.9,0.85,1.9,1.9c0,1.05-0.85,1.9-1.9,1.9H97.87c-1.05,0-1.9-0.85-1.9-1.9c0-1.05,0.85-1.9,1.9-1.9h7.59V26.1H109.24 L109.24,26.1z M12.91,40.58l0.01,0c2.17-4.85,5.58-6.07,10.22-4.44l4.98,17.1h-5.38l-1.58-3.23l-1.74-3.56 c-0.82-1.4-1.76-2.58-2.84-3.55C15.48,41.92,14.26,41.15,12.91,40.58L12.91,40.58z M25.23,36.25c0.06-0.03,0.12-0.08,0.15-0.16 c1.83-4.23,6.89-5.42,11.03-3.61c0-0.01,0.01-0.02,0.01-0.02l1.13,21.79h-7.16L25.23,36.25L25.23,36.25z M38.63,32.03 c1.34-5.57,14.04-4.43,15.2-0.59c0.17-0.01-1.31,20.56-1.42,22.85h-1.89c-1.3,0-1.52-0.02-2.76,0.37 c-0.61,0.19-1.22,0.38-1.83,0.57l-1.61-0.6c-1.07-0.4-1.2-0.34-2.34-0.34H39.6l-0.92-22.25L38.63,32.03L38.63,32.03z M55.49,32.96 c0.04,0,0.09-0.01,0.13-0.03c4.6-2.45,10.99-0.67,11.61,2.53l-0.31,0.12l-5.04,18.67h-7.45L55.49,32.96L55.49,32.96z M68.76,36.93 c0.07,0.01,0.14-0.01,0.21-0.07c3.57-2.8,8.81-1.62,11.21,4.23l-0.05,0c-4.73,4.02-8.11,8.38-9.34,13.26h-6.85L68.76,36.93 L68.76,36.93z"></path> </g> </g></svg>
+        `;
+      ]]]
+
+icon_washing_machine:
+  styles:
+    custom_fields:
+      icon:
+        - width: 75%
+        - margin-left: -3%
+        - fill: >
+            [[[ return variables.state_on ? '#72757c' : '#9da0a2'; ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on ? 'on' : 'off';
+        const style = `
+        <svg viewBox="0 0 50 63">
+          <style>
+            @keyframes rotate {
+              0% {
+                visibility: visible;
+                transform: rotate(0deg);
+              }
+
+              100% {
+                transform: rotate(1080deg);
+              }
+            }
+
+            .on_no_delay {
+              animation: rotate 4s linear infinite;
+              transform-origin: center 60%;
+              will-change: transform;
+            }
+
+        .starting {
+            animation: rotate 2.8s ease-in;
+            transform-origin: center 60%;
+          }
+
+        .ending {
+            animation: rotate 2.8s;
+            transform-origin: center 60%;
+            animation-timing-function: cubic-bezier(.61, 1, .88, 1);
+        }
+
+        .off {
+          fill: #9ca2a5;
+        }
+          </style>
+        `;
+
+        let animation = ``
+        
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          animation = `ending`;
+        }
+        if (variables.state === 'off' && variables.timeout > 2000) {
+          animation = `off`;
+        }
+        if (variables.state === 'on' && variables.timeout < 2000) {
+          animation = `on_no_delay`;
+        }
+        if (variables.state === 'on' && variables.timeout > 2000) {
+          animation = `on_no_delay`;
+        }
+
+        return `${style}<path class="light-color" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble ${animation}" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+
+      ]]]
+
+icon_dryer:
+  styles:
+    custom_fields:
+      icon:
+        - width: 75%
+        - margin-left: -3%
+  custom_fields:
+    icon: >
+      [[[
+        const style = `
+        <svg viewBox="0 0 50 63">
+          <style>
+            @keyframes rotate {
+              0% {
+                visibility: visible;
+                transform: rotate(0deg);
+              }
+
+              100% {
+                transform: rotate(1080deg);
+              }
+            }
+
+            .on_no_delay {
+              animation: rotate 4s linear infinite;
+              transform-origin: center 60%;
+              fill: #5daeea;
+              will-change: transform;
+            }
+
+        .start {
+                      animation: rotate 2.8s ease-in;
+              transform-origin: center 60%;
+                      fill: #5daeea;
+
+                    }
+
+        .end {
+            animation: rotate 2.8s;
+            transform-origin: center 60%;
+            fill: #9ca2a5;
+            animation-timing-function: cubic-bezier(.61, 1, .88, 1);
+        }
+
+        .off {
+          fill: #9ca2a5;
+        }
+          </style>
+        `;
+        
+        if (variables.state === 'off' && variables.timeout < 2000) {
+          return `${style}<path style="fill:#9ca2a5;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble end" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'off' && variables.timeout > 2000) {
+          return `${style}<path style="fill:#9ca2a5;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble off" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'on' && variables.timeout > 2000) {
+          return `${style}<path style="fill:#5daeea;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble on_no_delay" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+        if (variables.state === 'on' && variables.timeout < 2000) {
+        return `${style}<path style="fill:#5daeea;" d="M33.844 28.656 6.25 0h37.5C47.179 0 50 2.821 50 6.25v50c0 3.429-2.821 6.25-6.25 6.25H6.25C2.821 62.5 0 59.679 0 56.25v-50C0 2.821 2.821 0 6.25 0m3.125 6.25A3.14 3.14 0 0 0 6.25 9.375 3.14 3.14 0 0 0 9.375 12.5 3.14 3.14 0 0 0 12.5 9.375 3.14 3.14 0 0 0 9.375 6.25m9.375 0a3.14 3.14 0 0 0-3.125 3.125A3.14 3.14 0 0 0 18.75 12.5a3.14 3.14 0 0 0 3.125-3.125A3.14 3.14 0 0 0 18.75 6.25M8.219 28.844a18.745 18.745 0 0 0-2.14 8.698c0 10.286 8.464 18.75 18.75 18.75s18.75-8.464 18.75-18.75A18.774 18.774 0 0 0 33.656 21a18.755 18.755 0 0 0-8.827-2.208 18.772 18.772 0 0 0-16.61 10.052Z"/><path class="tumble start" d="M36.986 25.953a16.932 16.932 0 0 1 4.957 11.969c0 9.285-7.641 16.926-16.926 16.926a16.933 16.933 0 0 1-11.969-4.958l17.688-17.687" />`;
+        }
+
+      ]]]

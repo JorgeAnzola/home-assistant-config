@@ -1,0 +1,46 @@
+---
+id: "2365167125070"
+alias: "Stairs - Automatic light on"
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.front_door
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.backdoor
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.entrance_motion
+    to: "on"
+condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.stairs
+    data:
+      effect: "Gold Glitter"
+      brightness_pct: 100
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.entrance_motion
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.front_door
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.backdoor
+        to: "off"
+  - delay:
+      minutes: 30
+  - service: light.turn_off
+    target:
+      entity_id: light.stairs
+mode: restart

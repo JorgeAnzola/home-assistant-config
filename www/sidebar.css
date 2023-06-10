@@ -1,0 +1,40 @@
+#card {
+    padding: 0;
+    border-width: 0;
+    font-family: SF Pro Display, system-ui;
+}
+
+#container {
+display: flex !important;
+}
+
+#name {
+padding: 1vw 2.5vw 0 var(--custom-layout-card-padding);
+white-space: normal;
+text-align: left;
+}
+
+.time {
+    font-size: var(--sidebar-time-font-size);
+    font-weight: 300;
+    line-height: var(--sidebar-time-line-height);
+    letter-spacing: 0.11vw;
+    margin-left: -0.3vw;
+    color: red!important;
+}
+
+p {
+font-size: var(--sidebar-font-size);
+line-height: var(--sidebar-line-height);
+font-weight: 200;
+letter-spacing: 0.07vw;
+color: #6a7377;
+}
+
+b {
+font-weight: 700;
+}
+
+p > b {
+color: rgba(255, 255, 255, 0.8);
+}

@@ -1,3 +1,5 @@
 ---
 alexa:
   smart_home:
+    entity_config: !include_dir_merge_named ../alexa/entity_config/
+    filter: !include_dir_named ../alexa/filter/

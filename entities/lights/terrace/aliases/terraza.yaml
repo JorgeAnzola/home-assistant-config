@@ -1,5 +1,0 @@
----
-platform: group
-name: Terraza
-entities:
-  - light.terrace

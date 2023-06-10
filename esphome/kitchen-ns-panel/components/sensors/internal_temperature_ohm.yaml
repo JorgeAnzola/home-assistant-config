@@ -1,0 +1,6 @@
+# Internal temperature sensor, adc reading converted to resistance (calculation)
+platform: resistance
+id: resistance_sensor
+sensor: ntc_source
+configuration: DOWNSTREAM
+resistor: 11.2kOhm

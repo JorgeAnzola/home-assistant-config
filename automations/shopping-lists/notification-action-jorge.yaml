@@ -1,0 +1,29 @@
+id: "1686152457242"
+alias: Shopping list - Action - Jorge
+trigger:
+  - platform: zone
+    entity_id: person.jorge
+    zone: zone.action
+    event: enter
+  - platform: zone
+    entity_id: person.jorge
+    zone: zone.action_2
+    event: enter
+condition:
+  - condition: numeric_state
+    entity_id: sensor.action_shopping_list_count
+    above: 0
+action:
+  - service: shopping_list_splitter.export
+  - service: shopping_list_splitter.import
+    data:
+      list_name: action
+  - service: !secret notify_jorges_iphone
+    data:
+      data:
+        actions:
+          - clickAction: /shopping-list
+            url: /shopping-list
+      message: Cick here to open the Action shopping list
+      title: Shopping list
+mode: single

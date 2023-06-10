@@ -1,5 +1,0 @@
----
-platform: group
-name: Cuarto
-entities:
-  - light.bed

@@ -1,0 +1,46 @@
+type: vertical-stack
+view_layout:
+  grid-area: sidebar
+cards:
+  - type: custom:button-card
+    entity: sensor.template_sidebar
+    template: sidebar
+    styles:
+      card:
+        - padding: 5px
+        - border-width: 0
+        - background: transparent
+        - font-family: SF Pro Display, Roboto, system-ui;
+    extra_styles: >
+      #container {
+        display: flex !important;
+      }
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Weather
+    tap_action: !include ../../pop-ups/weather.yaml
+    template: sidebar_footer
+  - type: grid
+    columns: 2
+    cards:
+      - type: custom:button-card
+        entity: person.marlyn
+        name: MG
+        tap_action: !include ../../pop-ups/marlyn.yaml
+        hold_action:
+          action: none
+        template: person
+        styles:
+          card:
+            - marging: 5px
+
+      - type: custom:button-card
+        entity: person.jorge
+        name: Jorge
+        tap_action: !include ../../pop-ups/jorge.yaml
+        hold_action:
+          action: none
+        template: person
+        styles:
+          card:
+            - marging: 5px

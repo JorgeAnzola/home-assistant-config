@@ -1,0 +1,4 @@
+---
+pulse:
+  name: "Slow Pulse"
+  update_interval: 2s

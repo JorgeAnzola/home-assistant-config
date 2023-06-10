@@ -1,0 +1,20 @@
+platform: homeassistant
+id: person_2
+entity_id: person.jorge
+on_value:
+  then:
+    - wait_until:
+        switch.is_on: nextion_init
+    - lambda: |-
+        int symbol=23; // away symbol
+
+        if (id(person_2).state == "home") {
+          symbol=24;
+          id(disp1).send_command_printf("Home.person_2_time.pco=%s", "14824");
+          id(disp1).send_command_printf("Home.person_2_time.bco=%s", "54938"); 
+        } else {
+          id(disp1).send_command_printf("Home.person_2_time.bco=%s", "14824");
+          id(disp1).send_command_printf("Home.person_2_time.pco=%s", "54938");
+        }
+
+        id(disp1).send_command_printf("Home.person_2.pic=%i", symbol);

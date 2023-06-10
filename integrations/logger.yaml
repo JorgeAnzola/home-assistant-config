@@ -1,3 +1,5 @@
 ---
 logger:
   default: error
+  logs:
+    custom_components.shopping_list_splitter: debug

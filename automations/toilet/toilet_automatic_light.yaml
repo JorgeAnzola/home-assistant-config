@@ -1,0 +1,38 @@
+---
+id: "1665167162078"
+alias: Toilet - Automatic light on
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.toilet_door
+    to: "on"
+  - platform: state
+    entity_id:
+      - binary_sensor.toilet_motion
+    to: "on"
+condition:
+  - condition: state
+    entity_id: light.toilet
+    state: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.toilet
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.toilet_motion
+        to: "off"
+      - platform: state
+        entity_id:
+          - binary_sensor.toilet_door
+        to: "off"
+  - delay: "00:05:00"
+  - service: light.turn_off
+    target:
+      entity_id: light.toilet
+mode: restart

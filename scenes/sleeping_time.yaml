@@ -1,0 +1,27 @@
+name: Sleeping time
+entities:
+  # Bedroom
+  light.bedroom: off
+  light.bedroom_wall_led_strip: off
+  light.closets: off
+  light.marlyn_nightstand: off
+  light.jorge_nightstand: off
+  light.bathroom: off
+  light.bathroom_mirror: off
+  switch.bathroom_heater: off
+  # Living room
+  light.deco_lamp: off
+  light.lamp: off
+  light.living_room_1: off
+  light.living_room_2: off
+  light.living_room_3: off
+  light.living_room_plant: off
+  light.bar_plant: off
+  # Kitchen
+  light.dinning_room: off
+  light.kitchen: off
+  light.kitchen_plant: off
+  # Everything else
+  light.hallway: off
+  light.toilet: off
+  light.third_floor: off

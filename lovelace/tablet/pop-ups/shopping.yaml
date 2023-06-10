@@ -1,0 +1,471 @@
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Groceries
+    style: >
+      --popup-max-width: calc(385px + 385px);
+      --ha-card-border-radius: 0;
+    card_mod:
+      style:
+        layout-card:
+          $grid-layout$:
+            hui-entities-card:
+              $: |
+                .card-content {
+                  padding: var(--tablet-popup-content-padding);
+                  padding-bottom: 0.8em;
+                }
+                ha-card {
+                  border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+                  border-radius: 0;
+                  transition: none;
+                }
+              $hui-horizontal-stack-card:
+                $: |
+                  #root {
+                    justify-content: space-evenly;
+                    margin-top: 1.7em;
+                  }
+    content:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        margin: 0
+        grid-template-columns: 385px 385px
+        grid-template-rows: 1fr
+        grid-template-areas: |
+          "system"
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: custom:html-template-card
+              ignore_line_breaks: true
+              content: |
+                <div style="padding: 10px; border-radius: 10px; background-color: #d7f9e8; color: black">
+                  <p>When adding items manually please put the word <strong>ACTION</strong>, <strong>SUPERMARKET</strong>, or <strong>HORNBACH</strong> in front of the name.</p>
+                </div>
+
+            - type: shopping-list
+              title: Shopping List
+        - type: vertical-stack
+          cards:
+            - type: custom:mod-card
+              card_mod:
+                style:
+                  hui-horizontal-stack-card$: |
+                    #root {
+                      flex-flow: wrap;
+                      justify-content: space-betweem;
+                      gap: 10px;
+                    }
+              card:
+                type: horizontal-stack
+                title: Supermarket
+                cards:
+                  - type: custom:button-card
+                    name: Avocados
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Avocados"
+                  - type: custom:button-card
+                    name: Bread
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Bread"
+                  - type: custom:button-card
+                    name: Butter
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Butter"
+                  - type: custom:button-card
+                    name: Cheese
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Cheese"
+                  - type: custom:button-card
+                    name: Chicken
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Chicken"
+                  - type: custom:button-card
+                    name: Coffee
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Coffee"
+                  - type: custom:button-card
+                    name: Eggs
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Eggs"
+                  - type: custom:button-card
+                    name: Ground beef
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Ground beef"
+                  - type: custom:button-card
+                    name: Mayonnaise
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Mayonnaise"
+                  - type: custom:button-card
+                    name: Milk
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Milk"
+                  - type: custom:button-card
+                    name: Mustard
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Mustard"
+                  - type: custom:button-card
+                    name: Olives
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Olives"
+                  - type: custom:button-card
+                    name: Olive oil
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Olive oil"
+                  - type: custom:button-card
+                    name: Pasta
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Pasta"
+                  - type: custom:button-card
+                    name: Pepper
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Pepper"
+                  - type: custom:button-card
+                    name: Pepsi Max Lemon
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Pepsi Max Lemon"
+                  - type: custom:button-card
+                    name: Salt
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Salt"
+                  - type: custom:button-card
+                    name: Sweetener
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Sweetener"
+                  - type: custom:button-card
+                    name: Greek yogurt
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Greek yogurt"
+                  - type: custom:button-card
+                    name: Canned tuna
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Canned tuna"
+                  - type: custom:button-card
+                    name: Honey
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Honey"
+                  - type: custom:button-card
+                    name: Baking powder
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Baking powder"
+                  - type: custom:button-card
+                    name: Vinegar
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Vinegar"
+                  - type: custom:button-card
+                    name: Cucumber
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Cucumber"
+                  - type: custom:button-card
+                    name: Tomatoes
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Tomatoes"
+                  - type: custom:button-card
+                    name: Onions
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Onions"
+                  - type: custom:button-card
+                    name: Garlic
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Garlic"
+                  - type: custom:button-card
+                    name: Salad mix
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "SUPERMARKET - Salad mix"
+
+            - type: custom:mod-card
+              card_mod:
+                style:
+                  hui-horizontal-stack-card$: |
+                    #root {
+                      flex-flow: wrap;
+                      justify-content: space-betweem;
+                      gap: 10px;
+                    }
+              card:
+                type: horizontal-stack
+                title: Action
+                cards:
+                  - type: custom:button-card
+                    name: Air freshener
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Air freshener"
+                  - type: custom:button-card
+                    name: Aluminium foil
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Aluminium foil"
+                  - type: custom:button-card
+                    name: Anti calc detergent
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Anti calc detergent"
+                  - type: custom:button-card
+                    name: Baking paper
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Baking paper"
+                  - type: custom:button-card
+                    name: Dish soap
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Dish soap"
+                  - type: custom:button-card
+                    name: Dishwasher tabs
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Dishwasher tabs"
+                  - type: custom:button-card
+                    name: Floor detergent
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Floor detergent"
+                  - type: custom:button-card
+                    name: Garbage bags (60L)
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Garbage bags"
+                  - type: custom:button-card
+                    name: Gloves
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Gloves"
+                  - type: custom:button-card
+                    name: Hand soap
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Hand soap"
+                  - type: custom:button-card
+                    name: Household wipes
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Household wipes"
+                  - type: custom:button-card
+                    name: Kitchen paper
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Kitchen paper"
+                  - type: custom:button-card
+                    name: Kitchen spray
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Kitchen spray"
+                  - type: custom:button-card
+                    name: Laundry detergent
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Laundry detergent"
+                  - type: custom:button-card
+                    name: Softener
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Softener"
+                  - type: custom:button-card
+                    name: Shower soap
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Shower soap"
+                  - type: custom:button-card
+                    name: Toilet tabs
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Toilet tabs"
+                  - type: custom:button-card
+                    name: Toilet cleaner
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Toilet cleaner"
+                  - type: custom:button-card
+                    name: Toilet paper
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Toilet paper"
+                  - type: custom:button-card
+                    name: Toilet wipes
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Toilet wipes"
+                  - type: custom:button-card
+                    name: Toothpaste
+                    template: name_only
+                    tap_action:
+                      action: call-service
+                      service: shopping_list.add_item
+                      service_data:
+                        name: "ACTION - Toothpaste"

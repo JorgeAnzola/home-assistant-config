@@ -1,2 +1,4 @@
 ---
-homekit: !include_dir_merge_named ../entities/homekit_homes
+homekit:
+  name: !secret home_name
+  filter: !include_dir_named ../homekit/filter/

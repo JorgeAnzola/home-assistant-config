@@ -3,6 +3,5 @@ platform: hvcgroep
 postcode: 1502EL
 huisnummer: 6
 resources:
-  - gft
   - plastic
   - papier

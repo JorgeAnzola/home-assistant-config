@@ -1,0 +1,22 @@
+---
+id: "1675090021425"
+alias: Guests bathroom - Automatic light
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.guests_bathroom_door
+    to: "on"
+condition:
+  - condition: state
+    entity_id: binary_sensor.quiet_hours
+    state: "off"
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.guests_bathroom
+  - delay:
+      hours: 1
+  - service: light.turn_off
+    target:
+      entity_id: light.guests_bathroom
+mode: restart

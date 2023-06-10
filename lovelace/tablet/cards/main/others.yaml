@@ -1,0 +1,67 @@
+---
+type: grid
+title: Others
+view_layout:
+  grid-area: others
+columns: 1
+cards:
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5200
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.hallway
+            name: First floor
+            template:
+              - static_light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.third_floor
+            name: Third floor
+            template:
+              - light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.stairs
+            name: Stairs
+            template:
+              - light
+              - icon_stairs
+          - type: custom:button-card
+            entity: light.stairs_photo_frame
+            name: Stairs wall
+            template:
+              - light
+              - icon_wall_lamp
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.guests_bathroom
+            name: Guests bathroom
+            template:
+              - static_light
+              - icon_bathroom
+          - type: custom:button-card
+            entity: switch.entrance_air_freshener
+            name: Freshener
+            template:
+              - base
+              - icon_air_freshener
+          - type: custom:button-card
+            entity: binary_sensor.washing_machine
+            name: Washer
+            template:
+              - base
+              - icon_washing_machine
+            tap_action:
+              action: none

@@ -1,0 +1,10 @@
+platform: template
+name: $device_name Alarm screen
+id: alarm_activated
+restore_state: false
+assumed_state: off
+optimistic: true
+on_turn_on:
+  - lambda: id(disp1).send_command_printf("page 3");
+on_turn_off:
+  - lambda: id(disp1).send_command_printf("page 0");

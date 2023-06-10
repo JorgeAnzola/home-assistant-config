@@ -1,0 +1,8 @@
+# Left button below the display
+platform: gpio
+name: $device_name Left Button
+pin:
+  number: 14
+  inverted: true
+on_click:
+  - switch.toggle: relay_1

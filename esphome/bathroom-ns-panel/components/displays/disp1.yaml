@@ -1,0 +1,22 @@
+platform: nextion
+id: disp1
+uart_id: tf_uart
+tft_url: $tft_url
+on_setup:
+  then:
+    - number.set:
+        id: brightness
+        value: 30
+    - lambda: id(disp1).send_command_printf("page 3");
+    - wait_until: api.connected
+    - switch.template.publish:
+        id: nextion_init
+        state: on
+    - if:
+        condition:
+          - switch.is_on: alarm_activated
+        then:
+          - lambda: id(disp1).send_command_printf("page 5");
+        else:
+          - delay: 5s
+          - lambda: id(disp1).send_command_printf("page 0");

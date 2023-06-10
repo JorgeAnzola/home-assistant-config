@@ -1,0 +1,6 @@
+# Internal temperature sensor, adc value
+platform: adc
+id: ntc_source
+pin: 38
+update_interval: 10s
+attenuation: 11db

@@ -1,0 +1,5 @@
+platform: gpio
+name: Kitchen Light
+id: relay_1
+pin:
+  number: 22

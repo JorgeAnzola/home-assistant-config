@@ -1,0 +1,12 @@
+platform: rest
+name: pollen_data_forecast
+scan_interval: 3600
+resource_template: https://api.ambeedata.com/forecast/pollen/by-lat-lng?lat={{ state_attr("zone.home", "latitude") | float }}&lng={{ state_attr("zone.home", "longitude") | float }}
+value_template: >-
+  {{ value_json.message}}
+headers:
+  content-type: application/json
+  x-api-key: !secret ambeedata_api_key
+json_attributes_path: data[0]
+json_attributes:
+  - Risk

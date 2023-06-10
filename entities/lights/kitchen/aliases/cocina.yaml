@@ -1,5 +1,0 @@
----
-platform: group
-name: Cocina
-entities:
-  - light.kitchen

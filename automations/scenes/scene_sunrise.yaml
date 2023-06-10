@@ -1,0 +1,12 @@
+id: "1667743895401"
+alias: Scene - Sunrise
+trigger:
+  - platform: state
+    entity_id:
+      - sun.sun
+    to: above_horizon
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.sunrise
+mode: single

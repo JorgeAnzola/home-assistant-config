@@ -37,6 +37,8 @@ class HacsThemeRepository(HacsRepository):
         except BaseException:  # lgtm [py/catch-base-exception] pylint: disable=broad-except
             pass
 
+        self.hacs.async_setup_frontend_endpoint_themes()
+
     async def validate_repository(self):
         """Validate."""
         # Run common validation steps.
@@ -50,7 +52,7 @@ class HacsThemeRepository(HacsRepository):
                 break
         if not compliant:
             raise HacsException(
-                f"Repository structure for {self.ref.replace('tags/','')} is not compliant"
+                f"{self.string} Repository structure for {self.ref.replace('tags/','')} is not compliant"
             )
 
         if self.repository_manifest.content_in_root:

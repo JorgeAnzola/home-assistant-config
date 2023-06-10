@@ -1,0 +1,15 @@
+---
+id: "1639589269237"
+alias: Telegram helper - alert callback MG
+trigger:
+  platform: event
+  event_type: telegram_callback
+  event_data:
+    data: /alert_mg
+action:
+  - service: script.find_my_phone
+    data:
+      service: !secret notify_marlyns_iphone
+  - service: notify.group_telegram
+    data:
+      message: Ok, I'm ringing her phone

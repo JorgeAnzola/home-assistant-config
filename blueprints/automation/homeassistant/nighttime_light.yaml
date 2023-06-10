@@ -1,0 +1,34 @@
+blueprint:
+  name: Nighttime light
+  description: Turn on a light at sunset and off at sunrise
+  domain: automation
+  input:
+    target_light:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+mode: single
+trigger:
+  platform: state
+  entity_id:
+    - sun.sun
+action:
+  - if:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    then:
+      - service: light.turn_on
+        data:
+          brightness_pct: 60
+          transition: 10
+        target:
+          entity_id: !input target_light
+    else:
+      - service: light.turn_off
+        data:
+          transition: 10
+        target:
+          entity_id: !input target_light

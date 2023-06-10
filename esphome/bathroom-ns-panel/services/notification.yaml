@@ -1,0 +1,16 @@
+# Service to show a notification on the screen for 15 s. Tap or wait to close.
+service: notification
+variables:
+  header: string
+  message: string
+then:
+  - lambda: |-
+      id(disp1).set_component_text_printf("Notifications.head", "%s", header.c_str());
+      id(disp1).set_component_text_printf("Notifications.body", "%s", message.c_str());
+      id(disp1).send_command_printf("page 6");
+  - delay: 15s
+  - lambda: |-
+      id(disp1).send_command_printf("page 0");
+      id(disp1).set_component_text_printf("Notifications.head", " ");
+      id(disp1).set_component_text_printf("Notifications.body", " ");
+      id(disp1).send_command_printf("page 0");

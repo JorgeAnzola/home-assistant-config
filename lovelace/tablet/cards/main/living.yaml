@@ -1,0 +1,68 @@
+type: grid
+title: Living room
+view_layout:
+  grid-area: living
+columns: 1
+cards:
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5000
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.living_room
+            name: Light
+            template:
+              - static_light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.lamp
+            name: Lamp
+            template:
+              - static_light
+              - icon_living_lamp
+          - type: custom:button-card
+            entity: light.deco_lamp
+            name: Small lamp
+            template:
+              - static_light
+              - icon_lamp
+          - type: custom:button-card
+            entity: light.living_room_plant
+            name: Plant
+            template:
+              - static_light
+              - icon_plant
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.tv_ambient
+            name: TV light
+            template:
+              - light
+              - icon_hue
+          - type: custom:button-card
+            entity: switch.living_room_air_freshener
+            name: Freshener
+            template:
+              - base
+              - icon_air_freshener
+      - type: grid
+        columns: 1
+        cards:
+          - type: custom:button-card
+            entity: media_player.living_room_tv
+            name: TV
+            template:
+              - media
+              - icon_tv
+              - loader

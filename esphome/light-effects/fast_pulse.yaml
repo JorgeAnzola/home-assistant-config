@@ -1,0 +1,5 @@
+---
+pulse:
+  name: "Fast Pulse"
+  transition_length: 0.5s
+  update_interval: 0.5s

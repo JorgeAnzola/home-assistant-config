@@ -1,8 +1,0 @@
----
-platform: template
-sensors:
-  weather_summary:
-    friendly_name: "Weather - Summary"
-    value_template: >
-      {%- set apparent = states('sensor.weather_feels_like_temperature') | round %}
-      The temperature of this {{ states('sensor.season_emoji') }} {{ states('sensor.season') }} {{ states('sensor.tod') }} <strong>feels like {{ apparent }}°C</strong>

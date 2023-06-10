@@ -1,0 +1,5 @@
+platform: gpio
+name: Dinning room light
+id: relay_2
+pin:
+  number: 19

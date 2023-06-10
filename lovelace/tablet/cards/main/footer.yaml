@@ -1,0 +1,39 @@
+type: horizontal-stack
+view_layout:
+  grid-area: footer
+cards:
+  # - type: custom:button-card
+  #   name: >
+  #     <ha-icon icon="mdi:washing-machine"></ha-icon> Laundry
+  #   tap_action: !include ../../pop-ups/laundry.yaml
+  #   template: footer
+  # - type: custom:button-card
+  #   name: >
+  #     <ha-icon icon="mdi:robot-vacuum"></ha-icon> Vacuum
+  #   tap_action: !include ../../pop-ups/network.yaml
+  #   template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:popcorn"></ha-icon> Home state
+    tap_action: !include ../../pop-ups/network.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:cart"></ha-icon> Groceries
+    tap_action: !include ../../pop-ups/shopping.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:wifi"></ha-icon> Wi-Fi
+    tap_action: !include ../../pop-ups/network.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:lightning-bolt"></ha-icon> Energy
+    tap_action: !include ../../pop-ups/energy.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:cog"></ha-icon>
+    tap_action: !include ../../pop-ups/information.yaml
+    template: footer

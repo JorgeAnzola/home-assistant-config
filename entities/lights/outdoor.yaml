@@ -1,0 +1,7 @@
+---
+platform: group
+name: Outdoor
+entities:
+  - light.front_door
+  - light.parking
+  - light.terrace

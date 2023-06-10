@@ -1,0 +1,10 @@
+addressable_lambda:
+  name: "Static Christmas"
+  lambda: |-
+
+    for (int i = 0; i <  it.size(); i+=20) {
+      it[i] = light::ESPColor(255, 0, 18);
+    }
+    for (int i = 10; i <  it.size(); i+=20) {
+      it[i] = light::ESPColor(0, 179, 44);
+    }

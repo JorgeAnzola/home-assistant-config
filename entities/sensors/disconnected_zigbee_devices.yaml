@@ -1,0 +1,15 @@
+---
+platform: template
+sensors:
+  disconnected_zigbee_devices:
+    friendly_name: "Disconnected zigbee devices"
+    icon_template: mdi:signal-off
+    value_template: >
+      {% set ns = namespace(disconnected=[]) %}
+
+      {% for s in states.sensor 
+        if s.entity_id.endswith('linkquality') and s.state != 'unknown' and s.state == '' %}
+          {% set ns.disconnected = ns.disconnected + [s.entity_id] %}
+      {% endfor %}
+
+      {{ ns.disconnected | join(',') }}

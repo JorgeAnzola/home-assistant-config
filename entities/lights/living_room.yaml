@@ -1,0 +1,7 @@
+---
+platform: group
+name: Living Room
+entities:
+  - light.living_room_1
+  - light.living_room_2
+  - light.living_room_3

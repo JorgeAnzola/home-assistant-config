@@ -1,0 +1,43 @@
+type: grid
+title: Bar/Terrace
+view_layout:
+  grid-area: bar
+columns: 1
+cards:
+  - type: custom:swipe-card
+    start_card: 1
+    parameters:
+      autoplay:
+        delay: 5200
+        disableOnInteraction: false
+      spaceBetween: 30
+      speed: 650
+      threshold: 7
+    cards:
+      - type: grid
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.living_room_3
+            name: Light
+            template:
+              - static_light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.bar_plant
+            name: Plant
+            template:
+              - base
+              - icon_plant
+          - type: custom:button-card
+            entity: light.terrace
+            name: Terrace
+            template:
+              - light
+              - icon_spot
+          - type: custom:button-card
+            entity: light.hallway
+            name: Pergola
+            template:
+              - light
+              - icon_pergola

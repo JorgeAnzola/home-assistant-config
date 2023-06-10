@@ -1,5 +1,0 @@
----
-platform: group
-name: Comedor
-entities:
-  - light.dinning_room

@@ -1,9 +1,12 @@
 import asyncio
 import logging
-from typing import Dict, Union
+from typing import Union
 
-from homeassistant.components.remote import RemoteEntity, ATTR_DELAY_SECS, \
-    DEFAULT_DELAY_SECS
+from homeassistant.components.remote import (
+    ATTR_DELAY_SECS,
+    DEFAULT_DELAY_SECS,
+    RemoteEntity,
+)
 from homeassistant.const import ATTR_COMMAND
 from homeassistant.helpers.entity import Entity
 
@@ -11,7 +14,7 @@ from .binary_sensor import XRemoteSensor, XRemoteSensorOff
 from .button import XRemoteButton
 from .core.const import DOMAIN
 from .core.entity import XEntity
-from .core.ewelink import XRegistry, SIGNAL_ADD_ENTITIES
+from .core.ewelink import SIGNAL_ADD_ENTITIES, XRegistry
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -22,16 +25,11 @@ async def async_setup_entry(hass, config_entry, add_entities):
     ewelink: XRegistry = hass.data[DOMAIN][config_entry.entry_id]
     ewelink.dispatcher_connect(
         SIGNAL_ADD_ENTITIES,
-        lambda x: add_entities([e for e in x if isinstance(e, RemoteEntity)])
+        lambda x: add_entities([e for e in x if isinstance(e, RemoteEntity)]),
     )
 
 
-def rfbridge_childs(remotes: list):
-    try:
-        yaml = XRegistry.config["rfbridge"]
-    except Exception:
-        yaml = {}
-
+def rfbridge_childs(remotes: list, config: dict = None):
     childs = {}
     # For dual RF sensors: {payload_on channel: payload_off name}
     duals = {}
@@ -47,15 +45,15 @@ def rfbridge_childs(remotes: list):
                 child = {"name": remote["name"]}
 
             # everride child params from YAML
-            if child["name"] in yaml:
-                child.update(yaml[child["name"]])
+            if config and child["name"] in config:
+                child.update(config[child["name"]])
 
                 if "payload_off" in child:
                     duals[channel] = child["payload_off"]
 
                 # child with timeout or payload_off can't be a button
                 if child.get("device_class") == "button" and (
-                        "payload_off" in child or "timeout" in child
+                    "payload_off" in child or "timeout" in child
                 ):
                     child.pop("device_class")
 
@@ -63,7 +61,11 @@ def rfbridge_childs(remotes: list):
             childs[channel] = child
 
     for ch, name in duals.items():
-        ch_off = next(k for k, v in childs.items() if v["name"] == name)
+        try:
+            ch_off = next(k for k, v in childs.items() if v["name"] == name)
+        except StopIteration:
+            _LOGGER.warning("Can't find payload_off: " + name)
+            continue
         # move off channel to end of the dict
         childs[ch_off] = childs.pop(ch_off)
         childs[ch_off]["channel_on"] = ch
@@ -74,18 +76,18 @@ def rfbridge_childs(remotes: list):
 # noinspection PyAbstractClass
 class XRemote(XEntity, RemoteEntity):
     _attr_is_on = True
-    childs: Dict[
-        str, Union[XRemoteButton, XRemoteSensor, XRemoteSensorOff]
-    ] = None
+    childs: dict[str, Union[XRemoteButton, XRemoteSensor, XRemoteSensorOff]] = None
 
     def __init__(self, ewelink: XRegistry, device: dict):
         try:
             # only learned channels
             channels = [str(c["rfChl"]) for c in device["params"]["rfList"]]
 
-            childs = rfbridge_childs(device["tags"]["zyx_info"])
-            for ch, child in childs.items():
+            config = ewelink.config and ewelink.config.get("rfbridge")
+            childs = rfbridge_childs(device["tags"]["zyx_info"], config)
+            for ch, child in list(childs.items()):
                 if ch not in channels:
+                    childs.pop(ch)
                     continue
 
                 if "channel_on" in child:
@@ -99,9 +101,7 @@ class XRemote(XEntity, RemoteEntity):
             self.childs = childs
 
         except Exception as e:
-            _LOGGER.error(
-                f"{self.unique_id} | can't setup RFBridge", exc_info=e
-            )
+            _LOGGER.error(f"{self.unique_id} | can't setup RFBridge", exc_info=e)
 
         # init bridge after childs for update available
         XEntity.__init__(self, ewelink, device)
@@ -111,7 +111,8 @@ class XRemote(XEntity, RemoteEntity):
 
     def set_state(self, params: dict):
         # skip full cloud state update
-        if not self.is_on or "init" in params:
+        # https://github.com/AlexxIT/SonoffLAN/issues/1101
+        if not self.is_on or "init" in params or not self.hass:
             return
 
         for param, ts in params.items():
@@ -136,8 +137,10 @@ class XRemote(XEntity, RemoteEntity):
             child.internal_update(ts)
 
             self._attr_extra_state_attributes = data = {
-                "command": int(child.channel), "name": child.name,
-                "entity_id": self.entity_id, "ts": ts,
+                "command": int(child.channel),
+                "name": child.name,
+                "entity_id": self.entity_id,
+                "ts": ts,
             }
             self.hass.bus.async_fire("sonoff.remote", data)
 
@@ -161,21 +164,19 @@ class XRemote(XEntity, RemoteEntity):
 
             # transform button name to channel number
             if not channel.isdigit():
-                channel = next(
-                    k for k, v in self.childs.items() if v.name == channel
-                )
+                channel = next(k for k, v in self.childs.items() if v.name == channel)
 
             # cmd param for local and for cloud mode
-            await self.ewelink.send(self.device, {
-                "cmd": "transmit", "rfChl": int(channel)
-            })
+            await self.ewelink.send(
+                self.device, {"cmd": "transmit", "rfChl": int(channel)}
+            )
 
     async def async_learn_command(self, **kwargs):
         command = kwargs[ATTR_COMMAND]
         # cmd param for local and for cloud mode
-        await self.ewelink.send(self.device, {
-            "cmd": "capture", "rfChl": int(command[0])
-        })
+        await self.ewelink.send(
+            self.device, {"cmd": "capture", "rfChl": int(command[0])}
+        )
 
     async def async_turn_on(self, **kwargs) -> None:
         self._attr_is_on = True

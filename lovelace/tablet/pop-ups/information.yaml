@@ -1,0 +1,121 @@
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: System information
+    style: >
+      --popup-max-width: calc(500px);
+      --ha-card-border-radius: 0;
+    card_mod:
+      style:
+        layout-card:
+          $grid-layout$:
+            hui-entities-card:
+              $: |
+                .card-content {
+                  padding: var(--tablet-popup-content-padding);
+                  padding-bottom: 0.8em;
+                }
+                ha-card {
+                  border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+                  border-radius: 0;
+                  transition: none;
+                }
+                .footer {
+                  display: flex;
+                  justify-content: space-evenly;
+                  padding: 25px;
+                }
+    content:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        margin: 0
+        grid-template-columns: 500px
+        grid-template-rows: 1fr
+        grid-template-areas: |
+          "system"
+      cards:
+        - type: entities
+          view_layout:
+            grid-area: system
+          show_header_toggle: false
+          card_mod:
+            class: header
+          entities:
+            - entity: sensor.home_assistant_current_version
+              name: Current version
+              icon: mdi:home-assistant
+
+            - entity: sensor.home_assistant_latest_version
+              name: Latest version
+              icon: mdi:home-assistant
+
+            - entity: sensor.last_boot
+              name: Last boot
+
+            - entity: sensor.processor_temperature
+              name: CPU temperature
+
+            - type: custom:bar-card
+              width: 55%
+              height: 2em
+              decimal: 0
+              unit_of_measurement: "%"
+              positions: &bar_card_positions
+                icon: outside
+                indicator: "off"
+                name: outside
+              severity: &bar_card_severity
+                - color: "#6d2525"
+                  from: 85
+                  to: 999
+              entity_row: true
+              entities:
+                - entity: sensor.processor_use
+                  name: CPU usage
+                  icon: mdi:memory
+
+                - entity: sensor.memory_use_percent
+                  name: Memory usage
+                  icon: mdi:chip
+
+                - entity: sensor.disk_use_percent_home
+                  name: Storage
+                  icon: mdi:database
+
+          footer:
+            type: custom:hui-horizontal-stack-card
+            cards:
+              - type: custom:button-card
+                name: Restart HA
+                icon: mdi:reload
+                tap_action:
+                  action: call-service
+                  service: browser_mod.sequence
+                  service_data:
+                    sequence:
+                      - service: browser_mod.notification
+                        data:
+                          message: Restarting server...
+                      - service: browser_mod.delay
+                        data:
+                          time: 3000
+                      - service: homeassistant.restart
+                template: icon_name
+              - type: custom:button-card
+                name: Restart RPi
+                icon: mdi:reload
+                tap_action:
+                  action: call-service
+                  service: browser_mod.sequence
+                  service_data:
+                    sequence:
+                      - service: browser_mod.notification
+                        data:
+                          message: Restarting host...
+                      - service: browser_mod.delay
+                        data:
+                          time: 3000
+                      - service: hassio.host_reboot
+                template: icon_name

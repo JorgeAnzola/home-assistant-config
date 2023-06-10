@@ -34,14 +34,17 @@ workspace.xml
 glances/glances.conf
 
 # Zigbee 2 MQTT, ignored until I know what to do with this
-zigbee2mqtt/logs/
-zigbee2mqtt/log/
-zigbee2mqtt/configuration.yaml
-zigbee2mqtt/.configuration.yaml.bk
-zigbee2mqtt/state.json
+zigbee2mqtt/*
 
 # Plex recently added artwork
 www/Plex_Recently_Added
 
 # Sonoff
 .sonoff.json
+.shopping_list.json
+
+www/wifi-qr.jpg
+www/jorge.jpg
+www/mg.jpg
+.shopping_list.json
+.shopping_list_*.json

@@ -1,0 +1,3 @@
+platform: file
+name: "Shopping list"
+file_path: "/config/.shopping_list.json"

@@ -1,5 +1,6 @@
+import asyncio
 import time
-from typing import Callable, Dict, List, Optional, TypedDict
+from typing import Callable, Optional, TypedDict
 
 from aiohttp import ClientSession
 
@@ -23,12 +24,13 @@ class XDevice(TypedDict, total=False):
     host: Optional[str]  # required for local
     devicekey: Optional[str]  # required for encrypted local devices (not DIY)
 
+    local_ts: Optional[float]  # time of last local msg from device
     params_bulk: Optional[dict]  # helper for send_bulk commands
-    pow_ts: Optional[int]  # required for pow devices with cloud connection
+    pow_ts: Optional[float]  # required for pow devices with cloud connection
 
 
 class XRegistryBase:
-    dispatcher: Dict[str, List[Callable]] = None
+    dispatcher: dict[str, list[Callable]] = None
     _sequence: int = 0
 
     def __init__(self, session: ClientSession):
@@ -45,13 +47,20 @@ class XRegistryBase:
             XRegistryBase._sequence += 1
         return str(XRegistryBase._sequence)
 
-    def dispatcher_connect(self, signal: str, target: Callable):
+    def dispatcher_connect(self, signal: str, target: Callable) -> Callable:
         targets = self.dispatcher.setdefault(signal, [])
         if target not in targets:
             targets.append(target)
+        return lambda: targets.remove(target)
 
     def dispatcher_send(self, signal: str, *args, **kwargs):
         if not self.dispatcher.get(signal):
             return
         for handler in self.dispatcher[signal]:
             handler(*args, **kwargs)
+
+    async def dispatcher_wait(self, signal: str):
+        event = asyncio.Event()
+        disconnect = self.dispatcher_connect(signal, lambda: event.set())
+        await event.wait()
+        disconnect()

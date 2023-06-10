@@ -1,0 +1,4 @@
+platform: command_line
+name: Supermarket Shopping List Count
+command: "cat /config/.shopping_list_supermarket.json"
+value_template: "{{ value_json | length }}"

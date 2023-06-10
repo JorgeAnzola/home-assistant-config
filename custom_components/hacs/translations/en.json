@@ -47,11 +47,28 @@
                     "release_limit": "Number of releases to show.",
                     "debug": "Enable debug.",
                     "appdaemon": "Enable AppDaemon apps discovery & tracking",
-                    "netdaemon": "Enable NetDaemon apps discovery & tracking",
+                    "netdaemon": "[DEPRECATED] Enable NetDaemon apps discovery & tracking",
                     "sidepanel_icon": "Side panel icon",
                     "sidepanel_title": "Side panel title"
                 }
             }
+        }
+    },
+    "issues": {
+        "restart_required": {
+            "title": "Restart required",
+            "fix_flow": {
+                "step": {
+                    "confirm_restart": {
+                        "title": "Restart required",
+                        "description": "Restart of Home Assistant is required to finish download/update of {name}, click submit to restart now."
+                    }
+                }
+            }
+        },
+        "removed": {
+            "title": "Repository removed from HACS",
+            "description": "{name} has been removed from HACS for {reason} visit the [HACS Panel](/hacs/repository/{repositry_id}) to remove it."
         }
     }
 }

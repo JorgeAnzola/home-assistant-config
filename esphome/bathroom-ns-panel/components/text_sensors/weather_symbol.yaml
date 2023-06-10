@@ -1,0 +1,51 @@
+platform: homeassistant
+id: weather_symbol
+entity_id: weather.buienradar
+on_value:
+  then:
+    - wait_until:
+        switch.is_on: nextion_init
+    - lambda: |-
+        int symbol=4; // 5 is a empty box.
+        if (id(weather_symbol).state == "clear-night") {
+          symbol=5;
+        } else if (id(weather_symbol).state == "cloudy") {
+          symbol=6;
+          if (id(sun_sun).state == "below_horizon") {
+            symbol=7;
+          }
+        } else if (id(weather_symbol).state == "fog") {
+          symbol=8;
+        } else if (id(weather_symbol).state == "hail" || id(weather_symbol).state == "snowy-rainy") {
+          symbol=9;
+        } else if (id(weather_symbol).state == "lightning") {
+          symbol=10;
+        } else if (id(weather_symbol).state == "lightning-rainy" || id(weather_symbol).state == "exceptional") {
+          symbol=11;
+          if (id(sun_sun).state == "below_horizon") {
+            symbol=12;
+          }
+        } else if (id(weather_symbol).state == "partlycloudy") {
+          symbol=13;
+          if (id(sun_sun).state == "below_horizon") {
+            symbol=7;
+          }
+        } else if (id(weather_symbol).state == "pouring") {
+          symbol=14;
+        } else if (id(weather_symbol).state == "rainy") {
+          symbol=15;
+        } else if (id(weather_symbol).state == "snowy") {
+          symbol=16;
+        } else if (id(weather_symbol).state == "sunny") {
+          symbol=17;
+          if (id(sun_sun).state == "below_horizon") {
+            symbol = 5;
+          }
+        } else if (id(weather_symbol).state == "windy" || id(weather_symbol).state == "windy-variant") {
+          symbol=18;              
+        }
+        id(disp1).send_command_printf("Home.weather_symbol.pic=%i", symbol);
+
+        id(disp1).send_command_printf("WeatherDetails.weather_symbol.pic=%i", symbol);
+
+        id(disp1).send_command_printf("Screensaver.weather_symbol.pic=%i", symbol);
