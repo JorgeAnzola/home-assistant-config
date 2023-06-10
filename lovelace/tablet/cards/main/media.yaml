@@ -20,7 +20,6 @@ cards:
           - type: custom:button-card
             entity: media_player.spotify
             name: Spotify
-            tap_action: !include ../../pop-ups/spotify_controls.yaml
             template:
               - media
               - icon_spotify

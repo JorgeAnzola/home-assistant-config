@@ -57,6 +57,8 @@ cards:
             template:
               - base
               - icon_air_freshener
+            double_tap_action:
+              action: more-info
           - type: custom:button-card
             entity: binary_sensor.washing_machine
             name: Washer
@@ -64,4 +66,6 @@ cards:
               - base
               - icon_washing_machine
             tap_action:
-              action: none
+              action: more-info
+            double_tap_action:
+              action: more-info

@@ -11,18 +11,7 @@ base_media:
     media_off: >
       [[[ return !entity || ['off', 'idle', 'standby', 'unknown', 'unavailable'].indexOf(entity.state) !== -1; ]]]
   tap_action:
-    action: >
-      [[[
-        return variables.media_on
-            ? 'call-service'
-            : 'none';
-      ]]]
-    service: media_player.media_play_pause
-    service_data:
-      entity_id: >
-        [[[
-          return variables.entity_id;
-        ]]]
+    action: more-info
   double_tap_action:
     action: more-info
   styles:
@@ -65,7 +54,7 @@ media:
       icon:
         - width: 70%
         - margin-left: 2%
-        - fill: '#9da0a2'
+        - fill: "#9da0a2"
         - display: >
             [[[
             if (variables.is_youtube) {
