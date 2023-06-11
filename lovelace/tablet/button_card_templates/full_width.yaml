@@ -1,0 +1,19 @@
+full-width:
+  size: 2vw
+  show_icon: false
+  color: "#9da0a2"
+  styles:
+    card:
+      - color: "#97989c"
+      - border: 0.12vw solid rgba(115, 115, 115, 0.2)
+      - transition: none
+      - padding: 0
+      - overflow: visible
+      - margin: 0 0 10px 0
+      - --mdc-ripple-color: rgba(0, 0, 0, 0.8)
+  tap_action:
+    haptic: medium
+  hold_action:
+    action: block
+  double_tap_action:
+    action: block

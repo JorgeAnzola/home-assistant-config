@@ -10,8 +10,7 @@ attributes:
     </span>
   date: >
     <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
-      {{ now().strftime('%A') }}<br/>
-      {{ now().strftime('%d %b') }}
+      {{ now().strftime('%A') }}, {{ now().strftime('%d %b') }}
       </b>
   greet: >
     <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
@@ -21,7 +20,7 @@ attributes:
     {% elif time <= 5 %} God night 😑
     {% elif time <= 7 %} Good morning 🥱
     {% elif time <= 9 %} Good morning {{'\U00002615'}}
-    {% elif time <= 12 %} Good afternoon 😄
+    {% elif time <= 12 %} Good morning 😄
     {% elif time <= 15 %} Good afternoon 😎
     {% elif time <= 17 %} Good afternoon 👋🏻
     {% elif time <= 19 %} Good evening 😬
@@ -30,12 +29,12 @@ attributes:
     {% else %} Good evening 😪
     {% endif %}
     </b>
+
   weather: >
     {% set feels_like = states('sensor.buienradar_temperature_feels_like') | round %}
     {% set condition = states('sensor.buienradar_condition') | lower %}
     {% set full_condition = states('sensor.buienradar_full_condition') | lower %}
     {% set precipitation_probability = states('sensor.openweathermap_forecast_precipitation_probability') | int %}
-    {% set season = states('sensor.season') %}
 
     {% set emoji %}
     {% if condition == 'clear' %}🌞
@@ -61,15 +60,88 @@ attributes:
     No significant precipitation expected.
     {% endif %}
     <br/>
-    <br/>
-    {% if season == 'spring' %}
-    Enjoy this spring day!
-    {% elif season == 'summer' %}
-    Enjoy this summer day!
-    {% elif season == 'autumn' %}
-    Enjoy this autumn day!
-    {% elif season == 'winter' %}
-    Enjoy this winter day!
-    {% else %}
-    Have a great day!
+  calendar: >
+    {% set calendars = [
+      'calendar.birthdays',
+      'calendar.bruno',
+      'calendar.lake_house',
+      'calendar.jorge_anzola_gmail_com'
+    ] %}
+
+    {% set tomorrowStartDateTime = (as_timestamp(now()) + (86400)) | timestamp_custom("%Y-%m-%d 00:00:00",true) %}
+    {% set tomorrowStartTimestamp = strptime(tomorrowStartDateTime, "%Y-%m-%d %H:%M:%S").timestamp() | int %}
+    {% set tomorrowEndDateTime = (as_timestamp(now()) + (86400)) | timestamp_custom("%Y-%m-%d 23:59:59",true) %}
+    {% set tomorrowEndTimestamp = strptime(tomorrowEndDateTime, "%Y-%m-%d %H:%M:%S").timestamp() | int%}
+
+    {% set now = now().timestamp() | int %}
+
+
+    {% set data = namespace(events=[],tomorrowEvents=[]) %}
+
+    {% for calendar in calendars %}
+        {% set startTime = state_attr(calendar, 'start_time') | as_timestamp | int %}
+        {% set endTime = state_attr(calendar, 'end_time') | as_timestamp | int %}
+        {% if startTime <= now and now < endTime %}
+            {% set message = state_attr(calendar, 'message') %}
+            {% if 'birthdays' in calendar %}
+                {% set event = {
+                    'name':'<strong style="color:white">' + message + "'s birthday</strong>",
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% elif 'bruno' in calendar %}
+                {% set event = {
+                    'name': '<strong style="color:white">Brunos ' + message + '</strong>',
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% else %}
+                {% set event = {
+                    'name': '<strong style="color:white">' + message + '</strong>',
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% endif %}
+            {% set data.events = data.events + [event] %}
+        {% endif %}
+        
+        {% if startTime >= tomorrowStartTimestamp and endTime < tomorrowEndTimestamp %}
+            {% set message = state_attr(calendar, 'message') %}
+            {% if 'birthdays' in calendar %}
+                {% set tomorrowEvent = {
+                    'name':'<strong style="color:white">' + message + "'s birthday</strong>",
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% elif 'bruno' in calendar %}
+                {% set tomorrowEvent = {
+                    'name': '<strong style="color:white">Brunos ' + message + '</strong>',
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% else %}
+                {% set tomorrowEvent = {
+                    'name': '<strong style="color:white">' + message + '</strong>',
+                    'calendar': calendar.split('.')[-1]
+                } %}
+            {% endif %}
+            {% set data.tomorrowEvents = data.tomorrowEvents + [tomorrowEvent] %}
+        {% endif %}
+    {% endfor %}
+
+    {% set eventCount = data.events | length %}
+
+    {% if eventCount == 1 %}
+        🗓️ For today: {{ data.events[0]['name'] }} 
+    {% elif eventCount == 2 %}
+        🗓️ For today:  {{ data.events[0]['name'] }} and {{ data.events[1]['name'] }}
+    {% elif eventCount > 2 %}
+        {% set remainingCount = eventCount - 2 %}
+        🗓️ For today: {{ data.events[0]['name'] }}, {{ data.events[1]['name'] }} and {{ remainingCount }} others
+    {% endif %}
+
+    {% set tomorrowEventCount = data.tomorrowEvents | length %}
+
+    {% if tomorrowEventCount == 1 %}
+        🗓️ For tomorrow: {{ data.tomorrowEvents[0]['name'] }} 
+    {% elif tomorrowEventCount == 2 %}
+        🗓️ For tomorrow:  {{ data.tomorrowEvents[0]['name'] }} and {{ data.tomorrowEvents[1]['name'] }}
+    {% elif tomorrowEventCount > 2 %}
+        {% set remainingCount = tomorrowEventCount - 2 %}
+        🗓️ For tomorrow: {{ data.tomorrowEvents[0]['name'] }}, {{ data.tomorrowEvents[1]['name'] }} and {{ remainingCount }} others
     {% endif %}

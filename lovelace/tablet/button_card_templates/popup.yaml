@@ -36,7 +36,7 @@ name_only:
       - color: "#9da0a2"
       - border-radius: 0.6em
       - padding: 5px 1.4em
-      - width: max-content
+      - width: 100%
       - font-size: 12px
       - font-weight: 500
       - letter-spacing: 0.03em

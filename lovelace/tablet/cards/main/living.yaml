@@ -67,4 +67,3 @@ cards:
             template:
               - media
               - icon_tv
-              - loader

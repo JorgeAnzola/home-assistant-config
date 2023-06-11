@@ -15,7 +15,7 @@ cards:
   - type: custom:button-card
     name: >
       <ha-icon icon="mdi:popcorn"></ha-icon> Home state
-    tap_action: !include ../../pop-ups/network.yaml
+    tap_action: !include ../../pop-ups/home.yaml
     template: footer
   - type: custom:button-card
     name: >

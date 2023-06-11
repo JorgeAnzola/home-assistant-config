@@ -10,3 +10,5 @@ settings:
     translate_no_updates: No updates
     translate_update_available: Update available
     translate_updates_available: Updates available
+    translate_closed: Closed
+    translate_open: Open
