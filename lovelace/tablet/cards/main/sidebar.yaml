@@ -15,11 +15,60 @@ cards:
       #container {
         display: flex !important;
       }
-  - type: custom:button-card
-    name: >
-      <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Weather
-    tap_action: !include ../../pop-ups/weather.yaml
-    template: sidebar_footer
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        name: >
+          <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Weather
+        tap_action: !include ../../pop-ups/weather.yaml
+        template: sidebar_footer
+        styles:
+          card:
+            - color: >
+                [[[
+                  return variables.active
+                      ? '#4b5254'
+                      : '#97989c';
+                ]]]
+            - background-color: >
+                [[[
+                  return variables.active
+                      ? 'rgba(255, 255, 255, 0.85)'
+                      : 'rgba(115, 115, 115, 0.25)';
+                ]]]
+      - type: custom:button-card
+        variables:
+          active: >
+            [[[
+               return states['sensor.events_today'] > 0
+             ]]]
+          notify: >
+            [[[
+               if (states['sensor.events_today'] > 0) {
+                  return states['sensor.events_today']
+               } 
+
+               return false;
+             ]]]
+        name: >
+          <ha-icon icon="mdi:calendar"></ha-icon> Calendar
+        tap_action: !include ../../pop-ups/calendar.yaml
+        template: sidebar_footer
+        styles:
+          card:
+            - color: >
+                [[[
+                  return variables.active
+                      ? '#4b5254'
+                      : '#97989c';
+                ]]]
+            - background-color: >
+                [[[
+                  return variables.active
+                      ? 'rgba(255, 255, 255, 0.85)'
+                      : 'rgba(115, 115, 115, 0.25)';
+                ]]]
+
   - type: grid
     columns: 2
     cards:

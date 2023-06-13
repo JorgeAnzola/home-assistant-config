@@ -62,26 +62,23 @@ attributes:
     <br/>
   calendar: >
     {% set calendars = [
-      'calendar.birthdays',
-      'calendar.bruno',
-      'calendar.lake_house',
-      'calendar.jorge_anzola_gmail_com'
+        'calendar.birthdays',
+        'calendar.bruno',
+        'calendar.lake_house',
+        'calendar.jorge_anzola_gmail_com'
     ] %}
 
-    {% set tomorrowStartDateTime = (as_timestamp(now()) + (86400)) | timestamp_custom("%Y-%m-%d 00:00:00",true) %}
-    {% set tomorrowStartTimestamp = strptime(tomorrowStartDateTime, "%Y-%m-%d %H:%M:%S").timestamp() | int %}
-    {% set tomorrowEndDateTime = (as_timestamp(now()) + (86400)) | timestamp_custom("%Y-%m-%d 23:59:59",true) %}
-    {% set tomorrowEndTimestamp = strptime(tomorrowEndDateTime, "%Y-%m-%d %H:%M:%S").timestamp() | int%}
+    {% set tomorrowStartTimestamp = as_timestamp(now().date() + timedelta(days=1)) | int %}
+    {% set tomorrowEndTimestamp = as_timestamp(now().date() + timedelta(days=2)) | int%}
 
-    {% set now = now().timestamp() | int %}
-
+    {% set todayStartTimestamp = as_timestamp(now().date()) | int %}
 
     {% set data = namespace(events=[],tomorrowEvents=[]) %}
 
     {% for calendar in calendars %}
         {% set startTime = state_attr(calendar, 'start_time') | as_timestamp | int %}
         {% set endTime = state_attr(calendar, 'end_time') | as_timestamp | int %}
-        {% if startTime <= now and now < endTime %}
+        {% if todayStartTimestamp <= startTime and endTime <= tomorrowStartTimestamp %}
             {% set message = state_attr(calendar, 'message') %}
             {% if 'birthdays' in calendar %}
                 {% set event = {
@@ -102,7 +99,7 @@ attributes:
             {% set data.events = data.events + [event] %}
         {% endif %}
         
-        {% if startTime >= tomorrowStartTimestamp and endTime < tomorrowEndTimestamp %}
+        {% if startTime >= tomorrowStartTimestamp and endTime <= tomorrowEndTimestamp %}
             {% set message = state_attr(calendar, 'message') %}
             {% if 'birthdays' in calendar %}
                 {% set tomorrowEvent = {

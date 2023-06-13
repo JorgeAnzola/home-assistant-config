@@ -1,0 +1,24 @@
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Calendar
+    style: >
+      --popup-max-width: calc(800px);
+    content:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        margin: 0
+        grid-template-columns: 800px
+        grid-template-rows: 1fr
+        grid-template-areas: |
+          "system"
+      cards:
+        - type: calendar
+          entities:
+            - calendar.bruno
+            - calendar.birthdays
+            - calendar.jorge_anzola_gmail_com
+            - calendar.lake_house
+            - calendar.guests

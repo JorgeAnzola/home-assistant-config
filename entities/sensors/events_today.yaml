@@ -1,0 +1,21 @@
+platform: template
+sensors:
+  events_today:
+    friendly_name: "Events today"
+    value_template: >-
+      {% set calendars = [
+        'calendar.bruno',
+        'calendar.birthdays',
+        'calendar.jorge_anzola_gmail_com',
+        'calendar.lake_house'
+      ] %}
+
+      {% set data = namespace(counter=0) %}
+
+      {% for calendar in calendars %}
+        {% if states(calendar) == 'on' %}
+            {% set data.counter = data.counter + 1 %}
+        {% endif %}
+      {% endfor %}
+
+      {{data.counter}}

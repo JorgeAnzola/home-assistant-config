@@ -1,7 +1,6 @@
 sidebar_footer:
   template:
     - settings
-    - tilt
     - extra_styles
   variables:
     notify: >
