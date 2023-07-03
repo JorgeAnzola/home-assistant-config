@@ -1,9 +1,0 @@
-platform: nextion
-name: $device_name Light 1 button
-page_id: 2
-component_id: 6
-on_click:
-  - homeassistant.service:
-      service: light.toggle
-      data:
-        entity_id: light.hallway

@@ -1,6 +1,6 @@
 # Left button below the display
 platform: gpio
-name: $device_name Left Button
+name: Bathroom light
 pin:
   number: 14
   inverted: true

@@ -6,10 +6,10 @@ on_value:
     - wait_until:
         switch.is_on: nextion_init
     - lambda: |-
-        int symbol=21; // away symbol
+        int symbol=20; // away symbol
 
         if (id(person_1).state == "home") {
-          symbol=22;
+          symbol=21;
           id(disp1).send_command_printf("Home.person_1_time.pco=%s", "14824");
           id(disp1).send_command_printf("Home.person_1_time.bco=%s", "54938"); 
         } else {

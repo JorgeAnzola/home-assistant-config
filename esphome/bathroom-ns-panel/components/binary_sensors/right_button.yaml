@@ -1,5 +1,5 @@
 platform: gpio
-name: $device_name Right Button-
+name: Bathroom mirror light
 pin:
   number: 27
   inverted: true

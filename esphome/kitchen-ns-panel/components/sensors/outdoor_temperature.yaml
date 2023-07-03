@@ -1,8 +1,8 @@
 # Temperature outside, fetched from HA
 platform: homeassistant
 id: temp_outdoor
-entity_id: weather.buienradar
-attribute: temperature
+entity_id: sensor.buienradar_temperature_feels_like
+attribute: temperature_source_value
 on_value:
   then:
     - wait_until:

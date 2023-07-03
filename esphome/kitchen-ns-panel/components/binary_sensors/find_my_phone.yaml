@@ -1,6 +1,6 @@
 platform: nextion
 name: $device_name Find My Phone
-page_id: 4
+page_id: 3
 component_id: 6
 on_click:
   if:

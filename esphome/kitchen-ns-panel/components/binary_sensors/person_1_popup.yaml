@@ -1,7 +1,7 @@
 platform: nextion
 name: $device_name Person 1 Details
 page_id: 0
-component_id: 15
+component_id: 13
 on_click:
   - lambda: id(disp1).send_command_printf("PersonDetails.person_profile.pic=%i", 30);
   - lambda: id(disp1).set_component_text_printf("PersonDetails.location", "%s", id(person_1).state.c_str());
@@ -10,4 +10,4 @@ on_click:
   - switch.template.publish:
       id: popup_person_1
       state: on
-  - lambda: id(disp1).send_command_printf("page 4");
+  - lambda: id(disp1).send_command_printf("page 3");
