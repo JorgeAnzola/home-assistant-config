@@ -136,6 +136,7 @@ tablet:
   tablet-popup-border-style: 1.5px solid rgba(0,0,0,0.2)
   tablet-popup-align-dialog: center
   tablet-popup-margin-top: 0px
+  lovelace-background: center / cover no-repeat fixed url('/local/bg.jpg')
 
   ####################################################
   #                                                  #
@@ -145,17 +146,8 @@ tablet:
 
   card-mod-theme: tablet
 
-  card-mod-root: |
-    #view {
-      background: url('/local/bg.jpg');
-      background-size: cover;
-    }
-
   card-mod-view-yaml: |
     .: |
-      hui-view {
-        background: none !important;
-      }
 
     #################################################
     #                                               #

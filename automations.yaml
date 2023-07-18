@@ -1,171 +1,171 @@
-- id: '1682950874169'
+- id: "1682950874169"
   alias: NFC Tags - Dishwasher tabs
-  description: ''
+  description: ""
   trigger:
-  - platform: tag
-    tag_id: 616f054c-8bb0-426c-8e8b-f32cc885aa27
+    - platform: tag
+      tag_id: 616f054c-8bb0-426c-8e8b-f32cc885aa27
   condition: []
   action:
-  - service: shopping_list.add_item
-    data:
-      name: Action - Dishwasher tabs
+    - service: shopping_list.add_item
+      data:
+        name: Action - Dishwasher tabs
   mode: single
-- id: '1686235932314'
+- id: "1686235932314"
   alias: New Automation
-  description: ''
+  description: ""
   trigger: []
   condition:
-  - condition: and
-    conditions:
-    - condition: numeric_state
-      entity_id: sensor.action_shopping_list_count
-      above: 0
-    - condition: or
+    - condition: and
       conditions:
-      - condition: numeric_state
-        entity_id: zone.action
-        attribute: persons
-        below: 1
-      - condition: numeric_state
-        entity_id: zone.action_2
-        attribute: persons
-        below: 1
+        - condition: numeric_state
+          entity_id: sensor.action_shopping_list_count
+          above: 0
+        - condition: or
+          conditions:
+            - condition: numeric_state
+              entity_id: zone.action
+              attribute: persons
+              below: 1
+            - condition: numeric_state
+              entity_id: zone.action_2
+              attribute: persons
+              below: 1
   action: []
   mode: single
-- id: '1687854464642'
+- id: "1687854464642"
   alias: Guests mode - Front door notification
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.front_door
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.front_door
+      to: "on"
   condition:
-  - condition: state
-    entity_id: calendar.guests
-    state: 'on'
+    - condition: state
+      entity_id: calendar.guests
+      state: "on"
   action:
-  - service: notify.admin_telegram
-    data:
-      message: The front door has been open
+    - service: notify.group_telegram
+      data:
+        message: The front door has been open
   mode: single
-- id: '1687862681174'
-  alias: 'Kitchen NS Panel - Automatic brightness '
-  description: ''
+- id: "1687862681174"
+  alias: "Kitchen NS Panel - Automatic brightness "
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
+    - platform: state
+      entity_id:
+        - light.kitchen
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: light.kitchen
-      state: 'on'
-    then:
-    - service: number.set_value
-      data:
-        value: '100'
-      target:
-        entity_id: number.kitchen_ns_panel_brightness
-    else:
-    - service: number.set_value
-      data:
-        value: '20'
+    - if:
+        - condition: state
+          entity_id: light.kitchen
+          state: "on"
+      then:
+        - service: number.set_value
+          data:
+            value: "100"
+          target:
+            entity_id: number.kitchen_ns_panel_brightness
+      else:
+        - service: number.set_value
+          data:
+            value: "20"
   mode: single
-- id: '1687862703041'
-  alias: 'Kitchen NS Panel - Automatic brightness '
-  description: ''
+- id: "1687862703041"
+  alias: "Kitchen NS Panel - Automatic brightness "
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
+    - platform: state
+      entity_id:
+        - light.kitchen
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: light.kitchen
-      state: 'on'
-    then:
-    - service: number.set_value
-      data:
-        value: '100'
-      target:
-        entity_id: number.kitchen_ns_panel_brightness
-    else:
-    - service: number.set_value
-      data:
-        value: '20'
+    - if:
+        - condition: state
+          entity_id: light.kitchen
+          state: "on"
+      then:
+        - service: number.set_value
+          data:
+            value: "100"
+          target:
+            entity_id: number.kitchen_ns_panel_brightness
+      else:
+        - service: number.set_value
+          data:
+            value: "20"
   mode: single
-- id: '1687862710734'
+- id: "1687862710734"
   alias: Kitchen NS Panel - Automatic brightness
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
+    - platform: state
+      entity_id:
+        - light.kitchen
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: light.kitchen
-      state: 'on'
-    then:
-    - service: number.set_value
-      data:
-        value: '100'
-      target:
-        entity_id: number.kitchen_ns_panel_brightness
-    else:
-    - service: number.set_value
-      data:
-        value: '20'
+    - if:
+        - condition: state
+          entity_id: light.kitchen
+          state: "on"
+      then:
+        - service: number.set_value
+          data:
+            value: "100"
+          target:
+            entity_id: number.kitchen_ns_panel_brightness
+      else:
+        - service: number.set_value
+          data:
+            value: "20"
   mode: single
-- id: '1687862727478'
+- id: "1687862727478"
   alias: Kitchen NS Panel
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
+    - platform: state
+      entity_id:
+        - light.kitchen
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: light.kitchen
-      state: 'on'
-    then:
-    - service: number.set_value
-      data:
-        value: '100'
-      target:
-        entity_id: number.kitchen_ns_panel_brightness
-    else:
-    - service: number.set_value
-      data:
-        value: '20'
+    - if:
+        - condition: state
+          entity_id: light.kitchen
+          state: "on"
+      then:
+        - service: number.set_value
+          data:
+            value: "100"
+          target:
+            entity_id: number.kitchen_ns_panel_brightness
+      else:
+        - service: number.set_value
+          data:
+            value: "20"
   mode: single
-- id: '1687862749155'
+- id: "1687862749155"
   alias: Kitchen NS Panel - Automatic brightness
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
+    - platform: state
+      entity_id:
+        - light.kitchen
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: light.kitchen
-      state: 'on'
-    then:
-    - service: number.set_value
-      data:
-        value: '100'
-      target:
-        entity_id: number.kitchen_ns_panel_brightness
-    else:
-    - service: number.set_value
-      data:
-        value: '20'
+    - if:
+        - condition: state
+          entity_id: light.kitchen
+          state: "on"
+      then:
+        - service: number.set_value
+          data:
+            value: "100"
+          target:
+            entity_id: number.kitchen_ns_panel_brightness
+      else:
+        - service: number.set_value
+          data:
+            value: "20"
   mode: single
