@@ -1,7 +1,6 @@
 platform: template
 name: $device_name Go to home
 id: disp1_disgth
-restore_state: true
 assumed_state: on
 optimistic: true
 on_turn_on:

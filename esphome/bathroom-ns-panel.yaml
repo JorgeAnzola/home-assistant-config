@@ -44,8 +44,6 @@ api:
   services: !include_dir_list ./bathroom-ns-panel/services
 
 #### COMPONENTS ####
-external_components: !include ./bathroom-ns-panel/components/external_components.yaml
-
 binary_sensor: !include_dir_list ./bathroom-ns-panel/components/binary_sensors
 
 time: !include_dir_list ./bathroom-ns-panel/components/time

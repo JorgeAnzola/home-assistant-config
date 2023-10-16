@@ -64,7 +64,13 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
         "Timer": TimerSensor,
         "Reminder": ReminderSensor,
     }
-    account = config[CONF_EMAIL] if config else discovery_info["config"][CONF_EMAIL]
+    account = None
+    if config:
+        account = config.get(CONF_EMAIL)
+    if account is None and discovery_info:
+        account = discovery_info.get("config", {}).get(CONF_EMAIL)
+    if account is None:
+        raise ConfigEntryNotReady
     include_filter = config.get(CONF_INCLUDE_DEVICES, [])
     exclude_filter = config.get(CONF_EXCLUDE_DEVICES, [])
     account_dict = hass.data[DATA_ALEXAMEDIA]["accounts"][account]
@@ -549,7 +555,7 @@ class AlexaMediaNotificationSensor(SensorEntity):
     def _handle_event(self, event):
         """Handle events.
 
-        This will update PUSH_NOTIFICATION_CHANGE events to see if the sensor
+        This will update PUSH_ACTIVITY events to see if the sensor
         should be updated.
         """
         try:
@@ -557,9 +563,9 @@ class AlexaMediaNotificationSensor(SensorEntity):
                 return
         except AttributeError:
             pass
-        if "notification_update" in event:
+        if "push_activity" in event:
             if (
-                event["notification_update"]["dopplerId"]["deviceSerialNumber"]
+                event["push_activity"]["key"]["serialNumber"]
                 == self._client.device_serial_number
             ):
                 _LOGGER.debug("Updating sensor %s", self)

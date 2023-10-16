@@ -8,7 +8,7 @@ import hmac
 import json
 import logging
 import time
-from typing import Optional
+from typing import Optional, Dict
 
 from aiohttp import ClientConnectorError, ClientWebSocketResponse, WSMessage
 
@@ -37,7 +37,8 @@ DATA_ERROR = {0: "online", 503: "offline", 504: "timeout", None: "unknown"}
 
 APP = [
     # ("oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq", "6Nz4n0xA8s8qdxQf2GqurZj2Fs55FUvM"),
-    ("KOBxGJna5qkk3JLXw3LHLX3wSNiPjAVi", "4v0sv6X5IM2ASIBiNDj6kGmSfxo40w7n"),
+    # ("KOBxGJna5qkk3JLXw3LHLX3wSNiPjAVi", "4v0sv6X5IM2ASIBiNDj6kGmSfxo40w7n"),
+    ("4s1FXKC9FaGfoqXhmXSJneb3qcm1gOak", "oKvCM06gvwkRbfetd6qWRrbC3rFrbIpV"),
     ("R8Oq3y0eSZSYdKccHlrQzT1ACCOUT9Gv", "1ve5Qk9GXfUhKAn1svnKwpAlxXkMarru"),
 ]
 
@@ -49,30 +50,34 @@ class AuthError(Exception):
 class ResponseWaiter:
     """Class wait right sequences in response messages."""
 
-    _waiters = {}
+    _waiters: Dict[str, asyncio.Future] = {}
 
     def _set_response(self, sequence: str, error: int) -> bool:
         if sequence not in self._waiters:
             return False
-        # sometimes the error doesn't exists
-        result = DATA_ERROR[error] if error in DATA_ERROR else f"E#{error}"
-        self._waiters[sequence].set_result(result)
-        return True
 
-    async def _wait_response(self, sequence: str, timeout: int):
-        self._waiters[sequence] = asyncio.get_event_loop().create_future()
+        try:
+            # sometimes the error doesn't exists
+            result = DATA_ERROR[error] if error in DATA_ERROR else f"E#{error}"
+            self._waiters[sequence].set_result(result)
+            return True
+        except Exception:
+            return False
+
+    async def _wait_response(self, sequence: str, timeout: float):
+        self._waiters[sequence] = fut = asyncio.get_event_loop().create_future()
 
         try:
             # limit future wait time
-            await asyncio.wait_for(self._waiters[sequence], timeout)
+            await asyncio.wait_for(fut, timeout)
         except asyncio.TimeoutError:
-            # remove future from waiters, in very rare cases, we can send two
-            # commands with the same sequence
-            self._waiters.pop(sequence, None)
             return "timeout"
+        finally:
+            # remove future from waiters
+            _ = self._waiters.pop(sequence, None)
 
         # remove future from waiters and return result
-        return self._waiters.pop(sequence).result()
+        return fut.result()
 
 
 class XRegistryCloud(ResponseWaiter, XRegistryBase):
@@ -199,7 +204,7 @@ class XRegistryCloud(ResponseWaiter, XRegistryBase):
         device: XDevice,
         params: dict = None,
         sequence: str = None,
-        timeout: int = 5,
+        timeout: float = 5,
     ):
         """With params - send new state to device, without - request device
         state. With zero timeout - won't wait response.

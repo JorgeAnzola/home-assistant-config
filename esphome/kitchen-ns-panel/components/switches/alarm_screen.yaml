@@ -1,7 +1,6 @@
 platform: template
 name: $device_name Alarm screen
 id: alarm_activated
-restore_state: false
 assumed_state: off
 optimistic: true
 on_turn_on:

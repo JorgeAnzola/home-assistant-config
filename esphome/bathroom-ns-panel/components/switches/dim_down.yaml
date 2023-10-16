@@ -1,7 +1,6 @@
 platform: template
 name: $device_name Dim-down
 id: disp1_disdim
-restore_state: true
 assumed_state: on
 optimistic: true
 on_turn_on:

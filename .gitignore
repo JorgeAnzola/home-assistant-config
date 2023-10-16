@@ -48,3 +48,4 @@ www/jorge.jpg
 www/mg.jpg
 .shopping_list.json
 .shopping_list_*.json
+*.code-workspace

@@ -3,7 +3,7 @@ from collections.abc import Callable
 import logging
 from typing import Any
 
-from .const import EventNameToHandler, MessageField, ProductCommand, ProductType
+from .const import EventNameToHandler, MessageField, ProductCommand, ProductType, UNSUPPORTED
 from .event import Event
 from .metadata import Metadata
 
@@ -37,13 +37,15 @@ class Product:
 
     def _set_properties(self, properties: dict) -> None:
         self.properties = properties
-        self.name = properties[MessageField.NAME.value]
-        self.model = properties[MessageField.MODEL.value]
-        self.hardware_version = properties[MessageField.HARDWARE_VERSION.value]
-        self.software_version = properties[MessageField.SOFTWARE_VERSION.value]
+        _LOGGER.debug(f"_set_properties -{self.serial_no} - {properties}")
+        self.name = properties.get(MessageField.NAME.value, "UNSUPPORTED")
+        self.model = properties.get(MessageField.MODEL.value, "UNSUPPORTED")
+        self.hardware_version = properties.get(MessageField.HARDWARE_VERSION.value, "UNSUPPORTED")
+        self.software_version = properties.get(MessageField.SOFTWARE_VERSION.value, "UNSUPPORTED")
 
     def _set_metadata(self, metadata: dict) -> None:
         self.metadata = {}
+
         for key, value in metadata.items():
             metadata = Metadata.parse(self, value)
 

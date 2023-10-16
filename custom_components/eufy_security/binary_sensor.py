@@ -21,7 +21,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, asyn
     """Setup binary sensor entities."""
     coordinator: EufySecurityDataUpdateCoordinator = hass.data[DOMAIN][COORDINATOR]
     product_properties = get_product_properties_by_filter(
-        [coordinator.devices.values(), coordinator.stations.values()], PlatformToPropertyType[Platform.BINARY_SENSOR.name].value
+        [coordinator.devices.values(), coordinator.stations.values()],
+        PlatformToPropertyType[Platform.BINARY_SENSOR.name].value,
     )
     entities = [EufySecurityBinarySensor(coordinator, metadata) for metadata in product_properties]
 
@@ -65,7 +66,7 @@ class EufySecurityProductEntity(BinarySensorEntity, CoordinatorEntity):
     @property
     def extra_state_attributes(self):
         return {
-            "properties": self.product.properties,
+            "properties": {i: self.product.properties[i] for i in self.product.properties if i != "picture"},
             # "metadata": self.product.metadata_org,
             "commands": self.product.commands,
             "voices": self.product.voices if self.product.is_camera else None,

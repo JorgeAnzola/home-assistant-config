@@ -1,5 +1,6 @@
 import asyncio
 import time
+from typing import Optional
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -7,7 +8,6 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
-    DEVICE_CLASS_TIMESTAMP,
     ELECTRIC_CURRENT_AMPERE,
     ELECTRIC_POTENTIAL_VOLT,
     ENERGY_KILO_WATT_HOUR,
@@ -181,53 +181,84 @@ class XEnergySensor(XEntity, SensorEntity):
 
     def __init__(self, ewelink: XRegistry, device: dict):
         XEntity.__init__(self, ewelink, device)
-        self.report_dt, self.report_history = device.get("reporting", {}).get(
-            self.uid
-        ) or (3600, 0)
+        reporting = device.get("reporting", {})
+        self.report_dt, self.report_history = reporting.get(self.uid) or (3600, 0)
 
-    def set_state(self, params: dict):
-        value = params[self.param]
+    @staticmethod
+    def decode_energy(value: str) -> Optional[list]:
         try:
-            history = [
+            return [
                 round(
-                    int(value[i : i + 2], 16) + int(value[i + 3] + value[i + 5]) * 0.01,
+                    int(value[i : i + 2], 16)
+                    + int(value[i + 3], 10) * 0.1
+                    + int(value[i + 5], 10) * 0.01,
                     2,
                 )
                 for i in range(0, len(value), 6)
             ]
-            self._attr_native_value = history[0]
-            if self.report_history:
-                self._attr_extra_state_attributes = {
-                    "history": history[0 : self.report_history]
-                }
         except Exception:
-            pass
+            return None
+
+    def set_state(self, params: dict):
+        history = self.decode_energy(params[self.param])
+        if not history:
+            return
+
+        self._attr_native_value = history[0]
+
+        if self.report_history:
+            self._attr_extra_state_attributes = {
+                "history": history[0 : self.report_history]
+            }
 
     async def async_update(self):
         ts = time.time()
-        if ts > self.next_ts and self.available and self.ewelink.cloud.online:
+        if ts < self.next_ts or not self.available or not self.ewelink.cloud.online:
+            return
+        ok = await self.ewelink.send_cloud(self.device, self.get_params, query=False)
+        if ok == "online":
             self.next_ts = ts + self.report_dt
-            await self.ewelink.cloud.send(self.device, self.get_params)
 
 
 class XEnergySensorDualR3(XEnergySensor, SensorEntity):
-    def set_state(self, params: dict):
-        value = params[self.param]
+    @staticmethod
+    def decode_energy(value: str) -> Optional[list]:
         try:
-            history = [
+            return [
                 round(
-                    int(value[i : i + 2], 10) + int(value[i + 2] + value[i + 3]) * 0.01,
-                    2,
+                    int(value[i : i + 2], 16) + int(value[i + 2 : i + 4], 10) * 0.01, 2
                 )
                 for i in range(0, len(value), 4)
             ]
-            self._attr_native_value = history[0]
-            if self.report_history:
-                self._attr_extra_state_attributes = {
-                    "history": history[0 : self.report_history]
-                }
         except Exception:
-            pass
+            return None
+
+
+class XEnergySensorPOWR3(XEnergySensor, SensorEntity):
+    @staticmethod
+    def decode_energy(value: str) -> Optional[list]:
+        try:
+            return [
+                round(int(value[i], 16) + int(value[i + 1 : i + 3], 10) * 0.01, 2)
+                for i in range(0, len(value), 3)
+            ]
+        except Exception:
+            return None
+
+    async def async_update(self):
+        ts = time.time()
+        if ts < self.next_ts or not self.available:
+            return
+        # POWR3 support LAN energy request (POST /zeroconf/getHoursKwh)
+        ok = await self.ewelink.send(self.device, self.get_params, timeout_lan=5)
+        if ok == "online":
+            self.next_ts = ts + self.report_dt
+
+
+class XEnergyTotal(XSensor):
+    _attr_device_class = SensorDeviceClass.ENERGY
+    _attr_native_unit_of_measurement = ENERGY_KILO_WATT_HOUR
+    _attr_state_class = SensorStateClass.TOTAL
 
 
 class XTemperatureNS(XSensor):
@@ -294,7 +325,7 @@ class XRemoteButton(XEntity, SensorEntity):
 
 
 class XUnknown(XEntity, SensorEntity):
-    _attr_device_class = DEVICE_CLASS_TIMESTAMP
+    _attr_device_class = SensorDeviceClass.TIMESTAMP
 
     def internal_update(self, params: dict = None):
         self._attr_native_value = dt.utcnow()
