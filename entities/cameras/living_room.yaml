@@ -1,8 +1,0 @@
-platform: generic
-name: Living room
-still_image_url: !secret living_room_cam_still_image_url
-stream_source: !secret living_room_cam_stream_source
-verify_ssl: false
-username: !secret living_room_cam_username
-password: !secret living_room_cam_password
-authentication: digest

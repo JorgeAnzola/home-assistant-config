@@ -20,13 +20,13 @@ cards:
         cards:
           - type: custom:button-card
             entity: light.hallway
-            name: First floor
+            name: Ground floor
             template:
               - static_light
               - icon_spot
           - type: custom:button-card
-            entity: light.third_floor
-            name: Third floor
+            entity: light.second_floor
+            name: Second floor
             template:
               - static_light
               - icon_spot
@@ -60,11 +60,21 @@ cards:
             double_tap_action:
               action: more-info
           - type: custom:button-card
-            entity: binary_sensor.washing_machine
+            entity: switch.washer
             name: Washer
             template:
               - base
               - icon_washing_machine
+            tap_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: custom:button-card
+            entity: switch.dryer
+            name: Dryer
+            template:
+              - base
+              - icon_dryer
             tap_action:
               action: more-info
             double_tap_action:

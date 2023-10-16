@@ -25,3 +25,11 @@ cards:
     template:
       - light
       - icon_plant
+  - type: custom:button-card
+    entity: switch.kitchen_air_freshener
+    name: Freshener
+    template:
+      - base
+      - icon_air_freshener
+    double_tap_action:
+      action: more-info

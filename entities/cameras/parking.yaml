@@ -1,8 +1,0 @@
-platform: generic
-name: Parking
-still_image_url: !secret parking_cam_still_image_url
-stream_source: !secret parking_cam_stream_source
-verify_ssl: false
-username: !secret parking_cam_username
-password: !secret parking_cam_password
-authentication: digest

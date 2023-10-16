@@ -14,7 +14,6 @@
 - light.kitchen
 - light.dinning_room
 - light.guests_bathroom
-- light.living_room_plant
 - light.kitchen_plant
 - light.bar_plant
 - light.stairs_photo_frame
@@ -22,6 +21,7 @@
 - light.bathroom_mirror
 - light.stairs
 - light.tv_ambient
+- light.second_floor
 # Cameras
 - camera.entrance
 - camera.kitchen
@@ -33,6 +33,11 @@
 - switch.bathroom_heater
 - switch.entrance_air_freshener
 - switch.living_room_air_freshener
+- switch.third_floor_air_freshener
+- switch.kitchen_air_freshener
+- switch.bedroom_air_freshener
+- switch.guests_bedroom_air_freshener
+- switch.bedroom_repellent
 # Motion/door sensors
 - sensor.kitchen_temperature
 - binary_sensor.kitchen_door

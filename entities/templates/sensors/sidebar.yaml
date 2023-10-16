@@ -103,7 +103,7 @@ attributes:
             {% set message = state_attr(calendar, 'message') %}
             {% if 'birthdays' in calendar %}
                 {% set tomorrowEvent = {
-                    'name':'<strong style="color:white">' + message + "'s birthday</strong>",
+                    'name':'<strong style="color:white">' + message + "</strong>",
                     'calendar': calendar.split('.')[-1]
                 } %}
             {% elif 'bruno' in calendar %}
@@ -141,4 +141,20 @@ attributes:
     {% elif tomorrowEventCount > 2 %}
         {% set remainingCount = tomorrowEventCount - 2 %}
         🗓️ For tomorrow: {{ data.tomorrowEvents[0]['name'] }}, {{ data.tomorrowEvents[1]['name'] }} and {{ remainingCount }} others
+    {% endif %}
+
+
+    {% set plastic = state_attr('sensor.hvc_groep_plastic', 'day') %}
+    {% set paper = state_attr('sensor.hvc_groep_paper', 'day') %}
+
+    {% if plastic == 'Vandaag' %}
+        🟠 Plastic will be collected today
+    {% elif plastic == 'Morgen' %}
+        🟠 Plastic will be collected tomorrow
+    {% endif %}
+
+    {% if paper == 'Vandaag' %}
+        🔵 Paper will be collected today
+    {% elif paper == 'Morgen' %}
+        🔵 Paper will be collected tomorrow
     {% endif %}
