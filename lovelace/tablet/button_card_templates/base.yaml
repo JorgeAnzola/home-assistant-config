@@ -1,7 +1,6 @@
 base:
   template:
     - settings
-    - tilt
     - extra_styles
   variables:
     state_on: >

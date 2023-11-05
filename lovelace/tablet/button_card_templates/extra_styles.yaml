@@ -130,58 +130,6 @@ extra_styles:
           letter-spacing: var(--button-card-letter-spacing);
         }
 
-
-        ${variables.tilt_enable === true ? `
-
-         /* * * * * * * * * * * * * * * * * *
-          *                                 *
-          *              TILT               *
-          *                                 *
-          * * * * * * * * * * * * * * * * * */
-
-            #name, #state {
-              font-size: calc(var(--button-card-font-size) - var(--z-axis-adjustment));
-            }
-
-            #container {
-              transform: translateZ(${variables.tilt_options.parallax});
-            }
-
-            #circle_slider {
-              width: 100%;
-              margin-top: 0;
-            }
-
-            /* adjust circle_slider position for firefox */
-            @supports (-moz-appearance:none) {
-              #circle_slider {
-                margin-top: 13%;
-              }
-            }
-
-            #card {
-              padding: 12% 11% 10.5% 12%;
-              transform-style: preserve-3d;
-              overflow: visible;
-              /* firefox pixelated edges */
-              outline: 1px solid transparent;
-            }
-
-            #ripple, .js-tilt-glare {
-              clip-path: inset(0 round var(--button-card-border-radius));
-              overflow: hidden;
-            }
-
-            .js-tilt-glare {
-              z-index: 1;
-            }
-
-            .js-tilt-glare-inner {
-              background-color: rgba(0,0,0,0.9);
-            }
-
-        `:''}
-
         ${this._config.template.includes('conditional_media') ? `
 
          /* * * * * * * * * * * * * * * * * *

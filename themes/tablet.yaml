@@ -104,7 +104,7 @@ tablet:
 
   #button_card_templates
   button-card-font-size: 1.35vw
-  z-axis-adjustment: 0.05vw #tilt compensation
+  z-axis-adjustment: 0.05vw 
   button-card-font-weight: 500
   button-card-letter-spacing: -0.02vw
   button-card-border-radius: 10%

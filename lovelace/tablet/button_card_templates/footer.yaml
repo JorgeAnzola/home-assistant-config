@@ -1,24 +1,11 @@
 footer:
   template:
     - settings
-    - tilt
     - extra_styles
   variables:
     notify: >
       [[[
         return false;
-      ]]]
-    tilt_options: >
-      [[[
-        return {
-          max: 5,
-          scale: 1.1,
-          glare: true,
-          'max-glare': 0.07,
-          perspective: 1000,
-          speed: 800,
-          parallax: '10px'
-        };
       ]]]
   size: 2vw
   show_icon: false
