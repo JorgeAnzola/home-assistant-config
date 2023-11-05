@@ -3,13 +3,13 @@ entities:
   light.bar_plant: on
   light.kitchen_plant: on
   light.living_room_plant: on
-  light.deco_lamp: on
   light.lamp: on
   light.stairs_photo_frame: on
+  light.christmas_tree: on
   light.stairs:
     state: on
     effect: "Gold Glitter"
-    brightness_pct: 50
+    brightness_pct: 30
   light.bedroom_wall_led_strip:
     state: on
     effect: "Gold Glitter"

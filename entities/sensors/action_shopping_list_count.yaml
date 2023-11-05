@@ -1,4 +1,0 @@
-platform: command_line
-name: Action Shopping List Count
-command: "cat /config/.shopping_list_action.json"
-value_template: "{{ value_json | length }}"

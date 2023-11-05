@@ -1,2 +1,3 @@
 ---
 automation: !include ../automations.yaml
+automation secret: !include_dir_list ../automations

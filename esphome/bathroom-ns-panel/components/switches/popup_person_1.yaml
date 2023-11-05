@@ -3,4 +3,5 @@ name: $device_name Popup person 1
 id: popup_person_1
 icon: mdi:account-question
 assumed_state: off
+restore_mode: "DISABLED"
 optimistic: true

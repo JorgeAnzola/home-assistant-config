@@ -33,3 +33,5 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module

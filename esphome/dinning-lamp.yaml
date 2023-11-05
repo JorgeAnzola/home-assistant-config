@@ -1,0 +1,34 @@
+esphome:
+  name: dinning-lamp
+
+esp8266:
+  board: d1_mini
+  framework:
+    version: recommended
+
+logger:
+  level: ERROR
+
+api:
+
+ota:
+  password: !secret esphome_ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  ap:
+    ssid: "Dinning-Lamp"
+    password: !secret esphome_ap_password
+
+captive_portal:
+    
+light:
+  - platform: neopixelbus
+    variant: WS2812X
+    pin: GPIO2
+    type: GRB
+    num_leds: 20
+    name: "Dinning lamp"
+    effects: !include_dir_list light-effects

@@ -41,11 +41,8 @@ www/Plex_Recently_Added
 
 # Sonoff
 .sonoff.json
-.shopping_list.json
 
 www/wifi-qr.jpg
 www/jorge.jpg
 www/mg.jpg
-.shopping_list.json
-.shopping_list_*.json
 *.code-workspace

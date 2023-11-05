@@ -1,5 +1,5 @@
 platform: gpio
-name: Dinning room light
+name: Dinning room switch
 id: relay_2
 pin:
   number: 19
