@@ -54,6 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, asyn
     platform.async_register_entity_service("ptz_left", {}, "_async_ptz_left")
     platform.async_register_entity_service("ptz_right", {}, "_async_ptz_right")
     platform.async_register_entity_service("ptz_360", {}, "_async_ptz_360")
+    platform.async_register_entity_service("calibrate", {}, "_async_calibrate")
 
     platform.async_register_entity_service("trigger_camera_alarm_with_duration", Schema.TRIGGER_ALARM_SERVICE_SCHEMA.value, "_async_alarm_trigger")
     platform.async_register_entity_service("reset_alarm", {}, "_async_reset_alarm")
@@ -74,7 +75,7 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
         self._last_url = None
         self._last_image = None
         if self.product.picture_base64 is not None:
-            self._last_image = bytearray(self.product.picture_base64["data"]["data"])
+            self._last_image = self.product.picture_bytes
 
         # ffmpeg entities
         self.ffmpeg = self.coordinator.hass.data[DATA_FFMPEG]
@@ -101,10 +102,6 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
         finally:
             await stream.close()
 
-    @property
-    def available(self) -> bool:
-        return True
-
     async def async_create_stream(self):
         if self.coordinator.config.no_stream_in_hass is True:
             return None
@@ -127,6 +124,10 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
     def is_streaming(self) -> bool:
         """Return true if the device is recording."""
         return self.product.stream_status == StreamStatus.STREAMING
+
+    @property
+    def available(self) -> bool:
+        return True
 
     async def _get_image_from_stream_url(self, width, height):
         while True:
@@ -212,6 +213,9 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
 
     async def _async_ptz_360(self) -> None:
         await self.product.ptz_360()
+
+    async def _async_calibrate(self) -> None:
+        await self.product.calibrate()
 
     async def _generate_image(self) -> None:
         await self.async_camera_image()

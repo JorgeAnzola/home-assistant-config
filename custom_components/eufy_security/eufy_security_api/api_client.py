@@ -201,6 +201,10 @@ class ApiClient:
         """Process start rtsp livestream call"""
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.start_rtsp_livestream, serial_no=serial_no))
 
+    async def calibrate(self, product_type: ProductType, serial_no: str) -> None:
+        """Process calibrate camera call"""
+        await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.calibrate, serial_no=serial_no))
+
     async def stop_rtsp_livestream(self, product_type: ProductType, serial_no: str) -> None:
         """Process stop rtsp livestream call"""
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.stop_rtsp_livestream, serial_no=serial_no))
@@ -252,8 +256,7 @@ class ApiClient:
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.reboot, serial_no=serial_no))
 
     async def _on_message(self, message: dict) -> None:
-        message_str = str(message)[0:200]
-        message_str = str(message)
+        message_str = str(message)[0:5000]
         if "livestream video data" not in message_str and "livestream audio data" not in message_str:
             _LOGGER.debug(f"_on_message - {message_str}")
         if message[MessageField.TYPE.value] == IncomingMessageType.result.name:
@@ -303,7 +306,8 @@ class ApiClient:
 
     def _on_close(self, future="") -> None:
         _LOGGER.debug(f"on_close - executed - {future} = {future.exception()}")
-        self._on_error_callback(future)
+        if self._on_error_callback is not None:
+            self._on_error_callback(future)
         if future.exception() is not None:
             _LOGGER.debug(f"on_close - executed - {future.exception()}")
             raise future.exception()
@@ -328,7 +332,15 @@ class ApiClient:
 
     async def disconnect(self):
         """Disconnect the web socket and destroy it"""
+        self._on_error_callback = None
         await self._client.disconnect()
+        self._client = None
+
+    @property
+    def available(self) -> bool:
+        return self._client.available
+
+
 
 
 class IncomingMessageType(Enum):

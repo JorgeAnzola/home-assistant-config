@@ -4,6 +4,9 @@ from enum import Enum
 import logging
 from queue import Queue
 import threading
+from base64 import b64decode
+import datetime
+
 
 from aiortsp.rtsp.reader import RTSPReader
 
@@ -59,6 +62,7 @@ class Camera(Device):
         self.config = config
         self.voices = voices
         self.ffmpeg = None
+        self.image_last_updated = None
 
         self.p2p_stream_handler = P2PStreamHandler(self)
         self.p2p_stream_thread = None
@@ -204,6 +208,10 @@ class Camera(Device):
         """Look around 360 degrees"""
         await self.api.pan_and_tilt(self.product_type, self.serial_no, PTZCommand.ROTATE360.value)
 
+    async def calibrate(self) -> None:
+        """Calibrate camera"""
+        await self.api.calibrate(self.product_type, self.serial_no)
+
     async def quick_response(self, voice_id: int) -> None:
         """Quick response message to camera"""
         await self.api.quick_response(self.product_type, self.serial_no, voice_id)
@@ -228,6 +236,11 @@ class Camera(Device):
         """Returns picture bytes in base64 format"""
         return self.properties.get(MessageField.PICTURE.value)
 
+    @property
+    def picture_bytes(self):
+        """Returns picture bytes in base64 format"""
+        return bytearray(self.picture_base64["data"]["data"])
+
     def set_stream_prodiver(self, stream_provider: StreamProvider) -> None:
         """Set stream provider for camera instance"""
         self.stream_provider = stream_provider
@@ -248,3 +261,10 @@ class Camera(Device):
             url = url.replace("{server_port}", str(self.config.rtsp_server_port))
             self.stream_url = url
         _LOGGER.debug(f"url - {self.stream_provider} - {self.stream_url}")
+
+    async def _handle_property_changed(self, event: Event):
+        await super()._handle_property_changed(event)
+        _LOGGER.debug(f"camera _handle_property_changed - {event.data[MessageField.NAME.value] }")
+
+        if event.data[MessageField.NAME.value] == MessageField.PICTURE.value:
+            self.image_last_updated = datetime.datetime.now(datetime.timezone.utc)

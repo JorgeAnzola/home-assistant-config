@@ -22,6 +22,7 @@ NAME = "Eufy Security"
 DOMAIN = "eufy_security"
 VERSION = "1.0.0"
 COORDINATOR = "coordinator"
+DISCONNECTED = "eufy-security-ws-disconnected"
 
 PLATFORMS: list[str] = [
     Platform.BINARY_SENSOR,
@@ -71,6 +72,8 @@ class PropertyToEntityDescription(Enum):
     rtspStreamUrl = EntityDescription(id=auto(), icon="mdi:movie", category=EntityCategory.DIAGNOSTIC)
     chargingStatus = EntityDescription(id=auto(), icon="mdi:ev-station", category=EntityCategory.DIAGNOSTIC)
     snoozeStartTime = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
+    snooze = EntityDescription(id=auto(), icon="mdi:alarm-snooze")
+    snoozeTime = EntityDescription(id=auto(), icon="mdi:alarm-snooze")
 
     stream_provider = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
     stream_url = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
@@ -99,13 +102,13 @@ class PropertyToEntityDescription(Enum):
     dogLickDetected = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
     dogPoopDetected = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
     radarMotionDetected = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    someoneLoitering = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    packageTaken = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    packageStranded = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    packageDelivered = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
+    someoneLoitering = EntityDescription(id=auto())
+    packageTaken = EntityDescription(id=auto())
+    packageStranded = EntityDescription(id=auto())
+    packageDelivered = EntityDescription(id=auto())
     soundDetectionRoundLook = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    deliveryGuard = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
-    deliveryGuardPackageGuarding = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
+    deliveryGuard = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    deliveryGuardPackageGuarding = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
     snoozeHomebase = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
     snoozeMotion = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
     snoozeChime = EntityDescription(id=auto(), category=EntityCategory.DIAGNOSTIC)
@@ -126,8 +129,12 @@ class PropertyToEntityDescription(Enum):
     microphone = EntityDescription(id=auto(), icon="mdi:microphone", category=EntityCategory.CONFIG)
     speaker = EntityDescription(id=auto(), icon="mdi:volume-high", category=EntityCategory.CONFIG)
     audioRecording = EntityDescription(id=auto(), icon="mdi:record-circle", category=EntityCategory.CONFIG)
-    snooze = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
-    snoozeTime = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    loiteringDetection = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    motionDetectionTypePet = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    motionDetectionTypeVehicle = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    motionDetectionTypeHuman = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    motionDetectionTypeHumanRecognition = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    motionDetectionTypeAllOtherMotions = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
 
     # device select
     powerSource = EntityDescription(id=auto(), icon="mdi:power-plug", category=EntityCategory.DIAGNOSTIC)
@@ -140,6 +147,10 @@ class PropertyToEntityDescription(Enum):
     motionDetectionSensitivity = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
     speakerVolume = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
     nightvision = EntityDescription(id=auto(), icon="mdi:shield-moon", category=EntityCategory.CONFIG)
+    lightSettingsManualLightingActiveMode = EntityDescription(id=auto(), icon="mdi:cog-play", category=EntityCategory.CONFIG)
+    lightSettingsBrightnessManual = EntityDescription(id=auto(), icon="mdi:brightness-percent", category=EntityCategory.CONFIG)
+    lightSettingsManualDailyLighting = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
+    lightSettingsScheduleDynamicLighting = EntityDescription(id=auto(), category=EntityCategory.CONFIG)
 
     # station sensor
     currentMode = EntityDescription(id=auto(), icon="mdi:security", category=EntityCategory.DIAGNOSTIC)

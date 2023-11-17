@@ -6,7 +6,7 @@ from .command_description import CommandDescription
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
 
-SCHEMA_VERSION = 18
+SCHEMA_VERSION = 19
 
 UNSUPPORTED = "Unsupported"
 
@@ -130,6 +130,7 @@ class ProductCommand(Enum):
     ptz_left = CommandDescription("PTZ Left", "pan_and_tilt")
     ptz_right = CommandDescription("PTZ Right", "pan_and_tilt")
     ptz_360 = CommandDescription("PTZ 360", "pan_and_tilt")
+    calibrate = CommandDescription("Calibrate", "calibrate")
     trigger_alarm = CommandDescription("Trigger Alarm")
     reset_alarm = CommandDescription("Reset Alarm")
     verify_pin = CommandDescription("Verify Pin", "verify_p_i_n")
