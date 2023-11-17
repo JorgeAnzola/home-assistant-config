@@ -1,0 +1,34 @@
+esphome:
+  name: bedroom-tv-ambient-light
+
+esp8266:
+  board: d1_mini
+  framework:
+    version: recommended
+
+logger:
+  level: ERROR
+
+api:
+
+ota:
+  password: !secret esphome_ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  ap:
+    ssid: "bedroom-tv-ambient-light"
+    password: !secret esphome_ap_password
+
+captive_portal:
+    
+light:
+  - platform: neopixelbus
+    variant: WS2812X
+    pin: GPIO2
+    type: GRB
+    num_leds: 170
+    name: "Bedroom TV Ambient Light"
+    effects: !include_dir_list light-effects

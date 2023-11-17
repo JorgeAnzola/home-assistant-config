@@ -9,7 +9,5 @@ recorder:
       - sun.sun
       - sensor.last_boot
       - sensor.date
-      - sensor.dryer_time_on
-      - sensor.washing_machine_time_on
     event_types:
       - call_service

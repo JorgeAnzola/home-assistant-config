@@ -6,22 +6,21 @@
 - light.living_room_3
 - light.bedroom
 - light.closets
-- light.jorge_nightstand
-- light.marlyn_nightstand
 - light.hallway
 - light.deco_lamp
 - light.kitchen
 - light.dinning_lamp
 - light.guests_bathroom
-- light.kitchen_plant
-- light.bar_plant
+- light.kitchen_decoration
+- light.living_room_decoration
 - light.stairs_photo_frame
 - light.bathroom
 - light.bathroom_mirror
-- light.stairs
-- light.tv_ambient
+- light.stairs_1
+- light.stairs_2
 - light.second_floor
 - light.christmas_tree
+- light.terrace_christmas_lights
 # Cameras
 # - camera.entrance
 # - camera.kitchen
@@ -31,12 +30,7 @@
 # - camera.front_door
 # Switches
 - switch.bathroom_heater
-- switch.entrance_air_freshener
-- switch.living_room_air_freshener
-- switch.third_floor_air_freshener
-- switch.kitchen_air_freshener
-- switch.bedroom_air_freshener
-- switch.guests_bedroom_air_freshener
+- switch.air_fresheners
 - switch.bedroom_repellent
 # Motion/door sensors
 - sensor.kitchen_temperature
@@ -53,3 +47,4 @@
 # - scene.sunset
 # Fans
 - fan.bedroom
+- fan.living_room_fireplace

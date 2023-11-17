@@ -1,12 +1,18 @@
 name: Sunset
 entities:
-  light.bar_plant: on
-  light.kitchen_plant: on
+  fan.living_room_fireplace: on
+  light.living_room_decoration: on
+  light.kitchen_decoration: on
   light.living_room_plant: on
   light.lamp: on
   light.stairs_photo_frame: on
   light.christmas_tree: on
-  light.stairs:
+  light.terrace_christmas_lights: on
+  light.stairs_1:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 30
+  light.stairs_2:
     state: on
     effect: "Gold Glitter"
     brightness_pct: 30
@@ -14,7 +20,3 @@ entities:
     state: on
     effect: "Gold Glitter"
     brightness_pct: 50
-  light.tv_ambient:
-    state: on
-    effect: "Gold Glitter"
-    brightness_pct: 100

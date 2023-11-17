@@ -1,10 +1,9 @@
 name: Sunrise
 entities:
-  light.bar_plant: off
-  light.kitchen_plant: off
-  light.living_room_plant: off
+  light.kitchen_decoration: off
+  light.living_room_decoration: off
   light.deco_lamp: off
   light.lamp: off
   light.stairs_photo_frame: off
   light.stairs: off
-  light.tv_ambient: off
+  light.terrace_christmas_lights: off
