@@ -1,0 +1,5 @@
+---
+platform: tod
+name: Early morning
+after: 01:00
+before: 07:00

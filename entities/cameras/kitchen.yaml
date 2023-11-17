@@ -1,8 +1,0 @@
-platform: generic
-name: Kitchen
-still_image_url: !secret kitchen_cam_still_image_url
-stream_source: !secret kitchen_cam_stream_source
-verify_ssl: false
-username: !secret kitchen_cam_username
-password: !secret kitchen_cam_password
-authentication: digest

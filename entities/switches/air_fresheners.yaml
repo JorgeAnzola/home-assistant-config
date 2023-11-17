@@ -1,0 +1,10 @@
+---
+platform: group
+name: Ambientadores
+unique_id: air_fresheners
+entities:
+  - switch.bedroom_air_freshener
+  - switch.second_floor_air_freshener
+  - switch.living_room_air_freshener
+  - switch.entrance_air_freshener
+  - switch.kitchen_air_freshener

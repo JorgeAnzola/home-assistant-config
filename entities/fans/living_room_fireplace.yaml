@@ -1,0 +1,53 @@
+platform: template
+fans:
+  living_room_fireplace:
+    friendly_name: "Chimenea"
+    unique_id: "living_room_fireplace"
+    value_template: "{{ states('sensor.plug_1_current')|float > 0.03 }}"
+    turn_on:
+      service: remote.send_command
+      target:
+        entity_id: remote.broadlink
+      data:
+        command: "toggle"
+        device: living_room_fireplace
+    turn_off:
+      service: remote.send_command
+      target:
+        entity_id: remote.broadlink
+      data:
+        command: "toggle"
+        device: living_room_fireplace
+    speed_count: 4
+    set_percentage:
+      - service: system_log.write
+        data_template:
+          message: "! Setting heater to {{ percentage }} percent, which should correspond to command"
+          level: error
+      - service: remote.send_command
+        target:
+          entity_id: remote.broadlink
+        data_template:
+          command: >
+            {% if percentage >= 0 and percentage < 50 %}
+              auto
+            {% elif percentage >= 50 and percentage < 100 %}
+              1000w
+            {% elif percentage == 100 %}
+              2000w
+            {% else %}
+              auto
+            {% endif %}
+          device: living_room_fireplace
+
+    percentage_template: >
+      {% set current = states('sensor.plug_1_current')|float %}
+      {% if current > 8 %}
+        100
+      {% elif current > 4 %}
+        66
+      {% elif current > 0.03 %}
+        33
+      {% else %}
+        0
+      {% endif %}

@@ -1,6 +1,6 @@
 ---
 platform: group
-name: Living Room
+name: Sala de estar
 entities:
   - light.living_room_1
   - light.living_room_2
