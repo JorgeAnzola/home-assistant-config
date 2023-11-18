@@ -30,6 +30,8 @@
 - switch.bathroom_heater
 - switch.air_fresheners
 - switch.bedroom_repellent
+- switch.bedroom_air_freshener
+
 # Motion/door sensors
 - sensor.kitchen_temperature
 - binary_sensor.kitchen_door

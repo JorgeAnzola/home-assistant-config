@@ -1,5 +1,9 @@
 esphome:
   name: bedroom-tv-ambient-light
+  on_boot:
+    priority: -10
+    then:
+      - switch.turn_off: status_led
 
 esp8266:
   board: d1_mini
@@ -23,11 +27,18 @@ wifi:
     password: !secret esphome_ap_password
 
 captive_portal:
+
+switch:
+  - platform: gpio
+    pin: D4
+    name: "Status LED"
+    inverted: true
+    id: status_led
     
 light:
   - platform: neopixelbus
     variant: WS2812X
-    pin: GPIO2
+    pin: D3
     type: GRB
     num_leds: 170
     name: "Bedroom TV Ambient Light"
