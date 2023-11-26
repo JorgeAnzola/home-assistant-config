@@ -2,6 +2,7 @@
 ---
 platform: group
 name: Escaleras
+unique_id: stairs
 entities:
   - light.stairs_1
   - light.stairs_2
