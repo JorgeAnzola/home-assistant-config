@@ -21,6 +21,8 @@
 - light.second_floor
 - light.christmas_tree
 - light.terrace_christmas_lights
+- light.bed
+- light.bedroom_tv_ambient
 # Cameras
 # - camera.entrance
 # - camera.kitchen

@@ -295,6 +295,9 @@
       hours: 0
       minutes: 0
       seconds: 10
+  - condition: state
+    entity_id: binary_sensor.sleeping
+    state: 'off'
   action:
   - service: light.turn_on
     target:
@@ -705,7 +708,7 @@
   action:
   - service: script.find_my_phone
     data:
-      service: notify.mobile_app_marlyns_iphone
+      service: notify.mobile_app_iphone_marlyn
   mode: single
 - id: '1699193807732'
   alias: Kitchen NS Panel - Brightness up
@@ -803,7 +806,7 @@
   action:
   - service: script.find_my_phone
     data:
-      service: notify.mobile_app_marlyns_iphone
+      service: notify.mobile_app_iphone_marlyn
   mode: single
 - id: '1699210261350'
   alias: TO-DOs Notification - Supermarket - Jorge
@@ -849,7 +852,7 @@
     entity_id: todo.shopping_list
     above: 0
   action:
-  - service: notify.mobile_app_marlyns_iphone
+  - service: notify.mobile_app_iphone_marlyn
     data:
       message: Hay {{ states('todo.shopping_list')}} {% if states('todo.shopping_list')
         | int < 2 %}producto{%else%}productos{%endif%} que comprar
@@ -905,7 +908,7 @@
     entity_id: todo.action
     above: 0
   action:
-  - service: notify.mobile_app_marlyns_iphone
+  - service: notify.mobile_app_iphone_marlyn
     data:
       message: Hay {{ states('todo.action')}} {% if states('todo.action') | int <
         2 %}producto{%else%}productos{%endif%} que comprar
@@ -1180,4 +1183,21 @@
         brightness_pct: 100
       target:
         entity_id: light.bedroom_tv_ambient
+  mode: single
+- id: '1700471451021'
+  alias: Periodic TODO item - Weekly - Water plants
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+  action:
+  - service: todo.add_item
+    data:
+      item: Regar las matas
+    target:
+      entity_id: todo.jorge
   mode: single

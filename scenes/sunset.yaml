@@ -20,3 +20,11 @@ entities:
     state: on
     effect: "Gold Glitter"
     brightness_pct: 50
+  light.bed:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 50
+  light.bedroom_tv_ambient:
+    state: on
+    effect: "Gold Glitter"
+    brightness_pct: 50
