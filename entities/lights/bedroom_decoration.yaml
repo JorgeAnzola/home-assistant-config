@@ -1,0 +1,9 @@
+# Combined two ESP Home entities.
+---
+platform: group
+name: Decoración del cuarto
+unique_id: bedroom_decoration
+entities:
+  - light.bedroom_tv_ambient
+  - light.bed
+  - light.bedroom_wall_led_strip
