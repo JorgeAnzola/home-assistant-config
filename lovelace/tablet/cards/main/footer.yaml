@@ -14,12 +14,12 @@ cards:
   #   template: footer
   - type: custom:button-card
     name: >
-      <ha-icon icon="mdi:popcorn"></ha-icon> Home state
+      <ha-icon icon="mdi:popcorn"></ha-icon> Estados
     tap_action: !include ../../pop-ups/home.yaml
     template: footer
   - type: custom:button-card
     name: >
-      <ha-icon icon="mdi:cart"></ha-icon> Groceries
+      <ha-icon icon="mdi:cart"></ha-icon> Mercado
     tap_action: !include ../../pop-ups/shopping.yaml
     template: footer
   - type: custom:button-card
@@ -29,7 +29,12 @@ cards:
     template: footer
   - type: custom:button-card
     name: >
-      <ha-icon icon="mdi:lightning-bolt"></ha-icon> Energy
+      <ha-icon icon="mdi:robot-vacuum"></ha-icon> Aspiradora
+    tap_action: !include ../../pop-ups/energy.yaml
+    template: footer
+  - type: custom:button-card
+    name: >
+      <ha-icon icon="mdi:lightning-bolt"></ha-icon> Energía
     tap_action: !include ../../pop-ups/energy.yaml
     template: footer
   - type: custom:button-card

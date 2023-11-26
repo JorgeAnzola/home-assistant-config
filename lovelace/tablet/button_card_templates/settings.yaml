@@ -2,13 +2,18 @@ settings:
   variables:
     entity_tablet: switch.galaxy_tab_a_screensaver
     entity_browser_mod: media_player.tablet
-    translate_unknown: Unknown
-    translate_idle: Idle
-    translate_home: Home
-    translate_not_home: Away
-    translate_available: Available
-    translate_no_updates: No updates
-    translate_update_available: Update available
-    translate_updates_available: Updates available
-    translate_closed: Closed
-    translate_open: Open
+    translate_unknown: Desconocido
+    translate_idle: Esperando
+    translate_home: En casa
+    translate_not_home: Afuera
+    translate_available: Disponible
+    translate_no_updates: Sin actualizaciones
+    translate_update_available: Actualización disponible
+    translate_updates_available: Actualizaciones disponible
+    translate_closed: Cerrado
+    translate_open: Abierto
+    translate_off: Off
+    translate_on: On
+    translate_wash: Lavado
+    translate_rinse: Enjuague
+    translate_spin: Centrifugado

@@ -85,7 +85,7 @@ browser_mod:
             type: horizontal-stack
             cards:
               - type: custom:button-card
-                name: Find my phone
+                name: Encontrar mi celular
                 icon: mdi:volume-high
                 template: icon_name
                 tap_action:
@@ -95,7 +95,7 @@ browser_mod:
                     sequence:
                       - service: browser_mod.notification
                         data:
-                          message: Finding phone...
+                          message: Haciendo sonar el celular...
                       - service: input_button.press
                         data:
                           entity_id: input_button.jorge_find_my_phone

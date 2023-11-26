@@ -2,7 +2,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Weather details
+    title: Clima
     style: >
       --popup-max-width: calc(385px + 385px);
       --ha-card-border-radius: 0;
@@ -55,7 +55,7 @@ browser_mod:
               extra_labels: true
             - type: custom:hourly-weather
               entity: weather.openweathermap
-              name: Next 12 hours
+              name: Sig. 12 horas
               icons: true
         - type: vertical-stack
           cards:
@@ -106,7 +106,7 @@ browser_mod:
               slot_r8: remove
               type: custom:platinum-weather-card
             - type: custom:html-template-card
-              title: Pollen levels
+              title: Niveles de polen
               ignore_line_breaks: true
               content: |
                 <style>
@@ -172,23 +172,23 @@ browser_mod:
                 <div class="legend">
                   <div class="legend-item">
                     <span class="none bullet"></span>
-                    <span>None</span>
+                    <span>Nada</span>
                   </div>
                   <div class="legend-item">
                     <span class="low bullet"></span>
-                    <span>Low</span>
+                    <span>Bajo</span>
                   </div>
                   <div class="legend-item">
                     <span class="moderate bullet"></span>
-                    <span>Moderate</span>
+                    <span>Medio</span>
                   </div>
                   <div class="legend-item">
                     <span class="high bullet"></span>
-                    <span>High</span>
+                    <span>Alto</span>
                   </div>
                   <div class="legend-item">
                     <span class="very-high bullet"></span>
-                    <span>Very High</span>
+                    <span>Muy alto</span>
                   </div>
                 </div>
 

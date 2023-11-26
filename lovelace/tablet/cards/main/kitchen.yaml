@@ -1,33 +1,33 @@
 ---
 type: grid
-title: Kitchen
+title: Cocina
 view_layout:
   grid-area: kitchen
 columns: 2
 cards:
   - type: custom:button-card
     entity: light.kitchen
-    name: Kitchen
+    name: Luz
     template:
       - base
       - static_light
       - icon_spot
   - type: custom:button-card
-    entity: light.dinning_room
-    name: Dinning
+    entity: light.dinning_lamp
+    name: Comedor
     template:
       - base
       - static_light
       - icon_spot
   - type: custom:button-card
-    entity: light.kitchen_plant
-    name: Plant
+    entity: light.kitchen_decoration
+    name: Decoración
     template:
       - light
       - icon_plant
   - type: custom:button-card
     entity: switch.kitchen_air_freshener
-    name: Freshener
+    name: Ambientador
     template:
       - base
       - icon_air_freshener

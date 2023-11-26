@@ -2,7 +2,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Calendar
+    title: Calendario
     style: >
       --popup-max-width: calc(800px);
     content:

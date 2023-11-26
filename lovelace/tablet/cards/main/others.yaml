@@ -1,6 +1,6 @@
 ---
 type: grid
-title: Others
+title: Todo lo demás
 view_layout:
   grid-area: others
 columns: 1
@@ -20,25 +20,25 @@ cards:
         cards:
           - type: custom:button-card
             entity: light.hallway
-            name: Ground floor
+            name: Entrada
             template:
               - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.second_floor
-            name: Second floor
+            name: Segundo piso
             template:
               - static_light
               - icon_spot
           - type: custom:button-card
             entity: light.stairs
-            name: Stairs
+            name: Escaleras
             template:
               - light
               - icon_stairs
           - type: custom:button-card
             entity: light.stairs_photo_frame
-            name: Stairs wall
+            name: Cuadro de la escalera
             template:
               - static_light
               - icon_wall_lamp
@@ -47,21 +47,21 @@ cards:
         cards:
           - type: custom:button-card
             entity: light.guests_bathroom
-            name: Guests bathroom
+            name: Baño de visitas
             template:
               - static_light
               - icon_bathroom
           - type: custom:button-card
-            entity: switch.entrance_air_freshener
-            name: Freshener
+            entity: switch.air_fresheners
+            name: Ambientadores
             template:
               - base
               - icon_air_freshener
             double_tap_action:
               action: more-info
           - type: custom:button-card
-            entity: switch.washer
-            name: Washer
+            entity: sensor.washer_washer_job_state
+            name: Lavadora
             template:
               - base
               - icon_washing_machine
@@ -71,7 +71,7 @@ cards:
               action: more-info
           - type: custom:button-card
             entity: switch.dryer
-            name: Dryer
+            name: Secadora
             template:
               - base
               - icon_dryer

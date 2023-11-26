@@ -10,30 +10,32 @@ attributes:
     </span>
   date: >
     <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
-      {{ now().strftime('%A') }}, {{ now().strftime('%d %b') }}
+        {% set days = {"Monday": "Lunes", "Tuesday": "Martes", "Wednesday": "Miércoles", "Thursday": "Jueves", "Friday": "Viernes", "Saturday": "Sábado", "Sunday": "Domingo"} %}
+        {% set months = {"Jan": "Ene", "Feb": "Feb", "Mar": "Mar", "Apr": "Abr", "May": "May", "Jun": "Jun", "Jul": "Jul", "Aug": "Ago", "Sep": "Sep", "Oct": "Oct", "Nov": "Nov", "Dec": "Dic"} %}
+        {{ days[now().strftime('%A')] }}, {{ now().strftime('%d') }} {{ months[now().strftime('%b')] }}
       </b>
   greet: >
     <b style="font-weight: 700;color: rgba(255, 255, 255, 0.8);">
     {% set time = now().hour %}
-    {% if time <= 1 %} Good night 😪
-    {% elif time <= 3 %} God night 😴
-    {% elif time <= 5 %} God night 😑
-    {% elif time <= 7 %} Good morning 🥱
-    {% elif time <= 9 %} Good morning {{'\U00002615'}}
-    {% elif time <= 12 %} Good morning 😄
-    {% elif time <= 15 %} Good afternoon 😎
-    {% elif time <= 17 %} Good afternoon 👋🏻
-    {% elif time <= 19 %} Good evening 😬
-    {% elif time <= 22 %} Good evening 😌
-    {% elif time <= 23 %} Good evening 🥱
-    {% else %} Good evening 😪
+    {% if time <= 1 %} Buenas noches 😪
+    {% elif time <= 3 %} Buenas noches 😴
+    {% elif time <= 5 %} Buenas noches 😑
+    {% elif time <= 7 %} Buenos días 🥱
+    {% elif time <= 9 %} Buenos días {{'\U00002615'}}
+    {% elif time <= 12 %} Buenos días 😄
+    {% elif time <= 15 %} Buenas tardes 😎
+    {% elif time <= 17 %} Buenas tardes 👋🏻
+    {% elif time <= 19 %} Buenas tardes 😬
+    {% elif time <= 22 %} Buenas noches 😌
+    {% elif time <= 23 %} Buenas noches 🥱
+    {% else %} Buenas noches 😪
     {% endif %}
     </b>
 
   weather: >
-    {% set feels_like = states('sensor.buienradar_temperature_feels_like') | round %}
-    {% set condition = states('sensor.buienradar_condition') | lower %}
-    {% set full_condition = states('sensor.buienradar_full_condition') | lower %}
+    {% set feels_like = states('sensor.openweathermap_feels_like_temperature') | round %}
+    {% set condition = states('sensor.openweathermap_condition') | lower %}
+    {% set full_condition = states('sensor.openweathermap_weather') | lower %}
     {% set precipitation_probability = states('sensor.openweathermap_forecast_precipitation_probability') | int %}
 
     {% set emoji %}
@@ -47,17 +49,17 @@ attributes:
     {% endif %}
     {% endset %}
 
-    It feels like {{ feels_like }}°, {{ full_condition }} {{ emoji }}<br/><br/>
-    With {{ precipitation_probability }}% chance of precipitation.<br/><br/>
+    La sensación térmica es de {{ feels_like }}°, {{ full_condition }} {{ emoji }}<br/><br/>
+    Con {{ precipitation_probability }}% de probabilidad de lluvia.<br/><br/>
 
     {% if condition == 'rain' %}
-    Don't forget your umbrella! ☂️
+    Lleva un paraguas! ☂️
     {% elif condition == 'thunderstorm' %}
-    Stay safe and take necessary precautions during the thunderstorm. ⚡️
+    Toma las precauciones necesarias para la tormenta. ⚡️
     {% elif precipitation_probability >= 50 %}
-    You might want to consider bringing an umbrella, just in case. ☔️
+    considera llevar un paraguas. ☔️
     {% else %}
-    No significant precipitation expected.
+    No se esperan precipitaciones.
     {% endif %}
     <br/>
   calendar: >
@@ -82,12 +84,12 @@ attributes:
             {% set message = state_attr(calendar, 'message') %}
             {% if 'birthdays' in calendar %}
                 {% set event = {
-                    'name':'<strong style="color:white">' + message + "'s birthday</strong>",
+                    'name':'<strong style="color:white"> Cumpleaños de' + message + "</strong>",
                     'calendar': calendar.split('.')[-1]
                 } %}
             {% elif 'bruno' in calendar %}
                 {% set event = {
-                    'name': '<strong style="color:white">Brunos ' + message + '</strong>',
+                    'name': '<strong style="color:white">Bruno: ' + message + '</strong>',
                     'calendar': calendar.split('.')[-1]
                 } %}
             {% else %}
@@ -124,23 +126,23 @@ attributes:
     {% set eventCount = data.events | length %}
 
     {% if eventCount == 1 %}
-        🗓️ For today: {{ data.events[0]['name'] }} 
+        🗓️ Hoy: {{ data.events[0]['name'] }} 
     {% elif eventCount == 2 %}
-        🗓️ For today:  {{ data.events[0]['name'] }} and {{ data.events[1]['name'] }}
+        🗓️ Hoy:  {{ data.events[0]['name'] }} y {{ data.events[1]['name'] }}
     {% elif eventCount > 2 %}
         {% set remainingCount = eventCount - 2 %}
-        🗓️ For today: {{ data.events[0]['name'] }}, {{ data.events[1]['name'] }} and {{ remainingCount }} others
+        🗓️ Hoy: {{ data.events[0]['name'] }}, {{ data.events[1]['name'] }} y {{ remainingCount }} otros
     {% endif %}
 
     {% set tomorrowEventCount = data.tomorrowEvents | length %}
 
     {% if tomorrowEventCount == 1 %}
-        🗓️ For tomorrow: {{ data.tomorrowEvents[0]['name'] }} 
+        🗓️ Mañana: {{ data.tomorrowEvents[0]['name'] }} 
     {% elif tomorrowEventCount == 2 %}
-        🗓️ For tomorrow:  {{ data.tomorrowEvents[0]['name'] }} and {{ data.tomorrowEvents[1]['name'] }}
+        🗓️ Mañana:  {{ data.tomorrowEvents[0]['name'] }} y {{ data.tomorrowEvents[1]['name'] }}
     {% elif tomorrowEventCount > 2 %}
         {% set remainingCount = tomorrowEventCount - 2 %}
-        🗓️ For tomorrow: {{ data.tomorrowEvents[0]['name'] }}, {{ data.tomorrowEvents[1]['name'] }} and {{ remainingCount }} others
+        🗓️ Mañana: {{ data.tomorrowEvents[0]['name'] }}, {{ data.tomorrowEvents[1]['name'] }} y {{ remainingCount }} otros
     {% endif %}
 
 
@@ -148,13 +150,13 @@ attributes:
     {% set paper = state_attr('sensor.hvc_groep_paper', 'day') %}
 
     {% if plastic == 'Vandaag' %}
-        🟠 Plastic will be collected today
+        🟠 Recogerán el plástico hoy
     {% elif plastic == 'Morgen' %}
-        🟠 Plastic will be collected tomorrow
+        🟠 Recogerán el plástico mañana
     {% endif %}
 
     {% if paper == 'Vandaag' %}
-        🔵 Paper will be collected today
+        🔵 Recogerán el papel hoy
     {% elif paper == 'Morgen' %}
-        🔵 Paper will be collected tomorrow
+        🔵 Recogerán el papel mañana
     {% endif %}

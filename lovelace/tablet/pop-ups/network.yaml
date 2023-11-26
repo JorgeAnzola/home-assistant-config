@@ -50,7 +50,7 @@ browser_mod:
             - type: custom:apexcharts-card
               layout: minimal
               graph_span: 12h
-              locale: en
+              locale: es
               apex_config:
                 chart:
                   fontFamily: var(--primary-font-family)

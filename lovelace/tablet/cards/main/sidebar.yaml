@@ -19,7 +19,7 @@ cards:
     cards:
       - type: custom:button-card
         name: >
-          <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Weather
+          <ha-icon icon="mdi:weather-partly-cloudy"></ha-icon> Clima
         tap_action: !include ../../pop-ups/weather.yaml
         template: sidebar_footer
         styles:
@@ -51,7 +51,7 @@ cards:
                return false;
              ]]]
         name: >
-          <ha-icon icon="mdi:calendar"></ha-icon> Calendar
+          <ha-icon icon="mdi:calendar"></ha-icon> Calendario
         tap_action: !include ../../pop-ups/calendar.yaml
         template: sidebar_footer
         styles:

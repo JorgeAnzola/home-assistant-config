@@ -85,11 +85,17 @@ browser_mod:
             type: horizontal-stack
             cards:
               - type: custom:button-card
-                name: Find my phone
+                name: Encontrar mi celular
                 icon: mdi:volume-high
                 template: icon_name
                 tap_action:
                   action: call-service
-                  service: input_button.press
+                  service: browser_mod.sequence
                   service_data:
-                    entity_id: input_button.marlyn_find_my_phone
+                    sequence:
+                      - service: browser_mod.notification
+                        data:
+                          message: Haciendo sonar el celular...
+                      - service: input_button.press
+                        data:
+                          entity_id: notify.mobile_app_iphone_marlyn

@@ -2,7 +2,7 @@ action: fire-dom-event
 browser_mod:
   service: browser_mod.popup
   data:
-    title: Energy flow
+    title: Flujo de energía
     style: >
       --popup-max-width: calc(800px);
       --ha-card-border-radius: 0;

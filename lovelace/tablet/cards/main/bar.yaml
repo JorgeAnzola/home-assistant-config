@@ -1,5 +1,5 @@
 type: grid
-title: Bar/Terrace
+title: Bar y terraza
 view_layout:
   grid-area: bar
 columns: 1
@@ -19,26 +19,26 @@ cards:
         cards:
           - type: custom:button-card
             entity: light.living_room_3
-            name: Light
+            name: Luz
             template:
               - static_light
               - icon_spot
           - type: custom:button-card
-            entity: light.bar_plant
-            name: Plant
+            entity: light.christmas_tree
+            name: Arbolito
             template:
               - base
               - static_light
-              - icon_plant
+              - icon_christmas_tree
           - type: custom:button-card
             entity: light.terrace
-            name: Terrace
+            name: Terraza
             template:
               - light
               - icon_spot
           - type: custom:button-card
             entity: light.hallway
-            name: Pergola
+            name: Pérgola
             template:
               - light
               - icon_pergola
