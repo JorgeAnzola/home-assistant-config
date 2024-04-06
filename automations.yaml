@@ -1,1203 +1,1443 @@
-- id: '1687854464642'
+- id: "1687854464642"
   alias: Guests mode - Front door notification
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.front_door
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.front_door
+      to: "on"
   condition:
-  - condition: state
-    entity_id: calendar.guests
-    state: 'on'
+    - condition: state
+      entity_id: calendar.guests
+      state: "on"
   action:
-  - service: notify.group_telegram
-    data:
-      message: The front door has been open
+    - service: notify.group_telegram
+      data:
+        message: Se abrió la puerta principal
+
+- id: "1687854464643"
+  alias: Guests mode - Backdoor notification
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.backdoor
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: calendar.guests
+      state: "on"
+  action:
+    - service: notify.group_telegram
+      data:
+        message: Se abrió la puerta del parking
+
   mode: single
-- id: '1697421976121'
+- id: "1697421976121"
   alias: Garbage pick-up notification
   trigger:
-  - platform: time
-    at: '20:00:00'
+    - platform: time
+      at: "20:00:00"
   condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: sensor.hvc_groep_paper
-      state: Morgen
-    - condition: state
-      entity_id: sensor.hvc_groep_plastic
-      state: Morgen
-      attribute: day
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.hvc_groep_paper
+          state: Morgen
+        - condition: state
+          entity_id: sensor.hvc_groep_plastic
+          state: Morgen
+          attribute: day
   action:
-  - service: notify.group_telegram
-    data_template:
-      message: "{{ [\n  \"Hello!\",\n  \"Hi!\",\n  \"Hoi!\",\n  \"Hola!\",\n] | random}}
-        {{ \"*Tomorrow, they will pick-up the trash.*\" }}\n{% if is_state_attr('sensor.hvc_groep_paper',
-        'day', 'Morgen') %}\n{{ \"They will pick-up paper (blue container \U0001F535)
-        \"}} {% endif %}\n{% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen')
-        %}\n{{ \"They will take plastic (orange container \U0001F7E0) \"}} {% endif
-        %}\n"
+    - service: notify.group_telegram
+      data_template:
+        message:
+          "{{ [\n  \"Hello!\",\n  \"Hi!\",\n  \"Hoi!\",\n  \"Hola!\",\n] | random}}
+          {{ \"*Tomorrow, they will pick-up the trash.*\" }}\n{% if is_state_attr('sensor.hvc_groep_paper',
+          'day', 'Morgen') %}\n{{ \"They will pick-up paper (blue container \U0001F535)
+          \"}} {% endif %}\n{% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen')
+          %}\n{{ \"They will take plastic (orange container \U0001F7E0) \"}} {% endif
+          %}\n"
   mode: single
-- id: '1697397100847'
+- id: "1697397100847"
   alias: Kitchen - Automatic light on
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_door
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_motion
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_door
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_motion
+      to: "on"
   condition: []
   action:
-  - service: light.turn_on
-    target:
-      entity_id: light.kitchen
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.kitchen_motion
-      to: 'off'
-    - platform: state
-      entity_id:
-      - binary_sensor.kitchen_door
-      to: 'off'
-  - delay:
-      hours: 1
-  - service: light.turn_off
-    target:
-      entity_id: light.kitchen
+    - service: light.turn_on
+      target:
+        entity_id: light.kitchen
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.kitchen_motion
+          to: "off"
+        - platform: state
+          entity_id:
+            - binary_sensor.kitchen_door
+          to: "off"
+    - delay:
+        hours: 1
+    - service: light.turn_off
+      target:
+        entity_id: light.kitchen
   mode: restart
-- id: '1697411173950'
+- id: "1697411173950"
   alias: Living room TV - backlight
   trigger:
-  - platform: state
-    entity_id:
-    - media_player.living_room_tv
+    - platform: state
+      entity_id:
+        - media_player.living_room_tv
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: media_player.living_room_tv
-      state: 'off'
-    then:
-    - service: light.turn_off
-      target:
-        entity_id: light.tv_ambient
-    else:
-    - service: light.turn_on
-      data:
-        effect: Gold Glitter
-        brightness_pct: 100
-      target:
-        entity_id: light.tv_ambient
+    - if:
+        - condition: state
+          entity_id: media_player.living_room_tv
+          state: "off"
+      then:
+        - service: light.turn_off
+          target:
+            entity_id: light.tv_ambient
+      else:
+        - service: light.turn_on
+          data:
+            effect: Gold Glitter
+            brightness_pct: 100
+          target:
+            entity_id: light.tv_ambient
   mode: single
-- id: '1697389758306'
+- id: "1697389758306"
   alias: Air fresheners - Automatic toggling
   trigger:
-  - platform: time_pattern
-    hours: /4
+    - platform: time_pattern
+      hours: /4
   condition:
-  - condition: state
-    entity_id: binary_sensor.quiet_hours
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id:
-      - switch.air_fresheners
-    data: {}
-  - delay:
-      hours: 2
-  - service: switch.turn_off
-    target:
-      entity_id:
-      - switch.air_fresheners
-    data: {}
-  mode: single
-- id: '1697449539205'
-  alias: Bedroom repellent - Automatic turn off
-  trigger:
-  - platform: state
-    entity_id:
-    - switch.bedroom_repellent
-    to: 'on'
-  condition: []
-  action:
-  - delay:
-      hours: 8
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-  - service: switch.turn_off
-    target:
-      entity_id: switch.bedroom_repellent
-  mode: restart
-- id: '1697425145950'
-  alias: Bedroom repellent - Automatic turn on
-  trigger:
-  - platform: sun
-    event: sunset
-  condition:
-  - condition: numeric_state
-    entity_id: weather.buienradar
-    attribute: temperature
-    above: 18
-  action:
-  - if:
-    - condition: state
-      entity_id: sensor.home
-      state: empty
-    then:
-    - wait_for_trigger:
-      - platform: state
-        entity_id:
-        - sensor.home
-        to: occupied
-    - service: switch.turn_on
-      target:
-        entity_id: switch.bedroom_repellent
-      data: {}
-    else:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.bedroom_repellent
-      data: {}
-  mode: restart
-- id: '1697435742387'
-  alias: Scene - Sunset
-  trigger:
-  - platform: state
-    entity_id:
-    - sun.sun
-    to: below_horizon
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.sunset
-  mode: single
-- id: '1697417484225'
-  alias: Scene - Sunrise
-  trigger:
-  - platform: state
-    entity_id:
-    - sun.sun
-    to: above_horizon
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.sunrise
-  mode: single
-- id: '1697420516728'
-  alias: Scenes - Sunset outdoor
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.night
-  condition: []
-  action:
-  - if:
-    - condition: state
-      entity_id: binary_sensor.night
-      state: 'off'
-    then:
-    - service: light.turn_off
-      target:
-        entity_id: light.outdoor
-      data: {}
-    else:
-    - service: light.turn_on
-      target:
-        entity_id: light.outdoor
-      data: {}
-  mode: single
-- id: '1697444311166'
-  alias: Bathroom heater - Automatic turn off
-  trigger:
-  - platform: state
-    entity_id:
-    - switch.bathroom_heater
-    to: 'on'
-  condition: []
-  action:
-  - delay:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-  - service: switch.turn_off
-    target:
-      entity_id: switch.bathroom_heater
-  mode: restart
-- id: '1697409255946'
-  alias: Bathroom heater - auto on
-  trigger:
-  - platform: time
-    at: '21:00:00'
-  condition:
-  - condition: numeric_state
-    entity_id: weather.buienradar
-    attribute: temperature
-    below: 15
-  action:
-  - if:
-    - condition: state
-      entity_id: sensor.home
-      state: empty
-    then:
-    - wait_for_trigger:
-      - platform: state
-        entity_id:
-        - sensor.home
-        to: occupied
-    - service: switch.turn_on
-      target:
-        entity_id: switch.bathroom_heater
-    else:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.bathroom_heater
-  mode: restart
-- id: '1697431200858'
-  alias: Mirror Light - Automatic on
-  trigger:
-  - platform: state
-    entity_id:
-    - light.bathroom
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    target:
-      entity_id: light.bathroom_mirror
-  mode: single
-- id: '1697446052184'
-  alias: Bathroom - Automatic light
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_door
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_occupancy
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.quiet_hours
-    state: 'off'
-  - condition: state
-    entity_id: light.bathroom
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-  - condition: state
-    entity_id: binary_sensor.sleeping
-    state: 'off'
-  action:
-  - service: light.turn_on
-    target:
-      entity_id:
-      - light.bathroom
-      - light.bathroom_mirror
-    data: {}
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.bathroom_occupancy
-      to: 'off'
-  - delay:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    target:
-      entity_id:
-      - light.bathroom_mirror
-      - light.bathroom
-    data: {}
-  mode: restart
-- id: '1697441114815'
-  alias: Mirror Light - Automatic off
-  trigger:
-  - platform: state
-    entity_id:
-    - light.bathroom
-    to: 'off'
-  condition: []
-  action:
-  - service: light.turn_off
-    target:
-      entity_id: light.bathroom_mirror
-  mode: single
-- id: '1697443520458'
-  alias: Toilet - Automatic light on
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.toilet_door
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.toilet_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.toilet
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-  action:
-  - service: light.turn_on
-    target:
-      entity_id: light.toilet
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.toilet_motion
-      to: 'off'
-    - platform: state
-      entity_id:
-      - binary_sensor.toilet_door
-      to: 'off'
-      enabled: false
-  - delay: 00:05:00
-  - service: light.turn_off
-    target:
-      entity_id: light.toilet
-  mode: restart
-- id: '1698138010668'
-  alias: Closets - Automatic light
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.closet_occupancy
-    to: 'on'
-  condition: []
-  action:
-  - if:
     - condition: state
       entity_id: binary_sensor.quiet_hours
-      state: 'on'
-    then:
-    - service: light.turn_on
-      data:
-        brightness_pct: 10
+      state: "off"
+  action:
+    - service: switch.turn_on
       target:
-        entity_id: light.closets_driver
-    else:
-    - service: light.turn_on
-      data:
-        brightness_pct: 100
+        entity_id:
+          - switch.air_fresheners
+      data: {}
+    - delay:
+        hours: 2
+    - service: switch.turn_off
       target:
-        entity_id: light.closets_driver
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.closet_occupancy
-      to: 'off'
-    timeout:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - type: turn_off
-    device_id: 30c6a67e2cf4924d0b5b060f4bae9acc
-    entity_id: 05ccccfc31b2928f67d31cf0d2952862
-    domain: light
-  mode: restart
-- id: '1698415004917'
-  alias: Kitchen - Sync dinning switch / light
-  trigger:
-  - platform: state
-    entity_id:
-    - switch.dinning_room_switch
-  condition:
-  - condition: template
-    value_template: '{{ trigger.to_state.state != ''unavailable'' }}'
-  action:
-  - service: light.turn_{{ trigger.to_state.state }}
-    data:
-      entity_id: light.dinning_lamp
+        entity_id:
+          - switch.air_fresheners
+      data: {}
   mode: single
-- id: '1698415116652'
-  alias: Kitchen - Sync dinning light / switch
+- id: "1697449539205"
+  alias: Bedroom repellent - Automatic turn off
   trigger:
-  - platform: state
-    entity_id:
-    - light.dinning_lamp
-  condition:
-  - condition: template
-    value_template: '{{ trigger.to_state.state != ''unavailable'' }}'
-  action:
-  - service: switch.turn_{{ trigger.to_state.state }}
-    data:
-      entity_id: switch.dinning_room_switch
-  mode: single
-- id: '1698604582091'
-  alias: Entrance - Automatic light
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.front_door
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.backdoor
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.entrance_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-  - service: light.turn_on
-    data:
-      effect: Gold Glitter
-      brightness_pct: 100
-      transition: 2
-    target:
-      entity_id: light.hallway
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.entrance_motion
-      to: 'off'
-    - platform: state
-      entity_id:
-      - binary_sensor.front_door
-      to: 'off'
-    - platform: state
-      entity_id:
-      - binary_sensor.backdoor
-      to: 'off'
-  - delay:
-      hours: 0
-      minutes: 10
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.hallway
-  mode: restart
-- id: '1699188283672'
-  alias: Guests bathroom - Automatic light
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.guests_bathroom_door_contact
-    to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_guests_occupancy
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.quiet_hours
-    state: 'off'
-  - condition: state
-    entity_id: light.bathroom
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.guests_bathroom
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.bathroom_guests_occupancy
-      to: 'off'
-  - delay:
-      minutes: 15
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.guests_bathroom
-  mode: restart
-- id: '1699188771190'
-  alias: Scenes - Sunrise outdoor
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.night
+        - switch.bedroom_repellent
+      to: "on"
   condition: []
   action:
-  - if:
+    - delay:
+        hours: 8
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - service: switch.turn_off
+      target:
+        entity_id: switch.bedroom_repellent
+  mode: restart
+- id: "1697425145950"
+  alias: Bedroom repellent - Automatic turn on
+  trigger:
+    - platform: sun
+      event: sunset
+  condition:
+    - condition: numeric_state
+      entity_id: weather.buienradar
+      attribute: temperature
+      above: 18
+  action:
+    - if:
+        - condition: state
+          entity_id: sensor.home
+          state: empty
+      then:
+        - wait_for_trigger:
+            - platform: state
+              entity_id:
+                - sensor.home
+              to: occupied
+        - service: switch.turn_on
+          target:
+            entity_id: switch.bedroom_repellent
+          data: {}
+      else:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.bedroom_repellent
+          data: {}
+  mode: restart
+- id: "1697435742387"
+  alias: Scene - Sunset
+  trigger:
+    - platform: state
+      entity_id:
+        - sun.sun
+      to: below_horizon
+  condition:
     - condition: state
-      entity_id: binary_sensor.night
-      state: 'off'
-    then:
-    - service: light.turn_off
+      entity_id: sensor.home
+      state: occupied
+  action:
+    - service: scene.turn_on
       target:
-        entity_id: light.outdoor
-      data: {}
-    else:
-    - service: light.turn_on
-      target:
-        entity_id: light.outdoor
+        entity_id: scene.sunset
       data: {}
   mode: single
-- id: '1699189356712'
-  alias: Stairs 1 - Motion light
+- id: "1697417484225"
+  alias: Scene - Sunrise
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.stairs_1_occupancy
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-    enabled: true
+    - platform: state
+      entity_id:
+        - sun.sun
+      to: above_horizon
   action:
-  - if:
-    - condition: time
-      after: 01:00:00
-      before: 07:00:00
-    then:
-    - service: light.turn_on
-      data:
-        effect: Gold Glitter
-        transition: 2
-        brightness_pct: 50
+    - service: scene.turn_on
       target:
-        entity_id: light.stairs_1
-    - wait_for_trigger:
-      - platform: state
-        entity_id:
-        - binary_sensor.stairs_1_occupancy
-        to: 'off'
+        entity_id: scene.sunrise
+  mode: single
+- id: "1697420516728"
+  alias: Scenes - Sunset outdoor
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.night
+  condition: []
+  action:
+    - if:
+        - condition: state
+          entity_id: binary_sensor.night
+          state: "off"
+      then:
+        - service: light.turn_off
+          target:
+            entity_id: light.outdoor
+          data: {}
+      else:
+        - service: light.turn_on
+          target:
+            entity_id: light.outdoor
+          data: {}
+  mode: single
+- id: "1697444311166"
+  alias: Bathroom heater - Automatic turn off
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.bathroom_heater
+      to: "on"
+  condition: []
+  action:
     - delay:
+        hours: 1
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - service: switch.turn_off
+      target:
+        entity_id: switch.bathroom_heater
+  mode: restart
+- id: "1697409255946"
+  alias: Bathroom heater - auto on
+  trigger:
+    - platform: time
+      at: "21:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: weather.buienradar
+      attribute: temperature
+      below: 15
+    - condition: state
+      entity_id: sensor.home
+      state: occupied
+  action:
+    - if:
+        - condition: state
+          entity_id: sensor.home
+          state: empty
+      then:
+        - wait_for_trigger:
+            - platform: state
+              entity_id:
+                - sensor.home
+              to: occupied
+        - service: switch.turn_on
+          target:
+            entity_id: switch.bathroom_heater
+          data: {}
+      else:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.bathroom_heater
+          data: {}
+  mode: restart
+- id: "1697431200858"
+  alias: Mirror Light - Automatic on
+  trigger:
+    - platform: state
+      entity_id:
+        - light.bathroom
+      to: "on"
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.bathroom_mirror
+  mode: single
+- id: "1697446052184"
+  alias: Bathroom - Automatic light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_door
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_occupancy
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.quiet_hours
+      state: "off"
+    - condition: state
+      entity_id: light.bathroom
+      state: "off"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+    - condition: state
+      entity_id: binary_sensor.sleeping
+      state: "off"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.bathroom
+          - light.bathroom_mirror
+      data: {}
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.bathroom_occupancy
+          to: "off"
+    - delay:
+        hours: 1
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.bathroom_mirror
+          - light.bathroom
+      data: {}
+  mode: restart
+- id: "1697441114815"
+  alias: Mirror Light - Automatic off
+  trigger:
+    - platform: state
+      entity_id:
+        - light.bathroom
+      to: "off"
+  condition: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.bathroom_mirror
+  mode: single
+- id: "1697443520458"
+  alias: Toilet - Automatic light on
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.toilet_door
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.toilet_motion
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: light.toilet
+      state: "off"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.toilet
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.toilet_motion
+          to: "off"
+        - platform: state
+          entity_id:
+            - binary_sensor.toilet_door
+          to: "off"
+          enabled: false
+    - delay: 00:05:00
+    - service: light.turn_off
+      target:
+        entity_id: light.toilet
+  mode: restart
+- id: "1698138010668"
+  alias: Closets - Automatic light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.closet_occupancy
+      to: "on"
+  condition: []
+  action:
+    - if:
+        - condition: state
+          entity_id: binary_sensor.quiet_hours
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.sleeping
+          state: "off"
+          enabled: false
+      then:
+        - service: light.turn_on
+          data:
+            brightness_pct: 10
+          target:
+            entity_id: light.closets_driver
+      else:
+        - service: light.turn_on
+          data:
+            brightness_pct: 100
+          target:
+            entity_id: light.closets_driver
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.closet_occupancy
+          to: "off"
+      timeout:
         hours: 0
         minutes: 5
         seconds: 0
         milliseconds: 0
-    - service: light.turn_off
+    - type: turn_off
+      device_id: 30c6a67e2cf4924d0b5b060f4bae9acc
+      entity_id: 05ccccfc31b2928f67d31cf0d2952862
+      domain: light
+  mode: restart
+- id: "1698415004917"
+  alias: Kitchen - Sync dinning switch / light
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.dinning_room_switch
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state != 'unavailable' }}"
+  action:
+    - service: light.turn_{{ trigger.to_state.state }}
       data:
-        transition: 5
-      target:
-        entity_id: light.stairs_1
-    else:
+        entity_id: light.dinning_lamp
+  mode: single
+- id: "1698415116652"
+  alias: Kitchen - Sync dinning light / switch
+  trigger:
+    - platform: state
+      entity_id:
+        - light.dinning_lamp
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state != 'unavailable' }}"
+  action:
+    - service: switch.turn_{{ trigger.to_state.state }}
+      data:
+        entity_id: switch.dinning_room_switch
+  mode: single
+- id: "1698604582091"
+  alias: Entrance - Automatic light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.front_door
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.backdoor
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.entrance_motion
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+  action:
     - service: light.turn_on
       data:
         effect: Gold Glitter
         brightness_pct: 100
         transition: 2
       target:
-        entity_id: light.stairs_1
-  mode: restart
-- id: '1699189437956'
-  alias: Stairs 2 - Motion light
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.stairs_2_occupancy
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-    enabled: true
-  action:
-  - service: light.turn_on
-    data:
-      effect: Gold Glitter
-      brightness_pct: 100
-      transition: 2
-    target:
-      entity_id: light.stairs_2
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.stairs_2_occupancy
-      to: 'off'
-  - delay:
-      minutes: 5
-  - service: light.turn_on
-    data:
-      effect: Gold Glitter
-      brightness_pct: 30
-      transition: 3
-    target:
-      entity_id: light.stairs_2
-  - delay:
-      hours: 1
-  - service: light.turn_off
-    data:
-      transition: 10
-    target:
-      entity_id: light.stairs_2
-  mode: restart
-- id: '1699191362703'
-  alias: Stairs photo frame - button
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.stairs_photo_frame_action
-    to: single
-  condition: []
-  action:
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.stairs_photo_frame
-  mode: single
-- id: '1699191451691'
-  alias: Hallway - wall switch
-  trigger:
-  - platform: state
-    entity_id:
-    - light.hallway
-    to: single
-  condition: []
-  action:
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.hallway
-  mode: single
-- id: '1699192740311'
-  alias: Kitchen NS Panel - Find my phone - Jorge
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_ns_panel_find_my_phone
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.kitchen_ns_panel_popup_person_1
-    state: 'off'
-  - condition: state
-    entity_id: person.jorge
-    state: home
-  action:
-  - service: script.find_my_phone
-    data:
-      service: notify.mobile_app_jorges_iphone
-  mode: single
-- id: '1699193222848'
-  alias: Kitchen NS Panel - Find my phone - MG
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_ns_panel_find_my_phone
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.kitchen_ns_panel_popup_person_1
-    state: 'on'
-  - condition: state
-    entity_id: person.marlyn
-    state: home
-  action:
-  - service: script.find_my_phone
-    data:
-      service: notify.mobile_app_iphone_marlyn
-  mode: single
-- id: '1699193807732'
-  alias: Kitchen NS Panel - Brightness up
-  trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
-    to: 'on'
-  condition: []
-  action:
-  - service: number.set_value
-    data:
-      value: '100'
-    target:
-      entity_id: number.kitchen_ns_panel_brightness
-  mode: single
-- id: '1699193878495'
-  alias: Kitchen NS Panel - Brightness down
-  trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
-    to: 'off'
-  condition: []
-  action:
-  - service: number.set_value
-    data:
-      value: '100'
-    target:
-      entity_id: number.kitchen_ns_panel_brightness
-  mode: single
-- id: '1699194166549'
-  alias: Bathroom NS Panel - Brightness down
-  trigger:
-  - platform: state
-    entity_id:
-    - light.bathroom
-    to: 'off'
-  condition: []
-  action:
-  - service: number.set_value
-    data:
-      value: '10'
-    target:
-      entity_id: number.bathroom_ns_panel_brightness
-  mode: single
-- id: '1699194200491'
-  alias: Bathroom NS Panel - Brightness up
-  trigger:
-  - platform: state
-    entity_id:
-    - light.kitchen
-    to: 'on'
-  condition: []
-  action:
-  - service: number.set_value
-    data:
-      value: '100'
-    target:
-      entity_id: number.kitchen_ns_panel_brightness
-  mode: single
-- id: '1699194381205'
-  alias: Bathroom NS Panel - Find my phone - Jorge
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_ns_panel_find_my_phone
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.bathroom_ns_panel_popup_person_1
-    state: 'off'
-  - condition: state
-    entity_id: person.jorge
-    state: home
-  action:
-  - service: script.find_my_phone
-    data:
-      service: notify.mobile_app_jorges_iphone
-  mode: single
-- id: '1699194429703'
-  alias: Bathroom NS Panel - Find my phone - MG
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_ns_panel_find_my_phone
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.bathroom_ns_panel_popup_person_1
-    state: 'on'
-  - condition: state
-    entity_id: person.marlyn
-    state: home
-  action:
-  - service: script.find_my_phone
-    data:
-      service: notify.mobile_app_iphone_marlyn
-  mode: single
-- id: '1699210261350'
-  alias: TO-DOs Notification - Supermarket - Jorge
-  trigger:
-  - platform: zone
-    entity_id: person.jorge
-    zone: zone.supermarket
-    event: enter
-  - platform: zone
-    entity_id: person.jorge
-    zone: zone.supermarket_2
-    event: enter
-  condition:
-  - condition: numeric_state
-    entity_id: todo.shopping_list
-    above: 0
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Hay {{ states('todo.shopping_list')}} {% if states('todo.shopping_list')
-        | int < 2 %}producto{%else%}productos{%endif%} que comprar
-      title: Aquí tienes la lista del mercado
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/shopping-list
-          icon: sfsymbols:cart.fill
-  mode: single
-- id: '1699279431543'
-  alias: TO-DOs Notification - Supermarket - MG
-  trigger:
-  - platform: zone
-    entity_id: person.marlyn
-    zone: zone.supermarket
-    event: enter
-  - platform: zone
-    entity_id: person.marlyn
-    zone: zone.supermarket_2
-    event: enter
-  condition:
-  - condition: numeric_state
-    entity_id: todo.shopping_list
-    above: 0
-  action:
-  - service: notify.mobile_app_iphone_marlyn
-    data:
-      message: Hay {{ states('todo.shopping_list')}} {% if states('todo.shopping_list')
-        | int < 2 %}producto{%else%}productos{%endif%} que comprar
-      title: Aquí tienes la lista del mercado
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/shopping-list
-          icon: sfsymbols:cart.fill
-  mode: single
-- id: '1699279875827'
-  alias: TO-DOs Notification - Action - Jorge
-  trigger:
-  - platform: zone
-    entity_id: person.jorge
-    zone: zone.action
-    event: enter
-  - platform: zone
-    entity_id: person.jorge
-    zone: zone.action_2
-    event: enter
-  condition:
-  - condition: numeric_state
-    entity_id: todo.action
-    above: 0
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Hay {{ states('todo.action')}} {% if states('todo.action') | int <
-        2 %}producto{%else%}productos{%endif%} que comprar
-      title: Aquí tienes la lista del Action
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/action
-          icon: sfsymbols:cart.fill
-  mode: single
-- id: '1699279922288'
-  alias: TO-DOs Notification - Action - MG
-  trigger:
-  - platform: zone
-    entity_id: person.marlyn
-    zone: zone.action
-    event: enter
-  - platform: zone
-    entity_id: person.marlyn
-    zone: zone.action_2
-    event: enter
-  condition:
-  - condition: numeric_state
-    entity_id: todo.action
-    above: 0
-  action:
-  - service: notify.mobile_app_iphone_marlyn
-    data:
-      message: Hay {{ states('todo.action')}} {% if states('todo.action') | int <
-        2 %}producto{%else%}productos{%endif%} que comprar
-      title: Aquí tienes la lista del Action
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/action
-          icon: sfsymbols:cart.fill
-  mode: single
-- id: '1699279988417'
-  alias: TO-DOs Notification - Hornbach - Jorge
-  trigger:
-  - platform: zone
-    entity_id: person.jorge
-    zone: zone.hornnach
-    event: enter
-  condition:
-  - condition: numeric_state
-    entity_id: todo.hornbach
-    above: 0
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Hay {{ states('todo.action')}} {% if states('todo.action') | int <
-        2 %}producto{%else%}productos{%endif%} que comprar
-      title: Aquí tienes la lista de compras de Hornbach
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/hornbach
-          icon: sfsymbols:cart.fill
-  mode: single
-- id: '1699298113130'
-  alias: Periodic TODO item - BiWeekly - Clean the filters
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition:
-  - condition: time
-    weekday:
-    - tue
-  - condition: template
-    value_template: '{% set last_triggered = state_attr(''automation.periodic_todo_item_biweekly_clean_the_filters'',
-      ''last_triggered'') %}
-
-      {% set last_triggered_timestamp = as_timestamp(last_triggered) if last_triggered
-      != None else 0 %}
-
-      {% set now_timestamp = as_timestamp(now()) %}
-
-      {{ now_timestamp - last_triggered_timestamp >= (60*60*24*7*2) }}'
-  action:
-  - service: todo.add_item
-    data:
-      item: LImpiar los filtros de la ventilación
-    target:
-      entity_id: todo.jorge
-  mode: single
-- id: '1699298917760'
-  alias: Periodic TODO item - Variable - Laundry
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition:
-  - condition: state
-    entity_id: switch.washer
-    state: 'off'
-    for:
-      hours: 168
-      minutes: 0
-      seconds: 0
-  action:
-  - service: todo.add_item
-    data:
-      item: Lavar
-    target:
-      entity_id: todo.jorge
-  mode: single
-- id: '1699299427602'
-  alias: TO-DOs Notification - Jorge - Morning
-  trigger:
-  - platform: time
-    at: '10:00:00'
-  condition:
-  - condition: numeric_state
-    entity_id: todo.jorge
-    above: 0
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Hay {{ states('todo.jorge')}} {% if states('todo.jorge') | int < 2
-        %}cosa{%else%}cosas{%endif%} que hacer hoy
-      title: Abrir la lista
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/jorge
-          icon: sfsymbols:list.clipboard
-  mode: single
-- id: '1699374342489'
-  alias: TO-DOs Notification - Jorge - Afternoon
-  trigger:
-  - platform: time
-    at: '18:00:00'
-  condition:
-  - condition: numeric_state
-    entity_id: todo.jorge
-    above: 0
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Aún hay {{ states('todo.jorge')}} {% if states('todo.jorge') | int
-        < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
-      title: Abrir la lista
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/jorge
-          icon: sfsymbols:list.clipboard
-  mode: single
-- id: '1699375790157'
-  alias: Periodic TODO item - Variable - Garbage collection
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.hvc_groep_paper
-    attribute: day
-    to: Morgen
-  - platform: state
-    entity_id:
-    - sensor.hvc_groep_plastic
-    attribute: day
-    to: Morgen
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: sensor.hvc_groep_paper
-        attribute: day
-        state: Morgen
-      sequence:
-      - service: todo.add_item
-        data:
-          item: "Sacar kliko azul del papel \U0001F535"
-        target:
-          entity_id: todo.jorge
-    - conditions:
-      - condition: state
-        entity_id: sensor.hvc_groep_plastic
-        attribute: day
-        state: Morgen
-      sequence:
-      - service: todo.add_item
-        data:
-          item: "Sacar kliko naranja del plastico \U0001F7E0"
-        target:
-          entity_id: todo.jorge
-  mode: single
-- id: '1699376505627'
-  alias: Notification - Garbage collection
-  trigger:
-  - platform: time
-    at: '18:00:00'
-  condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: sensor.hvc_groep_paper
-      attribute: day
-      state: Morgen
-    - condition: state
-      entity_id: sensor.hvc_groep_plastic
-      attribute: day
-      state: Morgen
-  action:
-  - service: notify.group_telegram
-    data_template:
-      message: "{{ \"Hola!\"}}\n{{ \"*Mañana, recogerán la basura.*\" }}\n{% if is_state_attr('sensor.hvc_groep_paper',
-        'day', 'Morgen') %}\n{{ \"Saquen el contenedor azul del papel \U0001F535\"}}
-        {% endif %}\n{% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen')
-        %}\n{{ \"Saquen el contenedor anaranjado del plastico \U0001F7E0\"}} {% endif
-        %}\n"
-  mode: single
-- id: '1699390456526'
-  alias: TO-DOs Notification - Jorge - Tomorrow
-  trigger:
-  - platform: time
-    at: '22:00:00'
-  condition: []
-  action:
-  - service: notify.mobile_app_jorges_iphone
-    data:
-      message: Planea el día de mañana
-      title: Abrir la lista
-      data:
-        actions:
-        - action: URI
-          title: Abrir lista
-          uri: /to-dos/jorge
-          icon: sfsymbols:list.clipboard
-  mode: single
-- id: '1699641167534'
-  alias: Automatic candles - On
-  trigger:
-  - platform: state
-    entity_id:
-    - fan.living_room_fireplace
-    to: 'on'
-  condition: []
-  action:
-  - service: remote.send_command
-    data:
-      delay_secs: 0.4
-      hold_secs: 0
-      command: 'on'
-      device: candles
-      num_repeats: 10
-    target:
-      entity_id: remote.broadlink
-  mode: single
-- id: '1699641204488'
-  alias: Automatic candles - Off
-  trigger:
-  - platform: state
-    entity_id:
-    - fan.living_room_fireplace
-    to: 'off'
-  condition: []
-  action:
-  - service: remote.send_command
-    data:
-      delay_secs: 0.4
-      hold_secs: 0
-      command: 'off'
-      device: candles
-      num_repeats: 20
-    target:
-      entity_id: remote.broadlink
-  mode: single
-- id: '1700217793670'
-  alias: Bedroom TV backlight - On
-  trigger:
-  - platform: state
-    entity_id:
-    - media_player.bedroom_apple_tv
-    to: 'on'
-  - platform: state
-    entity_id:
-    - media_player.bedroom_apple_tv
-    to: playing
-  condition: []
-  action:
-  - if:
-    - condition: state
-      entity_id: media_player.bedroom_apple_tv
-      state: 'off'
-    then:
+        entity_id: light.hallway
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.entrance_motion
+          to: "off"
+        - platform: state
+          entity_id:
+            - binary_sensor.front_door
+          to: "off"
+        - platform: state
+          entity_id:
+            - binary_sensor.backdoor
+          to: "off"
+    - delay:
+        hours: 0
+        minutes: 10
+        seconds: 0
+        milliseconds: 0
     - service: light.turn_off
       data: {}
       target:
-        entity_id: light.bedroom_tv_ambient
-    else:
+        entity_id: light.hallway
+  mode: restart
+- id: "1699188283672"
+  alias: Guests bathroom - Automatic light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.guests_bathroom_door_contact
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_guests_occupancy
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.quiet_hours
+      state: "off"
+    - condition: state
+      entity_id: light.bathroom
+      state: "off"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+  action:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.guests_bathroom
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.bathroom_guests_occupancy
+          to: "off"
+    - delay:
+        minutes: 15
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.guests_bathroom
+  mode: restart
+- id: "1699188771190"
+  alias: Scenes - Sunrise outdoor
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.night
+  condition: []
+  action:
+    - if:
+        - condition: state
+          entity_id: binary_sensor.night
+          state: "off"
+      then:
+        - service: light.turn_off
+          target:
+            entity_id: light.outdoor
+          data: {}
+      else:
+        - service: light.turn_on
+          target:
+            entity_id: light.outdoor
+          data: {}
+  mode: single
+- id: "1699189356712"
+  alias: Stairs 1 - Motion light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.stairs_1_occupancy
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+      enabled: true
+  action:
+    - if:
+        - condition: time
+          after: 01:00:00
+          before: 07:00:00
+      then:
+        - service: light.turn_on
+          data:
+            effect: Gold Glitter
+            transition: 2
+            brightness_pct: 50
+          target:
+            entity_id: light.stairs_1
+        - wait_for_trigger:
+            - platform: state
+              entity_id:
+                - binary_sensor.stairs_1_occupancy
+              to: "off"
+        - delay:
+            hours: 0
+            minutes: 5
+            seconds: 0
+            milliseconds: 0
+        - service: light.turn_off
+          data:
+            transition: 5
+          target:
+            entity_id: light.stairs_1
+      else:
+        - service: light.turn_on
+          data:
+            effect: Gold Glitter
+            brightness_pct: 100
+            transition: 2
+          target:
+            entity_id: light.stairs_1
+  mode: restart
+- id: "1699189437956"
+  alias: Stairs 2 - Motion light
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.stairs_2_occupancy
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+      enabled: true
+  action:
     - service: light.turn_on
       data:
         effect: Gold Glitter
         brightness_pct: 100
+        transition: 2
       target:
-        entity_id: light.bedroom_tv_ambient
-  mode: single
-- id: '1700471451021'
-  alias: Periodic TODO item - Weekly - Water plants
-  description: ''
+        entity_id: light.stairs_2
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.stairs_2_occupancy
+          to: "off"
+    - delay:
+        minutes: 5
+    - service: light.turn_on
+      data:
+        effect: Gold Glitter
+        brightness_pct: 30
+        transition: 3
+      target:
+        entity_id: light.stairs_2
+    - delay:
+        hours: 1
+    - service: light.turn_off
+      data:
+        transition: 10
+      target:
+        entity_id: light.stairs_2
+  mode: restart
+- id: "1699191362703"
+  alias: Stairs photo frame - button
   trigger:
-  - platform: time
-    at: 00:00:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
+    - platform: state
+      entity_id:
+        - sensor.stairs_photo_frame_action
+      to: single
+  condition: []
   action:
-  - service: todo.add_item
-    data:
-      item: Regar las matas
-    target:
-      entity_id: todo.jorge
+    - service: light.toggle
+      data: {}
+      target:
+        entity_id: light.stairs_photo_frame
   mode: single
+- id: "1699191451691"
+  alias: Hallway - wall switch
+  trigger:
+    - platform: state
+      entity_id:
+        - light.hallway
+      to: single
+  condition: []
+  action:
+    - service: light.toggle
+      data: {}
+      target:
+        entity_id: light.hallway
+  mode: single
+- id: "1699192740311"
+  alias: Kitchen NS Panel - Find my phone - Jorge
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_ns_panel_find_my_phone
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.kitchen_ns_panel_popup_person_1
+      state: "off"
+    - condition: state
+      entity_id: person.jorge
+      state: home
+  action:
+    - service: script.find_my_phone
+      data:
+        service: notify.mobile_app_jorges_iphone
+  mode: single
+- id: "1699193222848"
+  alias: Kitchen NS Panel - Find my phone - MG
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_ns_panel_find_my_phone
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.kitchen_ns_panel_popup_person_1
+      state: "on"
+    - condition: state
+      entity_id: person.marlyn
+      state: home
+  action:
+    - service: script.find_my_phone
+      data:
+        service: notify.mobile_app_iphone_marlyn
+  mode: single
+- id: "1699193807732"
+  alias: Kitchen NS Panel - Brightness up
+  trigger:
+    - platform: state
+      entity_id:
+        - light.kitchen
+      to: "on"
+  condition: []
+  action:
+    - service: number.set_value
+      data:
+        value: "100"
+      target:
+        entity_id: number.kitchen_ns_panel_brightness
+  mode: single
+- id: "1699193878495"
+  alias: Kitchen NS Panel - Brightness down
+  trigger:
+    - platform: state
+      entity_id:
+        - light.kitchen
+      to: "off"
+  condition: []
+  action:
+    - service: number.set_value
+      data:
+        value: "100"
+      target:
+        entity_id: number.kitchen_ns_panel_brightness
+  mode: single
+- id: "1699194166549"
+  alias: Bathroom NS Panel - Brightness down
+  trigger:
+    - platform: state
+      entity_id:
+        - light.bathroom
+      to: "off"
+  condition: []
+  action:
+    - service: number.set_value
+      data:
+        value: "10"
+      target:
+        entity_id: number.bathroom_ns_panel_brightness
+  mode: single
+- id: "1699194200491"
+  alias: Bathroom NS Panel - Brightness up
+  trigger:
+    - platform: state
+      entity_id:
+        - light.kitchen
+      to: "on"
+  condition: []
+  action:
+    - service: number.set_value
+      data:
+        value: "100"
+      target:
+        entity_id: number.kitchen_ns_panel_brightness
+  mode: single
+- id: "1699194381205"
+  alias: Bathroom NS Panel - Find my phone - Jorge
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_ns_panel_find_my_phone
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.bathroom_ns_panel_popup_person_1
+      state: "off"
+    - condition: state
+      entity_id: person.jorge
+      state: home
+  action:
+    - service: script.find_my_phone
+      data:
+        service: notify.mobile_app_jorges_iphone
+  mode: single
+- id: "1699194429703"
+  alias: Bathroom NS Panel - Find my phone - MG
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_ns_panel_find_my_phone
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.bathroom_ns_panel_popup_person_1
+      state: "on"
+    - condition: state
+      entity_id: person.marlyn
+      state: home
+  action:
+    - service: script.find_my_phone
+      data:
+        service: notify.mobile_app_iphone_marlyn
+  mode: single
+- id: "1699210261350"
+  alias: TO-DOs Notification - Supermarket - Jorge
+  trigger:
+    - platform: zone
+      entity_id: person.jorge
+      zone: zone.supermarket
+      event: enter
+    - platform: zone
+      entity_id: person.jorge
+      zone: zone.supermarket_2
+      event: enter
+  condition:
+    - condition: numeric_state
+      entity_id: todo.shopping_list
+      above: 0
+  action:
+    - service: todo.remove_completed_items
+      target:
+        entity_id: todo.shopping_list
+    - service: notify.mobile_app_jorges_iphone
+      data:
+        message:
+          Hay {{ states('todo.shopping_list')}} {% if states('todo.shopping_list')
+          | int < 2 %}producto{%else%}productos{%endif%} que comprar
+        title: Aquí tienes la lista del mercado
+        data:
+          url: /to-dos/shopping-list
+          icon: sfsymbols:cart.fill
+          tag: todo-shopping-list
+  mode: single
+- id: "1699279431543"
+  alias: TO-DOs Notification - Supermarket - MG
+  trigger:
+    - platform: zone
+      entity_id: person.marlyn
+      zone: zone.supermarket
+      event: enter
+    - platform: zone
+      entity_id: person.marlyn
+      zone: zone.supermarket_2
+      event: enter
+  condition:
+    - condition: numeric_state
+      entity_id: todo.shopping_list
+      above: 0
+  action:
+    - service: todo.remove_completed_items
+      target:
+        entity_id: todo.shopping_list
+    - service: notify.mobile_app_iphone_marlyn
+      data:
+        message:
+          Hay {{ states('todo.shopping_list')}} {% if states('todo.shopping_list')
+          | int < 2 %}producto{%else%}productos{%endif%} que comprar
+        title: Aquí tienes la lista del mercado
+        data:
+          url: /to-dos/shopping-list
+          icon: sfsymbols:cart.fill
+          tag: todo-shopping-list
+  mode: single
+- id: "1699279875827"
+  alias: TO-DOs Notification - Action - Jorge
+  trigger:
+    - platform: zone
+      entity_id: person.jorge
+      zone: zone.action
+      event: enter
+    - platform: zone
+      entity_id: person.jorge
+      zone: zone.action_2
+      event: enter
+  condition:
+    - condition: numeric_state
+      entity_id: todo.action
+      above: 0
+  action:
+    - service: todo.remove_completed_items
+      target:
+        entity_id: todo.action
+    - service: notify.mobile_app_jorges_iphone
+      data:
+        message:
+          Hay {{ states('todo.action')}} {% if states('todo.action') | int <
+          2 %}producto{%else%}productos{%endif%} que comprar
+        title: Aquí tienes la lista del Action
+        data:
+          url: /to-dos/action
+          icon: sfsymbols:cart.fill
+          tag: todo-action
+  mode: single
+- id: "1699279922288"
+  alias: TO-DOs Notification - Action - MG
+  trigger:
+    - platform: zone
+      entity_id: person.marlyn
+      zone: zone.action
+      event: enter
+    - platform: zone
+      entity_id: person.marlyn
+      zone: zone.action_2
+      event: enter
+  condition:
+    - condition: numeric_state
+      entity_id: todo.action
+      above: 0
+  action:
+    - service: todo.remove_completed_items
+      target:
+        entity_id: todo.action
+    - service: notify.mobile_app_iphone_marlyn
+      data:
+        message:
+          Hay {{ states('todo.action')}} {% if states('todo.action') | int <
+          2 %}producto{%else%}productos{%endif%} que comprar
+        title: Aquí tienes la lista del Action
+        data:
+          url: /to-dos/action
+          icon: sfsymbols:cart.fill
+          tag: todo-action
+  mode: single
+- id: "1699279988417"
+  alias: TO-DOs Notification - Hornbach - Jorge
+  trigger:
+    - platform: zone
+      entity_id: person.jorge
+      zone: zone.hornnach
+      event: enter
+  condition:
+    - condition: numeric_state
+      entity_id: todo.hornbach
+      above: 0
+  action:
+    - service: todo.remove_completed_items
+      target:
+        entity_id: todo.hornbach
+    - service: notify.mobile_app_jorges_iphone
+      data:
+        message:
+          Hay {{ states('todo.action')}} {% if states('todo.action') | int <
+          2 %}producto{%else%}productos{%endif%} que comprar
+        title: Aquí tienes la lista de compras de Hornbach
+        data:
+          url: /to-dos/hornbach
+          icon: sfsymbols:cart.fill
+          tag: todo-hornbach
+  mode: single
+- id: "1699298113130"
+  alias: Periodic TODO item - BiWeekly - Clean the filters
+  trigger:
+    - platform: time
+      at: 00:00:00
+  condition:
+    - condition: time
+      weekday:
+        - tue
+    - condition: template
+      value_template:
+        "{% set last_triggered = state_attr('automation.periodic_todo_item_biweekly_clean_the_filters',
+        'last_triggered') %}
+
+        {% set last_triggered_timestamp = as_timestamp(last_triggered) if last_triggered
+        != None else 0 %}
+
+        {% set now_timestamp = as_timestamp(now()) %}
+
+        {{ now_timestamp - last_triggered_timestamp >= (60*60*24*7*2) }}"
+  action:
+    - service: todo.add_item
+      data:
+        item: LImpiar los filtros de la ventilación
+      target:
+        entity_id: todo.household
+  mode: single
+- id: "1699298917760"
+  alias: Periodic TODO item - Variable - Laundry
+  trigger:
+    - platform: time
+      at: 00:00:00
+  condition:
+    - condition: state
+      entity_id: switch.washer
+      state: "off"
+      for:
+        hours: 168
+        minutes: 0
+        seconds: 0
+  action:
+    - service: todo.add_item
+      data:
+        item: Lavar
+      target:
+        entity_id: todo.household
+  mode: single
+- id: "1699299427603"
+  alias: TO-DOs Notification - Marlyn - Morning
+  trigger:
+    - platform: time
+      at: "11:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: todo.marlyn
+      above: 0
+  action:
+    - service: notify.mobile_app_iphone_marlyn
+      data:
+        message:
+          Hay {{ states('todo.marlyn')}} {% if states('todo.marlyn') | int <
+          2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+        title: Abrir la lista
+        data:
+          url: /to-dos/marlyn
+          icon: sfsymbols:list.clipboard
+          tag: todo-marlyn
+  mode: single
+- id: "1699299427603"
+  alias: TO-DOs Notification - Marlyn - Morning
+  trigger:
+    - platform: time
+      at: "11:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: todo.household
+      above: 0
+  action:
+    - service: notify.mobile_app_iphone_marlyn
+      data:
+        message:
+          Hay {{ states('todo.household')}} {% if states('todo.household') |
+          int < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+        title: Abrir la lista
+        data:
+          url: /to-dos/household
+          icon: sfsymbols:list.clipboard
+          tag: todo-household
+  mode: single
+- id: "1699299427602"
+  alias: TO-DOs Notification - Jorge
+  description: ""
+  trigger:
+    - platform: time
+      at: "10:00:00"
+    - platform: time
+      at: "15:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.home
+      state: occupied
+  action:
+    - if:
+        - condition: numeric_state
+          entity_id: todo.household
+          above: 0
+      then:
+        - service: notify.mobile_app_jorges_iphone
+          data:
+            message:
+              Hay {{ states('todo.household')}} {% if states('todo.household')
+              | int < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+            title: Abrir la lista
+            data:
+              url: /to-dos/household
+              icon: sfsymbols:list.clipboard
+              tag: todo-household
+      else:
+        - if:
+            - condition: numeric_state
+              entity_id: todo.jorge
+              above: 0
+          then:
+            - service: notify.mobile_app_jorges_iphone
+              data:
+                message:
+                  Hay {{ states('todo.jorge')}} {% if states('todo.jorge') | int
+                  < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+                title: Abrir la lista
+                data:
+                  url: /to-dos/jorge
+                  icon: sfsymbols:list.clipboard
+                  tag: todo-jorge
+  mode: single
+- id: "1699374342472"
+  alias: TO-DOs Notification - Marlyn - Afternoon
+  trigger:
+    - platform: time
+      at: "15:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: todo.household
+      above: 0
+  action:
+    - service: notify.mobile_app_iphone_marlyn
+      data:
+        message:
+          Aún hay {{ states('todo.household')}} {% if states('todo.household')
+          | int < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+        title: Abrir la lista
+        data:
+          url: /to-dos/household
+          icon: sfsymbols:list.clipboard
+          tag: todo-household
+  mode: single
+- id: "1699374342489"
+  alias: TO-DOs Notification - Jorge - Afternoon
+  trigger:
+    - platform: time
+      at: "15:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: todo.household
+      above: 0
+  action:
+    - service: notify.mobile_app_jorges_iphone
+      data:
+        message:
+          Aún hay {{ states('todo.household')}} {% if states('todo.household')
+          | int < 2 %}cosa{%else%}cosas{%endif%} que hacer hoy
+        title: Abrir la lista
+        data:
+          url: /to-dos/household
+          icon: sfsymbols:list.clipboard
+          tag: todo-household
+  mode: single
+- id: "1699375790157"
+  alias: Periodic TODO item - Variable - Garbage collection
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.hvc_groep_paper
+      attribute: day
+      to: Morgen
+    - platform: state
+      entity_id:
+        - sensor.hvc_groep_plastic
+      attribute: day
+      to: Morgen
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.hvc_groep_paper
+              attribute: day
+              state: Morgen
+          sequence:
+            - service: todo.add_item
+              data:
+                item: "Sacar kliko azul del papel \U0001F535"
+              target:
+                entity_id: todo.household
+        - conditions:
+            - condition: state
+              entity_id: sensor.hvc_groep_plastic
+              attribute: day
+              state: Morgen
+          sequence:
+            - service: todo.add_item
+              data:
+                item: "Sacar kliko naranja del plastico \U0001F7E0"
+              target:
+                entity_id: todo.household
+  mode: single
+- id: "1699376505627"
+  alias: Notification - Garbage collection
+  trigger:
+    - platform: time
+      at: "18:00:00"
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.hvc_groep_paper
+          attribute: day
+          state: Morgen
+        - condition: state
+          entity_id: sensor.hvc_groep_plastic
+          attribute: day
+          state: Morgen
+  action:
+    - service: notify.group_telegram
+      data_template:
+        message:
+          "{{ \"Hola!\"}}\n{{ \"*Mañana, recogerán la basura.*\" }}\n{% if is_state_attr('sensor.hvc_groep_paper',
+          'day', 'Morgen') %}\n{{ \"Saquen el contenedor azul del papel \U0001F535\"}}
+          {% endif %}\n{% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen')
+          %}\n{{ \"Saquen el contenedor anaranjado del plastico \U0001F7E0\"}} {% endif
+          %}\n"
+  mode: single
+- id: "1699390456526"
+  alias: TO-DOs Notification - Jorge - Tomorrow
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  condition: []
+  action:
+    - service: notify.mobile_app_jorges_iphone
+      data:
+        message: Planea el día de mañana
+        title: Abrir la lista
+        data:
+          url: /to-dos/jorge
+          icon: sfsymbols:list.clipboard
+          tag: todo-jorge
+  mode: single
+- id: "1699641167534"
+  alias: Automatic candles - On
+  trigger:
+    - platform: state
+      entity_id:
+        - fan.living_room_fireplace
+      to: "on"
+  condition: []
+  action:
+    - service: remote.send_command
+      data:
+        delay_secs: 0.4
+        hold_secs: 0
+        command: "on"
+        device: candles
+        num_repeats: 10
+      target:
+        entity_id: remote.broadlink
+  mode: single
+- id: "1699641204488"
+  alias: Automatic candles - Off
+  trigger:
+    - platform: state
+      entity_id:
+        - fan.living_room_fireplace
+      to: "off"
+  condition: []
+  action:
+    - service: remote.send_command
+      data:
+        delay_secs: 0.4
+        hold_secs: 0
+        command: "off"
+        device: candles
+        num_repeats: 20
+      target:
+        entity_id: remote.broadlink
+  mode: single
+- id: "1700217793670"
+  alias: Bedroom TV backlight - On
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.bedroom_apple_tv
+      to: "on"
+    - platform: state
+      entity_id:
+        - media_player.bedroom_apple_tv
+      to: playing
+  condition: []
+  action:
+    - if:
+        - condition: state
+          entity_id: media_player.bedroom_apple_tv
+          state: "off"
+      then:
+        - service: light.turn_off
+          data: {}
+          target:
+            entity_id: light.bedroom_tv_ambient_2
+      else:
+        - service: light.turn_on
+          data:
+            effect: Gold Glitter
+            brightness_pct: 100
+          target:
+            entity_id: light.bedroom_tv_ambient_2
+  mode: single
+- id: "1700471451021"
+  alias: Periodic TODO item - Weekly - Water plants
+  trigger:
+    - platform: time
+      at: 00:00:00
+  condition:
+    - condition: time
+      weekday:
+        - mon
+  action:
+    - service: todo.add_item
+      data:
+        item: Regar las matas
+      target:
+        entity_id: todo.household
+  mode: single
+- id: "1705488774511"
+  alias: TAG - Shopping list - Corn flour
+  description: ""
+  trigger:
+    - platform: tag
+      tag_id: a15495f4-bc05-4b16-9695-e25a784591d0
+  condition: []
+  action:
+    - service: todo.add_item
+      metadata: {}
+      data:
+        item: Harina de maíz
+      target:
+        entity_id: todo.shopping_list
+  mode: single
+- id: "1705586657801"
+  alias: Count water bottle
+  description: ""
+  trigger:
+    - platform: tag
+      tag_id: 631706b6-ff5e-4e7c-b15f-eda1c9a6a35a
+  condition: []
+  action:
+    - service: input_number.increment
+      metadata: {}
+      data: {}
+      target:
+        entity_id: input_number.jorge_daily_water_bottles
+  mode: single
+- id: "1705586713763"
+  alias: Reset water bottles
+  description: ""
+  trigger:
+    - platform: time
+      at: 00:00:00
+  condition: []
+  action:
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.jorge_daily_water_bottles
+      data:
+        value: 0
+  mode: single
+- id: "1709204862196"
+  alias: Office lilght
+  description: ""
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: c50384b5a06fcb1461512aa9aee0f81d
+      type: click
+      subtype: single
+  condition: []
+  action:
+    - service: switch.toggle
+      target:
+        entity_id: switch.office
+      data: {}
+  mode: single
+- id: "1709204862197"
+  alias: Office light
+  description: ""
+  trigger:
+    - type: opened
+      platform: device
+      device_id: 3527462006761dfd07e0b2b192f9d66f
+      entity_id: 6adfdc5675b0e178833e8ccc01428360
+      domain: binary_sensor
+    - type: opened
+      platform: device
+      device_id: f7d300661524501da806f456eb0e9904
+      entity_id: ea8a870b8343c6f5a210e6fe619a4079
+      domain: binary_sensor
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: switch.office
+      data: {}
+  mode: single
+- id: "1709048621623"
+  alias: Office Switch On Control
+  trigger:
+    platform: state
+    entity_id: switch.office
+    to: "on"
+  action:
+    service: script.office_lights_on_sequence
+- id: "1709204862164"
+  alias: Office Switch Off Control
+  trigger:
+    platform: state
+    entity_id: switch.office
+    to: "off"
+  action:
+    service: script.office_lights_off_sequence
+- id: "1709048621653"
+  alias: Office Ligth On Control
+  trigger:
+    platform: state
+    entity_id: light.office
+    to: "on"
+  action:
+    service: switch.turn_on
+    entity_id: switch.office
+- id: "1709204862123"
+  alias: Office Ligth Off Control
+  trigger:
+    platform: state
+    entity_id: light.office
+    to: "off"
+  action:
+    service: switch.turn_off
+    entity_id: switch.office
