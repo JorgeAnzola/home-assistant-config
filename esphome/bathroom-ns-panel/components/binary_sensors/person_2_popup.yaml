@@ -10,4 +10,4 @@ on_click:
   - switch.template.publish:
       id: popup_person_1
       state: off
-  - lambda: id(disp1).send_command_printf("page 4");
+  - lambda: id(disp1).send_command_printf("page 3");

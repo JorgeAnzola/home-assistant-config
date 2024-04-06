@@ -7,7 +7,7 @@ on_setup:
     - number.set:
         id: brightness
         value: 30
-    - lambda: id(disp1).send_command_printf("page 3");
+    - lambda: id(disp1).send_command_printf("page 2");
     - wait_until: api.connected
     - switch.template.publish:
         id: nextion_init
@@ -16,7 +16,7 @@ on_setup:
         condition:
           - switch.is_on: alarm_activated
         then:
-          - lambda: id(disp1).send_command_printf("page 5");
+          - lambda: id(disp1).send_command_printf("page 4");
         else:
           - delay: 5s
           - lambda: id(disp1).send_command_printf("page 0");

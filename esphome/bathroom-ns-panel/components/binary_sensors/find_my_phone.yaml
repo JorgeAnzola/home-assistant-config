@@ -1,6 +1,6 @@
 platform: nextion
 name: $device_name Find My Phone
-page_id: 4
+page_id: 3
 component_id: 6
 on_click:
   if:
@@ -14,8 +14,8 @@ on_click:
           - homeassistant.service:
               service: esphome.bathroom_ns_panel_notification
               data:
-                header: Success
-                message: Ringing your phone 🔔
+                header: Completo
+                message: 🔔 Tu teléfono está sonando...
           - homeassistant.service:
               service: input_button.press
               data:
@@ -25,7 +25,7 @@ on_click:
               service: esphome.bathroom_ns_panel_notification
               data:
                 header: Error
-                message: Sorry, you cannot locate a phone\rthat's not in the house.
+                message: No puedes hacer sonar un teléfono que no está en la casa.
     else:
       if:
         condition:
@@ -34,8 +34,8 @@ on_click:
           - homeassistant.service:
               service: esphome.bathroom_ns_panel_notification
               data:
-                header: Success
-                message: Ringing your phone 🔔
+                header: Completo
+                message: 🔔 Tu teléfono está sonando...
           - homeassistant.service:
               service: input_button.press
               data:
@@ -45,4 +45,4 @@ on_click:
               service: esphome.bathroom_ns_panel_notification
               data:
                 header: Error
-                message: Sorry, you cannot locate a phone\rthat's not in the house.
+                message: No puedes hacer sonar un teléfono que no está en la casa.

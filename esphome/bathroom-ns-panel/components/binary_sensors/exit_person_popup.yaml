@@ -1,6 +1,6 @@
 platform: nextion
 name: $device_name Exit Person Details
-page_id: 4
+page_id: 3
 component_id: 4
 on_click:
   - lambda: id(disp1).send_command_printf("page 0");
