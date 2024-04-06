@@ -12,8 +12,11 @@ from homeassistant.components.climate import (
     DOMAIN as CLIMATE,
 )
 from homeassistant.components.group import expand_entity_ids
-from homeassistant.components.number import NumberDeviceClass
-from homeassistant.components.sensor import SensorEntity, SensorStateClass
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
 from homeassistant.components.weather import (
     ATTR_WEATHER_HUMIDITY,
     ATTR_WEATHER_TEMPERATURE,
@@ -26,8 +29,6 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_SOURCE,
     CONF_UNIQUE_ID,
-    DEVICE_CLASS_HUMIDITY,
-    DEVICE_CLASS_TEMPERATURE,
     EVENT_HOMEASSISTANT_START,
     PERCENTAGE,
     STATE_UNAVAILABLE,
@@ -97,7 +98,7 @@ class TemperatureFeelingSensor(SensorEntity):
     """temperature_feels_like Sensor class."""
 
     _attr_icon = "mdi:thermometer-lines"
-    _attr_device_class = NumberDeviceClass.TEMPERATURE
+    _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_state_class: SensorStateClass = SensorStateClass.MEASUREMENT
     _attr_should_poll: bool = False
     _attr_native_unit_of_measurement: str = UnitOfTemperature.CELSIUS
@@ -164,7 +165,7 @@ class TemperatureFeelingSensor(SensorEntity):
                 unit_of_measurement = state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
 
                 if (
-                    device_class == DEVICE_CLASS_TEMPERATURE
+                    device_class == SensorDeviceClass.TEMPERATURE
                     or domain in (WEATHER, CLIMATE)
                     or unit_of_measurement in TEMPERATURE_UNITS
                     or entity_id.find("temperature") >= 0
@@ -173,7 +174,7 @@ class TemperatureFeelingSensor(SensorEntity):
                     entities.add(entity_id)
 
                 if (
-                    device_class == DEVICE_CLASS_HUMIDITY
+                    device_class == SensorDeviceClass.HUMIDITY
                     or domain in (WEATHER, CLIMATE)
                     or unit_of_measurement == PERCENTAGE
                     or entity_id.find("humidity") >= 0
