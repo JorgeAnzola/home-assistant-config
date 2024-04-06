@@ -1,0 +1,6 @@
+---
+platform: group
+name: office deco
+entities:
+  - light.letter_j
+  - light.office_moodlight

@@ -1,0 +1,10 @@
+# Combined two ESP Home entities.
+---
+platform: group
+name: Peinadora
+unique_id: makeup_table
+entities:
+  - light.makeup_table_1
+  - light.makeup_table_2
+  - light.makeup_table_3
+  - light.makeup_table_4

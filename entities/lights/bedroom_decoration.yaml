@@ -4,6 +4,6 @@ platform: group
 name: Decoración del cuarto
 unique_id: bedroom_decoration
 entities:
-  - light.bedroom_tv_ambient
+  - light.bedroom_tv_ambient_2
   - light.bed
   - light.bedroom_wall_led_strip
