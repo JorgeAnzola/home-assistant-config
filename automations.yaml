@@ -29,33 +29,6 @@
     - service: notify.group_telegram
       data:
         message: Se abrió la puerta del parking
-
-  mode: single
-- id: "1697421976121"
-  alias: Garbage pick-up notification
-  trigger:
-    - platform: time
-      at: "20:00:00"
-  condition:
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: sensor.hvc_groep_paper
-          state: Morgen
-        - condition: state
-          entity_id: sensor.hvc_groep_plastic
-          state: Morgen
-          attribute: day
-  action:
-    - service: notify.group_telegram
-      data_template:
-        message:
-          "{{ [\n  \"Hello!\",\n  \"Hi!\",\n  \"Hoi!\",\n  \"Hola!\",\n] | random}}
-          {{ \"*Tomorrow, they will pick-up the trash.*\" }}\n{% if is_state_attr('sensor.hvc_groep_paper',
-          'day', 'Morgen') %}\n{{ \"They will pick-up paper (blue container \U0001F535)
-          \"}} {% endif %}\n{% if is_state_attr('sensor.hvc_groep_plastic', 'day', 'Morgen')
-          %}\n{{ \"They will take plastic (orange container \U0001F7E0) \"}} {% endif
-          %}\n"
   mode: single
 - id: "1697397100847"
   alias: Kitchen - Automatic light on
@@ -539,7 +512,7 @@
       entity_id: binary_sensor.quiet_hours
       state: "off"
     - condition: state
-      entity_id: light.bathroom
+      entity_id: light.guests_bathroom
       state: "off"
       for:
         hours: 0
@@ -1280,36 +1253,6 @@
         num_repeats: 20
       target:
         entity_id: remote.broadlink
-  mode: single
-- id: "1700217793670"
-  alias: Bedroom TV backlight - On
-  trigger:
-    - platform: state
-      entity_id:
-        - media_player.bedroom_apple_tv
-      to: "on"
-    - platform: state
-      entity_id:
-        - media_player.bedroom_apple_tv
-      to: playing
-  condition: []
-  action:
-    - if:
-        - condition: state
-          entity_id: media_player.bedroom_apple_tv
-          state: "off"
-      then:
-        - service: light.turn_off
-          data: {}
-          target:
-            entity_id: light.bedroom_tv_ambient_2
-      else:
-        - service: light.turn_on
-          data:
-            effect: Gold Glitter
-            brightness_pct: 100
-          target:
-            entity_id: light.bedroom_tv_ambient_2
   mode: single
 - id: "1700471451021"
   alias: Periodic TODO item - Weekly - Water plants
