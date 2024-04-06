@@ -1,6 +1,0 @@
-static_light:
-  template:
-    - base
-    - loader
-  double_tap_action:
-    action: more-info

@@ -1,4 +1,0 @@
-door:
-  variables:
-    state_on: >
-      [[[ return ['on', 'home', 'cool', 'fan_only', 'playing', 'unlocked'].indexOf(!entity || entity.state) !== -1; ]]]
