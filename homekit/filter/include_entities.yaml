@@ -7,12 +7,12 @@
 - light.bedroom
 - light.closets
 - light.hallway
-- light.deco_lamp
+# - light.deco_lamp
 - light.kitchen
 - light.dinning_lamp
 - light.guests_bathroom
-- light.kitchen_decoration
-- light.living_room_decoration
+# - light.kitchen_decoration
+# - light.living_room_decoration
 - light.stairs_photo_frame
 - light.bathroom
 - light.bathroom_mirror
@@ -22,7 +22,10 @@
 - light.christmas_tree
 - light.terrace_christmas_lights
 - light.bed
-- light.bedroom_tv_ambient
+- light.bedroom_tv_ambient_2
+- light.peinadora
+- light.office
+- light.office_deco
 # Cameras
 # - camera.entrance
 # - camera.kitchen
@@ -32,9 +35,14 @@
 # - camera.front_door
 # Switches
 - switch.bathroom_heater
-- switch.air_fresheners
 - switch.bedroom_repellent
-- switch.bedroom_air_freshener
+- switch.entrance_air_freshener
+- switch.office_air_freshener
+- switch.kitchen_air_freshener
+- switch.living_room_air_freshener
+- switch.office_air_freshener
+- switch.second_floor_air_freshener
+
 # Motion/door sensors
 - sensor.kitchen_temperature
 - binary_sensor.kitchen_door

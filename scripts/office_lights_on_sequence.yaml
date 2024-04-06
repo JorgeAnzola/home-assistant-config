@@ -1,0 +1,40 @@
+---
+alias: Office lights ON sequence
+icon: mdi:ceiling-light
+
+mode: restart
+
+sequence:
+  - service: light.turn_on
+    target:
+      entity_id: light.office_5
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    target:
+      entity_id: light.office_2
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    target:
+      entity_id: light.office_3
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    target:
+      entity_id: light.office_1
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    target:
+      entity_id: light.office_4
+    data:
+      brightness: 255

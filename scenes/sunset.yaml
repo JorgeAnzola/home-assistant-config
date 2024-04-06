@@ -5,6 +5,7 @@ entities:
   light.kitchen_decoration: on
   light.living_room_plant: on
   light.lamp: on
+  light.office_deco: on
   light.stairs_photo_frame: on
   light.christmas_tree: on
   light.terrace_christmas_lights: on
@@ -24,7 +25,7 @@ entities:
     state: on
     effect: "Gold Glitter"
     brightness_pct: 50
-  light.bedroom_tv_ambient:
+  light.bedroom_tv_ambient_2:
     state: on
     effect: "Gold Glitter"
     brightness_pct: 50
