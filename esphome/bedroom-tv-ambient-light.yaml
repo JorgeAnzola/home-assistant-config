@@ -41,5 +41,30 @@ light:
     pin: D3
     type: GRB
     num_leds: 170
-    name: "Bedroom TV Ambient Light"
+    name: "Bedroom TV Ambient"
+    id: "bedroom_tv_ambient"
+    effects: !include_dir_list light-effects
+  - platform: partition
+    name: "Bedroom TV Ambient 1"
+    id: "bedroom_tv_ambient_1"
+    segments:
+      - id: bedroom_tv_ambient
+        from: 0
+        to: 14
+    effects: !include_dir_list light-effects
+  - platform: partition
+    name: "Bedroom TV Ambient 2"
+    id: "bedroom_tv_ambient_2"
+    segments:
+      - id: bedroom_tv_ambient
+        from: 15
+        to: 154
+    effects: !include_dir_list light-effects
+  - platform: partition
+    name: "Bedroom TV Ambient 3"
+    id: "bedroom_tv_ambient_3"
+    segments:
+      - id: bedroom_tv_ambient
+        from: 155
+        to: 169
     effects: !include_dir_list light-effects
