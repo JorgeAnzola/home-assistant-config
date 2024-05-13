@@ -1,0 +1,84 @@
+rest:
+  - resource: !secret tomorrowio_pollen_api
+    scan_interval: 600
+    sensor:
+      #####################
+      #### GRASS POLLEN ###
+      #####################
+
+      - name: "Pollen index - Grass index - Day 0"
+        value_template: "{{ value_json.data.timelines[0].intervals[0]['values']['grassIndex'] }}"
+
+      - name: "Pollen index - Grass index - Day 1"
+        value_template: "{{ value_json.data.timelines[0].intervals[1]['values']['grassIndex'] }}"
+
+      # Uncomment if a longer-range forecast is needed. No further than day 6.
+      #
+      # - name: "Pollen index - Grass index - Day 2"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[2]['values']['grassIndex'] }}"
+      #
+      # - name: "Pollen index - Grass index - Day 3"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[3]['values']['grassIndex'] }}"
+      #
+      # - name: "Pollen index - Grass index - Day 4"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[4]['values']['grassIndex'] }}"
+      #
+      # - name: "Pollen index - Grass index - Day 5"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[5]['values']['grassIndex'] }}"
+      #
+      # - name: "Pollen index - Grass index - Day 6"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[6]['values']['grassIndex'] }}"
+
+      #####################
+      #### TREE POLLEN ####
+      #####################
+
+      - name: "Pollen index - Tree index - Day 0"
+        value_template: "{{ value_json.data.timelines[0].intervals[0]['values']['treeIndex'] }}"
+
+      - name: "Pollen index - Tree index - Day 1"
+        value_template: "{{ value_json.data.timelines[0].intervals[1]['values']['treeIndex'] }}"
+
+      # Uncomment if a longer-range forecast is needed. No further than day 6.
+      #
+      # - name: "Pollen index - Tree index - Day 2"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[2]['values']['treeIndex'] }}"
+      #
+      # - name: "Pollen index - Tree index - Day 3"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[3]['values']['treeIndex'] }}"
+      #
+      # - name: "Pollen index - Tree index - Day 4"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[4]['values']['treeIndex'] }}"
+      #
+      # - name: "Pollen index - Tree index - Day 5"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[5]['values']['treeIndex'] }}"
+      #
+      # - name: "Pollen index - Tree index - Day 6"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[6]['values']['treeIndex'] }}"
+
+      #####################
+      #### WEED POLLEN ####
+      #####################
+
+      - name: "Pollen index - Weed index - Day 0"
+        value_template: "{{ value_json.data.timelines[0].intervals[0]['values']['weedIndex'] }}"
+
+      - name: "Pollen index - Weed index - Day 1"
+        value_template: "{{ value_json.data.timelines[0].intervals[1]['values']['weedIndex'] }}"
+
+      # Uncomment if a longer-range forecast is needed. No further than day 6.
+      #
+      # - name: "Pollen index - Weed index - Day 2"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[2]['values']['weedIndex'] }}"
+      #
+      # - name: "Pollen index - Weed index - Day 3"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[3]['values']['weedIndex'] }}"
+      #
+      # - name: "Pollen index - Weed index - Day 4"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[4]['values']['weedIndex'] }}"
+      #
+      # - name: "Pollen index - Weed index - Day 5"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[5]['values']['weedIndex'] }}"
+      #
+      # - name: "Pollen index - Weed index - Day 6"
+      #   value_template: "{{ value_json.data.timelines[0].intervals[6]['values']['weedIndex'] }}"
